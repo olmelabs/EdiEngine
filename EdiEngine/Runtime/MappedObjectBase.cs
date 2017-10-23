@@ -12,8 +12,11 @@ namespace EdiEngine.Runtime
 
         protected MappedObjectBase(MapBaseEntity definition)
         {
-            Name = definition.Name;
-            Definition = definition;
+            if (definition != null)
+            {
+                Name = definition.Name;
+                Definition = definition;
+            }
         }
 
         [JsonIgnore]

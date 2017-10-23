@@ -55,11 +55,11 @@ namespace EdiEngine
                             SegmentSeparator = _segmentSeparator,
                             ElementSeparator = _elementSeparator
                         };
-                        currentInterchange.ISA.AddRange(elements);
+                        currentInterchange.ISA = new ISA(elements);
                         break;
 
                     case "IEA":
-                        currentInterchange?.IEA.AddRange(elements);
+                        currentInterchange.IEA = new IEA(elements);
                         batch.Interchanges.Add(currentInterchange);
 
                         int declaredGroupCount;
@@ -70,13 +70,13 @@ namespace EdiEngine
                             AddValidationError(currentInterchange, $"Expected {declaredGroupCount} groups. Found {groupsCount}. Interchange # {elements[2]}.");
                         }
 
-                        if (!CheckControlNumbersAreEgual(currentInterchange?.ISA[13], elements[2]))
+                        if (!CheckControlNumbersAreEgual(currentInterchange?.ISA.Content[13].Val, elements[2]))
                         {
                             int icn;
                             bool res;
-                            res = int.TryParse(currentInterchange?.ISA[13], out icn); //remove "0" fill character
+                            res = int.TryParse(currentInterchange?.ISA.Content[13].Val, out icn); //remove "0" fill character
 
-                            AddValidationError(currentInterchange, $"Control numbers do not match. ISA {(res ? icn.ToString() : currentInterchange?.ISA[13])}. IEA {elements[2]}.");
+                            AddValidationError(currentInterchange, $"Control numbers do not match. ISA {(res ? icn.ToString() : currentInterchange?.ISA.Content[13].Val)}. IEA {elements[2]}.");
                         }
 
                         currentInterchange = null;
@@ -85,13 +85,13 @@ namespace EdiEngine
                     case "GS":
                         groupsCount++;
                         transCount = 0;
-                        currentGroup = new EdiGroup();
-                        currentGroup.GS.AddRange(elements);
+                        currentGroup = new EdiGroup(elements[1]);
+                        currentGroup.GS = new GS(elements);
                         break;
 
                     case "GE":
-                        currentGroup?.GE.AddRange(elements);
-                        currentInterchange?.Groups.Add(currentGroup);
+                        currentGroup.GE = new GE(elements);
+                        currentInterchange.Groups.Add(currentGroup);
 
                         int declaredTransCount;
                         int.TryParse(elements[1], out declaredTransCount);
@@ -101,9 +101,9 @@ namespace EdiEngine
                             AddValidationError(currentGroup, $"Expected {declaredTransCount} transactions. Found {transCount}. Group # {elements[2]}.");
                         }
 
-                        if (!CheckControlNumbersAreEgual(currentGroup?.GS[6], elements[2]))
+                        if (!CheckControlNumbersAreEgual(currentGroup?.GS.Content[6].Val, elements[2]))
                         {
-                            AddValidationError(currentGroup, $"Control numbers do not match. GS {currentGroup?.GS[6]}. GE {elements[2]}.");
+                            AddValidationError(currentGroup, $"Control numbers do not match. GS {currentGroup?.GS.Content[6].Val}. GE {elements[2]}.");
                         }
 
                         currentGroup = null;
@@ -112,16 +112,16 @@ namespace EdiEngine
                     case "ST":
                         transCount++;
                         currentTrans = new EdiTrans();
-                        currentTrans.ST.AddRange(elements);
+                        currentTrans.ST = new ST(elements);
                         tranSegCount = 1;
 
-                        string asmName = $"EdiEngine.Standards.X12_{currentGroup?.GS[8]}";
+                        string asmName = $"EdiEngine.Standards.X12_{currentGroup.GS.Content[8].Val}";
                         string typeName = $"{asmName}.M_{elements[1]}";
 
                         var map = Activator.CreateInstance(asmName, typeName).Unwrap();
                         if (!(map is MapLoop))
                         {
-                            AddValidationError(currentTrans, $"Can not find map {elements[1]} for standard {currentGroup?.GS[8]}. Skipping Transaction.");
+                            AddValidationError(currentTrans, $"Can not find map {elements[1]} for standard {currentGroup.GS.Content[8].Val}. Skipping Transaction.");
                             break;
                         }
                         mapReader = new EdiMapReader((MapLoop)map, currentTrans);
@@ -138,23 +138,22 @@ namespace EdiEngine
                             AddValidationError(currentTrans, $"Expected {declaredSegCount} segments. Found {tranSegCount}. Trans # {elements[2]}.");
                         }
 
-                        if (!CheckControlNumbersAreEgual(currentTrans?.ST[2], elements[2]))
+                        if (!CheckControlNumbersAreEgual(currentTrans.ST.Content[2].Val, elements[2]))
                         {
-                            AddValidationError(currentTrans, $"Control numbers do not match. ST {currentTrans?.ST[2]}. SE {elements[2]}.");
+                            AddValidationError(currentTrans, $"Control numbers do not match. ST {currentTrans.ST.Content[2].Val}. SE {elements[2]}.");
                         }
 
-                        currentTrans?.SE.AddRange(elements);
-                        currentGroup?.Transactions.Add(currentTrans);
+                        currentTrans.SE = new SE(elements);
+                        currentGroup.Transactions.Add(currentTrans);
                         currentTrans = null;
                         break;
 
                     default:
                         tranSegCount++;
-                        mapReader?.ProcessRowSegment(elements[0], elements, tranSegCount);
+                        mapReader?.ProcessRawSegment(elements[0], elements, tranSegCount);
                         break;
                 }
             }
-
         }
 
         private void AddValidationError(IValidatedEntity obj, string message)

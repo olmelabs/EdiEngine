@@ -4,6 +4,42 @@ using EdiEngine.Standards.X12_004010.DataElements;
 
 namespace EdiEngine.Standards.X12_004010.Segments
 {
+    public class ISA : MapSegment
+    {
+        public ISA()
+        { }
+    }
+
+    public class IEA : MapSegment
+    {
+        public IEA()
+        { }
+    }
+    
+    public class GS : MapSegment
+    {
+        public GS()
+        { }
+    }
+
+    public class GE : MapSegment
+    {
+        public GE()
+        { }
+    }
+
+    public class ST : MapSegment
+    {
+        public ST()
+        { }
+    }
+
+    public class SE : MapSegment
+    {
+        public SE()
+        { }
+    }
+
     public class LH4 : MapSegment
     {
         public LH4()

@@ -28,16 +28,16 @@ namespace EdiEngine.Tests
 
                 int w05Count = t.Content.Count(l => l.Definition.GetType() == typeof(W05));
                 int n1Count = t.Content.Count(l => l.Definition.GetType() == typeof(L_N1));
-                int n1_1_Count = ((EdiLoop)t.Content.Where(l => l.Definition.GetType() == typeof(L_N1)).Take(1).First()).Content.Count;
-                int n1_2_Count = ((EdiLoop)t.Content.Where(l => l.Definition.GetType() == typeof(L_N1)).Skip(1).Take(1).First()).Content.Count;
-                int n1_3_Count = ((EdiLoop)t.Content.Where(l => l.Definition.GetType() == typeof(L_N1)).Skip(2).Take(1).First()).Content.Count;
+                int n1_1_Count = ((EdiLoop)t.Content.Where(l => l.Definition.GetType() == typeof(L_N1)).First()).Content.Count;
+                int n1_2_Count = ((EdiLoop)t.Content.Where(l => l.Definition.GetType() == typeof(L_N1)).Skip(1).First()).Content.Count;
+                int n1_3_Count = ((EdiLoop)t.Content.Where(l => l.Definition.GetType() == typeof(L_N1)).Skip(2).First()).Content.Count;
                 int n9Count = t.Content.Count(l => l.Definition.GetType() == typeof(N9));
                 int g62Count = t.Content.Count(l => l.Definition.GetType() == typeof(G62));
                 int nteCount = t.Content.Count(l => l.Definition.GetType() == typeof(NTE));
                 int w66Count = t.Content.Count(l => l.Definition.GetType() == typeof(W66));
                 int lxCount = t.Content.Count(l => l.Definition.GetType() == typeof(L_LX));
-                int lx_1_Count = ((EdiLoop)t.Content.Where(l => l.Definition.GetType() == typeof(L_LX)).Take(1).First()).Content.Count;
-                int lx_1_w01_Count = ((EdiLoop)((EdiLoop)t.Content.Where(l => l.Definition.GetType() == typeof(L_LX)).Take(1).First())
+                int lx_1_Count = ((EdiLoop)t.Content.Where(l => l.Definition.GetType() == typeof(L_LX)).First()).Content.Count;
+                int lx_1_w01_Count = ((EdiLoop)((EdiLoop)t.Content.Where(l => l.Definition.GetType() == typeof(L_LX)).First())
                     .Content.Skip(1).First()).Content.Count;
                 int w76Count = t.Content.Count(l => l.Definition.GetType() == typeof (W76));
 
@@ -74,11 +74,11 @@ namespace EdiEngine.Tests
                 int w05Count = t.Content.Count(l => l.Definition.GetType() == typeof(W05));
                 int w66Count = t.Content.Count(l => l.Definition.GetType() == typeof(W05));
                 int llxCount = t.Content.Count(l => l.Definition.GetType() == typeof(L_LX));
-                int slxCount = ((EdiLoop)t.Content.Where(l => l.Definition.GetType() == typeof(L_LX)).Take(1).First())
+                int slxCount = ((EdiLoop)t.Content.Where(l => l.Definition.GetType() == typeof(L_LX)).First())
                     .Content.Count(c => c.Definition.GetType() == typeof(LX));
-                int lw01Count = ((EdiLoop)t.Content.Where(l => l.Definition.GetType() == typeof(L_LX)).Take(1).First())
+                int lw01Count = ((EdiLoop)t.Content.Where(l => l.Definition.GetType() == typeof(L_LX)).First())
                     .Content.Count(l => l.Definition.GetType() == typeof(L_W01));
-                int lw01n9Count = ((EdiLoop)((EdiLoop)t.Content.Where(l => l.Definition.GetType() == typeof(L_LX)).Take(1).First())
+                int lw01n9Count = ((EdiLoop)((EdiLoop)t.Content.Where(l => l.Definition.GetType() == typeof(L_LX)).First())
                     .Content.First(l => l.Definition.GetType() == typeof(L_W01)))
                         .Content.Count(l => l.Definition.GetType() == typeof(N9));
 

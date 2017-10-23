@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AllowedEntitity.cs" />
+    <Compile Include="EdiDataWriterSettings.cs" />
     <Compile Include="EdiParsingException.cs" />
     <Compile Include="EdiDataReader.cs" />
     <Compile Include="EdiMapReader.cs" />
@@ -59,8 +60,14 @@
     <Compile Include="Runtime\EdiLoop.cs" />
     <Compile Include="Runtime\EdiSegment.cs" />
     <Compile Include="Runtime\EdiTrans.cs" />
+    <Compile Include="Runtime\GE.cs" />
+    <Compile Include="Runtime\GS.cs" />
+    <Compile Include="Runtime\IEA.cs" />
+    <Compile Include="Runtime\ISA.cs" />
     <Compile Include="Runtime\IValidatedEntity.cs" />
     <Compile Include="Runtime\MappedObjectBase.cs" />
+    <Compile Include="Runtime\SE.cs" />
+    <Compile Include="Runtime\ST.cs" />
     <Compile Include="Runtime\ValidationError.cs" />
   </ItemGroup>
   <ItemGroup>

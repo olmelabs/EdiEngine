@@ -1,6 +1,7 @@
 ﻿using EdiEngine.Common.Definitions;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace EdiEngine.Runtime
 {
@@ -13,5 +14,11 @@ namespace EdiEngine.Runtime
 
         [JsonProperty(Order = 10)]
         public List<EdiDataElement> Content { get; }
+
+        public override string ToString()
+        {
+            var res = Content.Aggregate(string.Empty, (curr, next) => curr + "*" + next.Val);
+            return $"{Name}*{res.Remove(0, 1)}";
+        }
     }
 }

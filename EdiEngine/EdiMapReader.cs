@@ -20,7 +20,7 @@ namespace EdiEngine
             _currentLoopDef = map;
         }
 
-        public void ProcessRowSegment(string name, string[] content, int rowPos)
+        public void ProcessRawSegment(string name, string[] content, int rowPos)
         {
             List<AllowedEntitity> allowedEntities = GetNextAllowedEntities(_currentLoopDef);
 
@@ -71,7 +71,7 @@ namespace EdiEngine
                 _currentLoopInstance.Content.Add(newLoop);
                 _currentLoopInstance = newLoop;
 
-                ProcessRowSegment(name, content, rowPos);
+                ProcessRawSegment(name, content, rowPos);
             }
 
         }
