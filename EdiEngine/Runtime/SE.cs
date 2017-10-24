@@ -12,7 +12,7 @@ namespace EdiEngine.Runtime
             }
         }
 
-        public SE(MapBaseEntity definition,
+        public SE(MapSegment definition,
             int SE01_IncludedSegCount,
             int SE02_ControlNumber
         ) : base(definition)
@@ -24,8 +24,8 @@ namespace EdiEngine.Runtime
             }
 
             Content.AddRange(new[] {
-                new EdiDataElement(null, SE01_IncludedSegCount.ToString()),
-                new EdiDataElement(null, tcn),
+                new EdiDataElement(definition.Content[0], SE01_IncludedSegCount.ToString()),
+                new EdiDataElement(definition.Content[1], tcn),
             });
         }
     }

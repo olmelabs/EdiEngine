@@ -12,13 +12,13 @@ namespace EdiEngine.Runtime
             }
         }
 
-        public GE(MapBaseEntity definition,
+        public GE(MapSegment definition,
             int GE01_IncludedTransCount,
             int GE02_ControlNumber) : base(definition)
         {
             Content.AddRange(new[] {
-                new EdiDataElement(null, GE01_IncludedTransCount.ToString()),
-                new EdiDataElement(null, GE02_ControlNumber.ToString())
+                new EdiDataElement(definition.Content[0], GE01_IncludedTransCount.ToString()),
+                new EdiDataElement(definition.Content[1], GE02_ControlNumber.ToString())
             });
         }
     }

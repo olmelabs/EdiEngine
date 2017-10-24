@@ -12,13 +12,13 @@ namespace EdiEngine.Runtime
             }
         }
 
-        public IEA(MapBaseEntity definition, 
+        public IEA(MapSegment definition, 
             int IEA01_IncludedGroupsCount,
             int IEA02_ControlNumber) : base(definition)
         {
             Content.AddRange(new[] {
-                new EdiDataElement(null, IEA01_IncludedGroupsCount.ToString()),
-                new EdiDataElement(null, IEA02_ControlNumber.ToString().PadLeft(9, '0'))
+                new EdiDataElement(definition.Content[0], IEA01_IncludedGroupsCount.ToString()),
+                new EdiDataElement(definition.Content[1], IEA02_ControlNumber.ToString().PadLeft(9, '0'))
             });
         }
     }

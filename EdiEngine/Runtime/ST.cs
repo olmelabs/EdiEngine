@@ -11,7 +11,7 @@ namespace EdiEngine.Runtime
             }
         }
 
-        public ST(MapBaseEntity definition,
+        public ST(MapSegment definition,
         string ST01_TransactionId,
         int ST02_ControlNumber
         ) : base(definition)
@@ -23,8 +23,8 @@ namespace EdiEngine.Runtime
             }
 
             Content.AddRange(new[] {
-                new EdiDataElement(null, ST01_TransactionId),
-                new EdiDataElement(null, tcn),
+                new EdiDataElement(definition.Content[0], ST01_TransactionId),
+                new EdiDataElement(definition.Content[1], tcn),
             });
         }
     }
