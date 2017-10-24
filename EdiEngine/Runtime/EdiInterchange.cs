@@ -15,9 +15,9 @@ namespace EdiEngine.Runtime
 
         public string ElementSeparator { get; set; }
 
-        public ISA ISA{ get; set; }
+        public EdiSegment ISA{ get; set; }
 
-        public IEA IEA { get; set; }
+        public EdiSegment IEA { get; set; }
 
         public List<EdiGroup> Groups { get; set; }
 

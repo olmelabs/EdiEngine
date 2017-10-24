@@ -163,7 +163,7 @@ namespace EdiEngine.Tests
                 EdiBatch b = new EdiBatch();
                 r.FromStream(s, ref b);
 
-                Assert.AreEqual("Control numbers do not match. ISA 3438. IEA 3439.", b.Interchanges[0].ValidationErrors.Last().Message);
+                Assert.AreEqual("Control numbers do not match. ISA 000003438. IEA 000003439.", b.Interchanges[0].ValidationErrors.Last().Message);
                 Assert.AreEqual("Control numbers do not match. GS 3314. GE 3315.", b.Interchanges[0].Groups[0].ValidationErrors.Last().Message);
                 Assert.AreEqual("Control numbers do not match. ST 0001. SE 0002.", b.Interchanges[0].Groups[0].Transactions[0].ValidationErrors.Last().Message);
             }

@@ -1,6 +1,7 @@
 ﻿using EdiEngine.Common.Definitions;
 using EdiEngine.Common.Enums;
 using EdiEngine.Runtime;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -50,7 +51,7 @@ namespace EdiEngine
                 {
                     _currentLoopInstance = _currentLoopInstance.Parent;
                 }
-                _currentLoopInstance.Content.Add(ProcessSegment(ae.Entity, content, rowPos));
+                _currentLoopInstance.Content.Add(ProcessSegment(ae.Entity, content, rowPos, _trans));
             }
             else if (ae?.Entity is MapLoop)
             {
@@ -76,7 +77,7 @@ namespace EdiEngine
 
         }
 
-        private EdiSegment ProcessSegment(MapBaseEntity definition, string[] content, int rowPos)
+        public static EdiSegment ProcessSegment(MapBaseEntity definition, string[] content, int rowPos, IValidatedEntity validationScope)
         {
             MapSegment segDef = (MapSegment)definition;
             EdiSegment seg = new EdiSegment(segDef);
@@ -97,7 +98,7 @@ namespace EdiEngine
                         ElementPos = i + 1,
                         Message = $"Unexpected element '{val}'"
                     };
-                    _trans.ValidationErrors.Add(err);
+                    validationScope.ValidationErrors.Add(err);
                 }
                 
                 EdiDataElement el = new EdiDataElement(elDef, val);
@@ -110,7 +111,7 @@ namespace EdiEngine
                         ElementPos = i + 1,
                         Message = $"Invalid value '{val}'"
                     };
-                    _trans.ValidationErrors.Add(err);
+                    validationScope.ValidationErrors.Add(err);
                 }
 
                 i++;
@@ -118,7 +119,6 @@ namespace EdiEngine
             }
             return seg;
         }
-
 
         private List<AllowedEntitity> GetNextAllowedEntities(MapLoop currentLoop)
         {

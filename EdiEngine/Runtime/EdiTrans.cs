@@ -10,9 +10,9 @@ namespace EdiEngine.Runtime
             ValidationErrors = new List<ValidationError>();
         }
 
-        public ST ST { get; set; }
+        public EdiSegment ST { get; set; }
 
-        public SE SE { get; set; }
+        public EdiSegment SE { get; set; }
 
         [JsonProperty(Order = 100)]
         public virtual List<ValidationError> ValidationErrors { get; }

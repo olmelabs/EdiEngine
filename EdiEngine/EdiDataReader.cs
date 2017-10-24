@@ -7,6 +7,8 @@ namespace EdiEngine
 {
     public class EdiDataReader
     {
+        private const string MISSING_STANDARD_FALLBACK_VERSION = "004010";
+
         private string _elementSeparator;
         private string _segmentSeparator;
 
@@ -38,6 +40,7 @@ namespace EdiEngine
             EdiGroup currentGroup = null;
             EdiTrans currentTrans = null;
             EdiMapReader mapReader = null;
+            MapSegment segDef = null;
             int tranSegCount = 0;
             int groupsCount = 0;
             int transCount = 0;
@@ -55,11 +58,14 @@ namespace EdiEngine
                             SegmentSeparator = _segmentSeparator,
                             ElementSeparator = _elementSeparator
                         };
-                        currentInterchange.ISA = new ISA(elements);
+
+                        segDef = GetSegDefinition("ISA", $"{elements[12]}0", MISSING_STANDARD_FALLBACK_VERSION);
+                        currentInterchange.ISA = EdiMapReader.ProcessSegment(segDef, elements, 0, currentInterchange);
                         break;
 
                     case "IEA":
-                        currentInterchange.IEA = new IEA(elements);
+                        segDef = GetSegDefinition("IEA", $"{currentInterchange.ISA.Content[11].Val}0", MISSING_STANDARD_FALLBACK_VERSION);
+                        currentInterchange.IEA = EdiMapReader.ProcessSegment(segDef, elements, 0, currentInterchange);
                         batch.Interchanges.Add(currentInterchange);
 
                         int declaredGroupCount;
@@ -70,13 +76,9 @@ namespace EdiEngine
                             AddValidationError(currentInterchange, $"Expected {declaredGroupCount} groups. Found {groupsCount}. Interchange # {elements[2]}.");
                         }
 
-                        if (!CheckControlNumbersAreEgual(currentInterchange?.ISA.Content[13].Val, elements[2]))
+                        if (!CheckControlNumbersAreEgual(currentInterchange?.ISA.Content[12].Val, elements[2]))
                         {
-                            int icn;
-                            bool res;
-                            res = int.TryParse(currentInterchange?.ISA.Content[13].Val, out icn); //remove "0" fill character
-
-                            AddValidationError(currentInterchange, $"Control numbers do not match. ISA {(res ? icn.ToString() : currentInterchange?.ISA.Content[13].Val)}. IEA {elements[2]}.");
+                            AddValidationError(currentInterchange, $"Control numbers do not match. ISA {currentInterchange?.ISA.Content[12].Val}. IEA {elements[2]}.");
                         }
 
                         currentInterchange = null;
@@ -86,11 +88,14 @@ namespace EdiEngine
                         groupsCount++;
                         transCount = 0;
                         currentGroup = new EdiGroup(elements[1]);
-                        currentGroup.GS = new GS(elements);
+
+                        segDef = GetSegDefinition("GS", $"{elements[8]}", MISSING_STANDARD_FALLBACK_VERSION);
+                        currentGroup.GS = EdiMapReader.ProcessSegment(segDef, elements, 0, currentGroup);
                         break;
 
                     case "GE":
-                        currentGroup.GE = new GE(elements);
+                        segDef = GetSegDefinition("GE", $"{currentGroup.GS.Content[7].Val}", MISSING_STANDARD_FALLBACK_VERSION);
+                        currentGroup.GE = EdiMapReader.ProcessSegment(segDef, elements, 0, currentGroup);
                         currentInterchange.Groups.Add(currentGroup);
 
                         int declaredTransCount;
@@ -101,9 +106,9 @@ namespace EdiEngine
                             AddValidationError(currentGroup, $"Expected {declaredTransCount} transactions. Found {transCount}. Group # {elements[2]}.");
                         }
 
-                        if (!CheckControlNumbersAreEgual(currentGroup?.GS.Content[6].Val, elements[2]))
+                        if (!CheckControlNumbersAreEgual(currentGroup?.GS.Content[5].Val, elements[2]))
                         {
-                            AddValidationError(currentGroup, $"Control numbers do not match. GS {currentGroup?.GS.Content[6].Val}. GE {elements[2]}.");
+                            AddValidationError(currentGroup, $"Control numbers do not match. GS {currentGroup?.GS.Content[5].Val}. GE {elements[2]}.");
                         }
 
                         currentGroup = null;
@@ -112,16 +117,19 @@ namespace EdiEngine
                     case "ST":
                         transCount++;
                         currentTrans = new EdiTrans();
-                        currentTrans.ST = new ST(elements);
+
+                        segDef = GetSegDefinition("ST", $"{currentGroup.GS.Content[7].Val}", MISSING_STANDARD_FALLBACK_VERSION);
+                        currentTrans.ST = EdiMapReader.ProcessSegment(segDef, elements, 0, currentTrans);
+
                         tranSegCount = 1;
 
-                        string asmName = $"EdiEngine.Standards.X12_{currentGroup.GS.Content[8].Val}";
+                        string asmName = $"EdiEngine.Standards.X12_{currentGroup.GS.Content[7].Val}";
                         string typeName = $"{asmName}.M_{elements[1]}";
 
                         var map = Activator.CreateInstance(asmName, typeName).Unwrap();
                         if (!(map is MapLoop))
                         {
-                            AddValidationError(currentTrans, $"Can not find map {elements[1]} for standard {currentGroup.GS.Content[8].Val}. Skipping Transaction.");
+                            AddValidationError(currentTrans, $"Can not find map {elements[1]} for standard {currentGroup.GS.Content[7].Val}. Skipping Transaction.");
                             break;
                         }
                         mapReader = new EdiMapReader((MapLoop)map, currentTrans);
@@ -138,12 +146,14 @@ namespace EdiEngine
                             AddValidationError(currentTrans, $"Expected {declaredSegCount} segments. Found {tranSegCount}. Trans # {elements[2]}.");
                         }
 
-                        if (!CheckControlNumbersAreEgual(currentTrans.ST.Content[2].Val, elements[2]))
+                        if (!CheckControlNumbersAreEgual(currentTrans.ST.Content[1].Val, elements[2]))
                         {
-                            AddValidationError(currentTrans, $"Control numbers do not match. ST {currentTrans.ST.Content[2].Val}. SE {elements[2]}.");
+                            AddValidationError(currentTrans, $"Control numbers do not match. ST {currentTrans.ST.Content[1].Val}. SE {elements[2]}.");
                         }
 
-                        currentTrans.SE = new SE(elements);
+                        segDef = GetSegDefinition("SE", $"{currentGroup.GS.Content[7].Val}", MISSING_STANDARD_FALLBACK_VERSION);
+                        currentTrans.SE = EdiMapReader.ProcessSegment(segDef, elements, 0, currentTrans);
+
                         currentGroup.Transactions.Add(currentTrans);
                         currentTrans = null;
                         break;
@@ -154,6 +164,25 @@ namespace EdiEngine
                         break;
                 }
             }
+        }
+
+        public MapSegment GetSegDefinition(string segName, string version, string fallBackVersion)
+        {
+            string asmName = $"EdiEngine.Standards.X12_{version}";
+            string typeName = $"{asmName}.Segments.{segName}";
+            try
+            {
+                return (MapSegment)Activator.CreateInstance(asmName, typeName).Unwrap();
+            }
+            catch (FileNotFoundException) { }
+
+            //failed to create main version - going to fallback
+            if (!string.IsNullOrWhiteSpace(fallBackVersion))
+            {
+                return GetSegDefinition(segName, fallBackVersion, null);
+            }
+
+            throw new InvalidOperationException($"Unable to find {segName} in definitions for {version}.");
         }
 
         private void AddValidationError(IValidatedEntity obj, string message)

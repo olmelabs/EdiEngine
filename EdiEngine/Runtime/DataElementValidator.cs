@@ -10,7 +10,7 @@ namespace EdiEngine.Runtime
         public static bool IsValid(this EdiDataElement el, MapDataElement definition)
         {
             //required
-            if (definition.ReqDes == RequirementDesignator.Mandatory && string.IsNullOrWhiteSpace(el.Val))
+            if (definition.ReqDes == RequirementDesignator.Mandatory && string.IsNullOrEmpty(el.Val)) //whitespaces allowed
                 return false;
 
             //Min max len

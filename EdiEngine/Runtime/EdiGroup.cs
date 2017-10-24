@@ -12,9 +12,9 @@ namespace EdiEngine.Runtime
             ValidationErrors = new List<ValidationError>();
         }
 
-        public GS GS { get; set; }
+        public EdiSegment GS { get; set; }
 
-        public GE GE { get; set; }
+        public EdiSegment GE { get; set; }
 
         /// <summary>
         /// GS01
