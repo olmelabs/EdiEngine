@@ -12,7 +12,7 @@ namespace EdiEngine
         private string _elementSeparator;
         private string _segmentSeparator;
 
-        public void FromStream(Stream fileContent, ref EdiBatch batch)
+        public void FromStream(Stream fileContent, EdiBatch batch)
         {
             string stringContent;
             using (StreamReader sr = new StreamReader(fileContent))
@@ -20,10 +20,10 @@ namespace EdiEngine
                 stringContent = sr.ReadToEnd();
             }
 
-            FromString(stringContent, ref batch);
+            FromString(stringContent, batch);
         }
 
-        public void FromString(string fileContent, ref EdiBatch batch)
+        public void FromString(string fileContent, EdiBatch batch)
         {
             if (string.IsNullOrWhiteSpace(fileContent))
                 throw new EdiParsingException("Empty File");
@@ -115,13 +115,6 @@ namespace EdiEngine
                         break;
 
                     case "ST":
-                        transCount++;
-                        currentTrans = new EdiTrans();
-
-                        segDef = GetSegDefinition("ST", $"{currentGroup.GS.Content[7].Val}", MISSING_STANDARD_FALLBACK_VERSION);
-                        currentTrans.ST = EdiMapReader.ProcessSegment(segDef, elements, 0, currentTrans);
-
-                        tranSegCount = 1;
 
                         string asmName = $"EdiEngine.Standards.X12_{currentGroup.GS.Content[7].Val}";
                         string typeName = $"{asmName}.M_{elements[1]}";
@@ -132,6 +125,15 @@ namespace EdiEngine
                             AddValidationError(currentTrans, $"Can not find map {elements[1]} for standard {currentGroup.GS.Content[7].Val}. Skipping Transaction.");
                             break;
                         }
+
+                        transCount++;
+                        currentTrans = new EdiTrans((MapBaseEntity)map);
+
+                        segDef = GetSegDefinition("ST", $"{currentGroup.GS.Content[7].Val}", MISSING_STANDARD_FALLBACK_VERSION);
+                        currentTrans.ST = EdiMapReader.ProcessSegment(segDef, elements, 0, currentTrans);
+
+                        tranSegCount = 1;
+
                         mapReader = new EdiMapReader((MapLoop)map, currentTrans);
                         break;
 

@@ -93,6 +93,7 @@
     <EmbeddedResource Include="TestData\MultipleInterchangesAndGroups.edi" />
     <EmbeddedResource Include="TestData\ControlNumbersMismatch.edi" />
     <EmbeddedResource Include="TestData\WrongGroupsAndTranCount.edi" />
+    <EmbeddedResource Include="TestData\transactionJson.json" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

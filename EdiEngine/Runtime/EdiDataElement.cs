@@ -14,10 +14,10 @@ namespace EdiEngine.Runtime
             Val = val;
         }
 
-        [JsonProperty(Order = 0, PropertyName = "T")]
+        [JsonIgnore]
         public string Type { get; }
 
-        [JsonProperty(Order = 1, PropertyName = "V")]
+        [JsonProperty(Order = 1, PropertyName = "E")]
         public string Val { get; }
     }
 }

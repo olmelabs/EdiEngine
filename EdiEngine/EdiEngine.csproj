@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="AllowedEntitity.cs" />
     <Compile Include="EdiDataWriterSettings.cs" />
+    <Compile Include="EdiJsonReader.cs" />
     <Compile Include="EdiParsingException.cs" />
     <Compile Include="EdiDataReader.cs" />
     <Compile Include="EdiMapReader.cs" />

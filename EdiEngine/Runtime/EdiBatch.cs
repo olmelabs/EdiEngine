@@ -10,7 +10,6 @@ namespace EdiEngine.Runtime
             Interchanges = new List<EdiInterchange>();
         }
 
-        public string Version { get; set; }
         public DateTime Date { get; set; }
         public string FileName { get; set; }
         public long FileSize { get; set; }

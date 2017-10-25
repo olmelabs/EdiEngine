@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using EdiEngine.Common.Definitions;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace EdiEngine.Runtime
@@ -6,6 +7,11 @@ namespace EdiEngine.Runtime
     public class EdiTrans : EdiLoop, IValidatedEntity
     {
         public EdiTrans()
+        {
+            ValidationErrors = new List<ValidationError>();
+        }
+
+        public EdiTrans(MapBaseEntity definition) : base(definition, null)
         {
             ValidationErrors = new List<ValidationError>();
         }

@@ -4,6 +4,8 @@ using EdiEngine.Runtime;
 using EdiEngine.Standards.X12_004010;
 using SegmentDefinitions = EdiEngine.Standards.X12_004010.Segments;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.IO;
+
 
 namespace EdiEngine.Tests
 {
@@ -15,7 +17,7 @@ namespace EdiEngine.Tests
         public void EdiWriter_CreateEdi940()
         {
             M_940 map = new M_940();
-            EdiTrans t = new EdiTrans { Definition = map };
+            EdiTrans t = new EdiTrans(map);
 
             // W05
             var sDef = (MapSegment)map.Content.First(s => s.Name == "W05");
@@ -107,7 +109,61 @@ namespace EdiEngine.Tests
             //read produced results and check for errors.
             EdiDataReader r = new EdiDataReader();
             EdiBatch batch = new EdiBatch();
-            r.FromString(data, ref batch);
+            r.FromString(data, batch);
+
+            Assert.AreEqual(1, batch.Interchanges.Count);
+            Assert.AreEqual(0, batch.Interchanges[0].ValidationErrors.Count());
+
+            Assert.AreEqual(1, batch.Interchanges[0].Groups.Count);
+            Assert.AreEqual(0, batch.Interchanges[0].Groups[0].ValidationErrors.Count());
+
+            EdiTrans trans = batch.Interchanges[0].Groups[0].Transactions[0];
+            Assert.AreEqual(0, trans.ValidationErrors.Count());
+        }
+
+        [TestMethod]
+        public void EdiWriter_DeserializeJson()
+        {
+            //get sample json
+            string jsonTrans;
+            using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.transactionJson.json"))
+            {
+                using (StreamReader sr = new StreamReader(s))
+                {
+                    jsonTrans = sr.ReadToEnd();
+                }
+            }
+
+            //Read json and convert it to trans
+            M_940 map = new M_940();
+            EdiJsonReader r = new EdiJsonReader(map);
+            EdiTrans t = r.ReadToEnd(jsonTrans);
+
+            //create new batch
+            EdiDataWriterSettings settings = new EdiDataWriterSettings(
+                new SegmentDefinitions.ISA(), new SegmentDefinitions.IEA(),
+                new SegmentDefinitions.GS(), new SegmentDefinitions.GE(),
+                new SegmentDefinitions.ST(), new SegmentDefinitions.SE(),
+                "ZZ", "SENDER", "ZZ", "RECEIVER", "GSSENDER", "GSRECEIVER",
+                "00401", "004010", "T", 100, 200);
+
+            EdiBatch b = new EdiBatch();
+            b.Interchanges.Add(new EdiInterchange()
+            {
+                ElementSeparator = "*",
+                SegmentSeparator = "\r\n"
+            });
+            b.Interchanges.First().Groups.Add(new EdiGroup("OW"));
+            b.Interchanges.First().Groups.First().Transactions.Add(t);
+
+            //write EDI
+            EdiDataWriter w = new EdiDataWriter(settings);
+            string data = w.WriteToString(b);
+
+            //Read produced results and check for errors.
+            EdiDataReader reader = new EdiDataReader();
+            EdiBatch batch = new EdiBatch();
+            reader.FromString(data, batch);
 
             Assert.AreEqual(1, batch.Interchanges.Count);
             Assert.AreEqual(0, batch.Interchanges[0].ValidationErrors.Count());
@@ -120,3 +176,4 @@ namespace EdiEngine.Tests
         }
     }
 }
+

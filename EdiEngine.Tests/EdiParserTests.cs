@@ -18,7 +18,7 @@ namespace EdiEngine.Tests
             {
                 EdiDataReader r = new EdiDataReader();
                 EdiBatch b = new EdiBatch();
-                r.FromStream(s, ref b);
+                r.FromStream(s, b);
 
                 Assert.AreEqual(1, b.Interchanges.Count);
                 Assert.AreEqual(1, b.Interchanges[0].Groups.Count);
@@ -67,7 +67,7 @@ namespace EdiEngine.Tests
             {
                 EdiDataReader r = new EdiDataReader();
                 EdiBatch b = new EdiBatch();
-                r.FromStream(s, ref b);
+                r.FromStream(s, b);
 
                 EdiTrans t = b.Interchanges[0].Groups[0].Transactions[0];
 
@@ -100,7 +100,7 @@ namespace EdiEngine.Tests
             {
                 EdiDataReader r = new EdiDataReader();
                 EdiBatch b = new EdiBatch();
-                r.FromStream(s, ref b);
+                r.FromStream(s, b);
 
                 EdiTrans t = b.Interchanges[0].Groups[0].Transactions[0];
 
@@ -116,7 +116,7 @@ namespace EdiEngine.Tests
             {
                 EdiDataReader r = new EdiDataReader();
                 EdiBatch b = new EdiBatch();
-                r.FromStream(s, ref b);
+                r.FromStream(s, b);
             }
         }
 
@@ -127,7 +127,7 @@ namespace EdiEngine.Tests
             {
                 EdiDataReader r = new EdiDataReader();
                 EdiBatch b = new EdiBatch();
-                r.FromStream(s, ref b);
+                r.FromStream(s, b);
 
                 Assert.AreEqual(2, b.Interchanges.Count);
                 Assert.AreEqual(2, b.Interchanges[0].Groups.Count);
@@ -147,7 +147,7 @@ namespace EdiEngine.Tests
             {
                 EdiDataReader r = new EdiDataReader();
                 EdiBatch b = new EdiBatch();
-                r.FromStream(s, ref b);
+                r.FromStream(s, b);
 
                 Assert.AreEqual("Expected 2 groups. Found 1. Interchange # 3438.", b.Interchanges[0].ValidationErrors.Last().Message);
                 Assert.AreEqual("Expected 2 transactions. Found 1. Group # 3314.", b.Interchanges[0].Groups[0].ValidationErrors.Last().Message);
@@ -161,7 +161,7 @@ namespace EdiEngine.Tests
             {
                 EdiDataReader r = new EdiDataReader();
                 EdiBatch b = new EdiBatch();
-                r.FromStream(s, ref b);
+                r.FromStream(s, b);
 
                 Assert.AreEqual("Control numbers do not match. ISA 000003438. IEA 000003439.", b.Interchanges[0].ValidationErrors.Last().Message);
                 Assert.AreEqual("Control numbers do not match. GS 3314. GE 3315.", b.Interchanges[0].Groups[0].ValidationErrors.Last().Message);
@@ -176,18 +176,28 @@ namespace EdiEngine.Tests
             {
                 EdiDataReader r = new EdiDataReader();
                 EdiBatch b = new EdiBatch();
-                r.FromStream(s, ref b);
-
-                JsonSerializerSettings settings = new JsonSerializerSettings
-                {
-                    TypeNameHandling = TypeNameHandling.All
-                };
+                r.FromStream(s, b);
 
                 //check no exception
-                JsonConvert.SerializeObject(b, settings);
+                string batchJsonString = JsonConvert.SerializeObject(b);
+                string transactionsJsonString = JsonConvert.SerializeObject(b.Interchanges[0].Groups[0].Transactions[0]);
+            }
+        }
 
-                //TODO: trans content deserialized as MappedObjectBase, not as actual type.
-                //EdiBatch newBatch = JsonConvert.DeserializeObject<EdiBatch>(json);
+        [TestMethod]
+        public void EdiParser_XmlSerializationTest()
+        {
+            //TODO: Xml Serialize Deserialize
+            //XmlSerializer will not work here because EDI types are resolved via reflection.
+            //Can't statically add known types.
+            using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.940.edi"))
+            {
+                EdiDataReader r = new EdiDataReader();
+                EdiBatch b = new EdiBatch();
+                r.FromStream(s, b);
+
+                //fail here to remind me to add serialization
+                Assert.AreEqual(1, 2);
             }
         }
     }
