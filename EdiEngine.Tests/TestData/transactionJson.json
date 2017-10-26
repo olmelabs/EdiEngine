@@ -1,7 +1,9 @@
 {
+  "Type": "M",
   "Name": "M_940",
   "Content": [
     {
+      "Type": "S",
       "Name": "W05",
       "Content": [
         { "E": "N" },
@@ -12,9 +14,11 @@
       ]
     },
     {
+      "Type": "L",
       "Name": "L_N1",
       "Content": [
         {
+          "Type": "S",
           "Name": "N1",
           "Content": [
             { "E": "ST" },
@@ -24,10 +28,12 @@
           ]
         },
         {
+          "Type": "S",
           "Name": "N3",
           "Content": [ { "E": "ADDRESS" } ]
         },
         {
+          "Type": "S",
           "Name": "N4",
           "Content": [
             { "E": "CITY" },
@@ -37,10 +43,21 @@
         }
       ]
     },
+    //{
+    //  "Type": "S",
+    //  "Name": "N4",
+    //  "Content": [
+    //    { "E": "CITY" },
+    //    { "E": "CA" },
+    //    { "E": "00003" }
+    //  ]
+    //},
     {
+      "Type": "L",
       "Name": "L_N1",
       "Content": [
         {
+          "Type": "S",
           "Name": "N1",
           "Content": [
             { "E": "DE" },
@@ -50,10 +67,12 @@
           ]
         },
         {
+          "Type": "S",
           "Name": "N3",
           "Content": [ { "E": "ADDRESS" } ]
         },
         {
+          "Type": "S",
           "Name": "N4",
           "Content": [
             { "E": "CITY" },
@@ -64,9 +83,11 @@
       ]
     },
     {
+      "Type": "L",
       "Name": "L_N1",
       "Content": [
         {
+          "Type": "S",
           "Name": "N1",
           "Content": [
             { "E": "WH" },
@@ -76,6 +97,7 @@
           ]
         },
         {
+          "Type": "S",
           "Name": "N4",
           "Content": [
             { "E": "CITY" },
@@ -86,6 +108,7 @@
       ]
     },
     {
+      "Type": "S",
       "Name": "N9",
       "Content": [
         { "E": "BR" },
@@ -93,6 +116,7 @@
       ]
     },
     {
+      "Type": "S",
       "Name": "G62",
       "Content": [
         { "E": "10" },
@@ -100,6 +124,7 @@
       ]
     },
     {
+      "Type": "S",
       "Name": "G62",
       "Content": [
         { "E": "02" },
@@ -107,6 +132,7 @@
       ]
     },
     {
+      "Type": "S",
       "Name": "NTE",
       "Content": [
         { "E": "WHI" },
@@ -114,6 +140,7 @@
       ]
     },
     {
+      "Type": "S",
       "Name": "W66",
       "Content": [
         { "E": "PP" },
@@ -124,16 +151,20 @@
       ]
     },
     {
+      "Type": "L",
       "Name": "L_LX",
       "Content": [
         {
+          "Type": "S",
           "Name": "LX",
           "Content": [ { "E": "1" } ]
         },
         {
+          "Type": "L",
           "Name": "L_W01",
           "Content": [
             {
+              "Type": "S",
               "Name": "W01",
               "Content": [
                 { "E": "12" },
@@ -152,10 +183,12 @@
               ]
             },
             {
+              "Type": "S",
               "Name": "G69",
               "Content": [ { "E": "11.500 STRUD BLUBRY" } ]
             },
             {
+              "Type": "S",
               "Name": "N9",
               "Content": [
                 { "E": "PC" },
@@ -167,16 +200,20 @@
       ]
     },
     {
+      "Type": "L",
       "Name": "L_LX",
       "Content": [
         {
+          "Type": "S",
           "Name": "LX",
           "Content": [ { "E": "2" } ]
         },
         {
+          "Type": "L",
           "Name": "L_W01",
           "Content": [
             {
+              "Type": "S",
               "Name": "W01",
               "Content": [
                 { "E": "32" },
@@ -195,10 +232,12 @@
               ]
             },
             {
+              "Type": "S",
               "Name": "G69",
               "Content": [ { "E": "11.500 STRUD CINN" } ]
             },
             {
+              "Type": "S",
               "Name": "N9",
               "Content": [
                 { "E": "PC" },
@@ -210,16 +249,20 @@
       ]
     },
     {
+      "Type": "L",
       "Name": "L_LX",
       "Content": [
         {
+          "Type": "S",
           "Name": "LX",
           "Content": [ { "E": "3" } ]
         },
         {
+          "Type": "L",
           "Name": "L_W01",
           "Content": [
             {
+              "Type": "S",
               "Name": "W01",
               "Content": [
                 { "E": "12" },
@@ -238,10 +281,12 @@
               ]
             },
             {
+              "Type": "S",
               "Name": "G69",
               "Content": [ { "E": "11.500 STRUDEL RASPBRY" } ]
             },
             {
+              "Type": "S",
               "Name": "N9",
               "Content": [
                 { "E": "PC" },
@@ -253,6 +298,7 @@
       ]
     },
     {
+      "Type": "S",
       "Name": "W76",
       "Content": [
         { "E": "56" },
@@ -262,5 +308,5 @@
         { "E": "CF" }
       ]
     }
-  ]
+  ],
 }

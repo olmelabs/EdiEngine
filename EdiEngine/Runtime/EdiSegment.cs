@@ -12,6 +12,9 @@ namespace EdiEngine.Runtime
             Content = new List<EdiDataElement>();
         }
 
+        [JsonProperty(Order = 0)]
+        public override string Type => "S";
+
         [JsonProperty(Order = 10)]
         public List<EdiDataElement> Content { get; }
 

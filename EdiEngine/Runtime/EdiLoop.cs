@@ -16,6 +16,9 @@ namespace EdiEngine.Runtime
             Parent = parent;
         }
 
+        [JsonProperty(Order = 0)]
+        public override string Type => "L";
+
         [JsonIgnore]
         public EdiLoop Parent { get; }
 

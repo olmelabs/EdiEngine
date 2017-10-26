@@ -141,7 +141,7 @@ namespace EdiEngine.Tests
             //Read json and convert it to trans
             M_940 map = new M_940();
             EdiTrans t = new EdiTrans(map);
-            EdiJsonReader r = new EdiJsonReader(map, t);
+            JsonMapReader r = new JsonMapReader(map, t);
             r.ReadToEnd(jsonTrans);
 
             //create new batch

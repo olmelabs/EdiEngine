@@ -22,7 +22,11 @@ namespace EdiEngine.Runtime
         [JsonIgnore]
         public MapBaseEntity Definition { get; set; }
 
-        [JsonProperty(Order = 0)]
+        [JsonProperty(Order = 1)]
         public string Name { get; set; }
+
+        [JsonProperty(Order = 0)]
+        public abstract string Type { get; }
+    
     }
 }

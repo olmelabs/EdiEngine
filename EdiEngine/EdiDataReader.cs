@@ -60,7 +60,7 @@ namespace EdiEngine
                         };
 
                         segDef = GetSegDefinition("ISA", $"{elements[12]}0", MissingStandardFallbackVersion);
-                        currentInterchange.ISA = EdiMapReader.ProcessSegment(segDef, elements, 0, currentInterchange);
+                        currentInterchange.ISA = MapReader.ProcessSegment(segDef, elements, 0, currentInterchange);
                         break;
 
                     case "IEA":
@@ -68,7 +68,7 @@ namespace EdiEngine
                             throw new EdiParsingException("MALFORMED  DATA");
 
                         segDef = GetSegDefinition("IEA", $"{currentInterchange.ISA.Content[11].Val}0", MissingStandardFallbackVersion);
-                        currentInterchange.IEA = EdiMapReader.ProcessSegment(segDef, elements, 0, currentInterchange);
+                        currentInterchange.IEA = MapReader.ProcessSegment(segDef, elements, 0, currentInterchange);
                         batch.Interchanges.Add(currentInterchange);
 
                         int declaredGroupCount;
@@ -93,7 +93,7 @@ namespace EdiEngine
                         currentGroup = new EdiGroup(elements[1]);
 
                         segDef = GetSegDefinition("GS", $"{elements[8]}", MissingStandardFallbackVersion);
-                        currentGroup.GS = EdiMapReader.ProcessSegment(segDef, elements, 0, currentGroup);
+                        currentGroup.GS = MapReader.ProcessSegment(segDef, elements, 0, currentGroup);
                         break;
 
                     case "GE":
@@ -101,7 +101,7 @@ namespace EdiEngine
                             throw new EdiParsingException("MALFORMED DATA");
 
                         segDef = GetSegDefinition("GE", $"{currentGroup.GS.Content[7].Val}", MissingStandardFallbackVersion);
-                        currentGroup.GE = EdiMapReader.ProcessSegment(segDef, elements, 0, currentGroup);
+                        currentGroup.GE = MapReader.ProcessSegment(segDef, elements, 0, currentGroup);
                         currentInterchange.Groups.Add(currentGroup);
 
                         int declaredTransCount;
@@ -138,7 +138,7 @@ namespace EdiEngine
                         currentTrans = new EdiTrans((MapBaseEntity)map);
 
                         segDef = GetSegDefinition("ST", $"{currentGroup.GS.Content[7].Val}", MissingStandardFallbackVersion);
-                        currentTrans.ST = EdiMapReader.ProcessSegment(segDef, elements, 0, currentTrans);
+                        currentTrans.ST = MapReader.ProcessSegment(segDef, elements, 0, currentTrans);
 
                         tranSegCount = 1;
 
@@ -165,7 +165,7 @@ namespace EdiEngine
                         }
 
                         segDef = GetSegDefinition("SE", $"{currentGroup.GS.Content[7].Val}", MissingStandardFallbackVersion);
-                        currentTrans.SE = EdiMapReader.ProcessSegment(segDef, elements, 0, currentTrans);
+                        currentTrans.SE = MapReader.ProcessSegment(segDef, elements, 0, currentTrans);
 
                         currentGroup.Transactions.Add(currentTrans);
                         currentTrans = null;

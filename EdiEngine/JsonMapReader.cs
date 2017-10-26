@@ -5,11 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using EdiEngine.Common.Enums;
 
 namespace EdiEngine
 {
-    public class EdiJsonReader
+    public class JsonMapReader : MapReader
     {
 
         private EdiTrans _trans;
@@ -18,7 +17,7 @@ namespace EdiEngine
         private StringBuilder _currentSegmentString;
         private MapBaseEntity _currentEntityDef;
 
-        public EdiJsonReader(MapLoop map, EdiTrans currentTrans)
+        public JsonMapReader(MapLoop map, EdiTrans currentTrans)
         {
             _trans = currentTrans;
             _currentLoopInstance = currentTrans;
@@ -28,7 +27,7 @@ namespace EdiEngine
 
         public EdiTrans ReadToEnd(string jsonTrans)
         {
-            _trans = new EdiTrans((MapBaseEntity)_currentLoopDef);
+            _trans = new EdiTrans(_currentLoopDef);
 
             ReadJson(jsonTrans);
 
@@ -37,44 +36,57 @@ namespace EdiEngine
 
         private void ReadJson(string jsonTrans)
         {
-            
             JsonTextReader reader = new JsonTextReader(new StringReader(jsonTrans));
 
             TokenContextType tokenContext = TokenContextType.None;
             int elementProcessing = 0;
+            bool expectingName = false;
 
             while (reader.Read())
             {
                 if (reader.TokenType == JsonToken.PropertyName)
                 {
-                    switch (reader.Value.ToString())
+                    string val = reader.Value.ToString();
+                    switch (val)
                     {
-                        case "Name":
-                            tokenContext = TokenContextType.Segment;
-                            _currentSegmentString = new StringBuilder();
-                            break;
-
                         case "E":
                             tokenContext = TokenContextType.DataElement;
                             break;
 
-                        case "Content":
+                        case "Name":
+                            expectingName = true;
                             break;
-                    }
+
+                        case "Type":
+                            tokenContext = TokenContextType.EntityType;
+                            break;
+                   }
                 }
                 else if (reader.TokenType == JsonToken.String)
                 {
                     string val = reader.Value.ToString();
-                    if (val.StartsWith("M_"))
+                    if (expectingName && (tokenContext == TokenContextType.Segment || tokenContext == TokenContextType.Loop))
                     {
-                        tokenContext = TokenContextType.None;
-                        continue;
+                        SetMapContext(val);
+                        expectingName = false;
                     }
-                    ProcessToken(tokenContext, val);
+
+                    if (tokenContext == TokenContextType.Segment || tokenContext == TokenContextType.DataElement)
+                    {
+                        ProcessToken(tokenContext, val);
+                    }
+
+                    if (tokenContext == TokenContextType.EntityType)
+                    {
+                        if (val == "S")
+                            tokenContext = TokenContextType.Segment;
+                        if (val == "L")
+                            tokenContext = TokenContextType.Loop;
+                    }
                 }
                 //find end Segment after scanning all elements
-                else if (reader.TokenType == JsonToken.StartObject && 
-                    (tokenContext == TokenContextType.Segment || tokenContext == TokenContextType.DataElement))
+                else if (reader.TokenType == JsonToken.StartObject &&
+                         (tokenContext == TokenContextType.Segment || tokenContext == TokenContextType.DataElement))
                 {
                     //found StartObject for element
                     elementProcessing++;
@@ -87,10 +99,12 @@ namespace EdiEngine
                     {
                         string segContent = _currentSegmentString.ToString();
 
-                        _currentLoopInstance.Content.Add(EdiMapReader.ProcessSegment(_currentEntityDef, segContent.Split(new [] {'*'}), -1, _trans));
+                        _currentLoopInstance.Content.Add(ProcessSegment(_currentEntityDef, segContent.Split(new[] { '*' }),
+                            -1, _trans));
 
                         _currentSegmentString = null;
                         tokenContext = TokenContextType.None;
+                        elementProcessing = 0;
                     }
                 }
             }
@@ -101,11 +115,7 @@ namespace EdiEngine
             switch (token)
             {
                 case TokenContextType.Segment:
-                    SetMapContext(val);
-
-                    if (val.StartsWith("L_"))
-                        return;
-
+                    _currentSegmentString = new StringBuilder();
                     _currentSegmentString.Append(val);
                     break;
 
@@ -120,7 +130,7 @@ namespace EdiEngine
         {
             List<AllowedEntitity> allowedEntities = GetNextAllowedEntities(_currentLoopDef);
 
-            if (allowedEntities.All(e => e.Entity.EdiName != name))
+            if (allowedEntities.All(e => e.Entity.Name != name))
             {
                 string expected = string.Join(", ", allowedEntities.Select(e => e.Entity.Name).ToList());
                 string msgPart = allowedEntities.Count > 1 ? "Expected one of" : "Expected";
@@ -132,7 +142,7 @@ namespace EdiEngine
                 return;
             }
 
-            AllowedEntitity ae = allowedEntities.FirstOrDefault(e => e.Entity.EdiName == name);
+            AllowedEntitity ae = allowedEntities.FirstOrDefault(e => e.Entity.Name == name);
             if (ae?.Entity is MapSegment)
             {
                 ae.Entity.OccuredTimes++;
@@ -147,45 +157,34 @@ namespace EdiEngine
 
                 _currentEntityDef = ae.Entity;
             }
+            else if (ae?.Entity is MapLoop)
+            {
+                //find loop definition in map and reset counters
+                ae.LoopContext.CurrentPos = ae.LoopContext.Content.IndexOf(ae.Entity);
+                _currentLoopDef = (MapLoop)ae.Entity;
+                _currentLoopDef.CurrentPos = 0;
+                _currentLoopDef.OccuredTimes++;
+                _currentLoopDef.Content.ForEach(c => c.OccuredTimes = 0);
+
+                ////create new loop instance and add to transaction
+                while (((MapLoop)_currentLoopInstance.Definition) != ae.LoopContext && _currentLoopInstance.Parent != null)
+                {
+                    _currentLoopInstance = _currentLoopInstance.Parent;
+                }
+
+                var newLoop = new EdiLoop(ae.Entity, _currentLoopInstance);
+                _currentLoopInstance.Content.Add(newLoop);
+                _currentLoopInstance = newLoop;
+            }
         }
 
         private enum TokenContextType
         {
+            EntityType,
+            Loop,
             Segment,
             DataElement,
             None
-        }
-
-
-        private List<AllowedEntitity> GetNextAllowedEntities(MapLoop currentLoop)
-        {
-            List<AllowedEntitity> res = new List<AllowedEntitity>();
-            MapBaseEntity be = currentLoop.Content[currentLoop.CurrentPos];
-
-            if (be.ReqDes == RequirementDesignator.Mandatory && be.OccuredTimes == 0)
-            {
-                res.Add(new AllowedEntitity(be, currentLoop));
-                return res;
-            }
-
-            if (be.OccuredTimes > 0 && be.OccuredTimes < be.MaxOccurs)
-            {
-                res.Add(new AllowedEntitity(be, currentLoop));
-            }
-
-            for (int i = currentLoop.CurrentPos + 1; i < currentLoop.Content.Count; i++)
-            {
-                res.Add(new AllowedEntitity(currentLoop.Content[i], currentLoop));
-                if (currentLoop.Content[i].ReqDes == RequirementDesignator.Mandatory)
-                    break;
-            }
-
-            //if in loop all except first  seg are optional, and max occurs not reached yet - return new loop iteration
-            if (currentLoop.ParentLoop != null)
-            {
-                res.AddRange(GetNextAllowedEntities(currentLoop.ParentLoop));
-            }
-            return res;
         }
     }
 }

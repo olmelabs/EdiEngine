@@ -47,10 +47,11 @@
   <ItemGroup>
     <Compile Include="AllowedEntitity.cs" />
     <Compile Include="EdiDataWriterSettings.cs" />
-    <Compile Include="EdiJsonReader.cs" />
+    <Compile Include="JsonMapReader.cs" />
     <Compile Include="EdiParsingException.cs" />
     <Compile Include="EdiDataReader.cs" />
     <Compile Include="EdiMapReader.cs" />
+    <Compile Include="MapReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Runtime\DataElementValidator.cs" />
     <Compile Include="Runtime\EdiBatch.cs" />

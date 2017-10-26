@@ -16,6 +16,9 @@ namespace EdiEngine.Runtime
             ValidationErrors = new List<ValidationError>();
         }
 
+        [JsonProperty(Order = 0)]
+        public override string Type => "M";
+
         public EdiSegment ST { get; set; }
 
         public EdiSegment SE { get; set; }
