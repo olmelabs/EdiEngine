@@ -5,6 +5,7 @@ using EdiEngine.Standards.X12_004010;
 using SegmentDefinitions = EdiEngine.Standards.X12_004010.Segments;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.IO;
+using EdiEngine.Standards.X12_004010.Loops.M_940;
 
 
 namespace EdiEngine.Tests
@@ -139,8 +140,9 @@ namespace EdiEngine.Tests
 
             //Read json and convert it to trans
             M_940 map = new M_940();
-            EdiJsonReader r = new EdiJsonReader(map);
-            EdiTrans t = r.ReadToEnd(jsonTrans);
+            EdiTrans t = new EdiTrans(map);
+            EdiJsonReader r = new EdiJsonReader(map, t);
+            r.ReadToEnd(jsonTrans);
 
             //create new batch
             EdiDataWriterSettings settings = new EdiDataWriterSettings(
@@ -163,7 +165,7 @@ namespace EdiEngine.Tests
             EdiDataWriter w = new EdiDataWriter(settings);
             string data = w.WriteToString(b);
 
-            //Read produced results and check for errors.
+            //Read produced results and check for errors and correct parsing
             EdiDataReader reader = new EdiDataReader();
             EdiBatch batch = new EdiBatch();
             reader.FromString(data, batch);
@@ -176,6 +178,35 @@ namespace EdiEngine.Tests
 
             EdiTrans trans = batch.Interchanges[0].Groups[0].Transactions[0];
             Assert.AreEqual(0, trans.ValidationErrors.Count);
+
+            int w05Count = trans.Content.Count(l => l.Definition.GetType() == typeof(SegmentDefinitions.W05));
+            int n1Count = trans.Content.Count(l => l.Definition.GetType() == typeof(L_N1));
+            int n1FirstIterationCount = ((EdiLoop)trans.Content.First(l => l.Definition.GetType() == typeof(L_N1))).Content.Count;
+            int n1SecondIterationCount = ((EdiLoop)trans.Content.Where(l => l.Definition.GetType() == typeof(L_N1)).Skip(1).First()).Content.Count;
+            int n1ThirdIterationCount = ((EdiLoop)trans.Content.Where(l => l.Definition.GetType() == typeof(L_N1)).Skip(2).First()).Content.Count;
+            int n9Count = trans.Content.Count(l => l.Definition.GetType() == typeof(SegmentDefinitions.N9));
+            int g62Count = trans.Content.Count(l => l.Definition.GetType() == typeof(SegmentDefinitions.G62));
+            int nteCount = trans.Content.Count(l => l.Definition.GetType() == typeof(SegmentDefinitions.NTE));
+            int w66Count = trans.Content.Count(l => l.Definition.GetType() == typeof(SegmentDefinitions.W66));
+            int lxCount = trans.Content.Count(l => l.Definition.GetType() == typeof(L_LX));
+            int lxFirstIterationCount = ((EdiLoop)trans.Content.First(l => l.Definition.GetType() == typeof(L_LX))).Content.Count;
+            int lxFirstIterationW01Count = ((EdiLoop)((EdiLoop)trans.Content.First(l => l.Definition.GetType() == typeof(L_LX)))
+                .Content.Skip(1).First()).Content.Count;
+            int w76Count = trans.Content.Count(l => l.Definition.GetType() == typeof(SegmentDefinitions.W76));
+            
+            Assert.AreEqual(1, w05Count);
+            Assert.AreEqual(3, n1Count);
+            Assert.AreEqual(3, n1FirstIterationCount);
+            Assert.AreEqual(3, n1SecondIterationCount);
+            Assert.AreEqual(2, n1ThirdIterationCount);
+            Assert.AreEqual(1, n9Count);
+            Assert.AreEqual(2, g62Count);
+            Assert.AreEqual(1, nteCount);
+            Assert.AreEqual(1, w66Count);
+            Assert.AreEqual(3, lxCount);
+            Assert.AreEqual(2, lxFirstIterationCount);
+            Assert.AreEqual(3, lxFirstIterationW01Count);
+            Assert.AreEqual(1, w76Count);
         }
     }
 }
