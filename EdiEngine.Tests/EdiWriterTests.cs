@@ -112,13 +112,13 @@ namespace EdiEngine.Tests
             r.FromString(data, batch);
 
             Assert.AreEqual(1, batch.Interchanges.Count);
-            Assert.AreEqual(0, batch.Interchanges[0].ValidationErrors.Count());
+            Assert.AreEqual(0, batch.Interchanges[0].ValidationErrors.Count);
 
             Assert.AreEqual(1, batch.Interchanges[0].Groups.Count);
-            Assert.AreEqual(0, batch.Interchanges[0].Groups[0].ValidationErrors.Count());
+            Assert.AreEqual(0, batch.Interchanges[0].Groups[0].ValidationErrors.Count);
 
             EdiTrans trans = batch.Interchanges[0].Groups[0].Transactions[0];
-            Assert.AreEqual(0, trans.ValidationErrors.Count());
+            Assert.AreEqual(0, trans.ValidationErrors.Count);
         }
 
         [TestMethod]
@@ -128,6 +128,9 @@ namespace EdiEngine.Tests
             string jsonTrans;
             using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.transactionJson.json"))
             {
+                if (s == null)
+                    throw new InvalidDataException("stream is null");
+
                 using (StreamReader sr = new StreamReader(s))
                 {
                     jsonTrans = sr.ReadToEnd();
@@ -166,13 +169,13 @@ namespace EdiEngine.Tests
             reader.FromString(data, batch);
 
             Assert.AreEqual(1, batch.Interchanges.Count);
-            Assert.AreEqual(0, batch.Interchanges[0].ValidationErrors.Count());
+            Assert.AreEqual(0, batch.Interchanges[0].ValidationErrors.Count);
 
             Assert.AreEqual(1, batch.Interchanges[0].Groups.Count);
-            Assert.AreEqual(0, batch.Interchanges[0].Groups[0].ValidationErrors.Count());
+            Assert.AreEqual(0, batch.Interchanges[0].Groups[0].ValidationErrors.Count);
 
             EdiTrans trans = batch.Interchanges[0].Groups[0].Transactions[0];
-            Assert.AreEqual(0, trans.ValidationErrors.Count());
+            Assert.AreEqual(0, trans.ValidationErrors.Count);
         }
     }
 }

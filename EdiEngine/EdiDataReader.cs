@@ -7,7 +7,7 @@ namespace EdiEngine
 {
     public class EdiDataReader
     {
-        private const string MISSING_STANDARD_FALLBACK_VERSION = "004010";
+        private const string MissingStandardFallbackVersion = "004010";
 
         private string _elementSeparator;
         private string _segmentSeparator;
@@ -40,7 +40,8 @@ namespace EdiEngine
             EdiGroup currentGroup = null;
             EdiTrans currentTrans = null;
             EdiMapReader mapReader = null;
-            MapSegment segDef = null;
+            MapSegment segDef;
+
             int tranSegCount = 0;
             int groupsCount = 0;
             int transCount = 0;
@@ -48,7 +49,6 @@ namespace EdiEngine
             foreach (string seg in segments)
             {
                 string[] elements = seg.Split(new [] { _elementSeparator }, StringSplitOptions.None);
-
                 switch (elements[0])
                 {
                     case "ISA":
@@ -59,12 +59,15 @@ namespace EdiEngine
                             ElementSeparator = _elementSeparator
                         };
 
-                        segDef = GetSegDefinition("ISA", $"{elements[12]}0", MISSING_STANDARD_FALLBACK_VERSION);
+                        segDef = GetSegDefinition("ISA", $"{elements[12]}0", MissingStandardFallbackVersion);
                         currentInterchange.ISA = EdiMapReader.ProcessSegment(segDef, elements, 0, currentInterchange);
                         break;
 
                     case "IEA":
-                        segDef = GetSegDefinition("IEA", $"{currentInterchange.ISA.Content[11].Val}0", MISSING_STANDARD_FALLBACK_VERSION);
+                        if (currentInterchange == null)
+                            throw new EdiParsingException("MALFORMED  DATA");
+
+                        segDef = GetSegDefinition("IEA", $"{currentInterchange.ISA.Content[11].Val}0", MissingStandardFallbackVersion);
                         currentInterchange.IEA = EdiMapReader.ProcessSegment(segDef, elements, 0, currentInterchange);
                         batch.Interchanges.Add(currentInterchange);
 
@@ -76,9 +79,9 @@ namespace EdiEngine
                             AddValidationError(currentInterchange, $"Expected {declaredGroupCount} groups. Found {groupsCount}. Interchange # {elements[2]}.");
                         }
 
-                        if (!CheckControlNumbersAreEgual(currentInterchange?.ISA.Content[12].Val, elements[2]))
+                        if (!CheckControlNumbersAreEgual(currentInterchange.ISA.Content[12].Val, elements[2]))
                         {
-                            AddValidationError(currentInterchange, $"Control numbers do not match. ISA {currentInterchange?.ISA.Content[12].Val}. IEA {elements[2]}.");
+                            AddValidationError(currentInterchange, $"Control numbers do not match. ISA {currentInterchange.ISA.Content[12].Val}. IEA {elements[2]}.");
                         }
 
                         currentInterchange = null;
@@ -89,12 +92,15 @@ namespace EdiEngine
                         transCount = 0;
                         currentGroup = new EdiGroup(elements[1]);
 
-                        segDef = GetSegDefinition("GS", $"{elements[8]}", MISSING_STANDARD_FALLBACK_VERSION);
+                        segDef = GetSegDefinition("GS", $"{elements[8]}", MissingStandardFallbackVersion);
                         currentGroup.GS = EdiMapReader.ProcessSegment(segDef, elements, 0, currentGroup);
                         break;
 
                     case "GE":
-                        segDef = GetSegDefinition("GE", $"{currentGroup.GS.Content[7].Val}", MISSING_STANDARD_FALLBACK_VERSION);
+                        if (currentInterchange == null || currentGroup == null)
+                            throw new EdiParsingException("MALFORMED DATA");
+
+                        segDef = GetSegDefinition("GE", $"{currentGroup.GS.Content[7].Val}", MissingStandardFallbackVersion);
                         currentGroup.GE = EdiMapReader.ProcessSegment(segDef, elements, 0, currentGroup);
                         currentInterchange.Groups.Add(currentGroup);
 
@@ -106,15 +112,17 @@ namespace EdiEngine
                             AddValidationError(currentGroup, $"Expected {declaredTransCount} transactions. Found {transCount}. Group # {elements[2]}.");
                         }
 
-                        if (!CheckControlNumbersAreEgual(currentGroup?.GS.Content[5].Val, elements[2]))
+                        if (!CheckControlNumbersAreEgual(currentGroup.GS.Content[5].Val, elements[2]))
                         {
-                            AddValidationError(currentGroup, $"Control numbers do not match. GS {currentGroup?.GS.Content[5].Val}. GE {elements[2]}.");
+                            AddValidationError(currentGroup, $"Control numbers do not match. GS {currentGroup.GS.Content[5].Val}. GE {elements[2]}.");
                         }
 
                         currentGroup = null;
                         break;
 
                     case "ST":
+                        if (currentInterchange == null || currentGroup == null)
+                            throw new EdiParsingException("MALFORMED DATA");
 
                         string asmName = $"EdiEngine.Standards.X12_{currentGroup.GS.Content[7].Val}";
                         string typeName = $"{asmName}.M_{elements[1]}";
@@ -129,7 +137,7 @@ namespace EdiEngine
                         transCount++;
                         currentTrans = new EdiTrans((MapBaseEntity)map);
 
-                        segDef = GetSegDefinition("ST", $"{currentGroup.GS.Content[7].Val}", MISSING_STANDARD_FALLBACK_VERSION);
+                        segDef = GetSegDefinition("ST", $"{currentGroup.GS.Content[7].Val}", MissingStandardFallbackVersion);
                         currentTrans.ST = EdiMapReader.ProcessSegment(segDef, elements, 0, currentTrans);
 
                         tranSegCount = 1;
@@ -138,6 +146,9 @@ namespace EdiEngine
                         break;
 
                     case "SE":
+                        if (currentInterchange == null || currentGroup == null || currentTrans == null)
+                            throw new EdiParsingException("MALFORMED DATA");
+
                         tranSegCount++;
 
                         int declaredSegCount;
@@ -153,7 +164,7 @@ namespace EdiEngine
                             AddValidationError(currentTrans, $"Control numbers do not match. ST {currentTrans.ST.Content[1].Val}. SE {elements[2]}.");
                         }
 
-                        segDef = GetSegDefinition("SE", $"{currentGroup.GS.Content[7].Val}", MISSING_STANDARD_FALLBACK_VERSION);
+                        segDef = GetSegDefinition("SE", $"{currentGroup.GS.Content[7].Val}", MissingStandardFallbackVersion);
                         currentTrans.SE = EdiMapReader.ProcessSegment(segDef, elements, 0, currentTrans);
 
                         currentGroup.Transactions.Add(currentTrans);
@@ -200,9 +211,8 @@ namespace EdiEngine
         private bool CheckControlNumbersAreEgual(string headerIcn, string footerIcn)
         {
             int icn1, icn2;
-            bool res;
 
-            res = int.TryParse(headerIcn, out icn1);
+            var res = int.TryParse(headerIcn, out icn1);
             res = int.TryParse(footerIcn, out icn2) & res;
 
             return res && icn1 == icn2;

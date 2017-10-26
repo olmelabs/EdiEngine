@@ -9,7 +9,7 @@ namespace EdiEngine
 {
     public class EdiJsonReader
     {
-        private MapBaseEntity _map;
+        private readonly MapBaseEntity _map;
 
         public EdiJsonReader(MapBaseEntity map)
         {
