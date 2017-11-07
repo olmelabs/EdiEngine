@@ -5,52 +5,68 @@ namespace EdiEngine
 {
     public class EdiDataWriter
     {
-
         private string _elementSeparator;
         private string _segmentSeparator;
         private int _currentTranSegCount;
+        private readonly EdiDataWriterSettings _settings;
+
+        public EdiDataWriter(EdiDataWriterSettings settings)
+        {
+            _settings = settings;
+        }
 
         public string WriteToString(EdiBatch batch)
         {
             StringBuilder sb = new StringBuilder();
+
+            int icn = _settings.IsaFirstControlNumber;
+            int gcn = _settings.GsFirstControlNumber;
 
             foreach (EdiInterchange ich in batch.Interchanges)
             {
                 _elementSeparator = ich.ElementSeparator;
                 _segmentSeparator = ich.SegmentSeparator;
 
-                sb.AppendLine("ISA....");
+                ich.ISA = new ISA(_settings.IsaDef,
+                    _settings.IsaSenderQual, _settings.IsaSenderId,
+                    _settings.IsaReceiverQual, _settings.IsaReceiverId,
+                    _settings.IsaEdiVersion, icn, _settings.IsaUsageIndicator);
+
+                WriteEntity(ich.ISA, ref sb);
 
                 foreach (EdiGroup g in ich.Groups)
                 {
-                    int currentTran = 1;
-                    sb.AppendLine("GS....");
+                    int currentTranIdx = 1;
+                    g.GS = new GS(_settings.GsDef, g.FunctionalCode, _settings.GsSenderId, _settings.GsReceiverId, gcn, _settings.GsEdiVersion);
+                    WriteEntity(g.GS, ref sb);
 
                     foreach (EdiTrans t in g.Transactions)
                     {
-                        string ctrl = currentTran.ToString();
-                        if (ctrl.Length < 4)
-                        {
-                            ctrl = ctrl.PadLeft(4, '0');
-                        }
-                        sb.Append($"ST{_elementSeparator}{t.Definition.EdiName}{_elementSeparator}{ctrl}{_segmentSeparator}");
+                        _currentTranSegCount = 0;
 
-                        _currentTranSegCount = 1;
+                        t.ST = new ST(_settings.StDef, t.Definition.EdiName, currentTranIdx);
+                        WriteEntity(t.ST, ref sb);
 
                         foreach (MappedObjectBase ent in t.Content)
                         {
                             WriteEntity(ent, ref sb);
                         }
 
-                        sb.Append($"SE{_elementSeparator}{_currentTranSegCount + 1}{_elementSeparator}{ctrl}{_segmentSeparator}");
+                        _currentTranSegCount++;
+                        t.SE = new SE(_settings.SeDef, _currentTranSegCount, currentTranIdx);
+                        WriteEntity(t.SE, ref sb);
 
-                        currentTran++;
+                        currentTranIdx++;
                     }
 
-                    sb.AppendLine("GE....");
+                    g.GE = new GE(_settings.GeDef, g.Transactions.Count, gcn);
+                    WriteEntity(g.GE, ref sb);
+                    gcn++;
                 }
 
-                sb.AppendLine("IEA....");
+                ich.IEA = new IEA(_settings.IeaDef, ich.Groups.Count, icn);
+                WriteEntity(ich.IEA, ref sb);
+                icn++;
             }
 
             return sb.ToString();
@@ -70,7 +86,7 @@ namespace EdiEngine
                 _currentTranSegCount++;
                 sb.Append(ent.Name);
 
-                foreach (var el in ((EdiSegment) ent).Content)
+                foreach (var el in ((EdiSegment)ent).Content)
                 {
                     sb.Append($"{_elementSeparator}{el.Val}");
                 }

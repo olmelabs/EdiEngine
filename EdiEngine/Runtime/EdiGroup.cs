@@ -5,16 +5,22 @@ namespace EdiEngine.Runtime
 {
     public class EdiGroup : IValidatedEntity
     {
-        public EdiGroup()
+        public EdiGroup(string functionalCode)
         {
-            GS = new List<string>();
-            GE = new List<string>();
+            FunctionalCode = functionalCode;
             Transactions = new List<EdiTrans>();
             ValidationErrors = new List<ValidationError>();
         }
 
-        public List<string> GS { get; set; }
-        public List<string> GE { get; set; }
+        public EdiSegment GS { get; set; }
+
+        public EdiSegment GE { get; set; }
+
+        /// <summary>
+        /// GS01
+        /// </summary>
+        public string FunctionalCode { get; }
+
         public List<EdiTrans> Transactions { get; set; }
 
         [JsonProperty(Order = 100)]

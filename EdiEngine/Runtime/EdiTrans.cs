@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using EdiEngine.Common.Definitions;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace EdiEngine.Runtime
@@ -7,14 +8,20 @@ namespace EdiEngine.Runtime
     {
         public EdiTrans()
         {
-            ST = new List<string>();
-            SE = new List<string>();
             ValidationErrors = new List<ValidationError>();
         }
 
-        public List<string> ST { get; set; }
+        public EdiTrans(MapBaseEntity definition) : base(definition, null)
+        {
+            ValidationErrors = new List<ValidationError>();
+        }
 
-        public List<string> SE { get; set; }
+        [JsonProperty(Order = 0)]
+        public override string Type => "M";
+
+        public EdiSegment ST { get; set; }
+
+        public EdiSegment SE { get; set; }
 
         [JsonProperty(Order = 100)]
         public virtual List<ValidationError> ValidationErrors { get; }

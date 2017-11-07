@@ -1,12 +1,11 @@
 ﻿using EdiEngine.Common.Definitions;
-using EdiEngine.Common.Enums;
 using EdiEngine.Runtime;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace EdiEngine
 {
-    public class EdiMapReader
+    public class EdiMapReader : MapReader
     {
         private readonly EdiTrans _trans;
         private EdiLoop _currentLoopInstance;
@@ -20,7 +19,7 @@ namespace EdiEngine
             _currentLoopDef = map;
         }
 
-        public void ProcessRowSegment(string name, string[] content, int rowPos)
+        public void ProcessRawSegment(string name, string[] content, int rowPos)
         {
             List<AllowedEntitity> allowedEntities = GetNextAllowedEntities(_currentLoopDef);
 
@@ -50,7 +49,7 @@ namespace EdiEngine
                 {
                     _currentLoopInstance = _currentLoopInstance.Parent;
                 }
-                _currentLoopInstance.Content.Add(ProcessSegment(ae.Entity, content, rowPos));
+                _currentLoopInstance.Content.Add(ProcessSegment(ae.Entity, content, rowPos, _trans));
             }
             else if (ae?.Entity is MapLoop)
             {
@@ -71,84 +70,8 @@ namespace EdiEngine
                 _currentLoopInstance.Content.Add(newLoop);
                 _currentLoopInstance = newLoop;
 
-                ProcessRowSegment(name, content, rowPos);
+                ProcessRawSegment(name, content, rowPos);
             }
-
-        }
-
-        private EdiSegment ProcessSegment(MapBaseEntity definition, string[] content, int rowPos)
-        {
-            MapSegment segDef = (MapSegment)definition;
-            EdiSegment seg = new EdiSegment(segDef);
-
-            int i = 0;
-            foreach (string val in content.Skip(1))
-            {
-                MapDataElement elDef = null;
-                if (i < segDef.Content.Count)
-                    elDef = segDef.Content[i];
-
-                if (elDef == null)
-                {
-                    ValidationError err = new ValidationError()
-                    {
-                        SegmentPos = rowPos,
-                        SegmentName = content[0],
-                        ElementPos = i + 1,
-                        Message = $"Unexpected element '{val}'"
-                    };
-                    _trans.ValidationErrors.Add(err);
-                }
-                
-                EdiDataElement el = new EdiDataElement(elDef, val);
-                if (elDef != null && !el.IsValid(elDef))
-                {
-                    ValidationError err = new ValidationError()
-                    {
-                        SegmentPos = rowPos,
-                        SegmentName = content[0],
-                        ElementPos = i + 1,
-                        Message = $"Invalid value '{val}'"
-                    };
-                    _trans.ValidationErrors.Add(err);
-                }
-
-                i++;
-                seg.Content.Add(el);
-            }
-            return seg;
-        }
-
-
-        private List<AllowedEntitity> GetNextAllowedEntities(MapLoop currentLoop)
-        {
-            List<AllowedEntitity> res = new List<AllowedEntitity>();
-            MapBaseEntity be = currentLoop.Content[currentLoop.CurrentPos];
-
-            if (be.ReqDes == RequirementDesignator.Mandatory && be.OccuredTimes == 0)
-            {
-                res.Add(new AllowedEntitity(be, currentLoop));
-                return res;
-            }
-
-            if (be.OccuredTimes > 0 && be.OccuredTimes < be.MaxOccurs)
-            {
-                res.Add(new AllowedEntitity(be, currentLoop));
-            }
-
-            for (int i = currentLoop.CurrentPos + 1; i < currentLoop.Content.Count; i++)
-            {
-                res.Add(new AllowedEntitity(currentLoop.Content[i], currentLoop));
-                if (currentLoop.Content[i].ReqDes == RequirementDesignator.Mandatory)
-                    break;
-            }
-
-            //if in loop all except first  seg are optional, and max occurs not reached yet - return new loop iteration
-            if (currentLoop.ParentLoop != null)
-            {
-                res.AddRange(GetNextAllowedEntities(currentLoop.ParentLoop));
-            }
-            return res;
         }
     }
 }

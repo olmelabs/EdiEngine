@@ -1,0 +1,305 @@
+{
+  "Type": "M",
+  "Name": "M_940",
+  "Content": [
+    {
+      "Type": "S",
+      "Name": "W05",
+      "Content": [
+        { "E": "N" },
+        { "E": "538686" },
+        { "E": "" },
+        { "E": "001001" },
+        { "E": "538686" }
+      ]
+    },
+    {
+      "Type": "L",
+      "Name": "L_N1",
+      "Content": [
+        {
+          "Type": "S",
+          "Name": "N1",
+          "Content": [
+            { "E": "ST" },
+            { "E": "ST COMPANY" },
+            { "E": "ZZ" },
+            { "E": "00000001" }
+          ]
+        },
+        {
+          "Type": "S",
+          "Name": "N3",
+          "Content": [ { "E": "ADDRESS" } ]
+        }
+      ]
+    },
+    //N$ should be inside N1
+    {
+      "Type": "S",
+      "Name": "N4",
+      "Content": [
+        { "E": "CITY" },
+        { "E": "CA" },
+        { "E": "00003" }
+      ]
+    },
+    {
+      "Type": "L",
+      "Name": "L_N1",
+      "Content": [
+        {
+          "Type": "S",
+          "Name": "N1",
+          "Content": [
+            { "E": "DE" },
+            { "E": "DE COMPANY" },
+            { "E": "9" },
+            { "E": "0000000000001" }
+          ]
+        },
+        {
+          "Type": "S",
+          "Name": "N3",
+          "Content": [ { "E": "ADDRESS" } ]
+        },
+        {
+          "Type": "S",
+          "Name": "N4",
+          "Content": [
+            { "E": "CITY" },
+            { "E": "MN" },
+            { "E": "000001" }
+          ]
+        }
+      ]
+    },
+    {
+      "Type": "L",
+      "Name": "L_N1",
+      "Content": [
+        {
+          "Type": "S",
+          "Name": "N1",
+          "Content": [
+            { "E": "WH" },
+            { "E": "WHNAME" },
+            { "E": "9" },
+            { "E": "0000000000140" }
+          ]
+        },
+        {
+          "Type": "S",
+          "Name": "N4",
+          "Content": [
+            { "E": "CITY" },
+            { "E": "CA" },
+            { "E": "91761" }
+          ]
+        }
+      ]
+    },
+    {
+      "Type": "S",
+      "Name": "N9",
+      "Content": [
+        { "E": "BR" },
+        { "E": "R1121" }
+      ]
+    },
+    {
+      "Type": "S",
+      "Name": "G62",
+      "Content": [
+        { "E": "10" },
+        { "E": "20000204" }
+      ]
+    },
+    {
+      "Type": "S",
+      "Name": "G62",
+      "Content": [
+        { "E": "02" },
+        { "E": "20000207" }
+      ]
+    },
+    {
+      "Type": "S",
+      "Name": "NTE",
+      "Content": [
+        { "E": "WHI" },
+        { "E": "SHIP ON CHEP PALLETS" }
+      ]
+    },
+    {
+      "Type": "S",
+      "Name": "W66",
+      "Content": [
+        { "E": "PP" },
+        { "E": "M" },
+        { "E": "" },
+        { "E": "" },
+        { "E": "MTEN" }
+      ]
+    },
+    {
+      "Type": "L",
+      "Name": "L_LX",
+      "Content": [
+        {
+          "Type": "S",
+          "Name": "LX",
+          "Content": [ { "E": "1" } ]
+        },
+        {
+          "Type": "L",
+          "Name": "L_W01",
+          "Content": [
+            {
+              "Type": "S",
+              "Name": "W01",
+              "Content": [
+                { "E": "12" },
+                { "E": "CA" },
+                { "E": "000100000010" },
+                { "E": "VN" },
+                { "E": "000100" },
+                { "E": "UC" },
+                { "E": "DEC0199" },
+                { "E": "" },
+                { "E": "" },
+                { "E": "" },
+                { "E": "" },
+                { "E": "" },
+                { "E": "19991205" }
+              ]
+            },
+            {
+              "Type": "S",
+              "Name": "G69",
+              "Content": [ { "E": "11.500 STRUD BLUBRY" } ]
+            },
+            {
+              "Type": "S",
+              "Name": "N9",
+              "Content": [
+                { "E": "PC" },
+                { "E": "DEC0199" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Type": "L",
+      "Name": "L_LX",
+      "Content": [
+        {
+          "Type": "S",
+          "Name": "LX",
+          "Content": [ { "E": "2" } ]
+        },
+        {
+          "Type": "L",
+          "Name": "L_W01",
+          "Content": [
+            {
+              "Type": "S",
+              "Name": "W01",
+              "Content": [
+                { "E": "32" },
+                { "E": "CA" },
+                { "E": "000000000220" },
+                { "E": "VN" },
+                { "E": "000200" },
+                { "E": "UC" },
+                { "E": "DEC0299" },
+                { "E": "" },
+                { "E": "" },
+                { "E": "" },
+                { "E": "" },
+                { "E": "" },
+                { "E": "19991207" }
+              ]
+            },
+            {
+              "Type": "S",
+              "Name": "G69",
+              "Content": [ { "E": "11.500 STRUD CINN" } ]
+            },
+            {
+              "Type": "S",
+              "Name": "N9",
+              "Content": [
+                { "E": "PC" },
+                { "E": "DEC0299" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Type": "L",
+      "Name": "L_LX",
+      "Content": [
+        {
+          "Type": "S",
+          "Name": "LX",
+          "Content": [ { "E": "3" } ]
+        },
+        {
+          "Type": "L",
+          "Name": "L_W01",
+          "Content": [
+            {
+              "Type": "S",
+              "Name": "W01",
+              "Content": [
+                { "E": "12" },
+                { "E": "CA" },
+                { "E": "000000000330" },
+                { "E": "VN" },
+                { "E": "000300" },
+                { "E": "UC" },
+                { "E": "JAN0100" },
+                { "E": "" },
+                { "E": "" },
+                { "E": "" },
+                { "E": "" },
+                { "E": "" },
+                { "E": "20000107" }
+              ]
+            },
+            {
+              "Type": "S",
+              "Name": "G69",
+              "Content": [ { "E": "11.500 STRUDEL RASPBRY" } ]
+            },
+            {
+              "Type": "S",
+              "Name": "N9",
+              "Content": [
+                { "E": "PC" },
+                { "E": "JAN0100" }
+              ]
+            },
+            //w76 should be on map level
+            {
+              "Type": "S",
+              "Name": "W76",
+              "Content": [
+                { "E": "56" },
+                { "E": "500" },
+                { "E": "LB" },
+                { "E": "24" },
+                { "E": "CF" }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

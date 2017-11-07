@@ -57,10 +57,12 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="EdiParserTests.cs" />
+    <Compile Include="EdiReaderTests.cs" />
     <Compile Include="EdiWriterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataElementValidationTests.cs" />
+    <Compile Include="JsonReader.cs" />
+    <Compile Include="TestUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="TestData\940.edi" />
@@ -93,6 +95,8 @@
     <EmbeddedResource Include="TestData\MultipleInterchangesAndGroups.edi" />
     <EmbeddedResource Include="TestData\ControlNumbersMismatch.edi" />
     <EmbeddedResource Include="TestData\WrongGroupsAndTranCount.edi" />
+    <EmbeddedResource Include="TestData\transactionJson.OK.json" />
+    <EmbeddedResource Include="TestData\transactionJson.ERR.json" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

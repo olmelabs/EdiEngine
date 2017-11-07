@@ -1,9 +1,12 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using EdiEngine.Common.Definitions;
 using EdiEngine.Runtime;
 using EdiEngine.Standards.X12_004010;
+using SegmentDefinitions = EdiEngine.Standards.X12_004010.Segments;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.IO;
+using EdiEngine.Standards.X12_004010.Loops.M_940;
+
 
 namespace EdiEngine.Tests
 {
@@ -15,20 +18,22 @@ namespace EdiEngine.Tests
         public void EdiWriter_CreateEdi940()
         {
             M_940 map = new M_940();
-            EdiTrans t = new EdiTrans {Definition = map};
+            EdiTrans t = new EdiTrans(map);
 
             // W05
-            var sDef = (MapSegment) map.Content.First(s => s.Name == "W05");
+            var sDef = (MapSegment)map.Content.First(s => s.Name == "W05");
 
             var seg = new EdiSegment(sDef);
-            seg.Content.Add(new EdiDataElement(sDef.Content[0], "N"));
-            seg.Content.Add(new EdiDataElement(sDef.Content[1], "538686"));
-            seg.Content.Add(new EdiDataElement(sDef.Content[2], null));
-            seg.Content.Add(new EdiDataElement(sDef.Content[3], "001001"));
-            seg.Content.Add(new EdiDataElement(sDef.Content[4], "538686"));
+            seg.Content.AddRange(new[] {
+                new EdiDataElement(sDef.Content[0], "N"),
+                new EdiDataElement(sDef.Content[1], "538686"),
+                new EdiDataElement(sDef.Content[2], null),
+                new EdiDataElement(sDef.Content[3], "001001"),
+                new EdiDataElement(sDef.Content[4], "538686")
+            });
             t.Content.Add(seg);
 
-            // LX*1
+            //LX*1
             var lDef = (MapLoop)map.Content.First(s => s.Name == "L_LX");
             sDef = (MapSegment)lDef.Content.First(s => s.Name == "LX");
 
@@ -39,6 +44,7 @@ namespace EdiEngine.Tests
             seg.Content.Add(new EdiDataElement(sDef.Content[0], "1"));
             lx.Content.Add(seg);
 
+            //LX > W01 loop
             lDef = (MapLoop)lDef.Content.First(s => s.Name == "L_W01");
             sDef = (MapSegment)lDef.Content.First(s => s.Name == "W01");
 
@@ -46,12 +52,14 @@ namespace EdiEngine.Tests
             lx.Content.Add(w01);
 
             seg = new EdiSegment(sDef);
-            seg.Content.Add(new EdiDataElement(sDef.Content[0], "12"));
-            seg.Content.Add(new EdiDataElement(sDef.Content[1], "CA"));
-            seg.Content.Add(new EdiDataElement(sDef.Content[1], "000100033330"));         
+            seg.Content.AddRange(new[] {
+                new EdiDataElement(sDef.Content[0], "12"),
+                new EdiDataElement(sDef.Content[1], "CA"),
+                new EdiDataElement(sDef.Content[1], "000100033330")
+            });
             w01.Content.Add(seg);
 
-            // LX*2
+            //LX*2
             lDef = (MapLoop)map.Content.First(s => s.Name == "L_LX");
             sDef = (MapSegment)lDef.Content.First(s => s.Name == "LX");
 
@@ -62,6 +70,7 @@ namespace EdiEngine.Tests
             seg.Content.Add(new EdiDataElement(sDef.Content[0], "2"));
             lx.Content.Add(seg);
 
+            //LX > W01 loop
             lDef = (MapLoop)lDef.Content.First(s => s.Name == "L_W01");
             sDef = (MapSegment)lDef.Content.First(s => s.Name == "W01");
 
@@ -69,10 +78,78 @@ namespace EdiEngine.Tests
             lx.Content.Add(w01);
 
             seg = new EdiSegment(sDef);
-            seg.Content.Add(new EdiDataElement(sDef.Content[0], "10"));
-            seg.Content.Add(new EdiDataElement(sDef.Content[1], "CA"));
-            seg.Content.Add(new EdiDataElement(sDef.Content[1], "000100033332"));
+            seg.Content.AddRange(new[] {
+                new EdiDataElement(sDef.Content[0], "10"),
+                new EdiDataElement(sDef.Content[1], "CA"),
+                new EdiDataElement(sDef.Content[1], "000100033332")
+            });
             w01.Content.Add(seg);
+
+            //create new batch, add interchange, group, transaction.
+            EdiBatch b = new EdiBatch();
+            b.Interchanges.Add(new EdiInterchange()
+            {
+                ElementSeparator = "*",
+                SegmentSeparator = "\r\n"
+            });
+            b.Interchanges.First().Groups.Add(new EdiGroup("OW"));
+            b.Interchanges.First().Groups.First().Transactions.Add(t);
+
+            //Add all service segments
+            EdiDataWriterSettings settings = new EdiDataWriterSettings(
+                new SegmentDefinitions.ISA(), new SegmentDefinitions.IEA(),
+                new SegmentDefinitions.GS(), new SegmentDefinitions.GE(),
+                new SegmentDefinitions.ST(), new SegmentDefinitions.SE(),
+                "ZZ", "SENDER", "ZZ", "RECEIVER", "GSSENDER", "GSRECEIVER",
+                "00401", "004010", "T", 100, 200);
+
+            EdiDataWriter w = new EdiDataWriter(settings);
+            string data = w.WriteToString(b);
+
+
+            //read produced results and check for errors.
+            EdiDataReader r = new EdiDataReader();
+            EdiBatch batch = new EdiBatch();
+            r.FromString(data, batch);
+
+            Assert.AreEqual(1, batch.Interchanges.Count);
+            Assert.AreEqual(0, batch.Interchanges[0].ValidationErrors.Count);
+
+            Assert.AreEqual(1, batch.Interchanges[0].Groups.Count);
+            Assert.AreEqual(0, batch.Interchanges[0].Groups[0].ValidationErrors.Count);
+
+            EdiTrans trans = batch.Interchanges[0].Groups[0].Transactions[0];
+            Assert.AreEqual(0, trans.ValidationErrors.Count);
+        }
+
+        [TestMethod]
+        public void EdiWriter_DeserializeJson()
+        {
+            //get sample json
+            string jsonTrans;
+            using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.transactionJson.OK.json"))
+            {
+                if (s == null)
+                    throw new InvalidDataException("stream is null");
+
+                using (StreamReader sr = new StreamReader(s))
+                {
+                    jsonTrans = sr.ReadToEnd();
+                }
+            }
+
+            //Read json and convert it to trans
+            M_940 map = new M_940();
+            JsonMapReader r = new JsonMapReader(map);
+            EdiTrans t = r.ReadToEnd(jsonTrans);
+
+            //create new batch
+            EdiDataWriterSettings settings = new EdiDataWriterSettings(
+                new SegmentDefinitions.ISA(), new SegmentDefinitions.IEA(),
+                new SegmentDefinitions.GS(), new SegmentDefinitions.GE(),
+                new SegmentDefinitions.ST(), new SegmentDefinitions.SE(),
+                "ZZ", "SENDER", "ZZ", "RECEIVER", "GSSENDER", "GSRECEIVER",
+                "00401", "004010", "T", 100, 200);
 
             EdiBatch b = new EdiBatch();
             b.Interchanges.Add(new EdiInterchange()
@@ -80,13 +157,56 @@ namespace EdiEngine.Tests
                 ElementSeparator = "*",
                 SegmentSeparator = "\r\n"
             });
-            b.Interchanges.First().Groups.Add(new EdiGroup());
+            b.Interchanges.First().Groups.Add(new EdiGroup("OW"));
             b.Interchanges.First().Groups.First().Transactions.Add(t);
 
-            //TODO: finish with implementing ISA, GS, GE, IEA.
-            //for now check it does not crash
-            EdiDataWriter w = new EdiDataWriter();
+            //write EDI
+            EdiDataWriter w = new EdiDataWriter(settings);
             string data = w.WriteToString(b);
+
+            //Read produced results and check for errors and correct parsing
+            EdiDataReader reader = new EdiDataReader();
+            EdiBatch batch = new EdiBatch();
+            reader.FromString(data, batch);
+
+            Assert.AreEqual(1, batch.Interchanges.Count);
+            Assert.AreEqual(0, batch.Interchanges[0].ValidationErrors.Count);
+
+            Assert.AreEqual(1, batch.Interchanges[0].Groups.Count);
+            Assert.AreEqual(0, batch.Interchanges[0].Groups[0].ValidationErrors.Count);
+
+            EdiTrans trans = batch.Interchanges[0].Groups[0].Transactions[0];
+            Assert.AreEqual(0, trans.ValidationErrors.Count);
+
+            int w05Count = trans.Content.Count(l => l.Definition.GetType() == typeof(SegmentDefinitions.W05));
+            int n1Count = trans.Content.Count(l => l.Definition.GetType() == typeof(L_N1));
+            int n1FirstIterationCount = ((EdiLoop)trans.Content.First(l => l.Definition.GetType() == typeof(L_N1))).Content.Count;
+            int n1SecondIterationCount = ((EdiLoop)trans.Content.Where(l => l.Definition.GetType() == typeof(L_N1)).Skip(1).First()).Content.Count;
+            int n1ThirdIterationCount = ((EdiLoop)trans.Content.Where(l => l.Definition.GetType() == typeof(L_N1)).Skip(2).First()).Content.Count;
+            int n9Count = trans.Content.Count(l => l.Definition.GetType() == typeof(SegmentDefinitions.N9));
+            int g62Count = trans.Content.Count(l => l.Definition.GetType() == typeof(SegmentDefinitions.G62));
+            int nteCount = trans.Content.Count(l => l.Definition.GetType() == typeof(SegmentDefinitions.NTE));
+            int w66Count = trans.Content.Count(l => l.Definition.GetType() == typeof(SegmentDefinitions.W66));
+            int lxCount = trans.Content.Count(l => l.Definition.GetType() == typeof(L_LX));
+            int lxFirstIterationCount = ((EdiLoop)trans.Content.First(l => l.Definition.GetType() == typeof(L_LX))).Content.Count;
+            int lxFirstIterationW01Count = ((EdiLoop)((EdiLoop)trans.Content.First(l => l.Definition.GetType() == typeof(L_LX)))
+                .Content.Skip(1).First()).Content.Count;
+            int w76Count = trans.Content.Count(l => l.Definition.GetType() == typeof(SegmentDefinitions.W76));
+            
+            Assert.AreEqual(1, w05Count);
+            Assert.AreEqual(3, n1Count);
+            Assert.AreEqual(3, n1FirstIterationCount);
+            Assert.AreEqual(3, n1SecondIterationCount);
+            Assert.AreEqual(2, n1ThirdIterationCount);
+            Assert.AreEqual(1, n9Count);
+            Assert.AreEqual(2, g62Count);
+            Assert.AreEqual(1, nteCount);
+            Assert.AreEqual(1, w66Count);
+            Assert.AreEqual(3, lxCount);
+            Assert.AreEqual(2, lxFirstIterationCount);
+            Assert.AreEqual(3, lxFirstIterationW01Count);
+            Assert.AreEqual(1, w76Count);
         }
     }
 }
+

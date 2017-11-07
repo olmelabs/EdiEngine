@@ -59,6 +59,15 @@ namespace EdiEngine.Standards.X12_004010.DataElements
             MaxLength = 3;
         }
     }
+    public class E_0028 : MapDataElement
+    {
+        public E_0028()
+        {
+            DataType = DataType.AN;
+            MinLength = 1;
+            MaxLength = 9;
+        }
+    }
     public class E_0040 : MapDataElement
     {
         public E_0040()
@@ -181,6 +190,24 @@ namespace EdiEngine.Standards.X12_004010.DataElements
             MaxLength = 60;
         }
     }
+    public class E_0096 : MapDataElement
+    {
+        public E_0096()
+        {
+            DataType = DataType.AN;
+            MinLength = 1;
+            MaxLength = 10;
+        }
+    }
+    public class E_0097 : MapDataElement
+    {
+        public E_0097()
+        {
+            DataType = DataType.AN;
+            MinLength = 1;
+            MaxLength = 6;
+        }
+    }
     public class E_0098 : MapDataElement
     {
         public E_0098()
@@ -253,6 +280,16 @@ namespace EdiEngine.Standards.X12_004010.DataElements
             DataType = DataType.AN;
             MinLength = 2;
             MaxLength = 4;
+        }
+    }
+    public class E_0143 : MapDataElement
+    {
+        public E_0143()
+        {
+            DataType = DataType.ID;
+            MinLength = 3;
+            MaxLength = 3;
+            AllowedValues.AddRange(new[] { "100", "101", "104", "105", "106", "107", "108", "109", "110", "111", "112", "113", "114", "115", "116", "120", "121", "124", "125", "126", "127", "128", "129", "130", "131", "135", "138", "139", "140", "141", "142", "143", "144", "146", "147", "148", "149", "150", "151", "152", "153", "154", "155", "157", "159", "160", "161", "163", "170", "175", "176", "180", "185", "186", "188", "189", "190", "191", "194", "195", "196", "197", "198", "199", "200", "201", "202", "203", "204", "205", "206", "207", "208", "210", "211", "212", "213", "214", "215", "216", "217", "218", "219", "220", "222", "223", "224", "225", "242", "244", "248", "249", "250", "251", "252", "255", "256", "260", "261", "262", "263", "264", "265", "266", "267", "268", "270", "271", "272", "273", "275", "276", "277", "278", "280", "285", "286", "288", "290", "300", "301", "302", "303", "304", "305", "306", "307", "308", "309", "310", "311", "312", "313", "314", "315", "316", "317", "319", "321", "322", "323", "324", "325", "326", "350", "352", "353", "354", "355", "356", "357", "358", "360", "361", "362", "402", "404", "407", "408", "410", "411", "414", "416", "417", "418", "419", "420", "421", "422", "423", "424", "425", "426", "427", "429", "431", "432", "433", "434", "435", "436", "437", "440", "451", "452", "453", "455", "456", "460", "461", "462", "463", "464", "465", "466", "467", "468", "469", "470", "475", "480", "485", "486", "490", "491", "492", "494", "499", "500", "501", "503", "504", "511", "517", "521", "527", "536", "540", "561", "567", "568", "601", "602", "620", "622", "625", "650", "715", "805", "806", "810", "811", "812", "813", "814", "815", "816", "818", "819", "820", "821", "822", "823", "824", "826", "827", "828", "829", "830", "831", "832", "833", "834", "835", "836", "837", "838", "839", "840", "841", "842", "843", "844", "845", "846", "847", "848", "849", "850", "851", "852", "853", "854", "855", "856", "857", "858", "859", "860", "861", "862", "863", "864", "865", "866", "867", "868", "869", "870", "871", "872", "874", "875", "876", "877", "878", "879", "880", "881", "882", "883", "884", "885", "886", "887", "888", "889", "890", "891", "892", "893", "894", "895", "896", "901", "905", "920", "924", "925", "926", "928", "940", "941", "942", "943", "944", "945", "946", "947", "980", "990", "994", "995", "996", "997", "998", "999" });
         }
     }
     public class E_0146 : MapDataElement
@@ -573,6 +610,15 @@ namespace EdiEngine.Standards.X12_004010.DataElements
             MaxLength = 22;
         }
     }
+    public class E_0329 : MapDataElement
+    {
+        public E_0329()
+        {
+            DataType = DataType.AN;
+            MinLength = 4;
+            MaxLength = 9;
+        }
+    }
     public class E_0330 : MapDataElement
     {
         public E_0330()
@@ -833,6 +879,16 @@ namespace EdiEngine.Standards.X12_004010.DataElements
             MaxLength = 12;
         }
     }
+    public class E_0455 : MapDataElement
+    {
+        public E_0455()
+        {
+            DataType = DataType.ID;
+            MinLength = 1;
+            MaxLength = 2;
+            AllowedValues.AddRange(new[] { "T", "X" });
+        }
+    }
     public class E_0460 : MapDataElement
     {
         public E_0460()
@@ -879,6 +935,25 @@ namespace EdiEngine.Standards.X12_004010.DataElements
             MinLength = 1;
             MaxLength = 1;
             AllowedValues.AddRange(new[] { "C", "D" });
+        }
+    }
+    public class E_0479 : MapDataElement
+    {
+        public E_0479()
+        {
+            DataType = DataType.ID;
+            MinLength = 2;
+            MaxLength = 2;
+            AllowedValues.AddRange(new[] { "AA", "AB", "AD", "AF", "AG", "AH", "AI", "AK", "AL", "AN", "AO", "AR", "AS", "AT", "AW", "BC", "BE", "BF", "BL", "BS", "CA", "CB", "CC", "CD", "CE", "CF", "CG", "CH", "CI", "CJ", "CK", "CM", "CN", "CO", "CP", "CR", "CS", "CT", "CV", "D3", "D4", "D5", "DA", "DD", "DF", "DI", "DM", "DS", "DX", "EC", "ED", "EF", "EI", "ER", "ES", "EV", "EX", "FA", "FB", "FC", "FG", "FH", "FR", "FT", "GA", "GB", "GC", "GE", "GF", "GL", "GP", "GR", "GT", "HB", "HC", "HI", "HN", "HP", "HR", "HS", "IA", "IB", "IC", "ID", "IE", "IG", "II", "IJ", "IL", "IM", "IN", "IO", "IP", "IR", "IS", "KM", "LA", "LB", "LI", "LN", "LR", "LS", "LT", "MA", "MB", "MC", "MD", "ME", "MF", "MG", "MH", "MI", "MJ", "MK", "ML", "MM", "MN", "MO", "MP", "MQ", "MR", "MS", "MT", "MV", "MW", "MX", "MY", "NC", "NL", "NP", "NT", "OC", "OG", "OR", "OW", "PA", "PB", "PC", "PD", "PE", "PF", "PG", "PH", "PI", "PJ", "PK", "PL", "PM", "PN", "PO", "PQ", "PR", "PS", "PT", "PU", "PV", "PY", "PZ", "QA", "QG", "QM", "QO", "QW", "RA", "RB", "RC", "RD", "RE", "RF", "RG", "RH", "RI", "RJ", "RK", "RL", "RM", "RN", "RO", "RP", "RQ", "RR", "RS", "RT", "RU", "RV", "RW", "RX", "RY", "RZ", "SA", "SB", "SC", "SD", "SE", "SF", "SG", "SH", "SI", "SJ", "SL", "SM", "SN", "SO", "SP", "SQ", "SR", "SS", "ST", "SU", "SV", "SW", "TA", "TC", "TD", "TF", "TI", "TM", "TN", "TO", "TP", "TR", "TS", "TT", "TX", "UA", "UB", "UC", "UD", "UI", "UP", "UW", "VA", "VB", "VC", "VD", "VE", "VH", "VI", "VS", "WA", "WB", "WG", "WI", "WL", "WR", "WT" });
+        }
+    }
+    public class E_0480 : MapDataElement
+    {
+        public E_0480()
+        {
+            DataType = DataType.AN;
+            MinLength = 1;
+            MaxLength = 12;
         }
     }
     public class E_0488 : MapDataElement
@@ -1130,6 +1205,157 @@ namespace EdiEngine.Standards.X12_004010.DataElements
             AllowedValues.AddRange(new[] { "S" });
         }
     }
+    public class E_0I01 : MapDataElement
+    {
+        public E_0I01()
+        {
+            DataType = DataType.ID;
+            MinLength = 2;
+            MaxLength = 2;
+            AllowedValues.AddRange(new[] { "00", "01", "02", "03", "04", "05", "06" });
+        }
+    }
+    public class E_0I02 : MapDataElement
+    {
+        public E_0I02()
+        {
+            DataType = DataType.AN;
+            MinLength = 10;
+            MaxLength = 10;
+        }
+    }
+    public class E_0I03 : MapDataElement
+    {
+        public E_0I03()
+        {
+            DataType = DataType.ID;
+            MinLength = 2;
+            MaxLength = 2;
+            AllowedValues.AddRange(new[] { "00", "01" });
+        }
+    }
+    public class E_0I04 : MapDataElement
+    {
+        public E_0I04()
+        {
+            DataType = DataType.AN;
+            MinLength = 10;
+            MaxLength = 10;
+        }
+    }
+    public class E_0I05 : MapDataElement
+    {
+        public E_0I05()
+        {
+            DataType = DataType.ID;
+            MinLength = 2;
+            MaxLength = 2;
+            AllowedValues.AddRange(new[] { "01", "02", "03", "04", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "AM", "NR", "SN", "ZZ" });
+        }
+    }
+    public class E_0I06 : MapDataElement
+    {
+        public E_0I06()
+        {
+            DataType = DataType.AN;
+            MinLength = 15;
+            MaxLength = 15;
+        }
+    }
+    public class E_0I07 : MapDataElement
+    {
+        public E_0I07()
+        {
+            DataType = DataType.AN;
+            MinLength = 15;
+            MaxLength = 15;
+        }
+    }
+    public class E_0I08 : MapDataElement
+    {
+        public E_0I08()
+        {
+            DataType = DataType.AN;
+            MinLength = 6;
+            MaxLength = 6;
+        }
+    }
+    public class E_0I09 : MapDataElement
+    {
+        public E_0I09()
+        {
+            DataType = DataType.AN;
+            MinLength = 4;
+            MaxLength = 4;
+        }
+    }
+    public class E_0I10 : MapDataElement
+    {
+        public E_0I10()
+        {
+            DataType = DataType.ID;
+            MinLength = 1;
+            MaxLength = 1;
+            AllowedValues.AddRange(new[] { "U" });
+        }
+    }
+    public class E_0I11 : MapDataElement
+    {
+        public E_0I11()
+        {
+            DataType = DataType.ID;
+            MinLength = 5;
+            MaxLength = 5;
+            AllowedValues.AddRange(new[] { "00200", "00201", "00204", "00300", "00301", "00302", "00303", "00304", "00305", "00306", "00307", "00400", "00401", "00402" });
+        }
+    }
+    public class E_0I12 : MapDataElement
+    {
+        public E_0I12()
+        {
+            DataType = DataType.AN;
+            MinLength = 9;
+            MaxLength = 9;
+        }
+    }
+    public class E_0I13 : MapDataElement
+    {
+        public E_0I13()
+        {
+            DataType = DataType.ID;
+            MinLength = 1;
+            MaxLength = 1;
+            AllowedValues.AddRange(new[] { "0", "1" });
+        }
+    }
+    public class E_0I14 : MapDataElement
+    {
+        public E_0I14()
+        {
+            DataType = DataType.ID;
+            MinLength = 1;
+            MaxLength = 1;
+            AllowedValues.AddRange(new[] { "I", "P", "T" });
+        }
+    }
+    public class E_0I15 : MapDataElement
+    {
+        public E_0I15()
+        {
+            DataType = DataType.AN;
+            MinLength = 1;
+            MaxLength = 1;
+        }
+    }
+    public class E_0I16 : MapDataElement
+    {
+        public E_0I16()
+        {
+            DataType = DataType.AN;
+            MinLength = 1;
+            MaxLength = 5;
+        }
+    }
     public class E_1018 : MapDataElement
     {
         public E_1018()
@@ -1223,6 +1449,33 @@ namespace EdiEngine.Standards.X12_004010.DataElements
             DataType = DataType.AN;
             MinLength = 1;
             MaxLength = 5;
+        }
+    }
+    public class E_9830 : MapDataElement
+    {
+        public E_9830()
+        {
+            DataType = DataType.AN;
+            MinLength = 4;
+            MaxLength = 8;
+        }
+    }
+    public class E_G124 : MapDataElement
+    {
+        public E_G124()
+        {
+            DataType = DataType.AN;
+            MinLength = 2;
+            MaxLength = 15;
+        }
+    }
+    public class E_G142 : MapDataElement
+    {
+        public E_G142()
+        {
+            DataType = DataType.AN;
+            MinLength = 2;
+            MaxLength = 15;
         }
     }
 }

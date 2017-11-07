@@ -3,7 +3,7 @@
 
 namespace EdiEngine
 {
-    internal class AllowedEntitity
+    public class AllowedEntitity
     {
         public AllowedEntitity(MapBaseEntity entity, MapLoop loopContext)
         {
