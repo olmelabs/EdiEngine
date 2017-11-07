@@ -59,6 +59,7 @@
     <Compile Include="EdiDataWriter.cs" />
     <Compile Include="Runtime\EdiGroup.cs" />
     <Compile Include="Runtime\EdiInterchange.cs" />
+    <Compile Include="Runtime\EdiJsonEntity.cs" />
     <Compile Include="Runtime\EdiLoop.cs" />
     <Compile Include="Runtime\EdiSegment.cs" />
     <Compile Include="Runtime\EdiTrans.cs" />

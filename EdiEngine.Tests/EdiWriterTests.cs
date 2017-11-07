@@ -127,7 +127,7 @@ namespace EdiEngine.Tests
         {
             //get sample json
             string jsonTrans;
-            using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.transactionJson.json"))
+            using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.transactionJson.OK.json"))
             {
                 if (s == null)
                     throw new InvalidDataException("stream is null");
@@ -140,9 +140,8 @@ namespace EdiEngine.Tests
 
             //Read json and convert it to trans
             M_940 map = new M_940();
-            EdiTrans t = new EdiTrans(map);
-            JsonMapReader r = new JsonMapReader(map, t);
-            r.ReadToEnd(jsonTrans);
+            JsonMapReader r = new JsonMapReader(map);
+            EdiTrans t = r.ReadToEnd(jsonTrans);
 
             //create new batch
             EdiDataWriterSettings settings = new EdiDataWriterSettings(

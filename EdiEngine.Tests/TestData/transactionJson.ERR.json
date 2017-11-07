@@ -31,27 +31,19 @@
           "Type": "S",
           "Name": "N3",
           "Content": [ { "E": "ADDRESS" } ]
-        },
-        {
-          "Type": "S",
-          "Name": "N4",
-          "Content": [
-            { "E": "CITY" },
-            { "E": "CA" },
-            { "E": "00003" }
-          ]
         }
       ]
     },
-    //{
-    //  "Type": "S",
-    //  "Name": "N4",
-    //  "Content": [
-    //    { "E": "CITY" },
-    //    { "E": "CA" },
-    //    { "E": "00003" }
-    //  ]
-    //},
+    //N$ should be inside N1
+    {
+      "Type": "S",
+      "Name": "N4",
+      "Content": [
+        { "E": "CITY" },
+        { "E": "CA" },
+        { "E": "00003" }
+      ]
+    },
     {
       "Type": "L",
       "Name": "L_N1",
@@ -292,21 +284,22 @@
                 { "E": "PC" },
                 { "E": "JAN0100" }
               ]
+            },
+            //w76 should be on map level
+            {
+              "Type": "S",
+              "Name": "W76",
+              "Content": [
+                { "E": "56" },
+                { "E": "500" },
+                { "E": "LB" },
+                { "E": "24" },
+                { "E": "CF" }
+              ]
             }
           ]
         }
       ]
-    },
-    {
-      "Type": "S",
-      "Name": "W76",
-      "Content": [
-        { "E": "56" },
-        { "E": "500" },
-        { "E": "LB" },
-        { "E": "24" },
-        { "E": "CF" }
-      ]
     }
-  ],
+  ]
 }

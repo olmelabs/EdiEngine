@@ -4,126 +4,103 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
+using System.Reflection;
 
 namespace EdiEngine
 {
     public class JsonMapReader : MapReader
     {
-
         private EdiTrans _trans;
         private EdiLoop _currentLoopInstance;
         private MapLoop _currentLoopDef;
-        private StringBuilder _currentSegmentString;
         private MapBaseEntity _currentEntityDef;
 
-        public JsonMapReader(MapLoop map, EdiTrans currentTrans)
+        public JsonMapReader(MapLoop map)
         {
-            _trans = currentTrans;
-            _currentLoopInstance = currentTrans;
-            _currentLoopInstance.Definition = map;
             _currentLoopDef = map;
         }
 
-        public EdiTrans ReadToEnd(string jsonTrans)
+        public EdiTrans ReadToEnd(string rawJson)
         {
             _trans = new EdiTrans(_currentLoopDef);
 
-            ReadJson(jsonTrans);
+            _currentLoopInstance = _trans;
+            _currentLoopInstance.Definition = _currentLoopDef;
+
+            EdiJsonEntity jsonTree = ReadJsonTree(rawJson);
+
+            ParseTree(jsonTree);
 
             return _trans;
         }
 
-        private void ReadJson(string jsonTrans)
+        private void ParseTree(EdiJsonEntity jsonTreeNode)
         {
-            JsonTextReader reader = new JsonTextReader(new StringReader(jsonTrans));
-
-            TokenContextType tokenContext = TokenContextType.None;
-            int elementProcessing = 0;
-            bool expectingName = false;
-
-            while (reader.Read())
+            foreach (EdiJsonEntity ent in jsonTreeNode.Children)
             {
-                if (reader.TokenType == JsonToken.PropertyName)
+                switch (ent.EntityType)
                 {
-                    string val = reader.Value.ToString();
-                    switch (val)
-                    {
-                        case "E":
-                            tokenContext = TokenContextType.DataElement;
-                            break;
+                    case TokenContextType.Loop:
+                        SetMapContext(ent.Name);
+                        ParseTree(ent);
+                        break;
 
-                        case "Name":
-                            expectingName = true;
-                            break;
+                    case TokenContextType.Segment:
+                        SetMapContext(ent.Name);
 
-                        case "Type":
-                            tokenContext = TokenContextType.EntityType;
-                            break;
-                   }
-                }
-                else if (reader.TokenType == JsonToken.String)
-                {
-                    string val = reader.Value.ToString();
-                    if (expectingName && (tokenContext == TokenContextType.Segment || tokenContext == TokenContextType.Loop))
-                    {
-                        SetMapContext(val);
-                        expectingName = false;
-                    }
+                        if (ent.Parent != null && !ent.Parent.Name.Equals(_currentLoopDef.Name))
+                        {
+                            ValidationError err = new ValidationError()
+                            {
+                                Message = $"Unexpected Segment at {ent.Parent.Name} > {ent.Name}."
+                            };
+                            _trans.ValidationErrors.Add(err);
+                        }
 
-                    if (tokenContext == TokenContextType.Segment || tokenContext == TokenContextType.DataElement)
-                    {
-                        ProcessToken(tokenContext, val);
-                    }
+                        List<string> segParts = new List<string> {ent.Name};
+                        segParts.AddRange(ent.Children.Select(el => el.E));
 
-                    if (tokenContext == TokenContextType.EntityType)
-                    {
-                        if (val == "S")
-                            tokenContext = TokenContextType.Segment;
-                        if (val == "L")
-                            tokenContext = TokenContextType.Loop;
-                    }
-                }
-                //find end Segment after scanning all elements
-                else if (reader.TokenType == JsonToken.StartObject &&
-                         (tokenContext == TokenContextType.Segment || tokenContext == TokenContextType.DataElement))
-                {
-                    //found StartObject for element
-                    elementProcessing++;
-                }
-                else if (reader.TokenType == JsonToken.EndObject && tokenContext == TokenContextType.DataElement)
-                {
-                    //found EndObject for element or Segment
-                    elementProcessing--;
-                    if (elementProcessing < 0) //it is end segment token
-                    {
-                        string segContent = _currentSegmentString.ToString();
-
-                        _currentLoopInstance.Content.Add(ProcessSegment(_currentEntityDef, segContent.Split(new[] { '*' }),
-                            -1, _trans));
-
-                        _currentSegmentString = null;
-                        tokenContext = TokenContextType.None;
-                        elementProcessing = 0;
-                    }
+                        EdiSegment seg = ProcessSegment(_currentEntityDef, segParts.ToArray(), -1, _trans);
+                        _currentLoopInstance.Content.Add(seg);
+                        break;
                 }
             }
         }
 
-        private void ProcessToken(TokenContextType token, string val)
+        private EdiJsonEntity ReadJsonTree(string rawJson)
         {
-            switch (token)
+            JsonTextReader reader = new JsonTextReader(new StringReader(rawJson));
+
+            EdiJsonEntity jsonContext = new EdiJsonEntity(null);
+            PropertyInfo jsonProp = null;
+
+            while (reader.Read())
             {
-                case TokenContextType.Segment:
-                    _currentSegmentString = new StringBuilder();
-                    _currentSegmentString.Append(val);
-                    break;
+                string val;
+                switch (reader.TokenType)
+                {
+                    case JsonToken.StartObject:
+                        var ent = new EdiJsonEntity(jsonContext);
+                        jsonContext?.Children.Add(ent);
+                        jsonContext = ent;
+                        break;
 
-                case TokenContextType.DataElement:
-                    _currentSegmentString.Append($"*{val}");
-                    break;
+                    case JsonToken.PropertyName:
+                        val = reader.Value.ToString();
+                        jsonProp = typeof(EdiJsonEntity).GetProperty(val);
+                        break;
+
+                    case JsonToken.String:
+                        val = reader.Value.ToString();
+                        jsonProp?.SetValue(jsonContext, val);
+                        break;
+
+                    case JsonToken.EndObject:
+                        jsonContext = jsonContext?.Parent;
+                        break;
+                }
             }
-
+            return jsonContext?.Children[0];
         }
 
         private void SetMapContext(string name)
@@ -176,15 +153,6 @@ namespace EdiEngine
                 _currentLoopInstance.Content.Add(newLoop);
                 _currentLoopInstance = newLoop;
             }
-        }
-
-        private enum TokenContextType
-        {
-            EntityType,
-            Loop,
-            Segment,
-            DataElement,
-            None
         }
     }
 }

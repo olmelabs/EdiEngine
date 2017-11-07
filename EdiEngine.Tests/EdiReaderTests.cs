@@ -9,10 +9,10 @@ using Newtonsoft.Json;
 namespace EdiEngine.Tests
 {
     [TestClass]
-    public class EdiParserTests
+    public class EdiReaderTests
     {
         [TestMethod]
-        public void EdiParser_ParseGenericEdi940()
+        public void EdiReader_ParseGenericEdi940()
         {
             using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.940.edi"))
             {
@@ -61,7 +61,7 @@ namespace EdiEngine.Tests
         }
 
         [TestMethod]
-        public void EdiParser_ParseNestedLoopsEdi940()
+        public void EdiReader_ParseNestedLoopsEdi940()
         {
             using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.940_2.edi"))
             {
@@ -94,7 +94,7 @@ namespace EdiEngine.Tests
         }
 
         [TestMethod]
-        public void EdiParser_ParseFailedSegCount()
+        public void EdiReader_ParseFailedSegCount()
         {
             using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.940_Failed_SE01.edi"))
             {
@@ -110,7 +110,7 @@ namespace EdiEngine.Tests
 
         [TestMethod]
         [ExpectedException(typeof(EdiParsingException))]
-        public void EdiParser_ParseNonEDI()
+        public void EdiReader_ParseNonEDI()
         {
             using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.NonEdi.edi"))
             {
@@ -121,7 +121,7 @@ namespace EdiEngine.Tests
         }
 
         [TestMethod]
-        public void EdiParser_ParseMultipleInterchangesAndGroups()
+        public void EdiReader_ParseMultipleInterchangesAndGroups()
         {
             using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.MultipleInterchangesAndGroups.edi"))
             {
@@ -141,7 +141,7 @@ namespace EdiEngine.Tests
         }
 
         [TestMethod]
-        public void EdiParser_WrongGroupsAndTranCount()
+        public void EdiReader_WrongGroupsAndTranCount()
         {
             using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.WrongGroupsAndTranCount.edi"))
             {
@@ -155,7 +155,7 @@ namespace EdiEngine.Tests
         }
 
         [TestMethod]
-        public void EdiParser_ControlNumbersMismatcht()
+        public void EdiReader_ControlNumbersMismatcht()
         {
             using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.ControlNumbersMismatch.edi"))
             {
@@ -170,7 +170,7 @@ namespace EdiEngine.Tests
         }
 
         [TestMethod]
-        public void EdiParser_JsonSerializationTest()
+        public void EdiReader_JsonSerializationTest()
         {
             using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.940.edi"))
             {
@@ -185,7 +185,7 @@ namespace EdiEngine.Tests
         }
 
         [TestMethod]
-        public void EdiParser_XmlSerializationTest()
+        public void EdiReader_XmlSerializationTest()
         {
             //TODO: Xml Serialize Deserialize
             //XmlSerializer will not work here because EDI types are resolved via reflection.

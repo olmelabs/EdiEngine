@@ -40,7 +40,6 @@ namespace EdiEngine
             EdiGroup currentGroup = null;
             EdiTrans currentTrans = null;
             EdiMapReader mapReader = null;
-            MapSegment segDef;
 
             int tranSegCount = 0;
             int groupsCount = 0;
@@ -49,6 +48,7 @@ namespace EdiEngine
             foreach (string seg in segments)
             {
                 string[] elements = seg.Split(new [] { _elementSeparator }, StringSplitOptions.None);
+                MapSegment segDef;
                 switch (elements[0])
                 {
                     case "ISA":
@@ -179,7 +179,7 @@ namespace EdiEngine
             }
         }
 
-        public MapSegment GetSegDefinition(string segName, string version, string fallBackVersion)
+        private MapSegment GetSegDefinition(string segName, string version, string fallBackVersion)
         {
             string asmName = $"EdiEngine.Standards.X12_{version}";
             string typeName = $"{asmName}.Segments.{segName}";

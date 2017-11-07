@@ -8,7 +8,6 @@ namespace EdiEngine
 {
     public abstract class MapReader
     {
-
         protected List<AllowedEntitity> GetNextAllowedEntities(MapLoop currentLoop)
         {
             List<AllowedEntitity> res = new List<AllowedEntitity>();
@@ -39,7 +38,6 @@ namespace EdiEngine
             }
             return res;
         }
-
 
         public static EdiSegment ProcessSegment(MapBaseEntity definition, string[] content, int rowPos, IValidatedEntity validationScope)
         {
@@ -84,6 +82,4 @@ namespace EdiEngine
             return seg;
         }
     }
-
-
 }
