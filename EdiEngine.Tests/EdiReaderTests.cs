@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.IO;
+using System.Xml;
 using EdiEngine.Runtime;
 using EdiEngine.Standards.X12_004010.Loops.M_940;
 using EdiEngine.Standards.X12_004010.Segments;
@@ -112,7 +113,7 @@ namespace EdiEngine.Tests
             using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.NonEdi.edi"))
             {
                 EdiDataReader r = new EdiDataReader();
-                EdiBatch b = r.FromStream(s);
+                r.FromStream(s);
 
             }
         }
@@ -188,8 +189,16 @@ namespace EdiEngine.Tests
                 EdiDataReader r = new EdiDataReader();
                 EdiBatch b = r.FromStream(s);
 
-                //fail here to remind me to add serialization
-                //Assert.AreEqual(1, 2);
+                XmlDataWriter w = new XmlDataWriter();
+                string data = w.WriteToString(b);
+
+                //ensure there is a valid xml
+                XmlDocument xdoc = new XmlDocument();
+                xdoc.LoadXml(data);
+
+                int? segCount = xdoc.SelectNodes("//EdiSegment")?.Count;
+
+                Assert.AreEqual(33, segCount);
             }
         }
     }

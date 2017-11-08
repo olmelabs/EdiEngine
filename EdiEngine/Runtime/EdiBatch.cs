@@ -7,12 +7,12 @@ namespace EdiEngine.Runtime
     {
         public EdiBatch()
         {
+            Date = DateTime.Now;
             Interchanges = new List<EdiInterchange>();
         }
 
         public DateTime Date { get; set; }
-        public string FileName { get; set; }
-        public long FileSize { get; set; }
+
         public List<EdiInterchange> Interchanges { get; set; }
     }
 }

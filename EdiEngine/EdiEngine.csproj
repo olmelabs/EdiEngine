@@ -72,6 +72,10 @@
     <Compile Include="Runtime\SE.cs" />
     <Compile Include="Runtime\ST.cs" />
     <Compile Include="Runtime\ValidationError.cs" />
+    <Compile Include="Xml\XmlElementAttribute.cs" />
+    <Compile Include="Xml\XmlIgnoreAttribute.cs" />
+    <Compile Include="XmlDataWriter.cs" />
+    <Compile Include="Xml\XmlPropertyAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

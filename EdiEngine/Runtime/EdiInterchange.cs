@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
+using EdiEngine.Xml;
 
 namespace EdiEngine.Runtime
 {
@@ -22,6 +23,7 @@ namespace EdiEngine.Runtime
         public List<EdiGroup> Groups { get; set; }
 
         [JsonProperty(Order = 100)]
+        [XmlProperty(Order = 100)]
         public virtual List<ValidationError> ValidationErrors { get; }
     }
 }
