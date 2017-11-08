@@ -4,7 +4,7 @@ Read, Write and Validate X12 EDI files with simple EDI Parser written on C#.
 ## Serialization \ Deserialization
 Supports EDI to JSON and JSON to EDI conversion (uses Newtonsoft Json)
 ### Reading EDI and Writing JSON example
-```
+```cs
 string edi =
 @"ISA*01*0000000000*01*0000000000*ZZ*ABCDEFGHIJKLMNO*ZZ*123456789012345*101127*1719*U*00400*000003438*0*P*>
 GS*OW*7705551212*3111350000*20000128*0557*3317*T*004010
@@ -42,7 +42,7 @@ JsonMapReader r = new JsonMapReader(map);
 EdiTrans t = r.ReadToEnd(json);
 ```
 ### Writing complete EDI Envelope with one message
-```
+```cs
 M_940 map = new M_940();
 EdiTrans t = new EdiTrans(map);
 
@@ -84,7 +84,7 @@ EdiDataWriter w = new EdiDataWriter(settings);
 string data = w.WriteToString(b);
 ```
 ### EDI X12 Map Example
-```
+```cs
 //Map
 public M_940() : base(null)
 {
