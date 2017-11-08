@@ -17,8 +17,7 @@ namespace EdiEngine.Tests
             using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.940.edi"))
             {
                 EdiDataReader r = new EdiDataReader();
-                EdiBatch b = new EdiBatch();
-                r.FromStream(s, b);
+                EdiBatch b = r.FromStream(s);
 
                 Assert.AreEqual(1, b.Interchanges.Count);
                 Assert.AreEqual(1, b.Interchanges[0].Groups.Count);
@@ -66,8 +65,7 @@ namespace EdiEngine.Tests
             using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.940_2.edi"))
             {
                 EdiDataReader r = new EdiDataReader();
-                EdiBatch b = new EdiBatch();
-                r.FromStream(s, b);
+                EdiBatch b = r.FromStream(s);
 
                 EdiTrans t = b.Interchanges[0].Groups[0].Transactions[0];
 
@@ -99,8 +97,7 @@ namespace EdiEngine.Tests
             using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.940_Failed_SE01.edi"))
             {
                 EdiDataReader r = new EdiDataReader();
-                EdiBatch b = new EdiBatch();
-                r.FromStream(s, b);
+                EdiBatch b = r.FromStream(s);
 
                 EdiTrans t = b.Interchanges[0].Groups[0].Transactions[0];
 
@@ -115,8 +112,8 @@ namespace EdiEngine.Tests
             using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.NonEdi.edi"))
             {
                 EdiDataReader r = new EdiDataReader();
-                EdiBatch b = new EdiBatch();
-                r.FromStream(s, b);
+                EdiBatch b = r.FromStream(s);
+
             }
         }
 
@@ -126,9 +123,8 @@ namespace EdiEngine.Tests
             using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.MultipleInterchangesAndGroups.edi"))
             {
                 EdiDataReader r = new EdiDataReader();
-                EdiBatch b = new EdiBatch();
-                r.FromStream(s, b);
-
+                EdiBatch b = r.FromStream(s);
+                
                 Assert.AreEqual(2, b.Interchanges.Count);
                 Assert.AreEqual(2, b.Interchanges[0].Groups.Count);
 
@@ -146,8 +142,7 @@ namespace EdiEngine.Tests
             using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.WrongGroupsAndTranCount.edi"))
             {
                 EdiDataReader r = new EdiDataReader();
-                EdiBatch b = new EdiBatch();
-                r.FromStream(s, b);
+                EdiBatch b = r.FromStream(s);
 
                 Assert.AreEqual("Expected 2 groups. Found 1. Interchange # 3438.", b.Interchanges[0].ValidationErrors.Last().Message);
                 Assert.AreEqual("Expected 2 transactions. Found 1. Group # 3314.", b.Interchanges[0].Groups[0].ValidationErrors.Last().Message);
@@ -160,8 +155,7 @@ namespace EdiEngine.Tests
             using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.ControlNumbersMismatch.edi"))
             {
                 EdiDataReader r = new EdiDataReader();
-                EdiBatch b = new EdiBatch();
-                r.FromStream(s, b);
+                EdiBatch b = r.FromStream(s);
 
                 Assert.AreEqual("Control numbers do not match. ISA 000003438. IEA 000003439.", b.Interchanges[0].ValidationErrors.Last().Message);
                 Assert.AreEqual("Control numbers do not match. GS 3314. GE 3315.", b.Interchanges[0].Groups[0].ValidationErrors.Last().Message);
@@ -175,8 +169,7 @@ namespace EdiEngine.Tests
             using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.940.edi"))
             {
                 EdiDataReader r = new EdiDataReader();
-                EdiBatch b = new EdiBatch();
-                r.FromStream(s, b);
+                EdiBatch b = r.FromStream(s);
 
                 //check no exception
                 JsonConvert.SerializeObject(b);
@@ -193,8 +186,7 @@ namespace EdiEngine.Tests
             using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.940.edi"))
             {
                 EdiDataReader r = new EdiDataReader();
-                EdiBatch b = new EdiBatch();
-                r.FromStream(s, b);
+                EdiBatch b = r.FromStream(s);
 
                 //fail here to remind me to add serialization
                 //Assert.AreEqual(1, 2);

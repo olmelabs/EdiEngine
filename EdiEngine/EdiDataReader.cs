@@ -12,7 +12,7 @@ namespace EdiEngine
         private string _elementSeparator;
         private string _segmentSeparator;
 
-        public void FromStream(Stream fileContent, EdiBatch batch)
+        public EdiBatch FromStream(Stream fileContent)
         {
             string stringContent;
             using (StreamReader sr = new StreamReader(fileContent))
@@ -20,10 +20,10 @@ namespace EdiEngine
                 stringContent = sr.ReadToEnd();
             }
 
-            FromString(stringContent, batch);
+            return FromString(stringContent);
         }
 
-        public void FromString(string fileContent, EdiBatch batch)
+        public EdiBatch FromString(string fileContent)
         {
             if (string.IsNullOrWhiteSpace(fileContent))
                 throw new EdiParsingException("Empty File");
@@ -35,6 +35,8 @@ namespace EdiEngine
             _segmentSeparator = fileContent.Substring(105, fileContent.IndexOf($"GS{_elementSeparator}", StringComparison.Ordinal) - 105);
 
             string[] segments = fileContent.Split(new [] { _segmentSeparator }, StringSplitOptions.RemoveEmptyEntries);
+
+            EdiBatch batch = new EdiBatch();
 
             EdiInterchange currentInterchange = null;
             EdiGroup currentGroup = null;
@@ -177,6 +179,7 @@ namespace EdiEngine
                         break;
                 }
             }
+            return batch;
         }
 
         private MapSegment GetSegDefinition(string segName, string version, string fallBackVersion)

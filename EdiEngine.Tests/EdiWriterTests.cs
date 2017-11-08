@@ -109,9 +109,8 @@ namespace EdiEngine.Tests
 
             //read produced results and check for errors.
             EdiDataReader r = new EdiDataReader();
-            EdiBatch batch = new EdiBatch();
-            r.FromString(data, batch);
-
+            EdiBatch batch = r.FromString(data);
+            
             Assert.AreEqual(1, batch.Interchanges.Count);
             Assert.AreEqual(0, batch.Interchanges[0].ValidationErrors.Count);
 
@@ -166,9 +165,8 @@ namespace EdiEngine.Tests
 
             //Read produced results and check for errors and correct parsing
             EdiDataReader reader = new EdiDataReader();
-            EdiBatch batch = new EdiBatch();
-            reader.FromString(data, batch);
-
+            EdiBatch batch = reader.FromString(data);
+            
             Assert.AreEqual(1, batch.Interchanges.Count);
             Assert.AreEqual(0, batch.Interchanges[0].ValidationErrors.Count);
 
