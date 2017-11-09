@@ -1,8 +1,13 @@
 # EdiEngine
 Simple .NET EDI Reader, Writer and Validator.
 Read, Write and Validate X12 EDI files with simple EDI Parser written on C#.
-## Serialization \ Deserialization
 Supports EDI to JSON and JSON to EDI conversion (uses Newtonsoft Json)
+
+### Installation
+Install Nuget Package
+```
+Install-Package xEdi.EdiEngine
+```
 ### Reading EDI and Writing JSON example
 ```cs
 string edi =
