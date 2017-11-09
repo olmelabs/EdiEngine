@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>xEdi.EdiEngine</id>
+    <version>1.0.0</version>
+    <authors>olmelabs</authors>
+    <owners>olmelabs</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
+    <projectUrl>https://github.com/olmelabs/EdiEngine</projectUrl>
+    <!-- <iconUrl>http://github.com/contoso/UsefulStuff/nuget_icon.png</iconUrl> -->
+    <releaseNotes>Initial Release</releaseNotes>
+    <description>Simple .NET EDI X12 Reader, Writer and Validator. EDI JSON and XML Serialization and Deserialization.</description>
+    <tags>.NET EDI X12 JSON XML EdiReader EdiWriter EdiParser</tags>
+    <repository type="git" url="https://github.com/olmelabs/EdiEngine" />
+    <dependencies>
+      <group targetFramework="net461">
+        <dependency id="Newtonsoft.Json" version="10.0.3" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\EdiEngine\bin\Release\EdiEngine*.* " target="lib\net461" />
+  </files>
+</package>
