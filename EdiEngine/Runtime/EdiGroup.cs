@@ -13,15 +13,19 @@ namespace EdiEngine.Runtime
             ValidationErrors = new List<ValidationError>();
         }
 
-        public EdiSegment GS { get; set; }
-
-        public EdiSegment GE { get; set; }
-
         /// <summary>
         /// GS01
         /// </summary>
+        [XmlProperty(Order = 1)]
         public string FunctionalCode { get; }
 
+        [XmlProperty(Order = 2)]
+        public EdiSegment GS { get; set; }
+
+        [XmlProperty(Order = 3)]
+        public EdiSegment GE { get; set; }
+
+        [XmlProperty(Order = 4)]
         public List<EdiTrans> Transactions { get; set; }
 
         [JsonProperty(Order = 100)]

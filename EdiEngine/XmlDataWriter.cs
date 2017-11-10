@@ -101,7 +101,9 @@ namespace EdiEngine
                 }
                 else
                 {
-                    w.WriteElementString(elementName, prop.GetValue(obj).ToString());
+                    var val = prop.GetValue(obj);
+                    if (val != null)
+                        w.WriteElementString(elementName, val.ToString());
                 }
             }
 
