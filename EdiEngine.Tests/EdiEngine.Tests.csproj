@@ -102,6 +102,14 @@
     <EmbeddedResource Include="TestData\WrongGroupsAndTranCount.edi" />
     <EmbeddedResource Include="TestData\transactionJson.OK.json" />
     <EmbeddedResource Include="TestData\transactionJson.ERR.json" />
+    <EmbeddedResource Include="TestData\transactionXml.OK.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="TestData\transactionXml.ERR.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

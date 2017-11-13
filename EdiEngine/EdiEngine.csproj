@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="AllowedEntitity.cs" />
     <Compile Include="EdiDataWriterSettings.cs" />
+    <Compile Include="InetermediateFormatReader.cs" />
     <Compile Include="JsonMapReader.cs" />
     <Compile Include="EdiParsingException.cs" />
     <Compile Include="EdiDataReader.cs" />
@@ -59,7 +60,7 @@
     <Compile Include="EdiDataWriter.cs" />
     <Compile Include="Runtime\EdiGroup.cs" />
     <Compile Include="Runtime\EdiInterchange.cs" />
-    <Compile Include="Runtime\EdiJsonEntity.cs" />
+    <Compile Include="Runtime\EdiIntermediateEntity.cs" />
     <Compile Include="Runtime\EdiLoop.cs" />
     <Compile Include="Runtime\EdiSegment.cs" />
     <Compile Include="Runtime\EdiTrans.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Runtime\SE.cs" />
     <Compile Include="Runtime\ST.cs" />
     <Compile Include="Runtime\ValidationError.cs" />
+    <Compile Include="XmlMapReader.cs" />
     <Compile Include="Xml\XmlElementAttribute.cs" />
     <Compile Include="Xml\XmlIgnoreAttribute.cs" />
     <Compile Include="XmlDataWriter.cs" />

@@ -3,20 +3,20 @@ using System.IO;
 
 namespace EdiEngine.Runtime
 {
-    public class EdiJsonEntity
+    public class EdiIntermediateEntity
     {
-        public EdiJsonEntity(EdiJsonEntity parent)
+        public EdiIntermediateEntity(EdiIntermediateEntity parent)
         {
             Parent = parent;
-            Children = new List<EdiJsonEntity>();
+            Children = new List<EdiIntermediateEntity>();
         }
 
         public string Type { get; set; }
         public string Name { get; set; }
         public string E { get; set; }
 
-        public EdiJsonEntity Parent { get; private set; }
-        public List<EdiJsonEntity> Children { get; }
+        public EdiIntermediateEntity Parent { get; private set; }
+        public List<EdiIntermediateEntity> Children { get; }
 
         public TokenContextType EntityType
         {

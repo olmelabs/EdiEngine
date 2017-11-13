@@ -4,6 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.IO;
 using System.Xml;
 using System.Xml.Schema;
+using EdiEngine.Standards.X12_004010;
 
 namespace EdiEngine.Tests
 {
@@ -54,6 +55,32 @@ namespace EdiEngine.Tests
         {
             //fail test in case validation errors
             Assert.AreEqual(0, 1);
+        }
+
+        [TestMethod]
+        public void XmlReadWrite_DeserializeXmlOK()
+        {
+            string xml = TestUtils.ReadResourceStream("EdiEngine.Tests.TestData.transactionXml.OK.xml");
+
+            M_940 map = new M_940();
+            XmlMapReader r = new XmlMapReader(map);
+
+            EdiTrans t = r.ReadToEnd(xml);
+
+            Assert.AreEqual(0, t.ValidationErrors.Count);
+        }
+
+        [TestMethod]
+        public void XmlReadWrite_DeserializeXmlWithValidationErrors()
+        {
+            string xml = TestUtils.ReadResourceStream("EdiEngine.Tests.TestData.transactionXml.ERR.xml");
+
+            M_940 map = new M_940();
+            XmlMapReader r = new XmlMapReader(map);
+
+            EdiTrans t = r.ReadToEnd(xml);
+
+            Assert.AreEqual(2, t.ValidationErrors.Count);
         }
     }
 }
