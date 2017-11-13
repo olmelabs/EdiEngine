@@ -4,7 +4,6 @@ using System.IO;
 using EdiEngine.Runtime;
 using EdiEngine.Standards.X12_004010.Loops.M_940;
 using EdiEngine.Standards.X12_004010.Segments;
-using Newtonsoft.Json;
 
 namespace EdiEngine.Tests
 {
@@ -112,7 +111,7 @@ namespace EdiEngine.Tests
             using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.NonEdi.edi"))
             {
                 EdiDataReader r = new EdiDataReader();
-                EdiBatch b = r.FromStream(s);
+                r.FromStream(s);
 
             }
         }
@@ -160,36 +159,6 @@ namespace EdiEngine.Tests
                 Assert.AreEqual("Control numbers do not match. ISA 000003438. IEA 000003439.", b.Interchanges[0].ValidationErrors.Last().Message);
                 Assert.AreEqual("Control numbers do not match. GS 3314. GE 3315.", b.Interchanges[0].Groups[0].ValidationErrors.Last().Message);
                 Assert.AreEqual("Control numbers do not match. ST 0001. SE 0002.", b.Interchanges[0].Groups[0].Transactions[0].ValidationErrors.Last().Message);
-            }
-        }
-
-        [TestMethod]
-        public void EdiReader_JsonSerializationTest()
-        {
-            using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.940.edi"))
-            {
-                EdiDataReader r = new EdiDataReader();
-                EdiBatch b = r.FromStream(s);
-
-                //check no exception
-                JsonConvert.SerializeObject(b);
-                JsonConvert.SerializeObject(b.Interchanges[0].Groups[0].Transactions[0]);
-            }
-        }
-
-        [TestMethod]
-        public void EdiReader_XmlSerializationTest()
-        {
-            //TODO: Xml Serialize Deserialize
-            //XmlSerializer will not work here because EDI types are resolved via reflection.
-            //Can't statically add known types.
-            using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.940.edi"))
-            {
-                EdiDataReader r = new EdiDataReader();
-                EdiBatch b = r.FromStream(s);
-
-                //fail here to remind me to add serialization
-                //Assert.AreEqual(1, 2);
             }
         }
     }

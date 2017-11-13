@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
+using EdiEngine.Xml;
 
 namespace EdiEngine.Runtime
 {
@@ -13,9 +14,11 @@ namespace EdiEngine.Runtime
         }
 
         [JsonProperty(Order = 0)]
+        [XmlIgnore]
         public override string Type => "S";
 
         [JsonProperty(Order = 10)]
+        [XmlProperty(Order = 10)]
         public List<EdiDataElement> Content { get; }
 
         public override string ToString()

@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("EdiEngine.Common")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("xEdi.EdiEngine.Common")]
+[assembly: AssemblyDescription("https://github.com/olmelabs/EdiEngine")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("EdiEngine.Common")]
+[assembly: AssemblyCompany("olmelabs")]
+[assembly: AssemblyProduct("xEdi.EdiEngine.Common")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
