@@ -13,7 +13,6 @@ namespace EdiEngine.Tests
     [TestClass]
     public class EdiWriterTests
     {
-
         [TestMethod]
         public void EdiWriter_CreateEdi940()
         {
@@ -122,7 +121,7 @@ namespace EdiEngine.Tests
         }
 
         [TestMethod]
-        public void EdiWriter_DeserializeJson()
+        public void EdiWriter_FromJson()
         {
             //get sample json
             string jsonTrans;

@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="EdiBatch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Date" type="xs:string"></xs:element>
+        <xs:element name="Interchanges">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="EdiInterchange" maxOccurs="unbounded" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element ref="ValidationErrors" minOccurs="0" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="EdiInterchange">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="SegmentSeparator" type="xs:string"></xs:element>
+        <xs:element name="ElementSeparator" type="xs:string"></xs:element>
+        <xs:element ref ="EdiSegment" maxOccurs="2"/>
+        <xs:element name ="Groups">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="EdiGroup" maxOccurs="unbounded" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element ref="ValidationErrors" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="EdiGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="FunctionalCode" type="xs:string"></xs:element>
+        <xs:element ref ="EdiSegment" maxOccurs="2"/>
+        <xs:element name ="Transactions">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="EdiTrans" maxOccurs="unbounded" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element ref="ValidationErrors" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="EdiTrans">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Name" type="xs:string" maxOccurs="1"></xs:element>
+        <xs:element ref ="EdiSegment" maxOccurs="2"/>
+        <xs:element name="Content" maxOccurs="1" type="EdiEntity"/>
+        <xs:element ref="ValidationErrors" minOccurs="0" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="EdiLoop">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Name" type="xs:string" maxOccurs="1"></xs:element>
+        <xs:element name="Content" maxOccurs="unbounded" type="EdiEntity"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="EdiSegment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Name" type="xs:string" maxOccurs="1"></xs:element>
+        <xs:element name="Content" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="E" minOccurs="1" maxOccurs="unbounded" type="xs:string"></xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="ValidationErrors">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ValidationError" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SegmentPos" type="xs:int" minOccurs="0"></xs:element>
+              <xs:element name="SegmentName" type="xs:string" minOccurs="0"></xs:element>
+              <xs:element name="ElementPos" type="xs:int" minOccurs="0"></xs:element>
+              <xs:element name="Message" type="xs:string"></xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="EdiEntity">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element ref="EdiLoop" maxOccurs="unbounded" minOccurs="0"/>
+        <xs:element ref="EdiSegment"  maxOccurs="unbounded" minOccurs="0"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

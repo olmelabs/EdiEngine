@@ -1,6 +1,7 @@
 ﻿using EdiEngine.Common.Definitions;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EdiEngine.Xml;
 
 namespace EdiEngine.Runtime
 {
@@ -17,10 +18,13 @@ namespace EdiEngine.Runtime
         }
 
         [JsonProperty(Order = 0)]
+        [XmlIgnore]
         public override string Type => "M";
 
+        [XmlProperty(Order = 2)]
         public EdiSegment ST { get; set; }
 
+        [XmlProperty(Order = 3)]
         public EdiSegment SE { get; set; }
 
         [JsonProperty(Order = 100)]

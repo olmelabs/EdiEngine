@@ -5,7 +5,7 @@ using EdiEngine.Common.Definitions;
 
 namespace EdiEngine.Tests
 {
-    public class E_ANY : MapDataElement { }
+    public class EAny : MapDataElement { }
 
     [TestClass]
     public class DataElementValidationTests
@@ -14,7 +14,7 @@ namespace EdiEngine.Tests
         [TestMethod]
         public void Validation_RequiredMinMaxLen()
         {
-            E_ANY def = new E_ANY()
+            EAny def = new EAny()
             {
                 DataType = DataType.AN,
                 ReqDes = RequirementDesignator.Mandatory,
@@ -38,7 +38,7 @@ namespace EdiEngine.Tests
         [TestMethod]
         public void Validation_OptionalMinMaxLen()
         {
-            E_ANY def = new E_ANY()
+            EAny def = new EAny()
             {
                 DataType = DataType.AN,
                 ReqDes = RequirementDesignator.Optional,
@@ -62,7 +62,7 @@ namespace EdiEngine.Tests
         [TestMethod]
         public void Validation_OptionalDateTimeTest()
         {
-            E_ANY def = new E_ANY()
+            EAny def = new EAny()
             {
                 DataType = DataType.DT,
                 ReqDes = RequirementDesignator.Optional,
@@ -70,7 +70,7 @@ namespace EdiEngine.Tests
                 MaxLength = 6,
             };
 
-            E_ANY def2 = new E_ANY()
+            EAny def2 = new EAny()
             {
                 DataType = DataType.DT,
                 ReqDes = RequirementDesignator.Optional,
@@ -78,7 +78,7 @@ namespace EdiEngine.Tests
                 MaxLength = 8,
             };
 
-            E_ANY def3 = new E_ANY()
+            EAny def3 = new EAny()
             {
                 DataType = DataType.TM,
                 ReqDes = RequirementDesignator.Optional,
@@ -117,7 +117,7 @@ namespace EdiEngine.Tests
         [TestMethod]
         public void Validation_NumericTest()
         {
-            E_ANY def = new E_ANY()
+            EAny def = new EAny()
             {
                 DataType = DataType.N0,
                 ReqDes = RequirementDesignator.Optional,
@@ -125,7 +125,7 @@ namespace EdiEngine.Tests
                 MaxLength = 6,
             };
 
-            E_ANY def2 = new E_ANY()
+            EAny def2 = new EAny()
             {
                 DataType = DataType.N1,
                 ReqDes = RequirementDesignator.Optional,
@@ -133,7 +133,7 @@ namespace EdiEngine.Tests
                 MaxLength = 6,
             };
 
-            E_ANY def3 = new E_ANY()
+            EAny def3 = new EAny()
             {
                 DataType = DataType.R,
                 ReqDes = RequirementDesignator.Optional,
@@ -172,7 +172,7 @@ namespace EdiEngine.Tests
         [TestMethod]
         public void Validation_IdTest()
         {
-            E_ANY def = new E_ANY()
+            EAny def = new EAny()
             {
                 DataType = DataType.ID,
                 MinLength = 1,
