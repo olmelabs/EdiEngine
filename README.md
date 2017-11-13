@@ -1,14 +1,14 @@
 # EdiEngine
 Simple .NET EDI Reader, Writer and Validator.
 Read, Write and Validate X12 EDI files with simple EDI Parser written on C#.
-Supports EDI to JSON and JSON to EDI conversion (uses Newtonsoft Json)
+Supports EDI to JSON / XML and JSON / XML to EDI conversion (uses Newtonsoft Json)
 
 ### Installation
 Install Nuget Package
 ```
 Install-Package xEdi.EdiEngine
 ```
-### Reading EDI and Writing JSON example
+### Reading EDI and Writing JSON or XML 
 ```cs
 string edi =
 @"ISA*01*0000000000*01*0000000000*ZZ*ABCDEFGHIJKLMNO*ZZ*123456789012345*101127*1719*U*00400*000003438*0*P*>
@@ -30,8 +30,12 @@ EdiBatch b = r.FromString(edi);
 string jsonBatch = JsonConvert.SerializeObject(b);
 //selected messages
 string jsonTrans = JsonConvert.SerializeObject(b.Interchanges[0].Groups[0].Transactions[0]);
+
+//Serialize batch to XML
+XmlDataWriter w = new XmlDataWriter();
+string xmlBatch = w.WriteToString(b);
 ```
-### Reading JSON example
+### Reading JSON
 ```cs
 string json = @"{
     'Type': 'M',
@@ -45,6 +49,27 @@ string json = @"{
 M_940 map = new M_940();
 JsonMapReader r = new JsonMapReader(map);
 EdiTrans t = r.ReadToEnd(json);
+```
+### Reading XML example
+```cs
+string xml = @"<EdiTrans>
+        <Name>M_940</Name>
+        <Content>
+            <EdiSegment>
+                <Name>W05</Name>
+                <Content>
+                    <E>N</E>
+                    <E>538686</E>
+                    <E />
+                    <E>001001</E>
+                    <E>538686</E>
+                </Content>
+            </EdiSegment>
+        </Content>
+    </EdiTrans>";
+M_940 map = new M_940();
+XmlMapReader r = new XmlMapReader(map);
+EdiTrans t = r.ReadToEnd(xml);
 ```
 ### Writing complete EDI Envelope with one message
 ```cs
@@ -140,6 +165,8 @@ public class E_0277 : MapDataElement
 Complete usage examples can be found in the test project.
 
 ## Next steps:
- - Xml Serialization and Deserialization
- - HL loop hierarchical parsing
+ - ~~Json Serialization and Deserialization~~
+ - ~~Xml Serialization and Deserialization~~
+ - 997 generation
+  - HL loop hierarchical parsing 
  - Craft more maps
