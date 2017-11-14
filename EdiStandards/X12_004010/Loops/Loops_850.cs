@@ -29,10 +29,6 @@ namespace EdiEngine.Standards.X12_004010.Loops.M_850
 				new DTM() { ReqDes = RequirementDesignator.Optional, MaxOccurs = 1 },
 				new PCT() { ReqDes = RequirementDesignator.Optional, MaxOccurs = 999999 },
 				new L_FA1(this) { ReqDes = RequirementDesignator.Optional, MaxOccurs = 999999 },
-				new L_N9(this) { ReqDes = RequirementDesignator.Optional, MaxOccurs = 1000 },
-				new L_N1(this) { ReqDes = RequirementDesignator.Optional, MaxOccurs = 200 },
-				new L_LM(this) { ReqDes = RequirementDesignator.Optional, MaxOccurs = 999999 },
-				new L_SPI(this) { ReqDes = RequirementDesignator.Optional, MaxOccurs = 999999 },
 			});
 		}
 	}
@@ -44,6 +40,7 @@ namespace EdiEngine.Standards.X12_004010.Loops.M_850
 		{
 			Content.AddRange(new MapBaseEntity[] {
 				new FA1() { ReqDes = RequirementDesignator.Mandatory, MaxOccurs = 1 },
+				new FA2() { ReqDes = RequirementDesignator.Optional, MaxOccurs = 999999 },
 			});
 		}
 	}
@@ -109,8 +106,6 @@ namespace EdiEngine.Standards.X12_004010.Loops.M_850
 				new MSG() { ReqDes = RequirementDesignator.Optional, MaxOccurs = 50 },
 				new L_N1_1(this) { ReqDes = RequirementDesignator.Optional, MaxOccurs = 20 },
 				new L_CB1(this) { ReqDes = RequirementDesignator.Optional, MaxOccurs = 999999 },
-				new L_ADV(this) { ReqDes = RequirementDesignator.Optional, MaxOccurs = 999999 },
-				new L_PO1(this) { ReqDes = RequirementDesignator.Mandatory, MaxOccurs = 100000 },
 			});
 		}
 	}
@@ -142,6 +137,7 @@ namespace EdiEngine.Standards.X12_004010.Loops.M_850
 				new REF() { ReqDes = RequirementDesignator.Optional, MaxOccurs = 20 },
 				new DTM() { ReqDes = RequirementDesignator.Optional, MaxOccurs = 5 },
 				new LDT() { ReqDes = RequirementDesignator.Optional, MaxOccurs = 1 },
+				new MSG() { ReqDes = RequirementDesignator.Optional, MaxOccurs = 50 },
 			});
 		}
 	}
@@ -206,9 +202,12 @@ namespace EdiEngine.Standards.X12_004010.Loops.M_850
 				new L_PKG(this) { ReqDes = RequirementDesignator.Optional, MaxOccurs = 200 },
 				new LS() { ReqDes = RequirementDesignator.Optional, MaxOccurs = 1 },
 				new L_LDT(this) { ReqDes = RequirementDesignator.Optional, MaxOccurs = 999999 },
+				new LE() { ReqDes = RequirementDesignator.Optional, MaxOccurs = 1 },
 				new L_N9_1(this) { ReqDes = RequirementDesignator.Optional, MaxOccurs = 1000 },
 				new L_N1_2(this) { ReqDes = RequirementDesignator.Optional, MaxOccurs = 200 },
-				new L_CTT(this) { ReqDes = RequirementDesignator.Optional, MaxOccurs = 1 },
+				new L_SLN(this) { ReqDes = RequirementDesignator.Optional, MaxOccurs = 1000 },
+				new L_AMT_1(this) { ReqDes = RequirementDesignator.Optional, MaxOccurs = 999999 },
+				new L_LM_2(this) { ReqDes = RequirementDesignator.Optional, MaxOccurs = 999999 },
 			});
 		}
 	}
@@ -312,6 +311,7 @@ namespace EdiEngine.Standards.X12_004010.Loops.M_850
 		{
 			Content.AddRange(new MapBaseEntity[] {
 				new LM() { ReqDes = RequirementDesignator.Mandatory, MaxOccurs = 1 },
+				new LQ() { ReqDes = RequirementDesignator.Optional, MaxOccurs = 999999 },
 			});
 		}
 	}
@@ -354,7 +354,6 @@ namespace EdiEngine.Standards.X12_004010.Loops.M_850
 				new TD4() { ReqDes = RequirementDesignator.Optional, MaxOccurs = 5 },
 				new PKG() { ReqDes = RequirementDesignator.Optional, MaxOccurs = 200 },
 				new L_LDT_1(this) { ReqDes = RequirementDesignator.Optional, MaxOccurs = 999999 },
-				new L_SLN(this) { ReqDes = RequirementDesignator.Optional, MaxOccurs = 1000 },
 			});
 		}
 	}
@@ -369,6 +368,7 @@ namespace EdiEngine.Standards.X12_004010.Loops.M_850
 				new MAN() { ReqDes = RequirementDesignator.Optional, MaxOccurs = 10 },
 				new QTY() { ReqDes = RequirementDesignator.Optional, MaxOccurs = 5 },
 				new MSG() { ReqDes = RequirementDesignator.Optional, MaxOccurs = 1 },
+				new REF() { ReqDes = RequirementDesignator.Optional, MaxOccurs = 3 },
 			});
 		}
 	}
@@ -395,8 +395,6 @@ namespace EdiEngine.Standards.X12_004010.Loops.M_850
 				new L_SAC_2(this) { ReqDes = RequirementDesignator.Optional, MaxOccurs = 25 },
 				new L_QTY_1(this) { ReqDes = RequirementDesignator.Optional, MaxOccurs = 999999 },
 				new L_N1_3(this) { ReqDes = RequirementDesignator.Optional, MaxOccurs = 10 },
-				new L_AMT_1(this) { ReqDes = RequirementDesignator.Optional, MaxOccurs = 999999 },
-				new L_LM_2(this) { ReqDes = RequirementDesignator.Optional, MaxOccurs = 999999 },
 			});
 		}
 	}
@@ -452,6 +450,7 @@ namespace EdiEngine.Standards.X12_004010.Loops.M_850
 				new NX2() { ReqDes = RequirementDesignator.Optional, MaxOccurs = 999999 },
 				new REF() { ReqDes = RequirementDesignator.Optional, MaxOccurs = 12 },
 				new PER() { ReqDes = RequirementDesignator.Optional, MaxOccurs = 3 },
+				new SI() { ReqDes = RequirementDesignator.Optional, MaxOccurs = 999999 },
 			});
 		}
 	}
@@ -476,6 +475,7 @@ namespace EdiEngine.Standards.X12_004010.Loops.M_850
 		{
 			Content.AddRange(new MapBaseEntity[] {
 				new LM() { ReqDes = RequirementDesignator.Mandatory, MaxOccurs = 1 },
+				new LQ() { ReqDes = RequirementDesignator.Optional, MaxOccurs = 999999 },
 			});
 		}
 	}

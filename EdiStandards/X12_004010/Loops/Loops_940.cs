@@ -5,6 +5,7 @@ using EdiEngine.Standards.X12_004010.Segments;
 namespace EdiEngine.Standards.X12_004010.Loops.M_940
 {
 
+
 	//0100
 	public class L_N1 : MapLoop
 	{
@@ -19,6 +20,7 @@ namespace EdiEngine.Standards.X12_004010.Loops.M_940
 			});
 		}
 	}
+
 	//0200
 	public class L_LM : MapLoop
 	{
@@ -30,6 +32,7 @@ namespace EdiEngine.Standards.X12_004010.Loops.M_940
 			});
 		}
 	}
+
 	//0300
 	public class L_LX : MapLoop
 	{
@@ -45,6 +48,7 @@ namespace EdiEngine.Standards.X12_004010.Loops.M_940
 			});
 		}
 	}
+
 	//0310
 	public class L_W01 : MapLoop
 	{
@@ -68,10 +72,12 @@ namespace EdiEngine.Standards.X12_004010.Loops.M_940
 				new L_LM_1(this) { ReqDes = RequirementDesignator.Optional, MaxOccurs = 10 },
 				new LS() { ReqDes = RequirementDesignator.Optional, MaxOccurs = 1 },
 				new L_LX_1(this) { ReqDes = RequirementDesignator.Optional, MaxOccurs = 999999 },
+				new LE() { ReqDes = RequirementDesignator.Optional, MaxOccurs = 1 },
 				new L_FA1(this) { ReqDes = RequirementDesignator.Optional, MaxOccurs = 999999 },
 			});
 		}
 	}
+
 	//0320
 	public class L_LM_1 : MapLoop
 	{
@@ -83,6 +89,7 @@ namespace EdiEngine.Standards.X12_004010.Loops.M_940
 			});
 		}
 	}
+
 	//0330
 	public class L_LX_1 : MapLoop
 	{
@@ -99,6 +106,7 @@ namespace EdiEngine.Standards.X12_004010.Loops.M_940
 			});
 		}
 	}
+
 	//0331
 	public class L_LM_2 : MapLoop
 	{
@@ -110,6 +118,7 @@ namespace EdiEngine.Standards.X12_004010.Loops.M_940
 			});
 		}
 	}
+
 	//0332
 	public class L_LH1 : MapLoop
 	{
@@ -124,9 +133,11 @@ namespace EdiEngine.Standards.X12_004010.Loops.M_940
 				new LH4() { ReqDes = RequirementDesignator.Optional, MaxOccurs = 1 },
 				new LHT() { ReqDes = RequirementDesignator.Optional, MaxOccurs = 3 },
 				new LHR() { ReqDes = RequirementDesignator.Optional, MaxOccurs = 5 },
+				new PER() { ReqDes = RequirementDesignator.Optional, MaxOccurs = 5 },
 			});
 		}
 	}
+
 	//0340
 	public class L_FA1 : MapLoop
 	{

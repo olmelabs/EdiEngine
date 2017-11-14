@@ -42,8 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataElements\DataElements.cs" />
+    <Compile Include="Loops\Loops_810.cs" />
     <Compile Include="Loops\Loops_850.cs" />
     <Compile Include="Loops\Loops_940.cs" />
+    <Compile Include="M_810.cs" />
     <Compile Include="M_850.cs" />
     <Compile Include="M_940.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
