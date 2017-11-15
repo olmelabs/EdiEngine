@@ -3,7 +3,7 @@ Simple .NET EDI Reader, Writer and Validator.
 Read, Write and Validate X12 EDI files with simple EDI Parser written on C#.
 Supports EDI to JSON / XML and JSON / XML to EDI conversion (uses Newtonsoft Json).
 Maps repository contains all 004010 maps, including Purchase Order, Invoice and many others.
-You can easilly craft yours on their basis.
+You can easily craft yours on their basis.
 
 ### Installation
 Install Nuget Package
