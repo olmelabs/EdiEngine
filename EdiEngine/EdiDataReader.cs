@@ -127,7 +127,7 @@ namespace EdiEngine
                             throw new EdiParsingException("MALFORMED DATA");
 
                         string asmName = $"EdiEngine.Standards.X12_{currentGroup.GS.Content[7].Val}";
-                        string typeName = $"{asmName}.M_{elements[1]}";
+                        string typeName = $"{asmName}.Maps.M_{elements[1]}";
 
                         var map = Activator.CreateInstance(asmName, typeName).Unwrap();
                         if (!(map is MapLoop))

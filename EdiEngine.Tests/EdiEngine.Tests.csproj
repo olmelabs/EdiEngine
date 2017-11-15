@@ -105,6 +105,7 @@
     <EmbeddedResource Include="TestData\transactionXml.OK.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="TestData\850.OK.edi" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="TestData\transactionXml.ERR.xml">
