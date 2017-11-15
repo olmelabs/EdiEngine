@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.IO;
 using System.Xml;
 using System.Xml.Schema;
-using EdiEngine.Standards.X12_004010;
+using EdiEngine.Standards.X12_004010.Maps;
 
 namespace EdiEngine.Tests
 {

@@ -1,7 +1,9 @@
 # EdiEngine
 Simple .NET EDI Reader, Writer and Validator.
 Read, Write and Validate X12 EDI files with simple EDI Parser written on C#.
-Supports EDI to JSON / XML and JSON / XML to EDI conversion (uses Newtonsoft Json)
+Supports EDI to JSON / XML and JSON / XML to EDI conversion (uses Newtonsoft Json).
+Maps repository contains all 004010 maps, including Purchase Order, Invoice and many others.
+You can easilly craft yours on their basis.
 
 ### Installation
 Install Nuget Package
@@ -164,9 +166,10 @@ public class E_0277 : MapDataElement
 ```
 Complete usage examples can be found in the test project.
 
-## Next steps:
+## Roadmap:
  - ~~Json Serialization and Deserialization~~
  - ~~Xml Serialization and Deserialization~~
+ - ~~Craft more maps~~ (Added all 004010 maps)
  - 997 generation
-  - HL loop hierarchical parsing 
- - Craft more maps
+ - HL loop hierarchical parsing 
+ - HIPAA support

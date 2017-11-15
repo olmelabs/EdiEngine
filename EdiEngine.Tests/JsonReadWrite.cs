@@ -1,8 +1,8 @@
 ﻿using EdiEngine.Runtime;
-using EdiEngine.Standards.X12_004010;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using System.IO;
+using EdiEngine.Standards.X12_004010.Maps;
 
 namespace EdiEngine.Tests
 {
