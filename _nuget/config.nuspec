@@ -2,14 +2,14 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>xEdi.EdiEngine</id>
-    <version>1.2.0</version>
+    <version>1.2.1</version>
     <authors>olmelabs</authors>
     <owners>olmelabs</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
     <projectUrl>https://github.com/olmelabs/EdiEngine</projectUrl>
     <!-- <iconUrl>http://github.com/contoso/UsefulStuff/nuget_icon.png</iconUrl> -->
-    <releaseNotes>Initial Release</releaseNotes>
+    <releaseNotes>Maps repository now contains all 004010 maps, including Purchase Order, Invoice and many others. You can easily craft yours on their basis. Added libs for .NET 4.5.</releaseNotes>
     <description>Simple .NET EDI X12 Reader, Writer and Validator. EDI JSON and XML Serialization and Deserialization.</description>
     <tags>.NET EDI X12 JSON XML EdiReader EdiWriter EdiParser</tags>
     <repository type="git" url="https://github.com/olmelabs/EdiEngine" />
@@ -20,6 +20,7 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="..\EdiEngine\bin\Release\EdiEngine*.* " target="lib\net461" />
+    <file src="..\EdiEngine\bin\Release-4.6.1\EdiEngine*.* " target="lib\net461" />
+    <file src="..\EdiEngine\bin\Release-4.5\EdiEngine*.* " target="lib\net45" />
   </files>
 </package>

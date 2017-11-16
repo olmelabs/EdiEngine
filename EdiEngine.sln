@@ -15,24 +15,42 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EdiEngine.Tests", "EdiEngin
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug 4.5|Any CPU = Debug 4.5|Any CPU
 		Debug|Any CPU = Debug|Any CPU
+		Release 4.5|Any CPU = Release 4.5|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A60F2E1-BABE-4A22-A653-6A2C85F25ADD}.Debug 4.5|Any CPU.ActiveCfg = Debug 4.5|Any CPU
+		{1A60F2E1-BABE-4A22-A653-6A2C85F25ADD}.Debug 4.5|Any CPU.Build.0 = Debug 4.5|Any CPU
 		{1A60F2E1-BABE-4A22-A653-6A2C85F25ADD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1A60F2E1-BABE-4A22-A653-6A2C85F25ADD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A60F2E1-BABE-4A22-A653-6A2C85F25ADD}.Release 4.5|Any CPU.ActiveCfg = Release 4.5|Any CPU
+		{1A60F2E1-BABE-4A22-A653-6A2C85F25ADD}.Release 4.5|Any CPU.Build.0 = Release 4.5|Any CPU
 		{1A60F2E1-BABE-4A22-A653-6A2C85F25ADD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A60F2E1-BABE-4A22-A653-6A2C85F25ADD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BC66D72-3D0F-4684-9A59-C29C6B89E3BB}.Debug 4.5|Any CPU.ActiveCfg = Debug 4.5|Any CPU
+		{2BC66D72-3D0F-4684-9A59-C29C6B89E3BB}.Debug 4.5|Any CPU.Build.0 = Debug 4.5|Any CPU
 		{2BC66D72-3D0F-4684-9A59-C29C6B89E3BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2BC66D72-3D0F-4684-9A59-C29C6B89E3BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BC66D72-3D0F-4684-9A59-C29C6B89E3BB}.Release 4.5|Any CPU.ActiveCfg = Release 4.5|Any CPU
+		{2BC66D72-3D0F-4684-9A59-C29C6B89E3BB}.Release 4.5|Any CPU.Build.0 = Release 4.5|Any CPU
 		{2BC66D72-3D0F-4684-9A59-C29C6B89E3BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2BC66D72-3D0F-4684-9A59-C29C6B89E3BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FFE59FA-042F-4E74-8544-91C8914B0A71}.Debug 4.5|Any CPU.ActiveCfg = Debug 4.5|Any CPU
+		{2FFE59FA-042F-4E74-8544-91C8914B0A71}.Debug 4.5|Any CPU.Build.0 = Debug 4.5|Any CPU
 		{2FFE59FA-042F-4E74-8544-91C8914B0A71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2FFE59FA-042F-4E74-8544-91C8914B0A71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FFE59FA-042F-4E74-8544-91C8914B0A71}.Release 4.5|Any CPU.ActiveCfg = Release 4.5|Any CPU
+		{2FFE59FA-042F-4E74-8544-91C8914B0A71}.Release 4.5|Any CPU.Build.0 = Release 4.5|Any CPU
 		{2FFE59FA-042F-4E74-8544-91C8914B0A71}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FFE59FA-042F-4E74-8544-91C8914B0A71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BD5A4AC-E5D7-472D-B53B-3CB8577E8159}.Debug 4.5|Any CPU.ActiveCfg = Debug 4.5|Any CPU
+		{6BD5A4AC-E5D7-472D-B53B-3CB8577E8159}.Debug 4.5|Any CPU.Build.0 = Debug 4.5|Any CPU
 		{6BD5A4AC-E5D7-472D-B53B-3CB8577E8159}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6BD5A4AC-E5D7-472D-B53B-3CB8577E8159}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BD5A4AC-E5D7-472D-B53B-3CB8577E8159}.Release 4.5|Any CPU.ActiveCfg = Release 4.5|Any CPU
+		{6BD5A4AC-E5D7-472D-B53B-3CB8577E8159}.Release 4.5|Any CPU.Build.0 = Release 4.5|Any CPU
 		{6BD5A4AC-E5D7-472D-B53B-3CB8577E8159}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6BD5A4AC-E5D7-472D-B53B-3CB8577E8159}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
