@@ -22,7 +22,12 @@ namespace EdiEngine.Tests
                 XmlDataWriter w = new XmlDataWriter();
                 string data = w.WriteToString(b);
 
+                Stream stream = w.WriteToStream(b);
 
+                Assert.IsNotNull(stream);
+                Assert.AreEqual(0, stream.Position);
+                Assert.IsTrue(stream.CanRead);
+                
                 //Load XmlSchema
                 XmlReaderSettings settings = new XmlReaderSettings { ValidationType = ValidationType.Schema };
                 settings.ValidationFlags |= XmlSchemaValidationFlags.ReportValidationWarnings;
