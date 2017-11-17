@@ -5,8 +5,6 @@ namespace EdiEngine
 {
     public class EdiDataWriter
     {
-        private string _elementSeparator;
-        private string _segmentSeparator;
         private int _currentTranSegCount;
         private readonly EdiDataWriterSettings _settings;
 
@@ -24,9 +22,6 @@ namespace EdiEngine
 
             foreach (EdiInterchange ich in batch.Interchanges)
             {
-                _elementSeparator = ich.ElementSeparator;
-                _segmentSeparator = ich.SegmentSeparator;
-
                 ich.ISA = new ISA(_settings.IsaDef,
                     _settings.IsaSenderQual, _settings.IsaSenderId,
                     _settings.IsaReceiverQual, _settings.IsaReceiverId,
@@ -88,10 +83,10 @@ namespace EdiEngine
 
                 foreach (var el in ((EdiSegment)ent).Content)
                 {
-                    sb.Append($"{_elementSeparator}{el.Val}");
+                    sb.Append($"{_settings.ElementSeparator}{el.Val}");
                 }
 
-                sb.Append(_segmentSeparator);
+                sb.Append(_settings.SegmentSeparator);
             }
         }
     }

@@ -23,6 +23,9 @@ namespace EdiEngine
         public int IsaFirstControlNumber { get; }
         public int GsFirstControlNumber { get; }
 
+        public string SegmentSeparator { get; }
+        public string ElementSeparator { get; }
+
         public EdiDataWriterSettings(
             MapSegment isaDef,
             MapSegment ieaDef,
@@ -40,7 +43,9 @@ namespace EdiEngine
             string gsEdiVersion,
             string isaUsageIndicator,
             int isaFirstControlNumber,
-            int gsFirstControlNumber
+            int gsFirstControlNumber,
+            string segmentSeparator,
+            string elementSeparator
             )
         {
             IsaDef = isaDef;
@@ -61,6 +66,8 @@ namespace EdiEngine
             IsaUsageIndicator = isaUsageIndicator;
             IsaFirstControlNumber = isaFirstControlNumber;
             GsFirstControlNumber = gsFirstControlNumber;
+            SegmentSeparator = segmentSeparator;
+            ElementSeparator = elementSeparator;
         }
     }
 }
