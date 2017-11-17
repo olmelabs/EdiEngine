@@ -19,17 +19,9 @@ namespace EdiEngine.Tests
 
             AckBuilderSettings ackSettings = new AckBuilderSettings(AckValidationErrorBehavour.RejectValidationErrors, false);
             var ack = new AckBuilder(ackSettings);
-            EdiBatch b997 = ack.GetnerateAcknowledgment(b);
+            //EdiBatch b997 = ack.GetnerateAcknowledgment(b);
+            string a = ack.WriteAckToString(b, 100, 200);
 
-            EdiDataWriterSettings settings = new EdiDataWriterSettings(
-                new Standards.X12_004010.Segments.ISA(), new Standards.X12_004010.Segments.IEA(),
-                new Standards.X12_004010.Segments.GS(), new Standards.X12_004010.Segments.GE(),
-                new Standards.X12_004010.Segments.ST(), new Standards.X12_004010.Segments.SE(),
-                "ZZ", "SENDER", "ZZ", "RECEIVER", "GSSENDER", "GSRECEIVER",
-                "00401", "004010", "T", 100, 200, "\r\n", "*");
-
-            EdiDataWriter w = new EdiDataWriter(settings);
-            string data = w.WriteToString(b997);
         }
     }
 }

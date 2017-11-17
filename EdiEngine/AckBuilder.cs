@@ -20,6 +20,46 @@ namespace EdiEngine
             _settings = settings;
         }
 
+        public string WriteAckToString(EdiBatch input, int isaFirstControlNumber, int gsFirstControlNumber)
+        {
+            EdiBatch b997 = GetnerateAcknowledgment(input);
+
+            int icn = isaFirstControlNumber;
+            int gcn = gsFirstControlNumber;
+            int i = 0;
+            foreach (EdiInterchange ich in b997.Interchanges)
+            {
+                var isa = input.Interchanges[i].ISA;
+                var iea = input.Interchanges[i].IEA;
+                ich.ISA = new ISA((MapSegment)isa.Definition, isa.Content[6].Val, isa.Content[7].Val, isa.Content[4].Val, isa.Content[5].Val, isa.Content[11].Val, icn, isa.Content[14].Val);
+
+                int j = 0;
+                foreach (EdiGroup g in ich.Groups)
+                {
+                    var gs = input.Interchanges[i].Groups[j].GS;
+                    var ge = input.Interchanges[i].Groups[j].GE;
+                    var st = input.Interchanges[i].Groups[j].Transactions[0].ST;
+                    var se = input.Interchanges[i].Groups[j].Transactions[0].SE;
+
+                    g.GS = new GS((MapSegment)gs.Definition, "FA", gs.Content[2].Val, gs.Content[1].Val, gcn, gs.Content[7].Val);
+                    g.GE = new GE((MapSegment)ge.Definition, g.Transactions.Count, gcn);
+
+                    //always 1 tran per group
+                    g.Transactions[0].ST = new ST((MapSegment)st.Definition, "997", 1);
+                    g.Transactions[0].SE = new SE((MapSegment) se.Definition, 1, 1);
+
+                    gcn++;
+                    j++;
+                }
+
+                ich.IEA = new IEA((MapSegment)iea.Definition, ich.Groups.Count, icn);
+                icn++;
+                i++;
+            }
+
+            return null;
+        }
+
         public EdiBatch GetnerateAcknowledgment(EdiBatch input)
         {
             string mapVersion = null;
@@ -54,7 +94,6 @@ namespace EdiEngine
                     int includedTranCount = int.Parse(g.GE.Content[0].Val);
                     int receivedTranCount = g.Transactions.Count;
                     int acceptedTranCount = g.Transactions.Count(t => !t.ValidationErrors.Any());
-
 
                     t997.Content.Add(CreateAk1Segment(map, g));
 
@@ -170,5 +209,7 @@ namespace EdiEngine
 
             return seg;
         }
+
+
     }
 }

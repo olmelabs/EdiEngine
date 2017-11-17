@@ -1,9 +1,10 @@
-﻿using System.Text;
+﻿using System.IO;
+using System.Text;
 using EdiEngine.Runtime;
 
 namespace EdiEngine
 {
-    public class EdiDataWriter
+    public class EdiDataWriter : DataWriter
     {
         private int _currentTranSegCount;
         private readonly EdiDataWriterSettings _settings;
@@ -13,7 +14,22 @@ namespace EdiEngine
             _settings = settings;
         }
 
-        public string WriteToString(EdiBatch batch)
+        public override Stream WriteToStream(EdiBatch batch)
+        {
+            Stream s = new MemoryStream();
+            StreamWriter w = new StreamWriter(s);
+            w.Write(WriteToStringBuilder(batch));
+            w.Flush();
+            s.Position = 0;
+            return s;
+        }
+
+        public override string WriteToString(EdiBatch batch)
+        {
+            return WriteToStringBuilder(batch).ToString();
+        }
+
+        private StringBuilder WriteToStringBuilder(EdiBatch batch)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -64,7 +80,7 @@ namespace EdiEngine
                 icn++;
             }
 
-            return sb.ToString();
+            return sb;
         }
 
         private void WriteEntity(MappedObjectBase ent, ref StringBuilder sb)
