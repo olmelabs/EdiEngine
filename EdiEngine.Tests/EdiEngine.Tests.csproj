@@ -80,6 +80,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="AckBuilderTests.cs" />
     <Compile Include="EdiReaderTests.cs" />
     <Compile Include="EdiWriterTests.cs" />
     <Compile Include="XmlReadWrite.cs" />
