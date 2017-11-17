@@ -59,11 +59,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -108,10 +104,6 @@
     <ProjectReference Include="..\EdiEngine.Common\EdiEngine.Common.csproj">
       <Project>{2ffe59fa-042f-4e74-8544-91c8914b0a71}</Project>
       <Name>EdiEngine.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\EdiStandards\X12_004010\X12_004010.csproj">
-      <Project>{2bc66d72-3d0f-4684-9a59-c29c6b89e3bb}</Project>
-      <Name>X12_004010</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
