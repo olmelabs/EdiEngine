@@ -9,9 +9,16 @@ namespace EdiEngine
         private int _currentTranSegCount;
         private readonly EdiDataWriterSettings _settings;
 
+        protected string CurrentSegmentSeparator { get; set; }
+    
+        protected string CurrentElementSeparator { get; set; }
+
+
         public EdiDataWriter(EdiDataWriterSettings settings)
         {
             _settings = settings;
+            CurrentSegmentSeparator = _settings?.SegmentSeparator;
+            CurrentElementSeparator = _settings?.ElementSeparator;
         }
 
         public override Stream WriteToStream(EdiBatch batch)
@@ -29,7 +36,7 @@ namespace EdiEngine
             return WriteToStringBuilder(batch).ToString();
         }
 
-        private StringBuilder WriteToStringBuilder(EdiBatch batch)
+        protected virtual StringBuilder WriteToStringBuilder(EdiBatch batch)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -83,7 +90,7 @@ namespace EdiEngine
             return sb;
         }
 
-        private void WriteEntity(MappedObjectBase ent, ref StringBuilder sb)
+        protected virtual void WriteEntity(MappedObjectBase ent, ref StringBuilder sb)
         {
             if (ent is EdiLoop)
             {
@@ -99,10 +106,10 @@ namespace EdiEngine
 
                 foreach (var el in ((EdiSegment)ent).Content)
                 {
-                    sb.Append($"{_settings.ElementSeparator}{el.Val}");
+                    sb.Append($"{CurrentElementSeparator}{el.Val}");
                 }
 
-                sb.Append(_settings.SegmentSeparator);
+                sb.Append(CurrentSegmentSeparator);
             }
         }
     }
