@@ -1,21 +1,42 @@
-﻿using System.Text;
+﻿using System.IO;
+using System.Text;
 using EdiEngine.Runtime;
 
 namespace EdiEngine
 {
-    public class EdiDataWriter
+    public class EdiDataWriter : DataWriter
     {
-        private string _elementSeparator;
-        private string _segmentSeparator;
         private int _currentTranSegCount;
         private readonly EdiDataWriterSettings _settings;
+
+        protected string CurrentSegmentSeparator { get; set; }
+    
+        protected string CurrentElementSeparator { get; set; }
+
 
         public EdiDataWriter(EdiDataWriterSettings settings)
         {
             _settings = settings;
+            CurrentSegmentSeparator = _settings?.SegmentSeparator;
+            CurrentElementSeparator = _settings?.ElementSeparator;
         }
 
-        public string WriteToString(EdiBatch batch)
+        public override Stream WriteToStream(EdiBatch batch)
+        {
+            Stream s = new MemoryStream();
+            StreamWriter w = new StreamWriter(s);
+            w.Write(WriteToStringBuilder(batch));
+            w.Flush();
+            s.Position = 0;
+            return s;
+        }
+
+        public override string WriteToString(EdiBatch batch)
+        {
+            return WriteToStringBuilder(batch).ToString();
+        }
+
+        protected virtual StringBuilder WriteToStringBuilder(EdiBatch batch)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -24,9 +45,6 @@ namespace EdiEngine
 
             foreach (EdiInterchange ich in batch.Interchanges)
             {
-                _elementSeparator = ich.ElementSeparator;
-                _segmentSeparator = ich.SegmentSeparator;
-
                 ich.ISA = new ISA(_settings.IsaDef,
                     _settings.IsaSenderQual, _settings.IsaSenderId,
                     _settings.IsaReceiverQual, _settings.IsaReceiverId,
@@ -69,10 +87,10 @@ namespace EdiEngine
                 icn++;
             }
 
-            return sb.ToString();
+            return sb;
         }
 
-        private void WriteEntity(MappedObjectBase ent, ref StringBuilder sb)
+        protected virtual void WriteEntity(MappedObjectBase ent, ref StringBuilder sb)
         {
             if (ent is EdiLoop)
             {
@@ -88,10 +106,10 @@ namespace EdiEngine
 
                 foreach (var el in ((EdiSegment)ent).Content)
                 {
-                    sb.Append($"{_elementSeparator}{el.Val}");
+                    sb.Append($"{CurrentElementSeparator}{el.Val}");
                 }
 
-                sb.Append(_segmentSeparator);
+                sb.Append(CurrentSegmentSeparator);
             }
         }
     }

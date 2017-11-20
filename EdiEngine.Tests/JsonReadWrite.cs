@@ -17,9 +17,23 @@ namespace EdiEngine.Tests
                 EdiDataReader r = new EdiDataReader();
                 EdiBatch b = r.FromStream(s);
 
+                //Write Json using newtonsoft
                 //check no exception
                 JsonConvert.SerializeObject(b);
                 JsonConvert.SerializeObject(b.Interchanges[0].Groups[0].Transactions[0]);
+
+                //or use writer to write to string or stream
+                JsonDataWriter w  = new JsonDataWriter();
+                string str = w.WriteToString(b);
+                Stream stream = w.WriteToStream(b);
+
+                Assert.IsNotNull(str);
+
+                Assert.IsNotNull(stream);
+                Assert.AreEqual(0, stream.Position);
+                Assert.IsTrue(stream.CanRead);
+
+                Assert.AreEqual(str.Length, stream.Length);
             }
         }
 

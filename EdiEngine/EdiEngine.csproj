@@ -63,9 +63,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AckBuilder.cs" />
+    <Compile Include="AckBuilderSettings.cs" />
     <Compile Include="AllowedEntitity.cs" />
+    <Compile Include="DataWriter.cs" />
     <Compile Include="EdiDataWriterSettings.cs" />
     <Compile Include="InetermediateFormatReader.cs" />
+    <Compile Include="JsonDataWriter.cs" />
     <Compile Include="JsonMapReader.cs" />
     <Compile Include="EdiParsingException.cs" />
     <Compile Include="EdiDataReader.cs" />

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -11,7 +9,7 @@ using EdiEngine.Xml;
 
 namespace EdiEngine
 {
-    public class XmlDataWriter
+    public class XmlDataWriter : DataWriter
     {
         private readonly XmlWriterSettings _settings;
 
@@ -22,7 +20,7 @@ namespace EdiEngine
                 OmitXmlDeclaration = true,
                 Encoding = Encoding.UTF8,
                 CloseOutput = false
-            }; ;
+            };
         }
 
         public XmlDataWriter(XmlWriterSettings settings)
@@ -30,7 +28,7 @@ namespace EdiEngine
             _settings = settings;
         }
 
-        public string WriteToString(EdiBatch batch)
+        public override string WriteToString(EdiBatch batch)
         {
             using (Stream s = WriteToStream(batch))
             {
@@ -41,7 +39,7 @@ namespace EdiEngine
             }
         }
 
-        public Stream WriteToStream(EdiBatch batch)
+        public override Stream WriteToStream(EdiBatch batch)
         {
             Stream s = new MemoryStream();
 
