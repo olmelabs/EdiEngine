@@ -129,6 +129,7 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="TestData\850.OK.edi" />
+    <EmbeddedResource Include="TestData\AckTest.edi" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="TestData\transactionXml.ERR.xml">

@@ -1,63 +1,40 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Text;
 using EdiEngine.Common.Definitions;
 using EdiEngine.Runtime;
 
 namespace EdiEngine
 {
-    public class AckBuilder
+    public class AckBuilder : EdiDataWriter
     {
         private readonly AckBuilderSettings _settings;
 
-        public AckBuilder()
-        {
-            _settings = new AckBuilderSettings(AckValidationErrorBehavour.AcceptButNoteErrors, false);
-        }
-
-        public AckBuilder(AckBuilderSettings settings)
+        public AckBuilder(AckBuilderSettings settings) : base(null)
         {
             _settings = settings;
         }
 
-        public string WriteAckToString(EdiBatch input, int isaFirstControlNumber, int gsFirstControlNumber)
+        public override Stream WriteToStream(EdiBatch batch)
         {
-            EdiBatch b997 = GetnerateAcknowledgment(input);
+            EdiBatch ackBatch = GetnerateAcknowledgment(batch);
+            BuildAckControlSegments(ackBatch, batch);
 
-            int icn = isaFirstControlNumber;
-            int gcn = gsFirstControlNumber;
-            int i = 0;
-            foreach (EdiInterchange ich in b997.Interchanges)
-            {
-                var isa = input.Interchanges[i].ISA;
-                var iea = input.Interchanges[i].IEA;
-                ich.ISA = new ISA((MapSegment)isa.Definition, isa.Content[6].Val, isa.Content[7].Val, isa.Content[4].Val, isa.Content[5].Val, isa.Content[11].Val, icn, isa.Content[14].Val);
+            Stream s = new MemoryStream();
+            StreamWriter w = new StreamWriter(s);
+            w.Write(WriteToStringBuilder(ackBatch));
+            w.Flush();
+            s.Position = 0;
+            return s;
+        }
 
-                int j = 0;
-                foreach (EdiGroup g in ich.Groups)
-                {
-                    var gs = input.Interchanges[i].Groups[j].GS;
-                    var ge = input.Interchanges[i].Groups[j].GE;
-                    var st = input.Interchanges[i].Groups[j].Transactions[0].ST;
-                    var se = input.Interchanges[i].Groups[j].Transactions[0].SE;
+        public override string WriteToString(EdiBatch batch)
+        {
+            EdiBatch ackBatch = GetnerateAcknowledgment(batch);
+            BuildAckControlSegments(ackBatch, batch);
 
-                    g.GS = new GS((MapSegment)gs.Definition, "FA", gs.Content[2].Val, gs.Content[1].Val, gcn, gs.Content[7].Val);
-                    g.GE = new GE((MapSegment)ge.Definition, g.Transactions.Count, gcn);
-
-                    //always 1 tran per group
-                    g.Transactions[0].ST = new ST((MapSegment)st.Definition, "997", 1);
-                    g.Transactions[0].SE = new SE((MapSegment) se.Definition, 1, 1);
-
-                    gcn++;
-                    j++;
-                }
-
-                ich.IEA = new IEA((MapSegment)iea.Definition, ich.Groups.Count, icn);
-                icn++;
-                i++;
-            }
-
-            return null;
+            return WriteToStringBuilder(ackBatch).ToString();
         }
 
         public EdiBatch GetnerateAcknowledgment(EdiBatch input)
@@ -99,7 +76,7 @@ namespace EdiEngine
 
                     if (((_settings.AckValidationErrorBehavour == AckValidationErrorBehavour.AcceptButNoteErrors ||
                           _settings.AckValidationErrorBehavour == AckValidationErrorBehavour.RejectValidationErrors) &&
-                            acceptedTranCount < receivedTranCount) ||
+                         acceptedTranCount < receivedTranCount) ||
                         (_settings.AlwaysGenerateAk2Loop))
                     {
                         foreach (EdiTrans t in g.Transactions)
@@ -120,11 +97,57 @@ namespace EdiEngine
             return b997;
         }
 
+        private void BuildAckControlSegments(EdiBatch ackBatch, EdiBatch originalBatch)
+        {
+            int icn = _settings.IsaFirstControlNumber;
+            int gcn = _settings.GsFirstControlNumber;
+            int i = 0;
+            foreach (EdiInterchange ich in ackBatch.Interchanges)
+            {
+                var isa = originalBatch.Interchanges[i].ISA;
+                var iea = originalBatch.Interchanges[i].IEA;
+                ich.ISA = new ISA((MapSegment)isa.Definition, isa.Content[6].Val, isa.Content[7].Val,
+                    isa.Content[4].Val, isa.Content[5].Val, isa.Content[11].Val, icn, isa.Content[14].Val);
+
+                ich.SegmentSeparator = originalBatch.Interchanges[i].SegmentSeparator;
+                ich.ElementSeparator = originalBatch.Interchanges[i].ElementSeparator;
+
+                int j = 0;
+                foreach (EdiGroup g in ich.Groups)
+                {
+                    var gs = originalBatch.Interchanges[i].Groups[j].GS;
+                    var ge = originalBatch.Interchanges[i].Groups[j].GE;
+                    var st = originalBatch.Interchanges[i].Groups[j].Transactions[0].ST;
+                    var se = originalBatch.Interchanges[i].Groups[j].Transactions[0].SE;
+
+                    g.GS = new GS((MapSegment)gs.Definition, "FA", gs.Content[2].Val, gs.Content[1].Val, gcn,
+                        gs.Content[7].Val);
+                    g.GE = new GE((MapSegment)ge.Definition, g.Transactions.Count, gcn);
+
+                    //always 1 tran per FA group
+                    g.Transactions[0].ST = new ST((MapSegment)st.Definition, "997", 1);
+
+                    int segCount = 2; //ST, SE
+                    GetTranSegCount(g.Transactions[0], ref segCount);
+
+                    g.Transactions[0].SE = new SE((MapSegment)se.Definition, segCount, 1);
+
+                    gcn++;
+                    j++;
+                }
+
+                ich.IEA = new IEA((MapSegment)iea.Definition, ich.Groups.Count, icn);
+                icn++;
+                i++;
+            }
+        }
+
         private EdiSegment CreateAk1Segment(MapLoop map, EdiGroup g)
         {
             var sDef = (MapSegment)map.Content.First(s => s.Name == "AK1");
             var seg = new EdiSegment(sDef);
-            seg.Content.AddRange(new[]{
+            seg.Content.AddRange(new[]
+            {
                 new EdiDataElement(sDef.Content[0], g.FunctionalCode),
                 new EdiDataElement(sDef.Content[1], g.GS.Content[5].Val),
             });
@@ -157,7 +180,8 @@ namespace EdiEngine
                     break;
             }
 
-            seg.Content.AddRange(new[] {
+            seg.Content.AddRange(new[]
+            {
                 new EdiDataElement(sDef.Content[0], status),
                 new EdiDataElement(sDef.Content[1], includedTranCount.ToString()),
                 new EdiDataElement(sDef.Content[2], receivedTranCount.ToString()),
@@ -172,7 +196,8 @@ namespace EdiEngine
             var sDef = (MapSegment)map.Content.First(s => s.Name == "AK2");
 
             var seg = new EdiSegment(sDef);
-            seg.Content.AddRange(new[]{
+            seg.Content.AddRange(new[]
+            {
                 new EdiDataElement(sDef.Content[0], t.ST.Content[0].Val),
                 new EdiDataElement(sDef.Content[1], t.ST.Content[1].Val),
             });
@@ -210,6 +235,56 @@ namespace EdiEngine
             return seg;
         }
 
+        protected override StringBuilder WriteToStringBuilder(EdiBatch batch)
+        {
+            StringBuilder sb = new StringBuilder();
 
+            foreach (EdiInterchange ich in batch.Interchanges)
+            {
+                //use original separators taken from original interchange(s).
+                CurrentSegmentSeparator = ich.SegmentSeparator;
+                CurrentElementSeparator = ich.ElementSeparator;
+
+                WriteEntity(ich.ISA, ref sb);
+
+                foreach (EdiGroup g in ich.Groups)
+                {
+                    WriteEntity(g.GS, ref sb);
+
+                    foreach (EdiTrans t in g.Transactions)
+                    {
+                        WriteEntity(t.ST, ref sb);
+
+                        foreach (MappedObjectBase ent in t.Content)
+                        {
+                            WriteEntity(ent, ref sb);
+                        }
+
+                        WriteEntity(t.SE, ref sb);
+                    }
+
+                    WriteEntity(g.GE, ref sb);
+                }
+
+                WriteEntity(ich.IEA, ref sb);
+            }
+
+            return sb;
+        }
+
+        private void GetTranSegCount(MappedObjectBase ent, ref int segCount)
+        {
+            if (ent is EdiLoop)
+            {
+                foreach (var child in ((EdiLoop)ent).Content)
+                {
+                    GetTranSegCount(child, ref segCount);
+                }
+            }
+            else if (ent is EdiSegment)
+            {
+                segCount++;
+            }
+        }
     }
 }
