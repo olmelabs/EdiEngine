@@ -81,6 +81,7 @@
     <Compile Include="Runtime\EdiDataElement.cs" />
     <Compile Include="EdiDataWriter.cs" />
     <Compile Include="Runtime\EdiGroup.cs" />
+    <Compile Include="Runtime\EdiHlLoop.cs" />
     <Compile Include="Runtime\EdiInterchange.cs" />
     <Compile Include="Runtime\EdiIntermediateEntity.cs" />
     <Compile Include="Runtime\EdiLoop.cs" />

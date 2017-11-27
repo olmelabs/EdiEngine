@@ -81,6 +81,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="AckBuilderTests.cs" />
+    <Compile Include="EdiReaderHLTests.cs" />
     <Compile Include="EdiReaderTests.cs" />
     <Compile Include="EdiWriterTests.cs" />
     <Compile Include="XmlReadWrite.cs" />
@@ -130,6 +131,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TestData\850.OK.edi" />
     <EmbeddedResource Include="TestData\AckTest.edi" />
+    <EmbeddedResource Include="TestData\271.edi" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="TestData\transactionXml.ERR.xml">
