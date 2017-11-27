@@ -66,7 +66,24 @@ namespace EdiEngine
                     _currentLoopInstance = _currentLoopInstance.Parent;
                 }
 
-                var newLoop = new EdiLoop(ae.Entity, _currentLoopInstance);
+                EdiLoop newLoop;
+                if (name == "HL")
+                {
+                    int hl01;
+                    int hl02;
+                    int.TryParse(content[1], out hl01);
+                    bool res02 = int.TryParse(content[2], out hl02);
+                    if (hl01 > 1 && res02)
+                    {
+                       
+                    }
+                    newLoop = new EdiHlLoop(ae.Entity, _currentLoopInstance, hl01, (res02 ? hl02 : (int?)null));
+                }
+                else
+                {
+                    newLoop = new EdiLoop(ae.Entity, _currentLoopInstance);
+                }
+                
                 _currentLoopInstance.Content.Add(newLoop);
                 _currentLoopInstance = newLoop;
 
