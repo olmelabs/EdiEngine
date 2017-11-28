@@ -5,20 +5,23 @@ using System.IO;
 namespace EdiEngine.Tests
 {
     [TestClass]
-    public class EdiReaderHLTests
+    public class EdiReaderHlTests
     {
         [TestMethod]
-        public void EdiReaderHL_ParseGenericEdi271()
+        public void EdiReaderHL_ParseCrossDock856()
         {
-            using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.271.edi"))
+            using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.856.Crossdock.OK.edi"))
             {
                 EdiDataReader r = new EdiDataReader();
                 EdiBatch b = r.FromStream(s);
 
+                Assert.AreEqual(1, b.Interchanges.Count);
+                Assert.AreEqual(1, b.Interchanges[0].Groups.Count);
+                Assert.AreEqual(1, b.Interchanges[0].Groups[0].Transactions.Count);
+
                 EdiTrans t = b.Interchanges[0].Groups[0].Transactions[0];
 
-                XmlDataWriter w = new XmlDataWriter();
-                string data = w.WriteToString(b);
+                Assert.AreEqual(0, t.ValidationErrors.Count);
             }
         }
     }

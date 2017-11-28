@@ -85,23 +85,8 @@ namespace EdiEngine.Tests
             });
             w01.Content.Add(seg);
 
-            //create new batch, add interchange, group, transaction.
-            EdiBatch b = new EdiBatch();
-            b.Interchanges.Add(new EdiInterchange());
-            b.Interchanges.First().Groups.Add(new EdiGroup("OW"));
-            b.Interchanges.First().Groups.First().Transactions.Add(t);
-
-            //Add all service segments
-            EdiDataWriterSettings settings = new EdiDataWriterSettings(
-                new SegmentDefinitions.ISA(), new SegmentDefinitions.IEA(),
-                new SegmentDefinitions.GS(), new SegmentDefinitions.GE(),
-                new SegmentDefinitions.ST(), new SegmentDefinitions.SE(),
-                "ZZ", "SENDER", "ZZ", "RECEIVER", "GSSENDER", "GSRECEIVER",
-                "00401", "004010", "T", 100, 200, "\r\n", "*");
-
-            EdiDataWriter w = new EdiDataWriter(settings);
-            string data = w.WriteToString(b);
-
+            //write test envelope
+            string data = TestUtils.WriteEdiEnvelope(t, "OW");
 
             //read produced results and check for errors.
             EdiDataReader r = new EdiDataReader();
@@ -124,7 +109,7 @@ namespace EdiEngine.Tests
             string jsonTrans;
             using (
                 Stream s =
-                    GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.transactionJson.OK.json"))
+                    GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.940.OK.json"))
             {
                 if (s == null)
                     throw new InvalidDataException("stream is null");
@@ -140,22 +125,8 @@ namespace EdiEngine.Tests
             JsonMapReader r = new JsonMapReader(map);
             EdiTrans t = r.ReadToEnd(jsonTrans);
 
-            //create new batch
-            EdiDataWriterSettings settings = new EdiDataWriterSettings(
-                new SegmentDefinitions.ISA(), new SegmentDefinitions.IEA(),
-                new SegmentDefinitions.GS(), new SegmentDefinitions.GE(),
-                new SegmentDefinitions.ST(), new SegmentDefinitions.SE(),
-                "ZZ", "SENDER", "ZZ", "RECEIVER", "GSSENDER", "GSRECEIVER",
-                "00401", "004010", "T", 100, 200, "\r\n", "*");
-
-            EdiBatch b = new EdiBatch();
-            b.Interchanges.Add(new EdiInterchange());
-            b.Interchanges.First().Groups.Add(new EdiGroup("OW"));
-            b.Interchanges.First().Groups.First().Transactions.Add(t);
-
             //write EDI
-            EdiDataWriter w = new EdiDataWriter(settings);
-            string data = w.WriteToString(b);
+            string data = TestUtils.WriteEdiEnvelope(t, "OW");
 
             //Read produced results and check for errors and correct parsing
             EdiDataReader reader = new EdiDataReader();

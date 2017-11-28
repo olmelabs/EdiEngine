@@ -68,6 +68,9 @@ namespace EdiEngine
                             case "E":
                                 context = context?.Parent;
                                 break;
+                            case "Name":
+                                prop = null;
+                                break;
                         }
                         break;
                 }

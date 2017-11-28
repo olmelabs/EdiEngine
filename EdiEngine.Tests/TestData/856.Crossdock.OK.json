@@ -1,0 +1,626 @@
+{
+  "Type": "M",
+  "Name": "M_856",
+  "Content": [
+    {
+      "Type": "S",
+      "Name": "BSN",
+      "Content": [
+        { "E": "00" },
+        { "E": "000009" },
+        { "E": "20090921" },
+        { "E": "0801" },
+        { "E": "0001" }
+      ]
+    },
+    {
+      "Type": "L",
+      "Name": "L_HL",
+      "HL01_HierarchicalIdNumber": 1,
+      "HL02_HierarchicalParentIdNumber": null,
+      "Content": [
+        {
+          "Type": "S",
+          "Name": "HL",
+          "Content": [
+            { "E": "1" },
+            { "E": "" },
+            { "E": "S" }
+          ]
+        },
+        {
+          "Type": "S",
+          "Name": "TD1",
+          "Content": [
+            { "E": "CTN" },
+            { "E": "5" },
+            { "E": "" },
+            { "E": "" },
+            { "E": "" },
+            { "E": "" },
+            { "E": "24" },
+            { "E": "LB" },
+            { "E": "123" },
+            { "E": "CF" }
+          ]
+        },
+        {
+          "Type": "S",
+          "Name": "TD5",
+          "Content": [
+            { "E": "" },
+            { "E": "2" },
+            { "E": "OVNT" },
+            { "E": "" },
+            { "E": "OVERNITE" }
+          ]
+        },
+        {
+          "Type": "S",
+          "Name": "TD3",
+          "Content": [
+            { "E": "TL" },
+            { "E": "" },
+            { "E": "1234567890" }
+          ]
+        },
+        {
+          "Type": "S",
+          "Name": "REF",
+          "Content": [
+            { "E": "BM" },
+            { "E": "000001" }
+          ]
+        },
+        {
+          "Type": "S",
+          "Name": "REF",
+          "Content": [
+            { "E": "CN" },
+            { "E": "0000000008741" }
+          ]
+        },
+        {
+          "Type": "S",
+          "Name": "REF",
+          "Content": [
+            { "E": "SE" },
+            { "E": "0000000008741" }
+          ]
+        },
+        {
+          "Type": "S",
+          "Name": "DTM",
+          "Content": [
+            { "E": "011" },
+            { "E": "20090921" }
+          ]
+        },
+        {
+          "Type": "S",
+          "Name": "DTM",
+          "Content": [
+            { "E": "017" },
+            { "E": "20090925" }
+          ]
+        },
+        {
+          "Type": "S",
+          "Name": "FOB",
+          "Content": [ { "E": "PP" } ]
+        },
+        {
+          "Type": "L",
+          "Name": "L_N1",
+          "Content": [
+            {
+              "Type": "S",
+              "Name": "N1",
+              "Content": [
+                { "E": "SF" },
+                { "E": "SOME COMPANY" },
+                { "E": "92" },
+                { "E": "000009" }
+              ]
+            },
+            {
+              "Type": "S",
+              "Name": "N3",
+              "Content": [ { "E": "SOME STREET" } ]
+            },
+            {
+              "Type": "S",
+              "Name": "N4",
+              "Content": [
+                { "E": "CITY" },
+                { "E": "CA" },
+                { "E": "90210" }
+              ]
+            }
+          ]
+        },
+        {
+          "Type": "L",
+          "Name": "L_N1",
+          "Content": [
+            {
+              "Type": "S",
+              "Name": "N1",
+              "Content": [
+                { "E": "ST" },
+                { "E": "RETAILER" },
+                { "E": "92" },
+                { "E": "0001" }
+              ]
+            }
+          ]
+        },
+        {
+          "Type": "L",
+          "Name": "L_HL",
+          "HL01_HierarchicalIdNumber": 2,
+          "HL02_HierarchicalParentIdNumber": 1,
+          "Content": [
+            {
+              "Type": "S",
+              "Name": "HL",
+              "Content": [
+                { "E": "2" },
+                { "E": "1" },
+                { "E": "O" }
+              ]
+            },
+            {
+              "Type": "S",
+              "Name": "PRF",
+              "Content": [ { "E": "POREF00" } ]
+            },
+            {
+              "Type": "S",
+              "Name": "TD1",
+              "Content": [
+                { "E": "CTN" },
+                { "E": "4" }
+              ]
+            },
+            {
+              "Type": "S",
+              "Name": "REF",
+              "Content": [
+                { "E": "IV" },
+                { "E": "0000021" }
+              ]
+            },
+            {
+              "Type": "L",
+              "Name": "L_N1",
+              "Content": [
+                {
+                  "Type": "S",
+                  "Name": "N1",
+                  "Content": [
+                    { "E": "BY" },
+                    { "E": "STORE" },
+                    { "E": "92" },
+                    { "E": "002" }
+                  ]
+                }
+              ]
+            },
+            {
+              "Type": "L",
+              "Name": "L_HL",
+              "HL01_HierarchicalIdNumber": 3,
+              "HL02_HierarchicalParentIdNumber": 2,
+              "Content": [
+                {
+                  "Type": "S",
+                  "Name": "HL",
+                  "Content": [
+                    { "E": "3" },
+                    { "E": "2" },
+                    { "E": "P" }
+                  ]
+                },
+                {
+                  "Type": "S",
+                  "Name": "PO4",
+                  "Content": [
+                    { "E": "123" },
+                    { "E": "" },
+                    { "E": "" },
+                    { "E": "" },
+                    { "E": "" },
+                    { "E": "6" },
+                    { "E": "LB" }
+                  ]
+                },
+                {
+                  "Type": "S",
+                  "Name": "MAN",
+                  "Content": [
+                    { "E": "GM" },
+                    { "E": "00000715670002152360" }
+                  ]
+                },
+                {
+                  "Type": "L",
+                  "Name": "L_HL",
+                  "HL01_HierarchicalIdNumber": 4,
+                  "HL02_HierarchicalParentIdNumber": 3,
+                  "Content": [
+                    {
+                      "Type": "S",
+                      "Name": "HL",
+                      "Content": [
+                        { "E": "4" },
+                        { "E": "3" },
+                        { "E": "I" }
+                      ]
+                    },
+                    {
+                      "Type": "S",
+                      "Name": "LIN",
+                      "Content": [
+                        { "E": "" },
+                        { "E": "UP" },
+                        { "E": "0000000000642" }
+                      ]
+                    },
+                    {
+                      "Type": "S",
+                      "Name": "SN1",
+                      "Content": [
+                        { "E": "" },
+                        { "E": "12" },
+                        { "E": "EA" }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Type": "L",
+              "Name": "L_HL",
+              "HL01_HierarchicalIdNumber": 5,
+              "HL02_HierarchicalParentIdNumber": 2,
+              "Content": [
+                {
+                  "Type": "S",
+                  "Name": "HL",
+                  "Content": [
+                    { "E": "5" },
+                    { "E": "2" },
+                    { "E": "P" }
+                  ]
+                },
+                {
+                  "Type": "S",
+                  "Name": "MAN",
+                  "Content": [
+                    { "E": "GM" },
+                    { "E": "00000715670002152377" }
+                  ]
+                },
+                {
+                  "Type": "L",
+                  "Name": "L_HL",
+                  "HL01_HierarchicalIdNumber": 6,
+                  "HL02_HierarchicalParentIdNumber": 5,
+                  "Content": [
+                    {
+                      "Type": "S",
+                      "Name": "HL",
+                      "Content": [
+                        { "E": "6" },
+                        { "E": "5" },
+                        { "E": "I" }
+                      ]
+                    },
+                    {
+                      "Type": "S",
+                      "Name": "LIN",
+                      "Content": [
+                        { "E": "" },
+                        { "E": "EN" },
+                        { "E": "0000000000831" }
+                      ]
+                    },
+                    {
+                      "Type": "S",
+                      "Name": "SN1",
+                      "Content": [
+                        { "E": "" },
+                        { "E": "12" },
+                        { "E": "EA" }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Type": "L",
+              "Name": "L_HL",
+              "HL01_HierarchicalIdNumber": 7,
+              "HL02_HierarchicalParentIdNumber": 2,
+              "Content": [
+                {
+                  "Type": "S",
+                  "Name": "HL",
+                  "Content": [
+                    { "E": "7" },
+                    { "E": "2" },
+                    { "E": "P" }
+                  ]
+                },
+                {
+                  "Type": "S",
+                  "Name": "PO4",
+                  "Content": [
+                    { "E": "" },
+                    { "E": "" },
+                    { "E": "" },
+                    { "E": "" },
+                    { "E": "" },
+                    { "E": "6" },
+                    { "E": "LB" }
+                  ]
+                },
+                {
+                  "Type": "S",
+                  "Name": "MAN",
+                  "Content": [
+                    { "E": "GM" },
+                    { "E": "00000715670002152384" }
+                  ]
+                },
+                {
+                  "Type": "L",
+                  "Name": "L_HL",
+                  "HL01_HierarchicalIdNumber": 8,
+                  "HL02_HierarchicalParentIdNumber": 7,
+                  "Content": [
+                    {
+                      "Type": "S",
+                      "Name": "HL",
+                      "Content": [
+                        { "E": "8" },
+                        { "E": "7" },
+                        { "E": "I" }
+                      ]
+                    },
+                    {
+                      "Type": "S",
+                      "Name": "LIN",
+                      "Content": [
+                        { "E": "" },
+                        { "E": "UP" },
+                        { "E": "0000000000283" }
+                      ]
+                    },
+                    {
+                      "Type": "S",
+                      "Name": "SN1",
+                      "Content": [
+                        { "E": "" },
+                        { "E": "12" },
+                        { "E": "EA" }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Type": "L",
+              "Name": "L_HL",
+              "HL01_HierarchicalIdNumber": 9,
+              "HL02_HierarchicalParentIdNumber": 2,
+              "Content": [
+                {
+                  "Type": "S",
+                  "Name": "HL",
+                  "Content": [
+                    { "E": "9" },
+                    { "E": "2" },
+                    { "E": "P" }
+                  ]
+                },
+                {
+                  "Type": "S",
+                  "Name": "PO4",
+                  "Content": [
+                    { "E": "" },
+                    { "E": "" },
+                    { "E": "" },
+                    { "E": "" },
+                    { "E": "" },
+                    { "E": "6" },
+                    { "E": "LB" }
+                  ]
+                },
+                {
+                  "Type": "S",
+                  "Name": "MAN",
+                  "Content": [
+                    { "E": "GM" },
+                    { "E": "00000715670002152391" }
+                  ]
+                },
+                {
+                  "Type": "L",
+                  "Name": "L_HL",
+                  "HL01_HierarchicalIdNumber": 10,
+                  "HL02_HierarchicalParentIdNumber": 9,
+                  "Content": [
+                    {
+                      "Type": "S",
+                      "Name": "HL",
+                      "Content": [
+                        { "E": "10" },
+                        { "E": "9" },
+                        { "E": "I" }
+                      ]
+                    },
+                    {
+                      "Type": "S",
+                      "Name": "LIN",
+                      "Content": [
+                        { "E": "" },
+                        { "E": "UP" },
+                        { "E": "0000000000203" }
+                      ]
+                    },
+                    {
+                      "Type": "S",
+                      "Name": "SN1",
+                      "Content": [
+                        { "E": "" },
+                        { "E": "12" },
+                        { "E": "EA" }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Type": "L",
+          "Name": "L_HL",
+          "HL01_HierarchicalIdNumber": 11,
+          "HL02_HierarchicalParentIdNumber": 1,
+          "Content": [
+            {
+              "Type": "S",
+              "Name": "HL",
+              "Content": [
+                { "E": "11" },
+                { "E": "1" },
+                { "E": "O" }
+              ]
+            },
+            {
+              "Type": "S",
+              "Name": "PRF",
+              "Content": [ { "E": "POREF01" } ]
+            },
+            {
+              "Type": "S",
+              "Name": "TD1",
+              "Content": [
+                { "E": "CTN" },
+                { "E": "1" }
+              ]
+            },
+            {
+              "Type": "S",
+              "Name": "REF",
+              "Content": [
+                { "E": "IV" },
+                { "E": "0000022" }
+              ]
+            },
+            {
+              "Type": "L",
+              "Name": "L_N1",
+              "Content": [
+                {
+                  "Type": "S",
+                  "Name": "N1",
+                  "Content": [
+                    { "E": "BY" },
+                    { "E": "SRTORE" },
+                    { "E": "92" },
+                    { "E": "003" }
+                  ]
+                }
+              ]
+            },
+            {
+              "Type": "L",
+              "Name": "L_HL",
+              "HL01_HierarchicalIdNumber": 12,
+              "HL02_HierarchicalParentIdNumber": 11,
+              "Content": [
+                {
+                  "Type": "S",
+                  "Name": "HL",
+                  "Content": [
+                    { "E": "12" },
+                    { "E": "11" },
+                    { "E": "P" }
+                  ]
+                },
+                {
+                  "Type": "S",
+                  "Name": "PO4",
+                  "Content": [
+                    { "E": "123" },
+                    { "E": "" },
+                    { "E": "" },
+                    { "E": "" },
+                    { "E": "" },
+                    { "E": "6" },
+                    { "E": "LB" }
+                  ]
+                },
+                {
+                  "Type": "S",
+                  "Name": "MAN",
+                  "Content": [
+                    { "E": "GM" },
+                    { "E": "00000715670002152111" }
+                  ]
+                },
+                {
+                  "Type": "L",
+                  "Name": "L_HL",
+                  "HL01_HierarchicalIdNumber": 13,
+                  "HL02_HierarchicalParentIdNumber": 12,
+                  "Content": [
+                    {
+                      "Type": "S",
+                      "Name": "HL",
+                      "Content": [
+                        { "E": "13" },
+                        { "E": "12" },
+                        { "E": "I" }
+                      ]
+                    },
+                    {
+                      "Type": "S",
+                      "Name": "LIN",
+                      "Content": [
+                        { "E": "" },
+                        { "E": "UP" },
+                        { "E": "0000000000642" }
+                      ]
+                    },
+                    {
+                      "Type": "S",
+                      "Name": "SN1",
+                      "Content": [
+                        { "E": "" },
+                        { "E": "12" },
+                        { "E": "EA" }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Type": "S",
+      "Name": "CTT",
+      "Content": [ { "E": "13" } ]
+    }
+  ]
+}

@@ -13,7 +13,7 @@ namespace EdiEngine.Tests
         [TestMethod]
         public void EdiReader_ParseGenericEdi940()
         {
-            using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.940.edi"))
+            using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.940.OK.edi"))
             {
                 EdiDataReader r = new EdiDataReader();
                 EdiBatch b = r.FromStream(s);
@@ -127,7 +127,7 @@ namespace EdiEngine.Tests
         [TestMethod]
         public void EdiReader_ParseNestedLoopsEdi940()
         {
-            using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.940_2.edi"))
+            using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.940.2.OK.edi"))
             {
                 EdiDataReader r = new EdiDataReader();
                 EdiBatch b = r.FromStream(s);

@@ -60,11 +60,6 @@ namespace EdiEngine
                 _currentLoopDef.OccuredTimes++;
                 _currentLoopDef.Content.ForEach(c => c.OccuredTimes = 0);
 
-                //create new loop instance and add to transaction
-                while (((MapLoop)_currentLoopInstance.Definition) != ae.LoopContext && _currentLoopInstance.Parent != null)
-                {
-                    _currentLoopInstance = _currentLoopInstance.Parent;
-                }
 
                 EdiLoop newLoop;
                 if (name == "HL")
@@ -73,14 +68,22 @@ namespace EdiEngine
                     int hl02;
                     int.TryParse(content[1], out hl01);
                     bool res02 = int.TryParse(content[2], out hl02);
+
                     if (hl01 > 1 && res02)
                     {
-                       
+                        FindParentHlLoopContext(hl02);
                     }
+                    else
+                    {
+                        FindParentLoopContext(ae.LoopContext);
+                    }
+
+
                     newLoop = new EdiHlLoop(ae.Entity, _currentLoopInstance, hl01, (res02 ? hl02 : (int?)null));
                 }
                 else
                 {
+                    FindParentLoopContext(ae.LoopContext);
                     newLoop = new EdiLoop(ae.Entity, _currentLoopInstance);
                 }
                 
@@ -88,6 +91,28 @@ namespace EdiEngine
                 _currentLoopInstance = newLoop;
 
                 ProcessRawSegment(name, content, rowPos);
+            }
+        }
+
+        private void FindParentLoopContext(MapLoop parentLoop)
+        {
+            while (((MapLoop)_currentLoopInstance.Definition) != parentLoop && _currentLoopInstance.Parent != null)
+            {
+                _currentLoopInstance = _currentLoopInstance.Parent;
+            }
+        }
+
+        private void FindParentHlLoopContext(int parentHlLevel)
+        {
+            while (!(_currentLoopInstance is EdiHlLoop))
+            {
+                _currentLoopInstance = _currentLoopInstance.Parent;
+            }
+
+            if (((EdiHlLoop) _currentLoopInstance).HL01_HierarchicalIdNumber != parentHlLevel)
+            {
+                _currentLoopInstance = _currentLoopInstance.Parent;
+                FindParentHlLoopContext(parentHlLevel);
             }
         }
     }
