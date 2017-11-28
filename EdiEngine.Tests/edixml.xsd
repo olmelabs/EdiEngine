@@ -66,6 +66,8 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element name="Name" type="xs:string" maxOccurs="1"></xs:element>
+        <xs:element name="HL01_HierarchicalIdNumber" type="xs:int" minOccurs="0" maxOccurs="1"></xs:element>
+        <xs:element name="HL02_HierarchicalParentIdNumber" type="xs:int" minOccurs="0" maxOccurs="1"></xs:element>
         <xs:element name="Content" maxOccurs="unbounded" type="EdiEntity"/>
       </xs:sequence>
     </xs:complexType>
