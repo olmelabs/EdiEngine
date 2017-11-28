@@ -2,14 +2,14 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>xEdi.EdiEngine</id>
-    <version>1.3.0</version>
+    <version>1.3.1</version>
     <authors>olmelabs</authors>
     <owners>olmelabs</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
     <projectUrl>https://github.com/olmelabs/EdiEngine</projectUrl>
     <!-- <iconUrl>http://github.com/contoso/UsefulStuff/nuget_icon.png</iconUrl> -->
-    <releaseNotes>Added EDI 997 - Functional Acknowledgment generation.</releaseNotes>
+    <releaseNotes>Added HL Loop Hierarchical parsing.</releaseNotes>
     <description>Simple .NET EDI X12 Reader, Writer and Validator. EDI JSON and XML Serialization and Deserialization.</description>
     <tags>.NET EDI X12 JSON XML EdiReader EdiWriter EdiParser</tags>
     <repository type="git" url="https://github.com/olmelabs/EdiEngine" />
