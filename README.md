@@ -74,47 +74,66 @@ M_940 map = new M_940();
 XmlMapReader r = new XmlMapReader(map);
 EdiTrans t = r.ReadToEnd(xml);
 ```
-### Writing complete EDI Envelope with one message
+### Writing complete EDI Envelope with one message- Console App
 ```cs
-M_940 map = new M_940();
-EdiTrans t = new EdiTrans(map);
+using System;
+using EdiEngine.Standards.X12_004010.Maps;
+using System.Linq;
+using EdiEngine;
+using EdiEngine.Common.Definitions;
+using EdiEngine.Runtime;
+using SegmentDefinitions =EdiEngine.Standards.X12_004010.Segments;
 
-// W05
-var sDef = (MapSegment)map.Content.First(s => s.Name == "W05");
-
-var seg = new EdiSegment(sDef);
-seg.Content.AddRange(new[] {
-    new EdiDataElement(sDef.Content[0], "N"),
-    new EdiDataElement(sDef.Content[1], "538686"),
-    new EdiDataElement(sDef.Content[2], null),
-    new EdiDataElement(sDef.Content[3], "001001"),
-    new EdiDataElement(sDef.Content[4], "538686")
-});
-t.Content.Add(seg);
-
-var g = new EdiGroup("OW");
-g.Transactions.Add(t);
-
-var i = new EdiInterchange()
+namespace ConsoleApplication1
 {
-    ElementSeparator = "*",
-    SegmentSeparator = "\r\n"
-};
-i.Groups.Add(g);
+    class Program
+    {
+        static void Main()
+        {
+            M_940 map = new M_940();
+            EdiTrans t = new EdiTrans(map);
 
-EdiBatch b = new EdiBatch();
-b.Interchanges.Add(i);
+            // W05
+            var sDef = (MapSegment)map.Content.First(s => s.Name == "W05");
 
-//Add all service segments
-EdiDataWriterSettings settings = new EdiDataWriterSettings(
-    new SegmentDefinitions.ISA(), new SegmentDefinitions.IEA(),
-    new SegmentDefinitions.GS(), new SegmentDefinitions.GE(),
-    new SegmentDefinitions.ST(), new SegmentDefinitions.SE(),
-    "ZZ", "SENDER", "ZZ", "RECEIVER", "GSSENDER", "GSRECEIVER",
-    "00401", "004010", "T", 100, 200);
+            var seg = new EdiSegment(sDef);
+            seg.Content.AddRange(new[] {
+                new EdiDataElement(sDef.Content[0], "N"),
+                new EdiDataElement(sDef.Content[1], "538686"),
+                new EdiDataElement(sDef.Content[2], null),
+                new EdiDataElement(sDef.Content[3], "001001"),
+                new EdiDataElement(sDef.Content[4], "538686")
+            });
 
-EdiDataWriter w = new EdiDataWriter(settings);
-string data = w.WriteToString(b);
+            t.Content.Add(seg);
+
+            var g = new EdiGroup("OW");
+            g.Transactions.Add(t);
+
+            var i = new EdiInterchange()
+            {
+                ElementSeparator = "*",
+                SegmentSeparator = "\r\n"
+            };
+            i.Groups.Add(g);
+
+            EdiBatch b = new EdiBatch();
+            b.Interchanges.Add(i);
+
+            //Add all service segments
+            EdiDataWriterSettings settings = new EdiDataWriterSettings(
+                new SegmentDefinitions.ISA(), new SegmentDefinitions.IEA(),
+                new SegmentDefinitions.GS(), new SegmentDefinitions.GE(),
+                new SegmentDefinitions.ST(), new SegmentDefinitions.SE(),
+                "ZZ", "SENDER", "ZZ", "RECEIVER", "GSSENDER", "GSRECEIVER",
+                "00401", "004010", "T", 100, 200, "\r\n", "*");
+
+            EdiDataWriter w = new EdiDataWriter(settings);
+            Console.WriteLine(w.WriteToString(b));
+            Console.Read();
+        }
+    }
+}
 ```
 ### EDI X12 Map Example
 ```cs
