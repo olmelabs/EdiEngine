@@ -61,9 +61,10 @@ namespace EdiEngine
             //check element start - end tag should be omitted
             var elementAttr = obj.GetType().GetCustomAttributes().OfType<XmlElementAttribute>().FirstOrDefault();
             bool writeStratEndElement = !(elementAttr?.IgnoreElementRoot ?? false);
+            var startElementName = elementAttr?.ElementName ?? obj.GetType().Name;
 
             if (writeStratEndElement)
-                w.WriteStartElement(obj.GetType().Name);
+                w.WriteStartElement(startElementName);
 
             //order properties according to Order
             var properties = obj.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance)

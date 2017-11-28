@@ -81,6 +81,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="AckBuilderTests.cs" />
+    <Compile Include="EdiReaderHlTests.cs" />
     <Compile Include="EdiReaderTests.cs" />
     <Compile Include="EdiWriterTests.cs" />
     <Compile Include="XmlReadWrite.cs" />
@@ -90,7 +91,7 @@
     <Compile Include="TestUtils.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="TestData\940.edi" />
+    <EmbeddedResource Include="TestData\940.OK.edi" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EdiEngine.Common\EdiEngine.Common.csproj">
@@ -107,7 +108,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="TestData\940_2.edi" />
+    <EmbeddedResource Include="TestData\940.2.OK.edi" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="TestData\940_Failed_SE01.edi" />
@@ -123,18 +124,23 @@
     <EmbeddedResource Include="TestData\MultipleInterchangesAndGroups.edi" />
     <EmbeddedResource Include="TestData\ControlNumbersMismatch.edi" />
     <EmbeddedResource Include="TestData\WrongGroupsAndTranCount.edi" />
-    <EmbeddedResource Include="TestData\transactionJson.OK.json" />
-    <EmbeddedResource Include="TestData\transactionJson.ERR.json" />
-    <EmbeddedResource Include="TestData\transactionXml.OK.xml">
+    <EmbeddedResource Include="TestData\940.OK.json" />
+    <EmbeddedResource Include="TestData\940.ERR.json" />
+    <EmbeddedResource Include="TestData\940.OK.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="TestData\850.OK.edi" />
     <EmbeddedResource Include="TestData\AckTest.edi" />
+    <EmbeddedResource Include="TestData\856.Crossdock.OK.edi" />
+    <EmbeddedResource Include="TestData\856.Crossdock.OK.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="TestData\transactionXml.ERR.xml">
+    <EmbeddedResource Include="TestData\940.ERR.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="TestData\856.Crossdock.OK.json" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

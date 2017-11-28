@@ -14,7 +14,7 @@ namespace EdiEngine.Tests
         [TestMethod]
         public void XmlReadWrite_XmlSerializationTest()
         {
-            using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.940.edi"))
+            using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.940.OK.edi"))
             {
                 EdiDataReader r = new EdiDataReader();
                 EdiBatch b = r.FromStream(s);
@@ -28,44 +28,19 @@ namespace EdiEngine.Tests
                 Assert.AreEqual(0, stream.Position);
                 Assert.IsTrue(stream.CanRead);
                 
-                //Load XmlSchema
-                XmlReaderSettings settings = new XmlReaderSettings { ValidationType = ValidationType.Schema };
-                settings.ValidationFlags |= XmlSchemaValidationFlags.ReportValidationWarnings;
-
-                using (Stream xsd = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.edixml.xsd"))
-                {
-                    if (xsd == null)
-                        throw new Exception("Xml schema not found");
-
-                    XmlReader schemeReader = XmlReader.Create(xsd, settings);
-                    settings.Schemas.Add("", schemeReader);
-                }
-
-                XmlReader reader = XmlReader.Create(new StringReader(data), settings);
-
-                //ensure there is a valid xml
-                XmlDocument xdoc = new XmlDocument();
-                xdoc.Load(reader);
+                XmlDocument xdoc = ValidateBySchema(data);
 
                 //check parsed seg count
                 int? segCount = xdoc.SelectNodes("//EdiSegment")?.Count;
                 Assert.AreEqual(33, segCount);
 
-                //validate against schema
-                xdoc.Validate(SchemaErrorCallBack);
             }
-        }
-
-        private void SchemaErrorCallBack(object sender, ValidationEventArgs args)
-        {
-            //fail test in case validation errors
-            Assert.AreEqual(0, 1);
         }
 
         [TestMethod]
         public void XmlReadWrite_DeserializeXmlOK()
         {
-            string xml = TestUtils.ReadResourceStream("EdiEngine.Tests.TestData.transactionXml.OK.xml");
+            string xml = TestUtils.ReadResourceStream("EdiEngine.Tests.TestData.940.OK.xml");
 
             M_940 map = new M_940();
             XmlMapReader r = new XmlMapReader(map);
@@ -73,12 +48,14 @@ namespace EdiEngine.Tests
             EdiTrans t = r.ReadToEnd(xml);
 
             Assert.AreEqual(0, t.ValidationErrors.Count);
+
+            //string edi = TestUtils.WriteEdiEnvelope(t, "SH");
         }
 
         [TestMethod]
         public void XmlReadWrite_DeserializeXmlWithValidationErrors()
         {
-            string xml = TestUtils.ReadResourceStream("EdiEngine.Tests.TestData.transactionXml.ERR.xml");
+            string xml = TestUtils.ReadResourceStream("EdiEngine.Tests.TestData.940.ERR.xml");
 
             M_940 map = new M_940();
             XmlMapReader r = new XmlMapReader(map);
@@ -87,5 +64,73 @@ namespace EdiEngine.Tests
 
             Assert.AreEqual(2, t.ValidationErrors.Count);
         }
+
+        [TestMethod]
+        public void XmlReadWrite_XmlSerializationHlLoopTest()
+        {
+            using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.856.Crossdock.OK.edi"))
+            {
+                EdiDataReader r = new EdiDataReader();
+                EdiBatch b = r.FromStream(s);
+
+                XmlDataWriter w = new XmlDataWriter();
+                string data = w.WriteToString(b);
+
+                XmlDocument xdoc = ValidateBySchema(data);
+
+                //check parsed seg count
+                int? segCount = xdoc.SelectNodes("//EdiSegment")?.Count;
+                Assert.AreEqual(61, segCount);
+            }
+        }
+
+        [TestMethod]
+        public void XmlReadWrite_DeserializeXmlHlLoopOk()
+        {
+            string xml = TestUtils.ReadResourceStream("EdiEngine.Tests.TestData.856.Crossdock.OK.xml");
+
+            M_856 map = new M_856();
+            XmlMapReader r = new XmlMapReader(map);
+
+            EdiTrans t = r.ReadToEnd(xml);
+
+            Assert.AreEqual(0, t.ValidationErrors.Count);
+
+            //write complete envelope
+            //string edi = TestUtils.WriteEdiEnvelope(t, "SH");
+        }
+
+        private XmlDocument ValidateBySchema(string data)
+        {
+            XmlReaderSettings settings = new XmlReaderSettings { ValidationType = ValidationType.Schema };
+            settings.ValidationFlags |= XmlSchemaValidationFlags.ReportValidationWarnings;
+
+            using (Stream xsd = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.edixml.xsd"))
+            {
+                if (xsd == null)
+                    throw new Exception("Xml schema not found");
+
+                XmlReader schemeReader = XmlReader.Create(xsd, settings);
+                settings.Schemas.Add("", schemeReader);
+            }
+
+            XmlReader reader = XmlReader.Create(new StringReader(data), settings);
+
+            //ensure there is a valid xml
+            XmlDocument xdoc = new XmlDocument();
+            xdoc.Load(reader);
+
+            //validate against schema
+            xdoc.Validate(SchemaErrorCallBack);
+
+            return xdoc;
+        }
+
+        private void SchemaErrorCallBack(object sender, ValidationEventArgs args)
+        {
+            //fail test in case validation errors
+            Assert.AreEqual(0, 1);
+        }
+
     }
 }
