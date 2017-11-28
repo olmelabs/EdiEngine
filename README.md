@@ -210,5 +210,6 @@ IEA*1*000000100
  - ~~Xml Serialization and Deserialization~~
  - ~~Craft more maps~~ (Added all 004010 maps)
  - ~~997 generation~~
- - HL loop hierarchical parsing 
+ - ~~HL loop hierarchical parsing~~
+ - Composite data elements
  - HIPAA support
