@@ -12,6 +12,17 @@ namespace EdiEngine
         private string _elementSeparator;
         private string _segmentSeparator;
 
+        private readonly string _externalMapsAssemblymName;
+        public EdiDataReader()
+        {
+        }
+
+        public EdiDataReader(string apsAssemblymName)
+        {
+            _externalMapsAssemblymName = apsAssemblymName;
+        }
+
+
         public EdiBatch FromStream(Stream fileContent)
         {
             string stringContent;
@@ -126,7 +137,7 @@ namespace EdiEngine
                         if (currentInterchange == null || currentGroup == null)
                             throw new EdiParsingException("MALFORMED DATA");
 
-                        string asmName = $"EdiEngine.Standards.X12_{currentGroup.GS.Content[7].Val}";
+                        string asmName = _externalMapsAssemblymName ?? $"EdiEngine.Standards.X12_{currentGroup.GS.Content[7].Val}";
                         string typeName = $"{asmName}.Maps.M_{elements[1]}";
 
                         var map = Activator.CreateInstance(asmName, typeName).Unwrap();
@@ -184,7 +195,7 @@ namespace EdiEngine
 
         private MapSegment GetSegDefinition(string segName, string version, string fallBackVersion)
         {
-            string asmName = $"EdiEngine.Standards.X12_{version}";
+            string asmName = _externalMapsAssemblymName ?? $"EdiEngine.Standards.X12_{version}";
             string typeName = $"{asmName}.Segments.{segName}";
             try
             {
@@ -198,7 +209,7 @@ namespace EdiEngine
                 return GetSegDefinition(segName, fallBackVersion, null);
             }
 
-            throw new InvalidOperationException($"Unable to find {segName} in definitions for {version}.");
+            throw new InvalidOperationException($"Unable to find type {typeName} in assembly {asmName}.");
         }
 
         private void AddValidationError(IValidatedEntity obj, string message)

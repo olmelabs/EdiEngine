@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using System.IO;
 using EdiEngine.Standards.X12_004010.Maps;
+using M_940 = EdiEngine.Standards.X12_004010.Maps.M_940;
 
 namespace EdiEngine.Tests
 {
@@ -73,8 +74,7 @@ namespace EdiEngine.Tests
                 EdiBatch b = r.FromStream(s);
 
                 JsonDataWriter jsonWriter = new JsonDataWriter();
-
-               //string data = jsonWriter.WriteToString(b);
+                jsonWriter.WriteToString(b);
             }
         }
 
