@@ -1,0 +1,20 @@
+1.0.0 - 09 Nov 2017
+Initial Release.
+
+1.1.0 - 13 Nov 2017
+Added XML Serialization and Deserialization.
+
+1.2.0 - 15 Nov 2017
+Maps repository now contains all 004010 maps, including Purchase Order, Invoice and many others. You can easily craft yours on their basis.
+
+1.2.1 - 16 Nov 2017
+Added libs for .NET 4.5. to Nuget package.
+
+1.3.0 - 20 Nov 2017 	
+Added EDI 997 - Functional Acknowledgment generation.
+
+1.3.1 - 28 Nov 2017 
+Added HL Loop Hierarchical parsing.
+
+1.3.2 - 29 Nov 2017
+Added ability to use external map assembly.
