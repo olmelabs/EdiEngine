@@ -5,6 +5,7 @@ using System.IO;
 using System.Xml;
 using System.Xml.Schema;
 using EdiEngine.Standards.X12_004010.Maps;
+using M_940 = EdiEngine.Standards.X12_004010.Maps.M_940;
 
 namespace EdiEngine.Tests
 {

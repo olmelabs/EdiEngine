@@ -1,10 +1,10 @@
 ﻿using System.Linq;
+using System.IO;
 using EdiEngine.Common.Definitions;
 using EdiEngine.Runtime;
 using SegmentDefinitions = EdiEngine.Standards.X12_004010.Segments;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.IO;
-using EdiEngine.Standards.X12_004010.Maps;
+using M_940 = EdiEngine.Standards.X12_004010.Maps.M_940;
 
 namespace EdiEngine.Tests
 {

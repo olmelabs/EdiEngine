@@ -84,6 +84,8 @@
     <Compile Include="EdiReaderHlTests.cs" />
     <Compile Include="EdiReaderTests.cs" />
     <Compile Include="EdiWriterTests.cs" />
+    <Compile Include="Maps\M_940.cs" />
+    <Compile Include="Segments\Segments.cs" />
     <Compile Include="XmlReadWrite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataElementValidationTests.cs" />
@@ -133,6 +135,7 @@
     <EmbeddedResource Include="TestData\AckTest.edi" />
     <EmbeddedResource Include="TestData\856.Crossdock.OK.edi" />
     <EmbeddedResource Include="TestData\856.Crossdock.OK.xml" />
+    <EmbeddedResource Include="TestData\940.W05.Only.edi" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="TestData\940.ERR.xml">
@@ -142,6 +145,7 @@
   <ItemGroup>
     <EmbeddedResource Include="TestData\856.Crossdock.OK.json" />
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
