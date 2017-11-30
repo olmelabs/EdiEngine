@@ -28,5 +28,6 @@ Note - test project is not a part of nuget package. You have to clone repository
  - ~~997 generation~~
  - ~~HL loop hierarchical parsing~~
  - Composite data elements
+ - Syntax Notes (e.g. C0302 - If PO103 is present, then PO102 is required...)
  - HIPAA support
   
