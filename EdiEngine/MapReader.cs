@@ -79,6 +79,12 @@ namespace EdiEngine
                 i++;
                 seg.Content.Add(el);
             }
+
+            if (segDef.SyntaxNotes != null && segDef.SyntaxNotes.Count > 0)
+            {
+
+            }
+
             return seg;
         }
     }

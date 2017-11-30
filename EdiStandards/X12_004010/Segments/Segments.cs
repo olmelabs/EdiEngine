@@ -16175,7 +16175,9 @@ namespace EdiEngine.Standards.X12_004010.Segments
 	{
 		public W05()
 		{
-			Content.AddRange(new MapDataElement[] {
+            SyntaxNotes.AddRange(new[] { "P0405"});
+
+            Content.AddRange(new MapDataElement[] {
 				new E_0473 { ReqDes = RequirementDesignator.Mandatory  },
 				new E_0285 { ReqDes = RequirementDesignator.Mandatory  },
 				new E_0324 { ReqDes = RequirementDesignator.Optional  },

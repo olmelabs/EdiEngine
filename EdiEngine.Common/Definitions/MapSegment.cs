@@ -8,11 +8,14 @@ namespace EdiEngine.Common.Definitions
         {
             MaxOccurs = 1;
             Content = new List<MapDataElement>();
+            SyntaxNotes = new List<string>();
         }
 
         public override string EdiName => Name;
 
         public List<MapDataElement> Content { get; }
+
+        public List<string> SyntaxNotes { get; }
 
     }
 }
