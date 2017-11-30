@@ -4,7 +4,7 @@ using System;
 namespace EdiEngine.Common.SyntaxNotes
 {
     /// <summary>
-    /// P Paired or Multiple
+    /// P Paired
     ///     If any element specified in the relational condition is present, then all must be present
     /// R Required
     ///     At least one specified in the relational condition must be present
@@ -32,6 +32,18 @@ namespace EdiEngine.Common.SyntaxNotes
             {
                 case 'C':
                     return new ConditionalSyntaxNote(syntaxNote);
+
+                case 'E':
+                    return new ExclusionSyntaxNote(syntaxNote);
+
+                case 'L':
+                    return new ListConditionalSyntaxNote(syntaxNote);
+
+                case 'P':
+                    return new PairedSyntaxNote(syntaxNote);
+
+                case 'R':
+                    return new RequiredSyntaxNote(syntaxNote);
 
                 default:
                     throw new NotImplementedException($"Syntax note {syntaxNote} is not implemented");

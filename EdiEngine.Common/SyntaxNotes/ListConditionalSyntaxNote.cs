@@ -2,14 +2,14 @@
 
 namespace EdiEngine.Common.SyntaxNotes
 {
-    public class ConditionalSyntaxNote : SyntaxNote
+    public class ListConditionalSyntaxNote : SyntaxNote
     {
-        public ConditionalSyntaxNote(string syntaxNote) : base(syntaxNote)
+        public ListConditionalSyntaxNote(string syntaxNote) : base(syntaxNote)
         {
         }
 
         protected override string Description
-            => " If the first element specified in the condition is present, then all others must be present";
+            => "If the first element specified is present, then at least one of the remaining elements must be present.";
 
         public override bool IsValid(string[] content)
         {
@@ -18,7 +18,7 @@ namespace EdiEngine.Common.SyntaxNotes
             if (string.IsNullOrEmpty(res.FirstOrDefault()))
                 return true;
 
-            return !res.Any(string.IsNullOrEmpty);
+            return res.Skip(1).Any(x => !string.IsNullOrEmpty(x));
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Linq;
 using EdiEngine.Common.Definitions;
 using EdiEngine.Common.Enums;
+using EdiEngine.Common.SyntaxNotes;
 using EdiEngine.Runtime;
 
 namespace EdiEngine
@@ -82,7 +83,21 @@ namespace EdiEngine
 
             if (segDef.SyntaxNotes != null && segDef.SyntaxNotes.Count > 0)
             {
+                foreach (var sn in segDef.SyntaxNotes)
+                {
+                    var syntaxNote = SyntaxNoteFactory.GetSyntaxNote(sn);
+                    if (!syntaxNote.IsValid(content.Skip(1).ToArray()))
+                    {
+                        ValidationError err = new ValidationError()
+                        {
+                            SegmentPos = rowPos,
+                            SegmentName = content[0],
+                            Message = $"Syntax note violation '{syntaxNote}'"
+                        };
+                        validationScope.ValidationErrors.Add(err);
+                    }
 
+                }
             }
 
             return seg;
