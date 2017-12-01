@@ -18,3 +18,7 @@ Added HL Loop Hierarchical parsing.
 
 1.3.2 - 29 Nov 2017
 Added ability to use external map assembly.
+
+1.3.5
+Implemented syntax notes and their validation in EdiReader
+Added segment level validation (elements and syntax notes) to EdiWriter
