@@ -2,6 +2,7 @@
 using System.Linq;
 using EdiEngine.Common.Definitions;
 using EdiEngine.Common.Enums;
+using EdiEngine.Common.SyntaxNotes;
 using EdiEngine.Runtime;
 
 namespace EdiEngine
@@ -51,34 +52,13 @@ namespace EdiEngine
                 if (i < segDef.Content.Count)
                     elDef = segDef.Content[i];
 
-                if (elDef == null)
-                {
-                    ValidationError err = new ValidationError()
-                    {
-                        SegmentPos = rowPos,
-                        SegmentName = content[0],
-                        ElementPos = i + 1,
-                        Message = $"Unexpected element '{val}'"
-                    };
-                    validationScope.ValidationErrors.Add(err);
-                }
-
                 EdiDataElement el = new EdiDataElement(elDef, val);
-                if (elDef != null && !el.IsValid(elDef))
-                {
-                    ValidationError err = new ValidationError()
-                    {
-                        SegmentPos = rowPos,
-                        SegmentName = content[0],
-                        ElementPos = i + 1,
-                        Message = $"Invalid value '{val}'"
-                    };
-                    validationScope.ValidationErrors.Add(err);
-                }
+                seg.Content.Add(el);
 
                 i++;
-                seg.Content.Add(el);
             }
+
+            SegmentValidator.ValidateSegment(seg, rowPos, validationScope);
             return seg;
         }
     }

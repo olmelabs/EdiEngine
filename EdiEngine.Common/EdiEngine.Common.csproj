@@ -62,6 +62,13 @@
     <Compile Include="Definitions\MapDataElement.cs" />
     <Compile Include="Definitions\MapLoop.cs" />
     <Compile Include="Definitions\MapSegment.cs" />
+    <Compile Include="SyntaxNotes\ListConditionalSyntaxNote.cs" />
+    <Compile Include="SyntaxNotes\ExclusionSyntaxNote.cs" />
+    <Compile Include="SyntaxNotes\RequiredSyntaxNote.cs" />
+    <Compile Include="SyntaxNotes\PairedSyntaxNote.cs" />
+    <Compile Include="SyntaxNotes\ConditionalSyntaxNote.cs" />
+    <Compile Include="SyntaxNotes\SyntaxNote.cs" />
+    <Compile Include="SyntaxNotes\SyntaxNoteFactory.cs" />
     <Compile Include="Enums\DataType.cs" />
     <Compile Include="Enums\RequirementDesignator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

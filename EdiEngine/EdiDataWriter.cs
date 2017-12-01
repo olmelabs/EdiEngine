@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Text;
+using EdiEngine.Common.Definitions;
 using EdiEngine.Runtime;
 
 namespace EdiEngine
@@ -63,16 +64,16 @@ namespace EdiEngine
                         _currentTranSegCount = 0;
 
                         t.ST = new ST(_settings.StDef, t.Definition.EdiName, currentTranIdx);
-                        WriteEntity(t.ST, ref sb);
+                        WriteEntity(t.ST, ref sb, t);
 
                         foreach (MappedObjectBase ent in t.Content)
                         {
-                            WriteEntity(ent, ref sb);
+                            WriteEntity(ent, ref sb, t);
                         }
 
                         _currentTranSegCount++;
                         t.SE = new SE(_settings.SeDef, _currentTranSegCount, currentTranIdx);
-                        WriteEntity(t.SE, ref sb);
+                        WriteEntity(t.SE, ref sb, t);
 
                         currentTranIdx++;
                     }
@@ -90,7 +91,7 @@ namespace EdiEngine
             return sb;
         }
 
-        protected virtual void WriteEntity(MappedObjectBase ent, ref StringBuilder sb)
+        protected virtual void WriteEntity(MappedObjectBase ent, ref StringBuilder sb, IValidatedEntity validationScope = null)
         {
             if (ent is EdiLoop)
             {
@@ -101,15 +102,21 @@ namespace EdiEngine
             }
             else if (ent is EdiSegment)
             {
-                _currentTranSegCount++;
-                sb.Append(ent.Name);
+                var seg = (EdiSegment) ent;
 
+                _currentTranSegCount++;
+
+                sb.Append(ent.Name);
                 foreach (var el in ((EdiSegment)ent).Content)
                 {
                     sb.Append($"{CurrentElementSeparator}{el.Val}");
                 }
-
                 sb.Append(CurrentSegmentSeparator);
+
+                if (validationScope != null)
+                {
+                    SegmentValidator.ValidateSegment(seg, _currentTranSegCount, validationScope);
+                }
             }
         }
     }
