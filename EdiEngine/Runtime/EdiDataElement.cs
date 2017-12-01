@@ -11,10 +11,15 @@ namespace EdiEngine.Runtime
         {
             if (definition != null)
             {
+                Definition = definition;
                 Type = definition.GetType().Name;
             }
             Val = val;
         }
+
+        [JsonIgnore]
+        [XmlIgnore]
+        public MapDataElement Definition { get; }
 
         [JsonIgnore]
         [XmlIgnore]

@@ -96,6 +96,7 @@
     <Compile Include="Runtime\SE.cs" />
     <Compile Include="Runtime\ST.cs" />
     <Compile Include="Runtime\ValidationError.cs" />
+    <Compile Include="SegmentValidator.cs" />
     <Compile Include="XmlMapReader.cs" />
     <Compile Include="Xml\XmlElementAttribute.cs" />
     <Compile Include="Xml\XmlIgnoreAttribute.cs" />

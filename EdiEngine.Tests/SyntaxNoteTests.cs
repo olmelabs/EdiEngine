@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using EdiEngine.Common.SyntaxNotes;
+using EdiEngine.Runtime;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace EdiEngine.Tests
@@ -164,6 +166,29 @@ namespace EdiEngine.Tests
 
             Assert.IsFalse(res4);
             Assert.IsFalse(res5);
+        }
+
+        [TestMethod]
+        public void SyntaxNote_Edi850Fail()
+        {
+            using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.850.SyntaxNotes.ERR.edi"))
+            {
+                EdiDataReader r = new EdiDataReader();
+                EdiBatch b = r.FromStream(s);
+
+                EdiTrans t = b.Interchanges[0].Groups[0].Transactions[0];
+
+                Assert.AreEqual(3, t.ValidationErrors.Count);
+
+                Assert.AreEqual(13, t.ValidationErrors[0].SegmentPos);
+                Assert.IsTrue(t.ValidationErrors[0].Message.Contains("P0607"));
+
+                Assert.AreEqual(30, t.ValidationErrors[1].SegmentPos);
+                Assert.IsTrue(t.ValidationErrors[1].Message.Contains("C0506"));
+
+                Assert.AreEqual(30, t.ValidationErrors[2].SegmentPos);
+                Assert.IsTrue(t.ValidationErrors[2].Message.Contains("P0607"));
+            }
         }
     }
 }
