@@ -7,13 +7,13 @@ namespace EdiEngine.Common.Definitions
         protected MapSegment()
         {
             MaxOccurs = 1;
-            Content = new List<MapDataElement>();
+            Content = new List<MapBaseDataElement>();
             SyntaxNotes = new List<string>();
         }
 
         public override string EdiName => Name;
 
-        public List<MapDataElement> Content { get; }
+        public List<MapBaseDataElement> Content { get; }
 
         public List<string> SyntaxNotes { get; }
 

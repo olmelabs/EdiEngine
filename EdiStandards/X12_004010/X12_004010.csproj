@@ -58,6 +58,7 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataElements\CompositeDataElements.cs" />
     <Compile Include="DataElements\DataElements.cs" />
     <Compile Include="Maps\M_100.cs" />
     <Compile Include="Maps\M_101.cs" />

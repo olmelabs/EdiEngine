@@ -3,15 +3,13 @@ using System.Collections.Generic;
 
 namespace EdiEngine.Common.Definitions
 {
-    public abstract class MapDataElement
+    public abstract class MapDataElement : MapBaseDataElement
     {
         protected MapDataElement()
         {
             ReqDes = RequirementDesignator.Optional;
             AllowedValues = new List<string>();
         }
-
-        public RequirementDesignator ReqDes { get; set; }
 
         public DataType DataType { get; set; }
 
