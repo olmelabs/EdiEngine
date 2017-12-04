@@ -24,8 +24,8 @@ namespace EdiEngine.Runtime
             }
 
             Content.AddRange(new[] {
-                new EdiDataElement(definition.Content[0], SE01_IncludedSegCount.ToString()),
-                new EdiDataElement(definition.Content[1], tcn),
+                new EdiDataElement((MapDataElement)definition.Content[0], SE01_IncludedSegCount.ToString()),
+                new EdiDataElement((MapDataElement)definition.Content[1], tcn),
             });
         }
     }

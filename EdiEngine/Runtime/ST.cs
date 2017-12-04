@@ -23,8 +23,8 @@ namespace EdiEngine.Runtime
             }
 
             Content.AddRange(new[] {
-                new EdiDataElement(definition.Content[0], ST01_TransactionId),
-                new EdiDataElement(definition.Content[1], tcn),
+                new EdiDataElement((MapDataElement)definition.Content[0], ST01_TransactionId),
+                new EdiDataElement((MapDataElement)definition.Content[1], tcn),
             });
         }
     }

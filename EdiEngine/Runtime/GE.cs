@@ -17,8 +17,8 @@ namespace EdiEngine.Runtime
             int GE02_ControlNumber) : base(definition)
         {
             Content.AddRange(new[] {
-                new EdiDataElement(definition.Content[0], GE01_IncludedTransCount.ToString()),
-                new EdiDataElement(definition.Content[1], GE02_ControlNumber.ToString())
+                new EdiDataElement((MapDataElement)definition.Content[0], GE01_IncludedTransCount.ToString()),
+                new EdiDataElement((MapDataElement)definition.Content[1], GE02_ControlNumber.ToString())
             });
         }
     }

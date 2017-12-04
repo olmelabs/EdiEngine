@@ -24,22 +24,22 @@ namespace EdiEngine.Runtime
             ) : base(definition)
         {
             Content.AddRange(new[] {
-                new EdiDataElement(definition.Content[0], "00"),
-                new EdiDataElement(definition.Content[1], string.Empty.PadRight(10, ' ')),
-                new EdiDataElement(definition.Content[2], "00"),
-                new EdiDataElement(definition.Content[3], string.Empty.PadRight(10, ' ')),
-                new EdiDataElement(definition.Content[4], ISA05_SenderQual),
-                new EdiDataElement(definition.Content[5], ISA06_SenderId.PadRight(15)),
-                new EdiDataElement(definition.Content[6], ISA07_ReceiverQual),
-                new EdiDataElement(definition.Content[7], ISA08_ReceiverId.PadRight(15)),
-                new EdiDataElement(definition.Content[8], DateTime.Now.ToString("yyMMdd")),
-                new EdiDataElement(definition.Content[9], DateTime.Now.ToString("hhmm")),
-                new EdiDataElement(definition.Content[10], "U"),
-                new EdiDataElement(definition.Content[11], ISA12_VersionlNumber),
-                new EdiDataElement(definition.Content[12], ISA13_ControlNumber.ToString().PadLeft(9, '0')),
-                new EdiDataElement(definition.Content[12], "0"),
-                new EdiDataElement(definition.Content[14], ISA15_UsageIndicator),
-                new EdiDataElement(definition.Content[15], ">")
+                new EdiDataElement((MapDataElement)definition.Content[0], "00"),
+                new EdiDataElement((MapDataElement)definition.Content[1], string.Empty.PadRight(10, ' ')),
+                new EdiDataElement((MapDataElement)definition.Content[2], "00"),
+                new EdiDataElement((MapDataElement)definition.Content[3], string.Empty.PadRight(10, ' ')),
+                new EdiDataElement((MapDataElement)definition.Content[4], ISA05_SenderQual),
+                new EdiDataElement((MapDataElement)definition.Content[5], ISA06_SenderId.PadRight(15)),
+                new EdiDataElement((MapDataElement)definition.Content[6], ISA07_ReceiverQual),
+                new EdiDataElement((MapDataElement)definition.Content[7], ISA08_ReceiverId.PadRight(15)),
+                new EdiDataElement((MapDataElement)definition.Content[8], DateTime.Now.ToString("yyMMdd")),
+                new EdiDataElement((MapDataElement)definition.Content[9], DateTime.Now.ToString("hhmm")),
+                new EdiDataElement((MapDataElement)definition.Content[10], "U"),
+                new EdiDataElement((MapDataElement)definition.Content[11], ISA12_VersionlNumber),
+                new EdiDataElement((MapDataElement)definition.Content[12], ISA13_ControlNumber.ToString().PadLeft(9, '0')),
+                new EdiDataElement((MapDataElement)definition.Content[12], "0"),
+                new EdiDataElement((MapDataElement)definition.Content[14], ISA15_UsageIndicator),
+                new EdiDataElement((MapDataElement)definition.Content[15], ">")
             });
         }
     }

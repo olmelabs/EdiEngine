@@ -17,8 +17,8 @@ namespace EdiEngine.Runtime
             int IEA02_ControlNumber) : base(definition)
         {
             Content.AddRange(new[] {
-                new EdiDataElement(definition.Content[0], IEA01_IncludedGroupsCount.ToString()),
-                new EdiDataElement(definition.Content[1], IEA02_ControlNumber.ToString().PadLeft(9, '0'))
+                new EdiDataElement((MapDataElement)definition.Content[0], IEA01_IncludedGroupsCount.ToString()),
+                new EdiDataElement((MapDataElement)definition.Content[1], IEA02_ControlNumber.ToString().PadLeft(9, '0'))
             });
         }
     }

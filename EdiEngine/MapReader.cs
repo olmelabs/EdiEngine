@@ -50,7 +50,7 @@ namespace EdiEngine
             {
                 MapDataElement elDef = null;
                 if (i < segDef.Content.Count)
-                    elDef = segDef.Content[i];
+                    elDef = (MapDataElement)segDef.Content[i];
 
                 EdiDataElement el = new EdiDataElement(elDef, val);
                 seg.Content.Add(el);
