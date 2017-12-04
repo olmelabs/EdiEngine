@@ -19,7 +19,7 @@ namespace EdiEngine
             _currentLoopDef = map;
         }
 
-        public void ProcessRawSegment(string name, string[] content, int rowPos)
+        public void ProcessRawSegment(string name, string[] content, int rowPos, string compositeSeparator)
         {
             List<AllowedEntitity> allowedEntities = GetNextAllowedEntities(_currentLoopDef);
 
@@ -49,7 +49,7 @@ namespace EdiEngine
                 {
                     _currentLoopInstance = _currentLoopInstance.Parent;
                 }
-                _currentLoopInstance.Content.Add(ProcessSegment(ae.Entity, content, rowPos, _trans));
+                _currentLoopInstance.Content.Add(ProcessSegment(ae.Entity, content, rowPos, compositeSeparator, _trans));
             }
             else if (ae?.Entity is MapLoop)
             {
@@ -90,7 +90,7 @@ namespace EdiEngine
                 _currentLoopInstance.Content.Add(newLoop);
                 _currentLoopInstance = newLoop;
 
-                ProcessRawSegment(name, content, rowPos);
+                ProcessRawSegment(name, content, rowPos, compositeSeparator);
             }
         }
 

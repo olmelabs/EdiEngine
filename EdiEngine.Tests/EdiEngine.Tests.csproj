@@ -81,6 +81,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="AckBuilderTests.cs" />
+    <Compile Include="CompositeTests.cs" />
     <Compile Include="EdiReaderHlTests.cs" />
     <Compile Include="EdiReaderTests.cs" />
     <Compile Include="EdiWriterTests.cs" />
@@ -138,6 +139,7 @@
     <EmbeddedResource Include="TestData\856.Crossdock.OK.xml" />
     <EmbeddedResource Include="TestData\940.W05.Only.edi" />
     <EmbeddedResource Include="TestData\850.SyntaxNotes.ERR.edi" />
+    <EmbeddedResource Include="TestData\850.Composite.SLN.OK.edi" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="TestData\940.ERR.xml">

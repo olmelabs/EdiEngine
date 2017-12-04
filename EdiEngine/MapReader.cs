@@ -2,7 +2,6 @@
 using System.Linq;
 using EdiEngine.Common.Definitions;
 using EdiEngine.Common.Enums;
-using EdiEngine.Common.SyntaxNotes;
 using EdiEngine.Runtime;
 
 namespace EdiEngine
@@ -40,7 +39,7 @@ namespace EdiEngine
             return res;
         }
 
-        public static EdiSegment ProcessSegment(MapBaseEntity definition, string[] content, int rowPos, IValidatedEntity validationScope)
+        public static EdiSegment ProcessSegment(MapBaseEntity definition, string[] content, int rowPos, string compositeSeparator, IValidatedEntity validationScope)
         {
             MapSegment segDef = (MapSegment)definition;
             EdiSegment seg = new EdiSegment(segDef);
