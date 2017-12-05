@@ -6,7 +6,7 @@ using EdiEngine.Xml;
 
 namespace EdiEngine.Runtime
 {
-    public class EdiSegment : MappedObjectBase
+    public class EdiSegment : EdiBaseEntity
     {
         public EdiSegment(MapBaseEntity definition) : base(definition)
         {

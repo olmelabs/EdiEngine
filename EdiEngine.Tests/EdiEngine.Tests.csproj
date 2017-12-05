@@ -81,10 +81,9 @@
   </Choose>
   <ItemGroup>
     <Compile Include="AckBuilderTests.cs" />
-    <Compile Include="CompositeTests.cs" />
-    <Compile Include="EdiReaderHlTests.cs" />
     <Compile Include="EdiReaderTests.cs" />
     <Compile Include="EdiWriterTests.cs" />
+    <Compile Include="Maps\M_001.cs" />
     <Compile Include="Maps\M_940.cs" />
     <Compile Include="Segments\Segments.cs" />
     <Compile Include="SyntaxNoteTests.cs" />

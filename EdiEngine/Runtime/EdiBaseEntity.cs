@@ -4,14 +4,14 @@ using Newtonsoft.Json;
 
 namespace EdiEngine.Runtime
 {
-    public abstract class MappedObjectBase
+    public abstract class EdiBaseEntity
     {
-        protected MappedObjectBase()
+        protected EdiBaseEntity()
         {
 
         }
 
-        protected MappedObjectBase(MapBaseEntity definition)
+        protected EdiBaseEntity(MapBaseEntity definition)
         {
             if (definition != null)
             {

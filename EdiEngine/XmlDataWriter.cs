@@ -94,7 +94,7 @@ namespace EdiEngine
                     }
                     w.WriteEndElement();
                 }
-                else if (typeof (MappedObjectBase).IsAssignableFrom(prop.PropertyType))
+                else if (typeof (EdiBaseEntity).IsAssignableFrom(prop.PropertyType))
                 {
                     WrtiteObject(prop.GetValue(obj), w);
                 }

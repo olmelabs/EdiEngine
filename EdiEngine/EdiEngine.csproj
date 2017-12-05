@@ -94,7 +94,7 @@
     <Compile Include="Runtime\IEA.cs" />
     <Compile Include="Runtime\ISA.cs" />
     <Compile Include="Runtime\IValidatedEntity.cs" />
-    <Compile Include="Runtime\MappedObjectBase.cs" />
+    <Compile Include="Runtime\EdiBaseEntity.cs" />
     <Compile Include="Runtime\SE.cs" />
     <Compile Include="Runtime\ST.cs" />
     <Compile Include="Runtime\ValidationError.cs" />

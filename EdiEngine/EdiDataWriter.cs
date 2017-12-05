@@ -66,7 +66,7 @@ namespace EdiEngine
                         t.ST = new ST(_settings.StDef, t.Definition.EdiName, currentTranIdx);
                         WriteEntity(t.ST, ref sb, t);
 
-                        foreach (MappedObjectBase ent in t.Content)
+                        foreach (EdiBaseEntity ent in t.Content)
                         {
                             WriteEntity(ent, ref sb, t);
                         }
@@ -91,7 +91,7 @@ namespace EdiEngine
             return sb;
         }
 
-        protected virtual void WriteEntity(MappedObjectBase ent, ref StringBuilder sb, IValidatedEntity validationScope = null)
+        protected virtual void WriteEntity(EdiBaseEntity ent, ref StringBuilder sb, IValidatedEntity validationScope = null)
         {
             if (ent is EdiLoop)
             {

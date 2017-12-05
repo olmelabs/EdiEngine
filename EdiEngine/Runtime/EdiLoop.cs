@@ -5,16 +5,16 @@ using EdiEngine.Xml;
 
 namespace EdiEngine.Runtime
 {
-    public class EdiLoop : MappedObjectBase
+    public class EdiLoop : EdiBaseEntity
     {
         public EdiLoop()
         {
-            Content = new List<MappedObjectBase>();
+            Content = new List<EdiBaseEntity>();
         }
 
         public EdiLoop(MapBaseEntity definition, EdiLoop parent) : base(definition)
         {
-            Content = new List<MappedObjectBase>();
+            Content = new List<EdiBaseEntity>();
             Parent = parent;
         }
 
@@ -28,6 +28,6 @@ namespace EdiEngine.Runtime
 
         [JsonProperty(Order = 10)]
         [XmlProperty(Order = 10)]
-        public List<MappedObjectBase> Content { get; }
+        public List<EdiBaseEntity> Content { get; }
     }
 }

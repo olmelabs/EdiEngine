@@ -5108,7 +5108,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0649()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R;
 			MinLength = 1;
 			MaxLength = 10;
 		}
@@ -8443,7 +8443,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_1018()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R;
 			MinLength = 1;
 			MaxLength = 15;
 		}

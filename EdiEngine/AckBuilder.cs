@@ -255,7 +255,7 @@ namespace EdiEngine
                     {
                         WriteEntity(t.ST, ref sb);
 
-                        foreach (MappedObjectBase ent in t.Content)
+                        foreach (EdiBaseEntity ent in t.Content)
                         {
                             WriteEntity(ent, ref sb);
                         }
@@ -272,7 +272,7 @@ namespace EdiEngine
             return sb;
         }
 
-        private void GetTranSegCount(MappedObjectBase ent, ref int segCount)
+        private void GetTranSegCount(EdiBaseEntity ent, ref int segCount)
         {
             if (ent is EdiLoop)
             {

@@ -19,7 +19,7 @@ namespace EdiEngine.Runtime
 
         public override string ToString()
         {
-            return Val;
+            return Val ?? string.Empty;
         }
     }
 }

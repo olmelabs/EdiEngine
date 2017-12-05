@@ -31,4 +31,8 @@ namespace EdiEngine.Tests.Segments
     public class W05 : Standards.X12_004010.Segments.W05
     {
     }
+
+    public class SLN : Standards.X12_004010.Segments.SLN
+    {
+    }
 }

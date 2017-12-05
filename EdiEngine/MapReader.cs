@@ -91,6 +91,8 @@ namespace EdiEngine
 
                 EdiSimpleDataElement el = new EdiSimpleDataElement(elDef, val);
                 composite.Content.Add(el);
+
+                i++;
             }
         }
     }
