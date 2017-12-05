@@ -3,7 +3,7 @@ using EdiEngine.Common.Definitions;
 using EdiEngine.Common.SyntaxNotes;
 using EdiEngine.Runtime;
 
-namespace EdiEngine
+namespace EdiEngine.Validation
 {
     public static class SegmentValidator
     {

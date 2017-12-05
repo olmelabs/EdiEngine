@@ -2,6 +2,7 @@
 using System.Text;
 using EdiEngine.Common.Definitions;
 using EdiEngine.Runtime;
+using EdiEngine.Validation;
 
 namespace EdiEngine
 {

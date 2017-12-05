@@ -2,6 +2,7 @@
 using EdiEngine.Runtime;
 using System;
 using System.IO;
+using EdiEngine.Validation;
 
 namespace EdiEngine
 {

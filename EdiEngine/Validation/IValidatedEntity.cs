@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using EdiEngine.Runtime;
 
-namespace EdiEngine.Runtime
+namespace EdiEngine.Validation
 {
     public interface IValidatedEntity
     {

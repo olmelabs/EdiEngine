@@ -2,6 +2,7 @@
 using EdiEngine.Runtime;
 using EdiEngine.Common.Enums;
 using EdiEngine.Common.Definitions;
+using EdiEngine.Validation;
 
 namespace EdiEngine.Tests
 {

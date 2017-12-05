@@ -16,7 +16,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0002()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 6;
 		}
@@ -109,7 +109,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0014()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 2;
 			MaxLength = 8;
 		}
@@ -146,7 +146,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0021()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 5;
 		}
@@ -192,7 +192,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0028()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 9;
 		}
@@ -210,7 +210,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0032()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.DT;
 			MinLength = 8;
 			MaxLength = 8;
 		}
@@ -229,7 +229,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0034()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N1;
 			MinLength = 1;
 			MaxLength = 4;
 		}
@@ -372,7 +372,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0058()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N2;
 			MinLength = 1;
 			MaxLength = 12;
 		}
@@ -390,7 +390,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0060()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R9;
 			MinLength = 1;
 			MaxLength = 9;
 		}
@@ -435,7 +435,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0065()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R8;
 			MinLength = 1;
 			MaxLength = 8;
 		}
@@ -472,7 +472,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0071()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 3;
 		}
@@ -501,7 +501,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0074()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N2;
 			MinLength = 2;
 			MaxLength = 12;
 		}
@@ -519,7 +519,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0077()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 3;
 		}
@@ -547,7 +547,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0080()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 7;
 		}
@@ -556,7 +556,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0081()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R;
 			MinLength = 1;
 			MaxLength = 10;
 		}
@@ -565,7 +565,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0082()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R8;
 			MinLength = 1;
 			MaxLength = 8;
 		}
@@ -584,7 +584,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0086()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 3;
 		}
@@ -651,7 +651,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0095()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 4;
 		}
@@ -660,7 +660,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0096()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 10;
 		}
@@ -669,7 +669,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0097()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 6;
 		}
@@ -754,7 +754,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0109()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.DT;
 			MinLength = 8;
 			MaxLength = 8;
 		}
@@ -773,7 +773,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0111()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.TM;
 			MinLength = 4;
 			MaxLength = 4;
 		}
@@ -828,7 +828,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0117()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N2;
 			MinLength = 1;
 			MaxLength = 9;
 		}
@@ -837,7 +837,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0118()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R9;
 			MinLength = 1;
 			MaxLength = 9;
 		}
@@ -884,7 +884,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0123()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 6;
 		}
@@ -949,7 +949,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0135()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.DT;
 			MinLength = 8;
 			MaxLength = 8;
 		}
@@ -967,7 +967,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0137()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.DT;
 			MinLength = 8;
 			MaxLength = 8;
 		}
@@ -1061,7 +1061,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0148()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R9;
 			MinLength = 2;
 			MaxLength = 9;
 		}
@@ -1154,7 +1154,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0161()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.TM;
 			MinLength = 4;
 			MaxLength = 4;
 		}
@@ -1173,7 +1173,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0165()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 3;
 		}
@@ -1191,7 +1191,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0167()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 3;
 			MaxLength = 8;
 		}
@@ -1218,7 +1218,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0170()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 2;
 		}
@@ -1301,7 +1301,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0183()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R8;
 			MinLength = 1;
 			MaxLength = 8;
 		}
@@ -1320,7 +1320,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0186()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 6;
 		}
@@ -1349,7 +1349,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0189()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R8;
 			MinLength = 1;
 			MaxLength = 8;
 		}
@@ -1368,7 +1368,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0191()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N2;
 			MinLength = 1;
 			MaxLength = 9;
 		}
@@ -1387,7 +1387,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0193()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N2;
 			MinLength = 1;
 			MaxLength = 12;
 		}
@@ -1464,7 +1464,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0203()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 2;
 			MaxLength = 4;
 		}
@@ -1473,7 +1473,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0204()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 4;
 		}
@@ -1482,7 +1482,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0205()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 6;
 		}
@@ -1548,7 +1548,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0212()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R;
 			MinLength = 1;
 			MaxLength = 17;
 		}
@@ -1557,7 +1557,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0213()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 3;
 		}
@@ -1613,7 +1613,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0220()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R;
 			MinLength = 1;
 			MaxLength = 11;
 		}
@@ -1641,7 +1641,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0223()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 5;
 			MaxLength = 5;
 		}
@@ -1715,7 +1715,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0232()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 2;
 			MaxLength = 6;
 		}
@@ -1724,7 +1724,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0233()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 2;
 			MaxLength = 3;
 		}
@@ -1762,7 +1762,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0237()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R9;
 			MinLength = 1;
 			MaxLength = 9;
 		}
@@ -1810,7 +1810,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0243()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.DT;
 			MinLength = 8;
 			MaxLength = 8;
 		}
@@ -1915,7 +1915,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0258()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N4;
 			MinLength = 1;
 			MaxLength = 9;
 		}
@@ -1973,7 +1973,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0267()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 6;
 		}
@@ -2020,7 +2020,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0275()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.DT;
 			MinLength = 8;
 			MaxLength = 8;
 		}
@@ -2047,7 +2047,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0280()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R;
 			MinLength = 4;
 			MaxLength = 10;
 		}
@@ -2065,7 +2065,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0282()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.DT;
 			MinLength = 8;
 			MaxLength = 8;
 		}
@@ -2133,7 +2133,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0289()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 2;
 		}
@@ -2182,7 +2182,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0294()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 5;
 		}
@@ -2326,7 +2326,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0315()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R5;
 			MinLength = 2;
 			MaxLength = 5;
 		}
@@ -2344,7 +2344,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0317()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 3;
 			MaxLength = 10;
 		}
@@ -2400,7 +2400,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0323()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.DT;
 			MinLength = 8;
 			MaxLength = 8;
 		}
@@ -2463,7 +2463,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0330()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R;
 			MinLength = 1;
 			MaxLength = 15;
 		}
@@ -2482,7 +2482,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0332()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R6;
 			MinLength = 1;
 			MaxLength = 6;
 		}
@@ -2531,7 +2531,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0337()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.TM;
 			MinLength = 4;
 			MaxLength = 8;
 		}
@@ -2540,7 +2540,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0338()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R6;
 			MinLength = 1;
 			MaxLength = 6;
 		}
@@ -2549,7 +2549,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0339()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R;
 			MinLength = 1;
 			MaxLength = 10;
 		}
@@ -2577,7 +2577,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0342()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R5;
 			MinLength = 1;
 			MaxLength = 5;
 		}
@@ -2586,7 +2586,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0343()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N2;
 			MinLength = 1;
 			MaxLength = 10;
 		}
@@ -2625,7 +2625,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0347()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R;
 			MinLength = 1;
 			MaxLength = 10;
 		}
@@ -2662,7 +2662,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0351()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 3;
 		}
@@ -2690,7 +2690,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0354()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 6;
 		}
@@ -2709,7 +2709,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0356()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 6;
 		}
@@ -2718,7 +2718,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0357()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R8;
 			MinLength = 1;
 			MaxLength = 8;
 		}
@@ -2727,7 +2727,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0358()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R;
 			MinLength = 1;
 			MaxLength = 10;
 		}
@@ -2736,7 +2736,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0359()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R;
 			MinLength = 1;
 			MaxLength = 15;
 		}
@@ -2745,7 +2745,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0360()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N2;
 			MinLength = 1;
 			MaxLength = 15;
 		}
@@ -2754,7 +2754,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0361()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N2;
 			MinLength = 1;
 			MaxLength = 10;
 		}
@@ -2763,7 +2763,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0362()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N2;
 			MinLength = 1;
 			MaxLength = 10;
 		}
@@ -2839,7 +2839,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0370()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.DT;
 			MinLength = 8;
 			MaxLength = 8;
 		}
@@ -2868,7 +2868,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0373()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.DT;
 			MinLength = 8;
 			MaxLength = 8;
 		}
@@ -2927,7 +2927,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0380()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R;
 			MinLength = 1;
 			MaxLength = 15;
 		}
@@ -2946,7 +2946,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0382()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R;
 			MinLength = 1;
 			MaxLength = 10;
 		}
@@ -2955,7 +2955,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0383()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R9;
 			MinLength = 1;
 			MaxLength = 9;
 		}
@@ -2964,7 +2964,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0384()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R9;
 			MinLength = 1;
 			MaxLength = 9;
 		}
@@ -2973,7 +2973,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0385()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R9;
 			MinLength = 1;
 			MaxLength = 9;
 		}
@@ -2982,7 +2982,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0386()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 3;
 		}
@@ -3000,7 +3000,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0388()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.DT;
 			MinLength = 8;
 			MaxLength = 8;
 		}
@@ -3009,7 +3009,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0389()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N2;
 			MinLength = 1;
 			MaxLength = 10;
 		}
@@ -3018,7 +3018,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0390()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N2;
 			MinLength = 1;
 			MaxLength = 10;
 		}
@@ -3027,7 +3027,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0391()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N2;
 			MinLength = 1;
 			MaxLength = 10;
 		}
@@ -3065,7 +3065,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0395()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R8;
 			MinLength = 1;
 			MaxLength = 8;
 		}
@@ -3092,7 +3092,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0398()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R;
 			MinLength = 1;
 			MaxLength = 10;
 		}
@@ -3121,7 +3121,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0406()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 3;
 		}
@@ -3140,7 +3140,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0408()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R4;
 			MinLength = 1;
 			MaxLength = 4;
 		}
@@ -3149,7 +3149,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0409()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 3;
 		}
@@ -3158,7 +3158,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0410()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 3;
 		}
@@ -3167,7 +3167,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0411()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R7;
 			MinLength = 1;
 			MaxLength = 7;
 		}
@@ -3186,7 +3186,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0413()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R7;
 			MinLength = 1;
 			MaxLength = 7;
 		}
@@ -3195,7 +3195,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0414()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 7;
 		}
@@ -3204,7 +3204,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0416()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 6;
 			MaxLength = 6;
 		}
@@ -3222,7 +3222,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0418()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R9;
 			MinLength = 1;
 			MaxLength = 9;
 		}
@@ -3231,7 +3231,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0419()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R9;
 			MinLength = 1;
 			MaxLength = 9;
 		}
@@ -3240,7 +3240,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0420()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N2;
 			MinLength = 2;
 			MaxLength = 7;
 		}
@@ -3249,7 +3249,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0421()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N2;
 			MinLength = 2;
 			MaxLength = 7;
 		}
@@ -3297,7 +3297,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0427()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R;
 			MinLength = 1;
 			MaxLength = 15;
 		}
@@ -3439,7 +3439,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0446()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.DT;
 			MinLength = 8;
 			MaxLength = 8;
 		}
@@ -3485,7 +3485,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0452()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R9;
 			MinLength = 1;
 			MaxLength = 9;
 		}
@@ -3552,7 +3552,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0462()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N2;
 			MinLength = 2;
 			MaxLength = 4;
 		}
@@ -3561,7 +3561,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0463()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N2;
 			MinLength = 2;
 			MaxLength = 4;
 		}
@@ -3589,7 +3589,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0466()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 2;
 		}
@@ -3598,7 +3598,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0467()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 1;
 		}
@@ -3607,7 +3607,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0468()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 4;
 			MaxLength = 4;
 		}
@@ -3616,7 +3616,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0470()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 1;
 		}
@@ -3634,7 +3634,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0472()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 6;
 			MaxLength = 6;
 		}
@@ -3671,7 +3671,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0477()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R;
 			MinLength = 1;
 			MaxLength = 10;
 		}
@@ -3779,7 +3779,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0488()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 3;
 		}
@@ -3788,7 +3788,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0489()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 1;
 		}
@@ -3797,7 +3797,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0490()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 6;
 		}
@@ -3816,7 +3816,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0492()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 2;
 		}
@@ -3843,7 +3843,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0496()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 2;
 		}
@@ -3917,7 +3917,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0504()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N2;
 			MinLength = 2;
 			MaxLength = 9;
 		}
@@ -4011,7 +4011,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0515()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 7;
 		}
@@ -4039,7 +4039,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0518()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R;
 			MinLength = 1;
 			MaxLength = 11;
 		}
@@ -4184,7 +4184,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0542()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N1;
 			MinLength = 1;
 			MaxLength = 3;
 		}
@@ -4193,7 +4193,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0543()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N2;
 			MinLength = 3;
 			MaxLength = 6;
 		}
@@ -4252,7 +4252,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0550()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N2;
 			MinLength = 3;
 			MaxLength = 6;
 		}
@@ -4261,7 +4261,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0551()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N2;
 			MinLength = 2;
 			MaxLength = 15;
 		}
@@ -4270,7 +4270,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0552()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N2;
 			MinLength = 3;
 			MaxLength = 15;
 		}
@@ -4288,7 +4288,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0554()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 6;
 		}
@@ -4393,7 +4393,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0567()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 4;
 			MaxLength = 5;
 		}
@@ -4489,7 +4489,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0577()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 3;
 		}
@@ -4595,7 +4595,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0589()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 6;
 		}
@@ -4738,7 +4738,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0607()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 3;
 		}
@@ -4757,7 +4757,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0609()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 9;
 		}
@@ -4766,7 +4766,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0610()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N2;
 			MinLength = 1;
 			MaxLength = 15;
 		}
@@ -4823,7 +4823,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0616()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 3;
 		}
@@ -4869,7 +4869,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0622()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 5;
 		}
@@ -4946,7 +4946,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0631()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 1;
 		}
@@ -4965,7 +4965,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0633()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N1;
 			MinLength = 1;
 			MaxLength = 7;
 		}
@@ -4974,7 +4974,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0634()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R9;
 			MinLength = 1;
 			MaxLength = 9;
 		}
@@ -4993,7 +4993,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0637()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N4;
 			MinLength = 1;
 			MaxLength = 9;
 		}
@@ -5041,7 +5041,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0642()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 4;
 			MaxLength = 4;
 		}
@@ -5050,7 +5050,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0643()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N2;
 			MinLength = 2;
 			MaxLength = 4;
 		}
@@ -5079,7 +5079,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0646()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R;
 			MinLength = 1;
 			MaxLength = 15;
 		}
@@ -5147,7 +5147,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0655()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R;
 			MinLength = 1;
 			MaxLength = 10;
 		}
@@ -5166,7 +5166,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0657()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 10;
 		}
@@ -5204,7 +5204,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0663()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R9;
 			MinLength = 1;
 			MaxLength = 9;
 		}
@@ -5213,7 +5213,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0664()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R9;
 			MinLength = 1;
 			MaxLength = 9;
 		}
@@ -5242,7 +5242,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0667()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R9;
 			MinLength = 1;
 			MaxLength = 9;
 		}
@@ -5281,7 +5281,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0671()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R9;
 			MinLength = 1;
 			MaxLength = 9;
 		}
@@ -5340,7 +5340,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0677()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R6;
 			MinLength = 1;
 			MaxLength = 6;
 		}
@@ -5475,7 +5475,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0691()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 4;
 		}
@@ -5504,7 +5504,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0694()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N2;
 			MinLength = 1;
 			MaxLength = 5;
 		}
@@ -5641,7 +5641,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0713()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 2;
 			MaxLength = 2;
 		}
@@ -5700,7 +5700,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0719()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 6;
 		}
@@ -5728,7 +5728,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0722()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 2;
 		}
@@ -5756,7 +5756,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0725()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 4;
 		}
@@ -5823,7 +5823,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0733()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R4;
 			MinLength = 1;
 			MaxLength = 4;
 		}
@@ -5881,7 +5881,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0739()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R;
 			MinLength = 1;
 			MaxLength = 18;
 		}
@@ -5890,7 +5890,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0740()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R;
 			MinLength = 1;
 			MaxLength = 18;
 		}
@@ -5899,7 +5899,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0741()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R;
 			MinLength = 1;
 			MaxLength = 18;
 		}
@@ -6054,7 +6054,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0757()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 2;
 		}
@@ -6092,7 +6092,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0761()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 1;
 		}
@@ -6111,7 +6111,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0765()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 2;
 		}
@@ -6138,7 +6138,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0768()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 9;
 		}
@@ -6185,7 +6185,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0773()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 9;
 		}
@@ -6203,7 +6203,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0782()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R;
 			MinLength = 1;
 			MaxLength = 18;
 		}
@@ -6222,7 +6222,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0784()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 15;
 		}
@@ -6250,7 +6250,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0787()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 15;
 		}
@@ -6259,7 +6259,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0788()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 5;
 		}
@@ -6434,7 +6434,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0810()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 6;
 		}
@@ -6577,7 +6577,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0826()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R8;
 			MinLength = 1;
 			MaxLength = 8;
 		}
@@ -6586,7 +6586,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0828()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R9;
 			MinLength = 1;
 			MaxLength = 9;
 		}
@@ -6760,7 +6760,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0851()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R6;
 			MinLength = 1;
 			MaxLength = 6;
 		}
@@ -6819,7 +6819,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0857()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N6;
 			MinLength = 1;
 			MaxLength = 9;
 		}
@@ -6828,7 +6828,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0858()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R9;
 			MinLength = 1;
 			MaxLength = 9;
 		}
@@ -6874,7 +6874,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0863()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R6;
 			MinLength = 1;
 			MaxLength = 6;
 		}
@@ -6883,7 +6883,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0864()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R6;
 			MinLength = 1;
 			MaxLength = 6;
 		}
@@ -6892,7 +6892,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0865()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N2;
 			MinLength = 1;
 			MaxLength = 6;
 		}
@@ -6929,7 +6929,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0869()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 1;
 		}
@@ -6956,7 +6956,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0872()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.DT;
 			MinLength = 8;
 			MaxLength = 8;
 		}
@@ -6965,7 +6965,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0873()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.DT;
 			MinLength = 8;
 			MaxLength = 8;
 		}
@@ -7029,7 +7029,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0880()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 4;
 		}
@@ -7038,7 +7038,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0881()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R8;
 			MinLength = 1;
 			MaxLength = 8;
 		}
@@ -7057,7 +7057,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0884()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 3;
 		}
@@ -7066,7 +7066,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0885()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 3;
 		}
@@ -7165,7 +7165,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0895()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R6;
 			MinLength = 1;
 			MaxLength = 6;
 		}
@@ -7233,7 +7233,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0905()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 7;
 		}
@@ -7261,7 +7261,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0910()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 7;
 		}
@@ -7270,7 +7270,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0911()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 2;
 		}
@@ -7299,7 +7299,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0914()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 2;
 		}
@@ -7308,7 +7308,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0915()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 7;
 		}
@@ -7403,7 +7403,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0931()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 3;
 		}
@@ -7412,7 +7412,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0932()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 3;
 		}
@@ -7500,7 +7500,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0942()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 9;
 		}
@@ -7539,7 +7539,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0949()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R4;
 			MinLength = 1;
 			MaxLength = 4;
 		}
@@ -7578,7 +7578,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0953()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R6;
 			MinLength = 1;
 			MaxLength = 6;
 		}
@@ -7587,7 +7587,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0954()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R;
 			MinLength = 1;
 			MaxLength = 10;
 		}
@@ -7683,7 +7683,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0967()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 3;
 		}
@@ -7702,7 +7702,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0970()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 6;
 		}
@@ -7711,7 +7711,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0971()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R9;
 			MinLength = 1;
 			MaxLength = 9;
 		}
@@ -7767,7 +7767,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0977()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R9;
 			MinLength = 1;
 			MaxLength = 9;
 		}
@@ -7884,7 +7884,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0995()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 18;
 		}
@@ -7979,7 +7979,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0I08()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.DT;
 			MinLength = 6;
 			MaxLength = 6;
 		}
@@ -7988,7 +7988,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0I09()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.TM;
 			MinLength = 4;
 			MaxLength = 4;
 		}
@@ -8017,7 +8017,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0I12()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 9;
 			MaxLength = 9;
 		}
@@ -8055,7 +8055,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0I16()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 5;
 		}
@@ -8074,7 +8074,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0I41()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.DT;
 			MinLength = 6;
 			MaxLength = 6;
 		}
@@ -8083,7 +8083,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_0I42()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.TM;
 			MinLength = 4;
 			MaxLength = 6;
 		}
@@ -8366,7 +8366,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_1010()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 3;
 		}
@@ -8472,7 +8472,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_1021()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 3;
 		}
@@ -8491,7 +8491,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_1024()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 2;
 		}
@@ -8633,7 +8633,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_1041()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R9;
 			MinLength = 1;
 			MaxLength = 9;
 		}
@@ -8652,7 +8652,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_1043()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R2;
 			MinLength = 1;
 			MaxLength = 2;
 		}
@@ -8729,7 +8729,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_1051()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N2;
 			MinLength = 1;
 			MaxLength = 10;
 		}
@@ -9076,7 +9076,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_1095()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 4;
 			MaxLength = 4;
 		}
@@ -9431,7 +9431,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_1144()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R6;
 			MinLength = 1;
 			MaxLength = 6;
 		}
@@ -9440,7 +9440,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_1145()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 4;
 		}
@@ -9645,7 +9645,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_1167()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R6;
 			MinLength = 1;
 			MaxLength = 6;
 		}
@@ -10444,7 +10444,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_1272()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 16;
 		}
@@ -10696,7 +10696,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_1313()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 6;
 		}
@@ -10811,7 +10811,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_1328()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 2;
 		}
@@ -11224,7 +11224,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_1371()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R;
 			MinLength = 1;
 			MaxLength = 10;
 		}
@@ -11626,7 +11626,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_1470()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 9;
 		}
@@ -11890,7 +11890,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_1528()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 2;
 		}
@@ -12646,7 +12646,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_1662()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 9;
 		}
@@ -12655,7 +12655,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_1663()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.N0;
 			MinLength = 1;
 			MaxLength = 3;
 		}
@@ -12664,7 +12664,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_1664()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R4;
 			MinLength = 1;
 			MaxLength = 4;
 		}
@@ -12742,7 +12742,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_1687()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.R;
 			MinLength = 1;
 			MaxLength = 15;
 		}
@@ -12760,7 +12760,7 @@ namespace EdiEngine.Standards.X12_004010.DataElements
 	{
 		public E_9830()
 		{
-			DataType = DataType.AN;
+			DataType = DataType.TM;
 			MinLength = 4;
 			MaxLength = 8;
 		}

@@ -1,6 +1,7 @@
 ﻿using EdiEngine.Common.Definitions;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using EdiEngine.Validation;
 using EdiEngine.Xml;
 
 namespace EdiEngine.Runtime

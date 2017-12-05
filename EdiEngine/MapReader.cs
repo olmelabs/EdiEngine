@@ -4,6 +4,7 @@ using System.Linq;
 using EdiEngine.Common.Definitions;
 using EdiEngine.Common.Enums;
 using EdiEngine.Runtime;
+using EdiEngine.Validation;
 
 namespace EdiEngine
 {

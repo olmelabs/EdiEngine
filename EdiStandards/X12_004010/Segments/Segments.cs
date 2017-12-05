@@ -285,7 +285,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 		public AK4()
 		{
 			Content.AddRange(new MapBaseDataElement[] {
-				new E_C030 { ReqDes = RequirementDesignator.Mandatory },
+				new C030 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0725 { ReqDes = RequirementDesignator.Optional },
 				new E_0723 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0724 { ReqDes = RequirementDesignator.Optional },
@@ -566,7 +566,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_1188 { ReqDes = RequirementDesignator.Optional },
 				new E_0933 { ReqDes = RequirementDesignator.Optional },
 				new E_1635 { ReqDes = RequirementDesignator.Optional },
-				new E_C007 { ReqDes = RequirementDesignator.Optional },
+				new C007 { ReqDes = RequirementDesignator.Optional },
 				new E_0782 { ReqDes = RequirementDesignator.Optional },
 				new E_0954 { ReqDes = RequirementDesignator.Optional },
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
@@ -778,7 +778,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_1313 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0344 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0739 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_1608 { ReqDes = RequirementDesignator.Optional },
 				new E_0352 { ReqDes = RequirementDesignator.Optional },
 				new E_1073 { ReqDes = RequirementDesignator.Optional },
@@ -799,7 +799,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_0790 { ReqDes = RequirementDesignator.Optional },
 				new E_0790 { ReqDes = RequirementDesignator.Optional },
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_1131 { ReqDes = RequirementDesignator.Optional },
 				new E_1073 { ReqDes = RequirementDesignator.Optional },
 				new E_1073 { ReqDes = RequirementDesignator.Optional },
@@ -824,7 +824,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 			SyntaxNotes.AddRange(new[] { "E0910", "R0910" });
 
 			Content.AddRange(new MapBaseDataElement[] {
-				new E_C007 { ReqDes = RequirementDesignator.Mandatory },
+				new C007 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0782 { ReqDes = RequirementDesignator.Optional },
 				new E_0061 { ReqDes = RequirementDesignator.Optional },
 				new E_0100 { ReqDes = RequirementDesignator.Optional },
@@ -1394,7 +1394,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_0786 { ReqDes = RequirementDesignator.Optional },
 				new E_0954 { ReqDes = RequirementDesignator.Optional },
 				new E_0954 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 			});
 		}
 	}
@@ -2723,7 +2723,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 			Content.AddRange(new MapBaseDataElement[] {
 				new E_0350 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0380 { ReqDes = RequirementDesignator.Mandatory },
-				new E_C001 { ReqDes = RequirementDesignator.Mandatory },
+				new C001 { ReqDes = RequirementDesignator.Mandatory },
 			});
 		}
 	}
@@ -2908,7 +2908,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 
 			Content.AddRange(new MapBaseDataElement[] {
 				new E_1552 { ReqDes = RequirementDesignator.Optional },
-				new E_C045 { ReqDes = RequirementDesignator.Optional },
+				new C045 { ReqDes = RequirementDesignator.Optional },
 				new E_1549 { ReqDes = RequirementDesignator.Optional },
 				new E_0641 { ReqDes = RequirementDesignator.Optional },
 				new E_0122 { ReqDes = RequirementDesignator.Optional },
@@ -2997,7 +2997,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 
 			Content.AddRange(new MapBaseDataElement[] {
 				new E_0755 { ReqDes = RequirementDesignator.Mandatory },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_1198 { ReqDes = RequirementDesignator.Optional },
 				new E_0374 { ReqDes = RequirementDesignator.Optional },
 				new E_0373 { ReqDes = RequirementDesignator.Optional },
@@ -3198,13 +3198,13 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_0782 { ReqDes = RequirementDesignator.Optional },
 				new E_1032 { ReqDes = RequirementDesignator.Optional },
 				new E_1343 { ReqDes = RequirementDesignator.Optional },
-				new E_C023 { ReqDes = RequirementDesignator.Optional },
+				new C023 { ReqDes = RequirementDesignator.Optional },
 				new E_1073 { ReqDes = RequirementDesignator.Optional },
 				new E_1359 { ReqDes = RequirementDesignator.Optional },
 				new E_1073 { ReqDes = RequirementDesignator.Optional },
 				new E_1363 { ReqDes = RequirementDesignator.Optional },
 				new E_1351 { ReqDes = RequirementDesignator.Optional },
-				new E_C024 { ReqDes = RequirementDesignator.Optional },
+				new C024 { ReqDes = RequirementDesignator.Optional },
 				new E_1366 { ReqDes = RequirementDesignator.Optional },
 				new E_1073 { ReqDes = RequirementDesignator.Optional },
 				new E_1338 { ReqDes = RequirementDesignator.Optional },
@@ -3637,8 +3637,8 @@ namespace EdiEngine.Standards.X12_004010.Segments
 		{
 			Content.AddRange(new MapBaseDataElement[] {
 				new E_0755 { ReqDes = RequirementDesignator.Mandatory },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_1196 { ReqDes = RequirementDesignator.Optional },
 				new E_0306 { ReqDes = RequirementDesignator.Optional },
 				new E_0562 { ReqDes = RequirementDesignator.Optional },
@@ -3714,12 +3714,12 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_1642 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0824 { ReqDes = RequirementDesignator.Optional },
 				new E_0825 { ReqDes = RequirementDesignator.Optional },
-				new E_C050 { ReqDes = RequirementDesignator.Optional },
-				new E_C040 { ReqDes = RequirementDesignator.Optional },
+				new C050 { ReqDes = RequirementDesignator.Optional },
+				new C040 { ReqDes = RequirementDesignator.Optional },
 				new E_1570 { ReqDes = RequirementDesignator.Optional },
 				new E_0799 { ReqDes = RequirementDesignator.Optional },
 				new E_0995 { ReqDes = RequirementDesignator.Optional },
-				new E_C033 { ReqDes = RequirementDesignator.Optional },
+				new C033 { ReqDes = RequirementDesignator.Optional },
 			});
 		}
 	}
@@ -3769,7 +3769,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 			SyntaxNotes.AddRange(new[] { "E1617" });
 
 			Content.AddRange(new MapBaseDataElement[] {
-				new E_C001 { ReqDes = RequirementDesignator.Mandatory },
+				new C001 { ReqDes = RequirementDesignator.Mandatory },
 				new E_1167 { ReqDes = RequirementDesignator.Optional },
 				new E_0942 { ReqDes = RequirementDesignator.Optional },
 			});
@@ -3824,7 +3824,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 		{
 			Content.AddRange(new MapBaseDataElement[] {
 				new E_1020 { ReqDes = RequirementDesignator.Mandatory },
-				new E_C001 { ReqDes = RequirementDesignator.Mandatory },
+				new C001 { ReqDes = RequirementDesignator.Mandatory },
 				new E_1021 { ReqDes = RequirementDesignator.Mandatory },
 				new E_1021 { ReqDes = RequirementDesignator.Optional },
 				new E_1021 { ReqDes = RequirementDesignator.Optional },
@@ -3842,7 +3842,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 			Content.AddRange(new MapBaseDataElement[] {
 				new E_0964 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0782 { ReqDes = RequirementDesignator.Mandatory },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
 			});
 		}
@@ -3863,7 +3863,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_1132 { ReqDes = RequirementDesignator.Optional },
 				new E_1141 { ReqDes = RequirementDesignator.Optional },
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 			});
 		}
 	}
@@ -3925,7 +3925,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_0236 { ReqDes = RequirementDesignator.Optional },
 				new E_0212 { ReqDes = RequirementDesignator.Optional },
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0648 { ReqDes = RequirementDesignator.Optional },
 				new E_0649 { ReqDes = RequirementDesignator.Optional },
 				new E_0782 { ReqDes = RequirementDesignator.Optional },
@@ -4843,7 +4843,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 
 			Content.AddRange(new MapBaseDataElement[] {
 				new E_1402 { ReqDes = RequirementDesignator.Mandatory },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
 			});
 		}
@@ -4867,7 +4867,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
 				new E_1073 { ReqDes = RequirementDesignator.Optional },
 				new E_1073 { ReqDes = RequirementDesignator.Optional },
-				new E_C003 { ReqDes = RequirementDesignator.Optional },
+				new C003 { ReqDes = RequirementDesignator.Optional },
 			});
 		}
 	}
@@ -5103,7 +5103,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 
 			Content.AddRange(new MapBaseDataElement[] {
 				new E_1365 { ReqDes = RequirementDesignator.Optional },
-				new E_C003 { ReqDes = RequirementDesignator.Optional },
+				new C003 { ReqDes = RequirementDesignator.Optional },
 				new E_1207 { ReqDes = RequirementDesignator.Optional },
 				new E_1336 { ReqDes = RequirementDesignator.Optional },
 			});
@@ -5214,7 +5214,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 			SyntaxNotes.AddRange(new[] { "P0304", "P0506", "P1011", "R1112" });
 
 			Content.AddRange(new MapBaseDataElement[] {
-				new E_C040 { ReqDes = RequirementDesignator.Mandatory },
+				new C040 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0467 { ReqDes = RequirementDesignator.Mandatory },
 				new E_1250 { ReqDes = RequirementDesignator.Mandatory },
 				new E_1251 { ReqDes = RequirementDesignator.Mandatory },
@@ -5492,7 +5492,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_0782 { ReqDes = RequirementDesignator.Optional },
 				new E_1187 { ReqDes = RequirementDesignator.Optional },
 				new E_0782 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
 				new E_0374 { ReqDes = RequirementDesignator.Optional },
 				new E_1250 { ReqDes = RequirementDesignator.Optional },
@@ -6955,7 +6955,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 
 			Content.AddRange(new MapBaseDataElement[] {
 				new E_0739 { ReqDes = RequirementDesignator.Mandatory },
-				new E_C001 { ReqDes = RequirementDesignator.Mandatory },
+				new C001 { ReqDes = RequirementDesignator.Mandatory },
 				new E_1603 { ReqDes = RequirementDesignator.Optional },
 				new E_1313 { ReqDes = RequirementDesignator.Optional },
 				new E_0344 { ReqDes = RequirementDesignator.Optional },
@@ -7329,18 +7329,18 @@ namespace EdiEngine.Standards.X12_004010.Segments
 			SyntaxNotes.AddRange(new[] { "P0304", "P1011", "P1718", "P2425", "P3132", "P3839", "P4546", "P5253", "P5960", "P6667", "P7374", "P8081" });
 
 			Content.AddRange(new MapBaseDataElement[] {
-				new E_C022 { ReqDes = RequirementDesignator.Mandatory },
-				new E_C022 { ReqDes = RequirementDesignator.Optional },
-				new E_C022 { ReqDes = RequirementDesignator.Optional },
-				new E_C022 { ReqDes = RequirementDesignator.Optional },
-				new E_C022 { ReqDes = RequirementDesignator.Optional },
-				new E_C022 { ReqDes = RequirementDesignator.Optional },
-				new E_C022 { ReqDes = RequirementDesignator.Optional },
-				new E_C022 { ReqDes = RequirementDesignator.Optional },
-				new E_C022 { ReqDes = RequirementDesignator.Optional },
-				new E_C022 { ReqDes = RequirementDesignator.Optional },
-				new E_C022 { ReqDes = RequirementDesignator.Optional },
-				new E_C022 { ReqDes = RequirementDesignator.Optional },
+				new C022 { ReqDes = RequirementDesignator.Mandatory },
+				new C022 { ReqDes = RequirementDesignator.Optional },
+				new C022 { ReqDes = RequirementDesignator.Optional },
+				new C022 { ReqDes = RequirementDesignator.Optional },
+				new C022 { ReqDes = RequirementDesignator.Optional },
+				new C022 { ReqDes = RequirementDesignator.Optional },
+				new C022 { ReqDes = RequirementDesignator.Optional },
+				new C022 { ReqDes = RequirementDesignator.Optional },
+				new C022 { ReqDes = RequirementDesignator.Optional },
+				new C022 { ReqDes = RequirementDesignator.Optional },
+				new C022 { ReqDes = RequirementDesignator.Optional },
+				new C022 { ReqDes = RequirementDesignator.Optional },
 			});
 		}
 	}
@@ -7645,7 +7645,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_1136 { ReqDes = RequirementDesignator.Optional },
 				new E_0933 { ReqDes = RequirementDesignator.Optional },
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0752 { ReqDes = RequirementDesignator.Optional },
 				new E_0752 { ReqDes = RequirementDesignator.Optional },
 				new E_0752 { ReqDes = RequirementDesignator.Optional },
@@ -7756,7 +7756,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 		{
 			Content.AddRange(new MapBaseDataElement[] {
 				new E_0336 { ReqDes = RequirementDesignator.Mandatory },
-				new E_C001 { ReqDes = RequirementDesignator.Mandatory },
+				new C001 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0380 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0380 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0782 { ReqDes = RequirementDesignator.Optional },
@@ -7873,7 +7873,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 
 			Content.AddRange(new MapBaseDataElement[] {
 				new E_1550 { ReqDes = RequirementDesignator.Mandatory },
-				new E_C036 { ReqDes = RequirementDesignator.Mandatory },
+				new C036 { ReqDes = RequirementDesignator.Mandatory },
 			});
 		}
 	}
@@ -8235,7 +8235,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_0235 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0234 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0286 { ReqDes = RequirementDesignator.Optional },
 				new E_0782 { ReqDes = RequirementDesignator.Optional },
 			});
@@ -8318,7 +8318,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 			Content.AddRange(new MapBaseDataElement[] {
 				new E_0449 { ReqDes = RequirementDesignator.Mandatory },
 				new E_1333 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 			});
 		}
 	}
@@ -9094,7 +9094,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_1073 { ReqDes = RequirementDesignator.Optional },
 				new E_1080 { ReqDes = RequirementDesignator.Optional },
 				new E_0093 { ReqDes = RequirementDesignator.Optional },
-				new E_C040 { ReqDes = RequirementDesignator.Optional },
+				new C040 { ReqDes = RequirementDesignator.Optional },
 				new E_0673 { ReqDes = RequirementDesignator.Optional },
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
@@ -9118,17 +9118,17 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_0352 { ReqDes = RequirementDesignator.Optional },
 				new E_0127 { ReqDes = RequirementDesignator.Optional },
 				new E_0739 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0739 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0739 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0739 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0739 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0739 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0128 { ReqDes = RequirementDesignator.Optional },
 				new E_0127 { ReqDes = RequirementDesignator.Optional },
 				new E_0352 { ReqDes = RequirementDesignator.Optional },
@@ -9194,7 +9194,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_1073 { ReqDes = RequirementDesignator.Optional },
 				new E_1080 { ReqDes = RequirementDesignator.Optional },
 				new E_1081 { ReqDes = RequirementDesignator.Optional },
-				new E_C048 { ReqDes = RequirementDesignator.Optional },
+				new C048 { ReqDes = RequirementDesignator.Optional },
 				new E_0782 { ReqDes = RequirementDesignator.Optional },
 				new E_0782 { ReqDes = RequirementDesignator.Optional },
 				new E_0352 { ReqDes = RequirementDesignator.Optional },
@@ -9268,7 +9268,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_1270 { ReqDes = RequirementDesignator.Mandatory },
 				new E_1271 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0739 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_1270 { ReqDes = RequirementDesignator.Optional },
 				new E_1271 { ReqDes = RequirementDesignator.Optional },
 				new E_0157 { ReqDes = RequirementDesignator.Optional },
@@ -9287,7 +9287,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 			Content.AddRange(new MapBaseDataElement[] {
 				new E_1103 { ReqDes = RequirementDesignator.Mandatory },
 				new E_1081 { ReqDes = RequirementDesignator.Mandatory },
-				new E_C048 { ReqDes = RequirementDesignator.Optional },
+				new C048 { ReqDes = RequirementDesignator.Optional },
 				new E_0054 { ReqDes = RequirementDesignator.Optional },
 			});
 		}
@@ -9680,7 +9680,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_0737 { ReqDes = RequirementDesignator.Optional },
 				new E_0738 { ReqDes = RequirementDesignator.Optional },
 				new E_0739 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0740 { ReqDes = RequirementDesignator.Optional },
 				new E_0741 { ReqDes = RequirementDesignator.Optional },
 				new E_0935 { ReqDes = RequirementDesignator.Optional },
@@ -9759,7 +9759,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_0954 { ReqDes = RequirementDesignator.Optional },
 				new E_1656 { ReqDes = RequirementDesignator.Optional },
 				new E_1105 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
 				new E_1102 { ReqDes = RequirementDesignator.Optional },
 				new E_1073 { ReqDes = RequirementDesignator.Optional },
@@ -9810,7 +9810,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_0127 { ReqDes = RequirementDesignator.Optional },
 				new E_0954 { ReqDes = RequirementDesignator.Optional },
 				new E_0610 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
 				new E_0954 { ReqDes = RequirementDesignator.Optional },
 				new E_0954 { ReqDes = RequirementDesignator.Optional },
@@ -10167,7 +10167,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 		{
 			Content.AddRange(new MapBaseDataElement[] {
 				new E_0829 { ReqDes = RequirementDesignator.Mandatory },
-				new E_C001 { ReqDes = RequirementDesignator.Mandatory },
+				new C001 { ReqDes = RequirementDesignator.Mandatory },
 			});
 		}
 	}
@@ -10343,7 +10343,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_0373 { ReqDes = RequirementDesignator.Optional },
 				new E_0337 { ReqDes = RequirementDesignator.Optional },
 				new E_0623 { ReqDes = RequirementDesignator.Optional },
-				new E_C040 { ReqDes = RequirementDesignator.Optional },
+				new C040 { ReqDes = RequirementDesignator.Optional },
 			});
 		}
 	}
@@ -10379,7 +10379,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_0887 { ReqDes = RequirementDesignator.Optional },
 				new E_0352 { ReqDes = RequirementDesignator.Optional },
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 			});
 		}
 	}
@@ -10525,7 +10525,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_0067 { ReqDes = RequirementDesignator.Optional },
 				new E_1073 { ReqDes = RequirementDesignator.Optional },
 				new E_1132 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
 			});
 		}
@@ -10693,7 +10693,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 			Content.AddRange(new MapBaseDataElement[] {
 				new E_0673 { ReqDes = RequirementDesignator.Optional },
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0522 { ReqDes = RequirementDesignator.Optional },
 				new E_0782 { ReqDes = RequirementDesignator.Optional },
 				new E_0344 { ReqDes = RequirementDesignator.Optional },
@@ -10758,9 +10758,9 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_0782 { ReqDes = RequirementDesignator.Optional },
 				new E_0954 { ReqDes = RequirementDesignator.Optional },
 				new E_0782 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
 				new E_0954 { ReqDes = RequirementDesignator.Optional },
 				new E_0954 { ReqDes = RequirementDesignator.Optional },
@@ -10860,7 +10860,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 			Content.AddRange(new MapBaseDataElement[] {
 				new E_0344 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0373 { ReqDes = RequirementDesignator.Mandatory },
-				new E_C001 { ReqDes = RequirementDesignator.Mandatory },
+				new C001 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0380 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0093 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0352 { ReqDes = RequirementDesignator.Optional },
@@ -10895,7 +10895,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 			Content.AddRange(new MapBaseDataElement[] {
 				new E_0933 { ReqDes = RequirementDesignator.Optional },
 				new E_1280 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0739 { ReqDes = RequirementDesignator.Optional },
 			});
 		}
@@ -10958,7 +10958,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 			Content.AddRange(new MapBaseDataElement[] {
 				new E_1496 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0933 { ReqDes = RequirementDesignator.Optional },
-				new E_C040 { ReqDes = RequirementDesignator.Optional },
+				new C040 { ReqDes = RequirementDesignator.Optional },
 			});
 		}
 	}
@@ -11014,7 +11014,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_1073 { ReqDes = RequirementDesignator.Optional },
 				new E_0098 { ReqDes = RequirementDesignator.Optional },
 				new E_0441 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 			});
 		}
 	}
@@ -11139,7 +11139,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 		{
 			Content.AddRange(new MapBaseDataElement[] {
 				new E_0554 { ReqDes = RequirementDesignator.Mandatory },
-				new E_C001 { ReqDes = RequirementDesignator.Mandatory },
+				new C001 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0093 { ReqDes = RequirementDesignator.Mandatory },
 				new E_1311 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0352 { ReqDes = RequirementDesignator.Optional },
@@ -11169,17 +11169,17 @@ namespace EdiEngine.Standards.X12_004010.Segments
 			Content.AddRange(new MapBaseDataElement[] {
 				new E_0127 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0373 { ReqDes = RequirementDesignator.Mandatory },
-				new E_C042 { ReqDes = RequirementDesignator.Mandatory },
+				new C042 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0782 { ReqDes = RequirementDesignator.Mandatory },
-				new E_C042 { ReqDes = RequirementDesignator.Optional },
+				new C042 { ReqDes = RequirementDesignator.Optional },
 				new E_0782 { ReqDes = RequirementDesignator.Optional },
-				new E_C042 { ReqDes = RequirementDesignator.Optional },
+				new C042 { ReqDes = RequirementDesignator.Optional },
 				new E_0782 { ReqDes = RequirementDesignator.Optional },
-				new E_C042 { ReqDes = RequirementDesignator.Optional },
+				new C042 { ReqDes = RequirementDesignator.Optional },
 				new E_0782 { ReqDes = RequirementDesignator.Optional },
-				new E_C042 { ReqDes = RequirementDesignator.Optional },
+				new C042 { ReqDes = RequirementDesignator.Optional },
 				new E_0782 { ReqDes = RequirementDesignator.Optional },
-				new E_C042 { ReqDes = RequirementDesignator.Optional },
+				new C042 { ReqDes = RequirementDesignator.Optional },
 				new E_0782 { ReqDes = RequirementDesignator.Optional },
 			});
 		}
@@ -11333,7 +11333,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_0670 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0330 { ReqDes = RequirementDesignator.Optional },
 				new E_0671 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0212 { ReqDes = RequirementDesignator.Optional },
 				new E_0639 { ReqDes = RequirementDesignator.Optional },
 				new E_0235 { ReqDes = RequirementDesignator.Optional },
@@ -11517,7 +11517,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_1073 { ReqDes = RequirementDesignator.Optional },
 				new E_0673 { ReqDes = RequirementDesignator.Optional },
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 			});
 		}
 	}
@@ -11670,7 +11670,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_0128 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0127 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0156 { ReqDes = RequirementDesignator.Optional },
-				new E_C035 { ReqDes = RequirementDesignator.Optional },
+				new C035 { ReqDes = RequirementDesignator.Optional },
 				new E_1223 { ReqDes = RequirementDesignator.Optional },
 			});
 		}
@@ -11738,12 +11738,12 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_0127 { ReqDes = RequirementDesignator.Optional },
 				new E_0098 { ReqDes = RequirementDesignator.Optional },
 				new E_0367 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0609 { ReqDes = RequirementDesignator.Optional },
 				new E_0374 { ReqDes = RequirementDesignator.Optional },
 				new E_0373 { ReqDes = RequirementDesignator.Optional },
 				new E_0373 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0741 { ReqDes = RequirementDesignator.Optional },
 				new E_0740 { ReqDes = RequirementDesignator.Optional },
 				new E_0739 { ReqDes = RequirementDesignator.Optional },
@@ -11770,7 +11770,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_0939 { ReqDes = RequirementDesignator.Optional },
 				new E_0940 { ReqDes = RequirementDesignator.Optional },
 				new E_0942 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0943 { ReqDes = RequirementDesignator.Optional },
 				new E_0944 { ReqDes = RequirementDesignator.Optional },
 				new E_0945 { ReqDes = RequirementDesignator.Optional },
@@ -11824,7 +11824,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_0522 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0782 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0594 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0098 { ReqDes = RequirementDesignator.Optional },
 				new E_0963 { ReqDes = RequirementDesignator.Optional },
 				new E_0441 { ReqDes = RequirementDesignator.Optional },
@@ -11857,7 +11857,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_0066 { ReqDes = RequirementDesignator.Optional },
 				new E_0067 { ReqDes = RequirementDesignator.Optional },
 				new E_0352 { ReqDes = RequirementDesignator.Optional },
-				new E_C002 { ReqDes = RequirementDesignator.Optional },
+				new C002 { ReqDes = RequirementDesignator.Optional },
 				new E_1525 { ReqDes = RequirementDesignator.Optional },
 			});
 		}
@@ -12016,7 +12016,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 			Content.AddRange(new MapBaseDataElement[] {
 				new E_0673 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0061 { ReqDes = RequirementDesignator.Optional },
 			});
 		}
@@ -12239,15 +12239,15 @@ namespace EdiEngine.Standards.X12_004010.Segments
 			SyntaxNotes.AddRange(new[] { "P3752", "P5657", "C5854" });
 
 			Content.AddRange(new MapBaseDataElement[] {
-				new E_C001 { ReqDes = RequirementDesignator.Mandatory },
+				new C001 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0380 { ReqDes = RequirementDesignator.Mandatory },
 				new E_1089 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0954 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0954 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0954 { ReqDes = RequirementDesignator.Mandatory },
-				new E_C001 { ReqDes = RequirementDesignator.Mandatory },
+				new C001 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0380 { ReqDes = RequirementDesignator.Mandatory },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
 				new E_1073 { ReqDes = RequirementDesignator.Optional },
 				new E_0954 { ReqDes = RequirementDesignator.Optional },
@@ -12303,23 +12303,23 @@ namespace EdiEngine.Standards.X12_004010.Segments
 			Content.AddRange(new MapBaseDataElement[] {
 				new E_0350 { ReqDes = RequirementDesignator.Optional },
 				new E_0663 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0664 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0667 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0412 { ReqDes = RequirementDesignator.Optional },
 				new E_0667 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0412 { ReqDes = RequirementDesignator.Optional },
 				new E_0667 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0412 { ReqDes = RequirementDesignator.Optional },
 				new E_0667 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0412 { ReqDes = RequirementDesignator.Optional },
 				new E_0667 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0412 { ReqDes = RequirementDesignator.Optional },
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
 			});
@@ -12377,8 +12377,8 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_0756 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0093 { ReqDes = RequirementDesignator.Optional },
 				new E_0364 { ReqDes = RequirementDesignator.Optional },
-				new E_C040 { ReqDes = RequirementDesignator.Optional },
-				new E_C040 { ReqDes = RequirementDesignator.Optional },
+				new C040 { ReqDes = RequirementDesignator.Optional },
+				new C040 { ReqDes = RequirementDesignator.Optional },
 			});
 		}
 	}
@@ -12420,7 +12420,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 			SyntaxNotes.AddRange(new[] { "C0504", "P1112", "P1328" });
 
 			Content.AddRange(new MapBaseDataElement[] {
-				new E_C047 { ReqDes = RequirementDesignator.Mandatory },
+				new C047 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
 				new E_0373 { ReqDes = RequirementDesignator.Optional },
 				new E_1078 { ReqDes = RequirementDesignator.Optional },
@@ -12428,7 +12428,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_1075 { ReqDes = RequirementDesignator.Optional },
 				new E_1250 { ReqDes = RequirementDesignator.Optional },
 				new E_1251 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
 				new E_0309 { ReqDes = RequirementDesignator.Optional },
 				new E_0127 { ReqDes = RequirementDesignator.Optional },
@@ -12452,7 +12452,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_0306 { ReqDes = RequirementDesignator.Optional },
 				new E_0673 { ReqDes = RequirementDesignator.Optional },
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0816 { ReqDes = RequirementDesignator.Optional },
 				new E_0363 { ReqDes = RequirementDesignator.Optional },
 				new E_0003 { ReqDes = RequirementDesignator.Optional },
@@ -12485,7 +12485,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_0128 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0127 { ReqDes = RequirementDesignator.Optional },
 				new E_0352 { ReqDes = RequirementDesignator.Optional },
-				new E_C040 { ReqDes = RequirementDesignator.Optional },
+				new C040 { ReqDes = RequirementDesignator.Optional },
 			});
 		}
 	}
@@ -12636,7 +12636,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_1085 { ReqDes = RequirementDesignator.Optional },
 				new E_0673 { ReqDes = RequirementDesignator.Optional },
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0128 { ReqDes = RequirementDesignator.Optional },
 				new E_0127 { ReqDes = RequirementDesignator.Optional },
 				new E_1193 { ReqDes = RequirementDesignator.Optional },
@@ -12725,7 +12725,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_0562 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0782 { ReqDes = RequirementDesignator.Optional },
 				new E_0118 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0954 { ReqDes = RequirementDesignator.Optional },
 			});
 		}
@@ -13568,7 +13568,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_0235 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0234 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0380 { ReqDes = RequirementDesignator.Mandatory },
-				new E_C001 { ReqDes = RequirementDesignator.Mandatory },
+				new C001 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0212 { ReqDes = RequirementDesignator.Optional },
 				new E_0212 { ReqDes = RequirementDesignator.Optional },
 				new E_0782 { ReqDes = RequirementDesignator.Optional },
@@ -13587,7 +13587,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_0933 { ReqDes = RequirementDesignator.Optional },
 				new E_0594 { ReqDes = RequirementDesignator.Optional },
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 			});
 		}
 	}
@@ -13653,7 +13653,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_0350 { ReqDes = RequirementDesignator.Optional },
 				new E_0662 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0212 { ReqDes = RequirementDesignator.Optional },
 				new E_0639 { ReqDes = RequirementDesignator.Optional },
 				new E_0662 { ReqDes = RequirementDesignator.Optional },
@@ -13949,7 +13949,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_0609 { ReqDes = RequirementDesignator.Optional },
 				new E_0609 { ReqDes = RequirementDesignator.Optional },
 				new E_0949 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0942 { ReqDes = RequirementDesignator.Optional },
 			});
 		}
@@ -14193,7 +14193,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 			Content.AddRange(new MapBaseDataElement[] {
 				new E_0950 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0739 { ReqDes = RequirementDesignator.Mandatory },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0738 { ReqDes = RequirementDesignator.Optional },
 				new E_0737 { ReqDes = RequirementDesignator.Optional },
 				new E_0740 { ReqDes = RequirementDesignator.Optional },
@@ -14207,7 +14207,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 		public STC()
 		{
 			Content.AddRange(new MapBaseDataElement[] {
-				new E_C043 { ReqDes = RequirementDesignator.Mandatory },
+				new C043 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0373 { ReqDes = RequirementDesignator.Optional },
 				new E_0306 { ReqDes = RequirementDesignator.Optional },
 				new E_0782 { ReqDes = RequirementDesignator.Optional },
@@ -14216,8 +14216,8 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_0591 { ReqDes = RequirementDesignator.Optional },
 				new E_0373 { ReqDes = RequirementDesignator.Optional },
 				new E_0429 { ReqDes = RequirementDesignator.Optional },
-				new E_C043 { ReqDes = RequirementDesignator.Optional },
-				new E_C043 { ReqDes = RequirementDesignator.Optional },
+				new C043 { ReqDes = RequirementDesignator.Optional },
+				new C043 { ReqDes = RequirementDesignator.Optional },
 				new E_0933 { ReqDes = RequirementDesignator.Optional },
 			});
 		}
@@ -14313,13 +14313,13 @@ namespace EdiEngine.Standards.X12_004010.Segments
 			SyntaxNotes.AddRange(new[] { "P0910" });
 
 			Content.AddRange(new MapBaseDataElement[] {
-				new E_C003 { ReqDes = RequirementDesignator.Mandatory },
+				new C003 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0782 { ReqDes = RequirementDesignator.Optional },
 				new E_0355 { ReqDes = RequirementDesignator.Optional },
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
 				new E_1331 { ReqDes = RequirementDesignator.Optional },
 				new E_1365 { ReqDes = RequirementDesignator.Optional },
-				new E_C004 { ReqDes = RequirementDesignator.Optional },
+				new C004 { ReqDes = RequirementDesignator.Optional },
 				new E_0782 { ReqDes = RequirementDesignator.Optional },
 				new E_1073 { ReqDes = RequirementDesignator.Optional },
 				new E_1340 { ReqDes = RequirementDesignator.Optional },
@@ -14345,7 +14345,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 
 			Content.AddRange(new MapBaseDataElement[] {
 				new E_0234 { ReqDes = RequirementDesignator.Optional },
-				new E_C003 { ReqDes = RequirementDesignator.Optional },
+				new C003 { ReqDes = RequirementDesignator.Optional },
 				new E_0782 { ReqDes = RequirementDesignator.Optional },
 				new E_0355 { ReqDes = RequirementDesignator.Optional },
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
@@ -14362,17 +14362,17 @@ namespace EdiEngine.Standards.X12_004010.Segments
 		public SV3()
 		{
 			Content.AddRange(new MapBaseDataElement[] {
-				new E_C003 { ReqDes = RequirementDesignator.Mandatory },
+				new C003 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0782 { ReqDes = RequirementDesignator.Optional },
 				new E_1331 { ReqDes = RequirementDesignator.Optional },
-				new E_C006 { ReqDes = RequirementDesignator.Optional },
+				new C006 { ReqDes = RequirementDesignator.Optional },
 				new E_1358 { ReqDes = RequirementDesignator.Optional },
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
 				new E_0352 { ReqDes = RequirementDesignator.Optional },
 				new E_1327 { ReqDes = RequirementDesignator.Optional },
 				new E_1360 { ReqDes = RequirementDesignator.Optional },
 				new E_1073 { ReqDes = RequirementDesignator.Optional },
-				new E_C004 { ReqDes = RequirementDesignator.Optional },
+				new C004 { ReqDes = RequirementDesignator.Optional },
 			});
 		}
 	}
@@ -14382,7 +14382,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 		{
 			Content.AddRange(new MapBaseDataElement[] {
 				new E_0127 { ReqDes = RequirementDesignator.Mandatory },
-				new E_C003 { ReqDes = RequirementDesignator.Optional },
+				new C003 { ReqDes = RequirementDesignator.Optional },
 				new E_0127 { ReqDes = RequirementDesignator.Optional },
 				new E_1073 { ReqDes = RequirementDesignator.Optional },
 				new E_1329 { ReqDes = RequirementDesignator.Optional },
@@ -14409,7 +14409,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 			SyntaxNotes.AddRange(new[] { "R1011", "C1210" });
 
 			Content.AddRange(new MapBaseDataElement[] {
-				new E_C003 { ReqDes = RequirementDesignator.Mandatory },
+				new C003 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0355 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0380 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0782 { ReqDes = RequirementDesignator.Optional },
@@ -14426,11 +14426,11 @@ namespace EdiEngine.Standards.X12_004010.Segments
 			SyntaxNotes.AddRange(new[] { "P0809" });
 
 			Content.AddRange(new MapBaseDataElement[] {
-				new E_C003 { ReqDes = RequirementDesignator.Mandatory },
+				new C003 { ReqDes = RequirementDesignator.Mandatory },
 				new E_1332 { ReqDes = RequirementDesignator.Optional },
 				new E_1331 { ReqDes = RequirementDesignator.Optional },
 				new E_0782 { ReqDes = RequirementDesignator.Optional },
-				new E_C004 { ReqDes = RequirementDesignator.Optional },
+				new C004 { ReqDes = RequirementDesignator.Optional },
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
 				new E_1073 { ReqDes = RequirementDesignator.Optional },
 			});
@@ -14455,12 +14455,12 @@ namespace EdiEngine.Standards.X12_004010.Segments
 		public SVC()
 		{
 			Content.AddRange(new MapBaseDataElement[] {
-				new E_C003 { ReqDes = RequirementDesignator.Mandatory },
+				new C003 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0782 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0782 { ReqDes = RequirementDesignator.Optional },
 				new E_0234 { ReqDes = RequirementDesignator.Optional },
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
-				new E_C003 { ReqDes = RequirementDesignator.Optional },
+				new C003 { ReqDes = RequirementDesignator.Optional },
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
 			});
 		}
@@ -14472,7 +14472,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 			Content.AddRange(new MapBaseDataElement[] {
 				new E_0067 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0782 { ReqDes = RequirementDesignator.Mandatory },
-				new E_C003 { ReqDes = RequirementDesignator.Optional },
+				new C003 { ReqDes = RequirementDesignator.Optional },
 				new E_0234 { ReqDes = RequirementDesignator.Optional },
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
 				new E_0554 { ReqDes = RequirementDesignator.Optional },
@@ -14611,7 +14611,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 			SyntaxNotes.AddRange(new[] { "P0116" });
 
 			Content.AddRange(new MapBaseDataElement[] {
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
 				new E_0954 { ReqDes = RequirementDesignator.Optional },
 			});
@@ -14929,11 +14929,11 @@ namespace EdiEngine.Standards.X12_004010.Segments
 			SyntaxNotes.AddRange(new[] { "R0304052122", "C0605", "E2122" });
 
 			Content.AddRange(new MapBaseDataElement[] {
-				new E_C037 { ReqDes = RequirementDesignator.Mandatory },
+				new C037 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0782 { ReqDes = RequirementDesignator.Optional },
 				new E_0449 { ReqDes = RequirementDesignator.Optional },
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0954 { ReqDes = RequirementDesignator.Optional },
 				new E_0782 { ReqDes = RequirementDesignator.Optional },
 			});
@@ -15045,7 +15045,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 			Content.AddRange(new MapBaseDataElement[] {
 				new E_1270 { ReqDes = RequirementDesignator.Optional },
 				new E_1271 { ReqDes = RequirementDesignator.Optional },
-				new E_C005 { ReqDes = RequirementDesignator.Optional },
+				new C005 { ReqDes = RequirementDesignator.Optional },
 			});
 		}
 	}
@@ -15099,9 +15099,9 @@ namespace EdiEngine.Standards.X12_004010.Segments
 		{
 			Content.AddRange(new MapBaseDataElement[] {
 				new E_0673 { ReqDes = RequirementDesignator.Mandatory },
-				new E_C001 { ReqDes = RequirementDesignator.Mandatory },
+				new C001 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0380 { ReqDes = RequirementDesignator.Mandatory },
-				new E_C001 { ReqDes = RequirementDesignator.Mandatory },
+				new C001 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0380 { ReqDes = RequirementDesignator.Mandatory },
 			});
 		}
@@ -15392,7 +15392,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_0235 { ReqDes = RequirementDesignator.Optional },
 				new E_0234 { ReqDes = RequirementDesignator.Optional },
 				new E_1470 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 			});
 		}
 	}
@@ -15447,7 +15447,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 			SyntaxNotes.AddRange(new[] { "C1716" });
 
 			Content.AddRange(new MapBaseDataElement[] {
-				new E_C001 { ReqDes = RequirementDesignator.Mandatory },
+				new C001 { ReqDes = RequirementDesignator.Mandatory },
 				new E_0212 { ReqDes = RequirementDesignator.Optional },
 				new E_0639 { ReqDes = RequirementDesignator.Optional },
 			});
@@ -15461,8 +15461,8 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_1525 { ReqDes = RequirementDesignator.Mandatory },
 				new E_1322 { ReqDes = RequirementDesignator.Optional },
 				new E_1365 { ReqDes = RequirementDesignator.Optional },
-				new E_C023 { ReqDes = RequirementDesignator.Optional },
-				new E_C024 { ReqDes = RequirementDesignator.Optional },
+				new C023 { ReqDes = RequirementDesignator.Optional },
+				new C024 { ReqDes = RequirementDesignator.Optional },
 				new E_1338 { ReqDes = RequirementDesignator.Optional },
 				new E_1213 { ReqDes = RequirementDesignator.Optional },
 				new E_0923 { ReqDes = RequirementDesignator.Optional },
@@ -15504,12 +15504,12 @@ namespace EdiEngine.Standards.X12_004010.Segments
 				new E_0350 { ReqDes = RequirementDesignator.Optional },
 				new E_0118 { ReqDes = RequirementDesignator.Optional },
 				new E_0954 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
 				new E_0782 { ReqDes = RequirementDesignator.Optional },
 				new E_0610 { ReqDes = RequirementDesignator.Optional },
-				new E_C001 { ReqDes = RequirementDesignator.Optional },
+				new C001 { ReqDes = RequirementDesignator.Optional },
 				new E_0740 { ReqDes = RequirementDesignator.Optional },
 				new E_0741 { ReqDes = RequirementDesignator.Optional },
 			});
@@ -15744,7 +15744,7 @@ namespace EdiEngine.Standards.X12_004010.Segments
 
 			Content.AddRange(new MapBaseDataElement[] {
 				new E_1136 { ReqDes = RequirementDesignator.Optional },
-				new E_C046 { ReqDes = RequirementDesignator.Optional },
+				new C046 { ReqDes = RequirementDesignator.Optional },
 				new E_0380 { ReqDes = RequirementDesignator.Optional },
 				new E_0954 { ReqDes = RequirementDesignator.Optional },
 				new E_0782 { ReqDes = RequirementDesignator.Optional },

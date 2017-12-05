@@ -2,6 +2,7 @@
 using EdiEngine.Runtime;
 using System.Collections.Generic;
 using System.Linq;
+using EdiEngine.Validation;
 
 namespace EdiEngine
 {

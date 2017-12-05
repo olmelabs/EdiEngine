@@ -1,9 +1,10 @@
-﻿using EdiEngine.Common.Definitions;
-using EdiEngine.Common.Enums;
-using System;
+﻿using System;
 using System.Globalization;
+using EdiEngine.Common.Definitions;
+using EdiEngine.Common.Enums;
+using EdiEngine.Runtime;
 
-namespace EdiEngine.Runtime
+namespace EdiEngine.Validation
 {
     public static class DataElementExtensions
     {
@@ -44,6 +45,7 @@ namespace EdiEngine.Runtime
                 case DataType.R6:
                 case DataType.R7:
                 case DataType.R8:
+                case DataType.R9:
                     decimal dummyDec;
                     return decimal.TryParse(el.Val, out dummyDec) ||
                         (definition.ReqDes == RequirementDesignator.Optional && string.IsNullOrEmpty(el.Val));

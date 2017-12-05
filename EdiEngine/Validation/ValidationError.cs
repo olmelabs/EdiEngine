@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace EdiEngine.Runtime
+namespace EdiEngine.Validation
 {
     public class ValidationError
     {
