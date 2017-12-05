@@ -76,9 +76,11 @@
     <Compile Include="EdiMapReader.cs" />
     <Compile Include="MapReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Runtime\DataElementBase.cs" />
     <Compile Include="Runtime\DataElementValidator.cs" />
     <Compile Include="Runtime\EdiBatch.cs" />
-    <Compile Include="Runtime\EdiDataElement.cs" />
+    <Compile Include="Runtime\EdiCompositeDataElement.cs" />
+    <Compile Include="Runtime\EdiSimpleDataElement.cs" />
     <Compile Include="EdiDataWriter.cs" />
     <Compile Include="Runtime\EdiGroup.cs" />
     <Compile Include="Runtime\EdiHlLoop.cs" />
@@ -110,6 +112,10 @@
     <ProjectReference Include="..\EdiEngine.Common\EdiEngine.Common.csproj">
       <Project>{2ffe59fa-042f-4e74-8544-91c8914b0a71}</Project>
       <Name>EdiEngine.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EdiStandards\X12_004010\X12_004010.csproj">
+      <Project>{2BC66D72-3D0F-4684-9A59-C29C6B89E3BB}</Project>
+      <Name>X12_004010</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

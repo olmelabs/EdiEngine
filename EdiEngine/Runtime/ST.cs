@@ -7,7 +7,7 @@ namespace EdiEngine.Runtime
         {
             foreach (string el in elements)
             {
-                Content.Add(new EdiDataElement(null, el));
+                Content.Add(new EdiSimpleDataElement(null, el));
             }
         }
 
@@ -23,8 +23,8 @@ namespace EdiEngine.Runtime
             }
 
             Content.AddRange(new[] {
-                new EdiDataElement((MapDataElement)definition.Content[0], ST01_TransactionId),
-                new EdiDataElement((MapDataElement)definition.Content[1], tcn),
+                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[0], ST01_TransactionId),
+                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[1], tcn),
             });
         }
     }

@@ -6,6 +6,8 @@ namespace EdiEngine.Runtime
 {
     public class EdiInterchange : IValidatedEntity
     {
+        public const string DefaultCompositeSeparator = ">";
+
         public EdiInterchange()
         {
             Groups = new List<EdiGroup>();

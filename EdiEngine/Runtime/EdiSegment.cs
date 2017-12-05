@@ -10,7 +10,7 @@ namespace EdiEngine.Runtime
     {
         public EdiSegment(MapBaseEntity definition) : base(definition)
         {
-            Content = new List<EdiDataElement>();
+            Content = new List<DataElementBase>();
         }
 
         [JsonProperty(Order = 0)]
@@ -19,11 +19,11 @@ namespace EdiEngine.Runtime
 
         [JsonProperty(Order = 10)]
         [XmlProperty(Order = 10)]
-        public List<EdiDataElement> Content { get; }
+        public List<DataElementBase> Content { get; }
 
         public override string ToString()
         {
-            var res = Content.Aggregate(string.Empty, (curr, next) => curr + "*" + next.Val);
+            var res = Content.Aggregate(string.Empty, (curr, next) => curr + "*" + next.ToString());
             return $"{Name}*{res.Remove(0, 1)}";
         }
     }

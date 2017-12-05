@@ -1,6 +1,4 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
+﻿
 using System.IO;
 using EdiEngine.Runtime;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -24,6 +22,8 @@ namespace EdiEngine.Tests
                 Assert.AreEqual(1, b.Interchanges[0].Groups[0].Transactions.Count);
 
                 EdiTrans t = b.Interchanges[0].Groups[0].Transactions[0];
+
+                Assert.AreEqual(0, t.ValidationErrors.Count);
             }
         }
     }

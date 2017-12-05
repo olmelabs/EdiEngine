@@ -5,7 +5,7 @@ using EdiEngine.Common.Definitions;
 
 namespace EdiEngine.Tests
 {
-    public class EAny : MapDataElement { }
+    public class EAny : MapSimpleDataElement { }
 
     [TestClass]
     public class DataElementValidationTests
@@ -22,16 +22,16 @@ namespace EdiEngine.Tests
                 MaxLength = 5,
             };
 
-            var el = new EdiDataElement(def, "");
+            var el = new EdiSimpleDataElement(def, "");
             Assert.IsFalse(el.IsValid(def));
 
-            el = new EdiDataElement(def, "a");
+            el = new EdiSimpleDataElement(def, "a");
             Assert.IsFalse(el.IsValid(def));
 
-            el = new EdiDataElement(def, "abcdefg");
+            el = new EdiSimpleDataElement(def, "abcdefg");
             Assert.IsFalse(el.IsValid(def));
 
-            el = new EdiDataElement(def, "abcde");
+            el = new EdiSimpleDataElement(def, "abcde");
             Assert.IsTrue(el.IsValid(def));
         }
 
@@ -46,16 +46,16 @@ namespace EdiEngine.Tests
                 MaxLength = 5,
             };
 
-            var el = new EdiDataElement(def, "");
+            var el = new EdiSimpleDataElement(def, "");
             Assert.IsTrue(el.IsValid(def));
 
-            el = new EdiDataElement(def, "a");
+            el = new EdiSimpleDataElement(def, "a");
             Assert.IsFalse(el.IsValid(def));
 
-            el = new EdiDataElement(def, "abcdefg");
+            el = new EdiSimpleDataElement(def, "abcdefg");
             Assert.IsFalse(el.IsValid(def));
 
-            el = new EdiDataElement(def, "abcde");
+            el = new EdiSimpleDataElement(def, "abcde");
             Assert.IsTrue(el.IsValid(def));
         }
 
@@ -86,31 +86,31 @@ namespace EdiEngine.Tests
                 MaxLength = 4,
             };
 
-            var el = new EdiDataElement(def, "160102");
+            var el = new EdiSimpleDataElement(def, "160102");
             Assert.IsTrue(el.IsValid(def));
 
-            el = new EdiDataElement(def, "125566");
+            el = new EdiSimpleDataElement(def, "125566");
             Assert.IsFalse(el.IsValid(def));
 
-            el = new EdiDataElement(def, "");
+            el = new EdiSimpleDataElement(def, "");
             Assert.IsTrue(el.IsValid(def));
 
-            el = new EdiDataElement(def2, "20160102");
+            el = new EdiSimpleDataElement(def2, "20160102");
             Assert.IsTrue(el.IsValid(def2));
 
-            el = new EdiDataElement(def2, "22125566");
+            el = new EdiSimpleDataElement(def2, "22125566");
             Assert.IsFalse(el.IsValid(def2));
 
-            el = new EdiDataElement(def2, "");
+            el = new EdiSimpleDataElement(def2, "");
             Assert.IsTrue(el.IsValid(def2));
 
-            el = new EdiDataElement(def3, "1122");
+            el = new EdiSimpleDataElement(def3, "1122");
             Assert.IsTrue(el.IsValid(def3));
 
-            el = new EdiDataElement(def3, "4567");
+            el = new EdiSimpleDataElement(def3, "4567");
             Assert.IsFalse(el.IsValid(def3));
 
-            el = new EdiDataElement(def3, "");
+            el = new EdiSimpleDataElement(def3, "");
             Assert.IsTrue(el.IsValid(def3));
         }
 
@@ -141,31 +141,31 @@ namespace EdiEngine.Tests
                 MaxLength = 6,
             };
 
-            var el = new EdiDataElement(def, "123");
+            var el = new EdiSimpleDataElement(def, "123");
             Assert.IsTrue(el.IsValid(def));
 
-            el = new EdiDataElement(def, "12c");
+            el = new EdiSimpleDataElement(def, "12c");
             Assert.IsFalse(el.IsValid(def));
 
-            el = new EdiDataElement(def, "");
+            el = new EdiSimpleDataElement(def, "");
             Assert.IsTrue(el.IsValid(def));
 
-            el = new EdiDataElement(def2, "123");
+            el = new EdiSimpleDataElement(def2, "123");
             Assert.IsTrue(el.IsValid(def2));
 
-            el = new EdiDataElement(def2, "12c");
+            el = new EdiSimpleDataElement(def2, "12c");
             Assert.IsFalse(el.IsValid(def2));
 
-            el = new EdiDataElement(def2, "");
+            el = new EdiSimpleDataElement(def2, "");
             Assert.IsTrue(el.IsValid(def2));
 
-            el = new EdiDataElement(def3, "123.23");
+            el = new EdiSimpleDataElement(def3, "123.23");
             Assert.IsTrue(el.IsValid(def3));
 
-            el = new EdiDataElement(def3, "1233c");
+            el = new EdiSimpleDataElement(def3, "1233c");
             Assert.IsFalse(el.IsValid(def3));
 
-            el = new EdiDataElement(def3, "");
+            el = new EdiSimpleDataElement(def3, "");
             Assert.IsTrue(el.IsValid(def3));
         }
 
@@ -181,13 +181,13 @@ namespace EdiEngine.Tests
             };
             def.AllowedValues.AddRange(new[] { "C", "F", "N", "R" });
 
-            var el = new EdiDataElement(def, "F");
+            var el = new EdiSimpleDataElement(def, "F");
             Assert.IsTrue(el.IsValid(def));
 
-            el = new EdiDataElement(def, "Z");
+            el = new EdiSimpleDataElement(def, "Z");
             Assert.IsFalse(el.IsValid(def));
 
-            el = new EdiDataElement(def, "");
+            el = new EdiSimpleDataElement(def, "");
             Assert.IsTrue(el.IsValid(def));
         }
     }

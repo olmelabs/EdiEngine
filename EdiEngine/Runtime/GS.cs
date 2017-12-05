@@ -9,7 +9,7 @@ namespace EdiEngine.Runtime
         {
             foreach (string el in elements)
             {
-                Content.Add(new EdiDataElement(null, el));
+                Content.Add(new EdiSimpleDataElement(null, el));
             }
         }
 
@@ -22,14 +22,14 @@ namespace EdiEngine.Runtime
         ) : base(definition)
         {
             Content.AddRange(new[] {
-                new EdiDataElement((MapDataElement)definition.Content[0], GS01_GroupName),
-                new EdiDataElement((MapDataElement)definition.Content[1], GS02_SenderId),
-                new EdiDataElement((MapDataElement)definition.Content[2], GS03_ReceiverId),
-                new EdiDataElement((MapDataElement)definition.Content[3], DateTime.Now.ToString("yyyyMMdd")),
-                new EdiDataElement((MapDataElement)definition.Content[4], DateTime.Now.ToString("hhmm")),
-                new EdiDataElement((MapDataElement)definition.Content[5], GS06_ControlNumber.ToString()),
-                new EdiDataElement((MapDataElement)definition.Content[6], "X"),
-                new EdiDataElement((MapDataElement)definition.Content[7], GS08_VersionlNumber)
+                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[0], GS01_GroupName),
+                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[1], GS02_SenderId),
+                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[2], GS03_ReceiverId),
+                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[3], DateTime.Now.ToString("yyyyMMdd")),
+                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[4], DateTime.Now.ToString("hhmm")),
+                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[5], GS06_ControlNumber.ToString()),
+                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[6], "X"),
+                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[7], GS08_VersionlNumber)
             });
         }
     }

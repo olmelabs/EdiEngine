@@ -8,7 +8,7 @@ namespace EdiEngine.Runtime
         {
             foreach (string el in elements)
             {
-                Content.Add(new EdiDataElement(null, el));
+                Content.Add(new EdiSimpleDataElement(null, el));
             }
         }
 
@@ -17,8 +17,8 @@ namespace EdiEngine.Runtime
             int IEA02_ControlNumber) : base(definition)
         {
             Content.AddRange(new[] {
-                new EdiDataElement((MapDataElement)definition.Content[0], IEA01_IncludedGroupsCount.ToString()),
-                new EdiDataElement((MapDataElement)definition.Content[1], IEA02_ControlNumber.ToString().PadLeft(9, '0'))
+                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[0], IEA01_IncludedGroupsCount.ToString()),
+                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[1], IEA02_ControlNumber.ToString().PadLeft(9, '0'))
             });
         }
     }

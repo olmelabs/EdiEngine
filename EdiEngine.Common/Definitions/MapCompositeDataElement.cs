@@ -7,10 +7,13 @@ namespace EdiEngine.Common.Definitions
     {
         public MapCompositeDataElement()
         {
+            Name = GetType().Name;
             ReqDes = RequirementDesignator.Optional;
-            Content = new List<MapDataElement>();
+            Content = new List<MapSimpleDataElement>();
         }
 
-        public List<MapDataElement> Content { get; }
+        public string Name { get; }
+
+        public List<MapSimpleDataElement> Content { get; }
     }
 }

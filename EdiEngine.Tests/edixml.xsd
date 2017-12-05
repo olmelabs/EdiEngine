@@ -73,7 +73,7 @@
     </xs:complexType>
   </xs:element>
 
-  <xs:element name="EdiSegment">
+  <xs:element name="C">
     <xs:complexType>
       <xs:sequence>
         <xs:element name="Name" type="xs:string" maxOccurs="1"></xs:element>
@@ -81,6 +81,24 @@
           <xs:complexType>
             <xs:sequence>
               <xs:element name="E" minOccurs="1" maxOccurs="unbounded" type="xs:string"></xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="EdiSegment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Name" type="xs:string" maxOccurs="1"></xs:element>
+        <xs:element name="Content" maxOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:choice maxOccurs="unbounded">
+                <xs:element name="E" minOccurs="1" maxOccurs="unbounded" type="xs:string"></xs:element>
+                <xs:element ref="C" minOccurs="1" maxOccurs="unbounded"></xs:element>
+              </xs:choice>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

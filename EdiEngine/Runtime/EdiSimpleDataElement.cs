@@ -1,17 +1,16 @@
-﻿
-using EdiEngine.Common.Definitions;
+﻿using EdiEngine.Common.Definitions;
 using EdiEngine.Xml;
 using Newtonsoft.Json;
+
 namespace EdiEngine.Runtime
 {
     [XmlElement(IgnoreElementRoot = true)]
-    public class EdiDataElement 
+    public class EdiSimpleDataElement : DataElementBase
     {
-        public EdiDataElement(MapDataElement definition, string val)
+        public EdiSimpleDataElement(MapSimpleDataElement definition, string val) : base(definition)
         {
             if (definition != null)
             {
-                Definition = definition;
                 Type = definition.GetType().Name;
             }
             Val = val;
@@ -19,7 +18,7 @@ namespace EdiEngine.Runtime
 
         [JsonIgnore]
         [XmlIgnore]
-        public MapDataElement Definition { get; }
+        public new MapSimpleDataElement Definition => (MapSimpleDataElement)base.Definition;
 
         [JsonIgnore]
         [XmlIgnore]
@@ -27,6 +26,6 @@ namespace EdiEngine.Runtime
 
         [JsonProperty(Order = 1, PropertyName = "E")]
         [XmlProperty(Order = 1, PropertyName = "E")]
-        public string Val { get; }
+        public override string Val { get; }
     }
 }

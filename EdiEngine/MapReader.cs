@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using EdiEngine.Common.Definitions;
 using EdiEngine.Common.Enums;
@@ -47,18 +48,50 @@ namespace EdiEngine
             int i = 0;
             foreach (string val in content.Skip(1))
             {
-                MapDataElement elDef = null;
+                MapSimpleDataElement elDef = null;
+                MapCompositeDataElement cDef = null;
                 if (i < segDef.Content.Count)
-                    elDef = (MapDataElement)segDef.Content[i];
+                {
+                    if (segDef.Content[i] is MapSimpleDataElement)
+                        elDef = (MapSimpleDataElement) segDef.Content[i];
+                    else if (segDef.Content[i] is MapCompositeDataElement)
+                        cDef = (MapCompositeDataElement)segDef.Content[i];
+                }
 
-                EdiDataElement el = new EdiDataElement(elDef, val);
-                seg.Content.Add(el);
+                //if cDef is null - create simple element. Even if elDef is null 
+                // validation will add error of unknown element later on
+                if (cDef == null)
+                {
+                    EdiSimpleDataElement el = new EdiSimpleDataElement(elDef, val);
+                    seg.Content.Add(el);
+                }
+                else
+                {
+                    EdiCompositeDataElement composite = new EdiCompositeDataElement(cDef);
+                    string[] compositeContent = val.Split(new[] {compositeSeparator}, StringSplitOptions.None);
+                    ProcessComposite(composite, compositeContent);
+                    seg.Content.Add(composite);
+                }
 
                 i++;
             }
 
             SegmentValidator.ValidateSegment(seg, rowPos, validationScope);
             return seg;
+        }
+
+        private static void ProcessComposite(EdiCompositeDataElement composite, string [] content)
+        {
+            int i = 0;
+            foreach (string val in content)
+            {
+                MapSimpleDataElement elDef = null;
+                if (i < composite.Definition.Content.Count)
+                    elDef = composite.Definition.Content[i];
+
+                EdiSimpleDataElement el = new EdiSimpleDataElement(elDef, val);
+                composite.Content.Add(el);
+            }
         }
     }
 }

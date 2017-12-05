@@ -92,5 +92,18 @@ namespace EdiEngine.Tests
 
             //string edi = TestUtils.WriteEdiEnvelope(t, "SH");
         }
+
+        [TestMethod]
+        public void JsonReadWrite_SerializeComposite()
+        {
+            using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.850.Composite.SLN.OK.edi"))
+            {
+                EdiDataReader r = new EdiDataReader();
+                EdiBatch b = r.FromStream(s);
+
+                JsonDataWriter jsonWriter = new JsonDataWriter();
+                string json = jsonWriter.WriteToString(b);
+            }
+        }
     }
 }

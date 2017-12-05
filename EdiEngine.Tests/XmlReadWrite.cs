@@ -101,6 +101,25 @@ namespace EdiEngine.Tests
             //string edi = TestUtils.WriteEdiEnvelope(t, "SH");
         }
 
+        [TestMethod]
+        public void XmlReadWrite_XSerializeComposite()
+        {
+            using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.850.Composite.SLN.OK.edi"))
+            {
+                EdiDataReader r = new EdiDataReader();
+                EdiBatch b = r.FromStream(s);
+
+                XmlDataWriter w = new XmlDataWriter();
+                string data = w.WriteToString(b);
+
+                XmlDocument xdoc = ValidateBySchema(data);
+
+                //check parsed seg count
+                int? segCount = xdoc.SelectNodes("//EdiSegment")?.Count;
+                Assert.AreEqual(15, segCount);
+            }
+        }
+
         private XmlDocument ValidateBySchema(string data)
         {
             XmlReaderSettings settings = new XmlReaderSettings { ValidationType = ValidationType.Schema };

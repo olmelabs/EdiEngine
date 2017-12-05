@@ -28,6 +28,7 @@ namespace EdiEngine.Runtime
         public EdiSegment SE { get; set; }
 
         [JsonProperty(Order = 100)]
+        [XmlProperty(Order = 100)]
         public virtual List<ValidationError> ValidationErrors { get; }
     }
 }

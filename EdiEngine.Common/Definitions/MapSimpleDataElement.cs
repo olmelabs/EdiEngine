@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace EdiEngine.Common.Definitions
 {
-    public abstract class MapDataElement : MapBaseDataElement
+    public abstract class MapSimpleDataElement : MapBaseDataElement
     {
-        protected MapDataElement()
+        protected MapSimpleDataElement()
         {
             ReqDes = RequirementDesignator.Optional;
             AllowedValues = new List<string>();

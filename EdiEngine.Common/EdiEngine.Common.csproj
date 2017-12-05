@@ -61,7 +61,7 @@
     <Compile Include="Definitions\MapBaseDataElement.cs" />
     <Compile Include="Definitions\MapCompositeDataElement.cs" />
     <Compile Include="Definitions\MapBaseEntity.cs" />
-    <Compile Include="Definitions\MapDataElement.cs" />
+    <Compile Include="Definitions\MapSimpleDataElement.cs" />
     <Compile Include="Definitions\MapLoop.cs" />
     <Compile Include="Definitions\MapSegment.cs" />
     <Compile Include="SyntaxNotes\ListConditionalSyntaxNote.cs" />

@@ -9,7 +9,7 @@ namespace EdiEngine.Runtime
         {
             foreach (string el in elements)
             {
-                Content.Add(new EdiDataElement(null, el));
+                Content.Add(new EdiSimpleDataElement(null, el));
             }
         }
 
@@ -24,22 +24,22 @@ namespace EdiEngine.Runtime
             ) : base(definition)
         {
             Content.AddRange(new[] {
-                new EdiDataElement((MapDataElement)definition.Content[0], "00"),
-                new EdiDataElement((MapDataElement)definition.Content[1], string.Empty.PadRight(10, ' ')),
-                new EdiDataElement((MapDataElement)definition.Content[2], "00"),
-                new EdiDataElement((MapDataElement)definition.Content[3], string.Empty.PadRight(10, ' ')),
-                new EdiDataElement((MapDataElement)definition.Content[4], ISA05_SenderQual),
-                new EdiDataElement((MapDataElement)definition.Content[5], ISA06_SenderId.PadRight(15)),
-                new EdiDataElement((MapDataElement)definition.Content[6], ISA07_ReceiverQual),
-                new EdiDataElement((MapDataElement)definition.Content[7], ISA08_ReceiverId.PadRight(15)),
-                new EdiDataElement((MapDataElement)definition.Content[8], DateTime.Now.ToString("yyMMdd")),
-                new EdiDataElement((MapDataElement)definition.Content[9], DateTime.Now.ToString("hhmm")),
-                new EdiDataElement((MapDataElement)definition.Content[10], "U"),
-                new EdiDataElement((MapDataElement)definition.Content[11], ISA12_VersionlNumber),
-                new EdiDataElement((MapDataElement)definition.Content[12], ISA13_ControlNumber.ToString().PadLeft(9, '0')),
-                new EdiDataElement((MapDataElement)definition.Content[12], "0"),
-                new EdiDataElement((MapDataElement)definition.Content[14], ISA15_UsageIndicator),
-                new EdiDataElement((MapDataElement)definition.Content[15], ">")
+                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[0], "00"),
+                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[1], string.Empty.PadRight(10, ' ')),
+                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[2], "00"),
+                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[3], string.Empty.PadRight(10, ' ')),
+                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[4], ISA05_SenderQual),
+                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[5], ISA06_SenderId.PadRight(15)),
+                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[6], ISA07_ReceiverQual),
+                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[7], ISA08_ReceiverId.PadRight(15)),
+                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[8], DateTime.Now.ToString("yyMMdd")),
+                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[9], DateTime.Now.ToString("hhmm")),
+                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[10], "U"),
+                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[11], ISA12_VersionlNumber),
+                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[12], ISA13_ControlNumber.ToString().PadLeft(9, '0')),
+                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[12], "0"),
+                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[14], ISA15_UsageIndicator),
+                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[15], EdiInterchange.DefaultCompositeSeparator)
             });
         }
     }

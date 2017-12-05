@@ -148,8 +148,8 @@ namespace EdiEngine
             var seg = new EdiSegment(sDef);
             seg.Content.AddRange(new[]
             {
-                new EdiDataElement((MapDataElement)sDef.Content[0], g.FunctionalCode),
-                new EdiDataElement((MapDataElement)sDef.Content[1], g.GS.Content[5].Val),
+                new EdiSimpleDataElement((MapSimpleDataElement)sDef.Content[0], g.FunctionalCode),
+                new EdiSimpleDataElement((MapSimpleDataElement)sDef.Content[1], g.GS.Content[5].Val),
             });
             return seg;
         }
@@ -182,10 +182,10 @@ namespace EdiEngine
 
             seg.Content.AddRange(new[]
             {
-                new EdiDataElement((MapDataElement)sDef.Content[0], status),
-                new EdiDataElement((MapDataElement)sDef.Content[1], includedTranCount.ToString()),
-                new EdiDataElement((MapDataElement)sDef.Content[2], receivedTranCount.ToString()),
-                new EdiDataElement((MapDataElement)sDef.Content[3], reportedAcceptedTranCount.ToString()),
+                new EdiSimpleDataElement((MapSimpleDataElement)sDef.Content[0], status),
+                new EdiSimpleDataElement((MapSimpleDataElement)sDef.Content[1], includedTranCount.ToString()),
+                new EdiSimpleDataElement((MapSimpleDataElement)sDef.Content[2], receivedTranCount.ToString()),
+                new EdiSimpleDataElement((MapSimpleDataElement)sDef.Content[3], reportedAcceptedTranCount.ToString()),
             });
 
             return seg;
@@ -198,8 +198,8 @@ namespace EdiEngine
             var seg = new EdiSegment(sDef);
             seg.Content.AddRange(new[]
             {
-                new EdiDataElement((MapDataElement)sDef.Content[0], t.ST.Content[0].Val),
-                new EdiDataElement((MapDataElement)sDef.Content[1], t.ST.Content[1].Val),
+                new EdiSimpleDataElement((MapSimpleDataElement)sDef.Content[0], t.ST.Content[0].Val),
+                new EdiSimpleDataElement((MapSimpleDataElement)sDef.Content[1], t.ST.Content[1].Val),
             });
             return seg;
         }
@@ -225,11 +225,11 @@ namespace EdiEngine
                     break;
             }
 
-            seg.Content.Add(new EdiDataElement((MapDataElement)sDef.Content[0], status));
+            seg.Content.Add(new EdiSimpleDataElement((MapSimpleDataElement)sDef.Content[0], status));
 
             if (status == "R")
             {
-                seg.Content.Add(new EdiDataElement((MapDataElement)sDef.Content[1], "5")); //AK502 = One or more segments in error
+                seg.Content.Add(new EdiSimpleDataElement((MapSimpleDataElement)sDef.Content[1], "5")); //AK502 = One or more segments in error
             }
 
             return seg;

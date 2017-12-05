@@ -7,7 +7,7 @@ namespace EdiEngine.Runtime
 {
     public static class DataElementExtensions
     {
-        public static bool IsValid(this EdiDataElement el, MapDataElement definition)
+        public static bool IsValid(this EdiSimpleDataElement el, MapSimpleDataElement definition)
         {
             //required
             if (definition.ReqDes == RequirementDesignator.Mandatory && string.IsNullOrEmpty(el.Val)) //whitespaces allowed

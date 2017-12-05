@@ -12,28 +12,18 @@ namespace EdiEngine
             int i = 0;
             foreach (var dataElement in seg.Content)
             {
-                if (dataElement.Definition == null)
+                if (dataElement is EdiSimpleDataElement)
                 {
-                    ValidationError err = new ValidationError()
-                    {
-                        SegmentPos = rowPos,
-                        SegmentName = seg.Name,
-                        ElementPos = i + 1,
-                        Message = $"Unexpected element '{dataElement.Val}'"
-                    };
-                    validationScope.ValidationErrors.Add(err);
+                    EdiSimpleDataElement el = (EdiSimpleDataElement) dataElement;
+                    ValidateSimpleDataElement(el, seg.Name, rowPos, i + 1, validationScope);
                 }
-
-                if (dataElement.Definition != null && !dataElement.IsValid(dataElement.Definition))
+                else if (dataElement is EdiCompositeDataElement)
                 {
-                    ValidationError err = new ValidationError()
+                    EdiCompositeDataElement c = (EdiCompositeDataElement) dataElement;
+                    foreach (EdiSimpleDataElement el in c.Content)
                     {
-                        SegmentPos = rowPos,
-                        SegmentName = seg.Name,
-                        ElementPos = i + 1,
-                        Message = $"Invalid value '{dataElement.Val}'"
-                    };
-                    validationScope.ValidationErrors.Add(err);
+                        ValidateSimpleDataElement(el, seg.Name, rowPos, i + 1, validationScope);
+                    }
                 }
                 i++;
             }
@@ -46,18 +36,35 @@ namespace EdiEngine
                     var syntaxNote = SyntaxNoteFactory.GetSyntaxNote(sn);
                     if (!syntaxNote.IsValid(seg.Content.Select(e => e.Val).ToArray()))
                     {
-                        ValidationError err = new ValidationError()
-                        {
-                            SegmentPos = rowPos,
-                            SegmentName =  seg.Name,
-                            Message = $"Syntax note violation '{syntaxNote}'"
-                        };
-                        validationScope.ValidationErrors.Add(err);
+                        AddError(seg.Name, rowPos, null, $"Syntax note violation '{syntaxNote}'", validationScope);
                     }
-
                 }
             }
+        }
 
+        private static void ValidateSimpleDataElement(EdiSimpleDataElement el, string segName, int segPos, int elPos, IValidatedEntity validationScope)
+        {
+            if (el.Definition == null)
+            {
+                AddError(segName, segPos, elPos, $"Unexpected element '{el.Val}'", validationScope);
+            }
+            else if (el.Definition != null && !el.IsValid(el.Definition))
+            {
+                AddError(segName, segPos, elPos, $"Invalid value '{el.Val}'", validationScope);
+            }
+
+        }
+
+        private static void AddError(string segName, int? segPos, int? elPos, string message, IValidatedEntity validationScope)
+        {
+            ValidationError err = new ValidationError()
+            {
+                SegmentPos = segPos,
+                SegmentName = segName,
+                ElementPos = elPos,
+                Message = message
+            };
+            validationScope.ValidationErrors.Add(err);
         }
     }
 }
