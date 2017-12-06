@@ -87,10 +87,10 @@
     <Compile Include="Maps\M_940.cs" />
     <Compile Include="Segments\Segments.cs" />
     <Compile Include="SyntaxNoteTests.cs" />
-    <Compile Include="XmlReadWrite.cs" />
+    <Compile Include="XmlReadWriteTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DataElementValidationTests.cs" />
-    <Compile Include="JsonReadWrite.cs" />
+    <Compile Include="JsonReadWriteTests.cs" />
     <Compile Include="TestUtils.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -148,7 +148,12 @@
   <ItemGroup>
     <EmbeddedResource Include="TestData\856.Crossdock.OK.json" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="TestData\001.Fake.Composite.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="TestData\001.Fake.Composite.json" />
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

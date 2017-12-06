@@ -287,7 +287,7 @@ namespace EdiEngine.Tests
         }
 
         [TestMethod]
-        public void EdiReader_ParseOk()
+        public void EdiReader_ParseCompositeOk()
         {
             using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.850.Composite.SLN.OK.edi"))
             {

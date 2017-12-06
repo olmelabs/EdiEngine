@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace EdiEngine.Runtime
 {
@@ -30,12 +31,31 @@ namespace EdiEngine.Runtime
                     case "S":
                         return TokenContextType.Segment;
 
+                    case "C":
+                        return TokenContextType.CompositeDataElement;
+
                     case null:
-                        return TokenContextType.DataElement;
+                        return TokenContextType.SimpleDataElement;
 
                     default:
                         throw new InvalidDataException($"Enexpected Type found in Json {Type}");
                 }
+            }
+        }
+
+        public override string ToString()
+        {
+            switch (EntityType)
+            {
+                case TokenContextType.SimpleDataElement:
+                    return E;
+
+                case TokenContextType.CompositeDataElement:
+                    return string.Join(EdiInterchange.DefaultCompositeSeparator, Children.Select(c => c.E));
+
+                default:
+                    return base.ToString();
+
             }
         }
     }
@@ -44,6 +64,7 @@ namespace EdiEngine.Runtime
     {
         Loop,
         Segment,
-        DataElement,
+        CompositeDataElement,
+        SimpleDataElement,
     }
 }

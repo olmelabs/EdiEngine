@@ -5,12 +5,14 @@ using System.IO;
 using System.Xml;
 using System.Xml.Schema;
 using EdiEngine.Standards.X12_004010.Maps;
+using EdiEngine.Tests.Maps;
 using M_940 = EdiEngine.Standards.X12_004010.Maps.M_940;
+using System.Linq;
 
 namespace EdiEngine.Tests
 {
     [TestClass]
-    public class XmlReadWrite
+    public class XmlReadWriteTests
     {
         [TestMethod]
         public void XmlReadWrite_XmlSerializationTest()
@@ -102,7 +104,7 @@ namespace EdiEngine.Tests
         }
 
         [TestMethod]
-        public void XmlReadWrite_XSerializeComposite()
+        public void XmlReadWrite_SerializeComposite()
         {
             using (Stream s = GetType().Assembly.GetManifestResourceStream("EdiEngine.Tests.TestData.850.Composite.SLN.OK.edi"))
             {
@@ -118,6 +120,24 @@ namespace EdiEngine.Tests
                 int? segCount = xdoc.SelectNodes("//EdiSegment")?.Count;
                 Assert.AreEqual(15, segCount);
             }
+        }
+
+        [TestMethod]
+        public void XmlReadWrite_DeserializeComposite()
+        {
+            string xml = TestUtils.ReadResourceStream("EdiEngine.Tests.TestData.001.Fake.Composite.xml");
+
+            M_001 map = new M_001();
+            XmlMapReader r = new XmlMapReader(map);
+
+            EdiTrans t = r.ReadToEnd(xml);
+
+            Assert.AreEqual(0, t.ValidationErrors.Count);
+
+            var sln = (EdiSegment)t.Content.First();
+            Assert.IsTrue(sln.Content[4] is EdiCompositeDataElement);
+            Assert.AreEqual(6, ((EdiCompositeDataElement)sln.Content[4]).Content.Count);
+
         }
 
         private XmlDocument ValidateBySchema(string data)

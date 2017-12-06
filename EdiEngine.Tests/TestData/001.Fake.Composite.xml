@@ -1,0 +1,30 @@
+﻿<EdiTrans>
+  <Name>M_001</Name>
+  <Content>
+    <EdiSegment>
+      <Name>SLN</Name>
+      <Content>
+        <E>1.1</E>
+        <E />
+        <E>I</E>
+        <E>10000</E>
+        <C>
+          <Name>C001</Name>
+          <Content>
+            <E>PC</E>
+            <E>21.1</E>
+            <E>22.2</E>
+            <E>EA</E>
+            <E>23.3</E>
+            <E>24.4</E>
+          </Content>
+        </C>
+        <E>1.56</E>
+        <E>TP</E>
+        <E />
+        <E>VC</E>
+        <E>P-875OS</E>
+      </Content>
+    </EdiSegment>
+  </Content>
+</EdiTrans>

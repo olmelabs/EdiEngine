@@ -2,13 +2,15 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using System.IO;
+using System.Linq;
 using EdiEngine.Standards.X12_004010.Maps;
 using M_940 = EdiEngine.Standards.X12_004010.Maps.M_940;
+using EdiEngine.Tests.Maps;
 
 namespace EdiEngine.Tests
 {
     [TestClass]
-    public class JsonReadWrite
+    public class JsonReadWriteTests
     {
         [TestMethod]
         public void JsonReadWrite_JsonSerializationTest()
@@ -102,8 +104,26 @@ namespace EdiEngine.Tests
                 EdiBatch b = r.FromStream(s);
 
                 JsonDataWriter jsonWriter = new JsonDataWriter();
-                string json = jsonWriter.WriteToString(b);
+                jsonWriter.WriteToString(b);
             }
+        }
+
+        [TestMethod]
+        public void JsonReadWrite_DeserializeComposite()
+        {
+            string json = TestUtils.ReadResourceStream("EdiEngine.Tests.TestData.001.Fake.Composite.json");
+
+            M_001 map = new M_001();
+            JsonMapReader r = new JsonMapReader(map);
+
+            EdiTrans t = r.ReadToEnd(json);
+
+            Assert.AreEqual(0, t.ValidationErrors.Count);
+
+            var sln = (EdiSegment)t.Content.First();
+            Assert.IsTrue(sln.Content[4] is EdiCompositeDataElement);
+            Assert.AreEqual(6, ((EdiCompositeDataElement)sln.Content[4]).Content.Count);
+
         }
     }
 }

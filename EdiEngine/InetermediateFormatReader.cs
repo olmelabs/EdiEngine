@@ -58,10 +58,9 @@ namespace EdiEngine
                         }
 
                         List<string> segParts = new List<string> { ent.Name };
-                        segParts.AddRange(ent.Children.Select(el => el.E));
+                        segParts.AddRange(ent.Children.Select(el => el.ToString()));
 
-                        //TODO: refactor to support composites
-                        EdiSegment seg = ProcessSegment(CurrentEntityDef, segParts.ToArray(), -1, null, Trans);
+                        EdiSegment seg = ProcessSegment(CurrentEntityDef, segParts.ToArray(), -1, EdiInterchange.DefaultCompositeSeparator, Trans);
                         CurrentLoopInstance.Content.Add(seg);
                         break;
                 }

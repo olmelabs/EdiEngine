@@ -39,6 +39,10 @@ namespace EdiEngine
                                 context = CreateEntity(context, "S");
                                 break;
 
+                            case "C":
+                                context = CreateEntity(context, "C");
+                                break;
+
                             case "E":
                                 context = CreateEntity(context, null);
 
@@ -65,6 +69,7 @@ namespace EdiEngine
                             case "EdiTrans":
                             case "EdiLoop":
                             case "EdiSegment":
+                            case "C":
                             case "E":
                                 context = context?.Parent;
                                 break;
