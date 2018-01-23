@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <RootNamespace>EdiEngine.Common</RootNamespace>
+    <AssemblyName>EdiEngine.Common</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="newtonsoft.json" Version="10.0.3" />
+  </ItemGroup>
+
+</Project>

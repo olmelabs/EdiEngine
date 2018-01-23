@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <RootNamespace>EdiEngine</RootNamespace>
+    <AssemblyName>EdiEngine</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EdiEngine.Common\EdiEngine.Common.NetCore.csproj" />
+    <ProjectReference Include="..\EdiStandards\X12_004010\X12_004010.NetCore.csproj" />
+  </ItemGroup>
+
+</Project>

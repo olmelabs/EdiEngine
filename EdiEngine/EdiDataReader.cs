@@ -145,7 +145,7 @@ namespace EdiEngine
                         string asmName = _externalMapsAssemblymName ?? $"EdiEngine.Standards.X12_{currentGroup.GS.Content[7].Val}";
                         string typeName = $"{asmName}.Maps.M_{elements[1]}";
 
-                        var map = Activator.CreateInstance(asmName, typeName).Unwrap();
+                        var map = ActivatorHelper.Instantiate(asmName, typeName);
                         if (!(map is MapLoop))
                         {
                             AddValidationError(currentTrans, $"Can not find map {elements[1]} for standard {currentGroup.GS.Content[7].Val}. Skipping Transaction.");
@@ -204,7 +204,7 @@ namespace EdiEngine
             string typeName = $"{asmName}.Segments.{segName}";
             try
             {
-                return (MapSegment)Activator.CreateInstance(asmName, typeName).Unwrap();
+                return (MapSegment)ActivatorHelper.Instantiate(asmName, typeName);
             }
             catch (FileNotFoundException) { }
 
