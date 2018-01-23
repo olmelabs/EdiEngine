@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="AckBuilder.cs" />
     <Compile Include="AckBuilderSettings.cs" />
+    <Compile Include="ActivatorHelper.cs" />
     <Compile Include="AllowedEntitity.cs" />
     <Compile Include="DataWriter.cs" />
     <Compile Include="EdiDataWriterSettings.cs" />

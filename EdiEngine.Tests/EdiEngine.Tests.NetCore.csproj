@@ -1,0 +1,92 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+
+    <AssemblyName>EdiEngine.Tests</AssemblyName>
+
+    <RootNamespace>EdiEngine.Tests</RootNamespace>
+
+    <Version>1.5.1.0</Version>
+
+    <Description>Edi Engine tests</Description>
+
+    <PackageProjectUrl>https://github.com/olmelabs/EdiEngine</PackageProjectUrl>
+
+    <RepositoryUrl>https://github.com/olmelabs/EdiEngine</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="edixml.xsd" />
+    <None Remove="TestData\001.Fake.Composite.json" />
+    <None Remove="TestData\001.Fake.Composite.xml" />
+    <None Remove="TestData\850.Composite.SLN.OK.edi" />
+    <None Remove="TestData\850.OK.edi" />
+    <None Remove="TestData\850.SyntaxNotes.ERR.edi" />
+    <None Remove="TestData\856.Crossdock.OK.edi" />
+    <None Remove="TestData\856.Crossdock.OK.json" />
+    <None Remove="TestData\856.Crossdock.OK.xml" />
+    <None Remove="TestData\940.2.OK.edi" />
+    <None Remove="TestData\940.ERR.json" />
+    <None Remove="TestData\940.ERR.xml" />
+    <None Remove="TestData\940.OK.edi" />
+    <None Remove="TestData\940.OK.json" />
+    <None Remove="TestData\940.OK.xml" />
+    <None Remove="TestData\940.W05.Only.edi" />
+    <None Remove="TestData\940_Failed_SE01.edi" />
+    <None Remove="TestData\AckTest.edi" />
+    <None Remove="TestData\ControlNumbersMismatch.edi" />
+    <None Remove="TestData\MultipleInterchangesAndGroups.edi" />
+    <None Remove="TestData\NonEdi.edi" />
+    <None Remove="TestData\WrongGroupsAndTranCount.edi" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="edixml.xsd" />
+    <EmbeddedResource Include="TestData\001.Fake.Composite.json" />
+    <EmbeddedResource Include="TestData\001.Fake.Composite.xml" />
+    <EmbeddedResource Include="TestData\850.Composite.SLN.OK.edi" />
+    <EmbeddedResource Include="TestData\850.OK.edi" />
+    <EmbeddedResource Include="TestData\850.SyntaxNotes.ERR.edi" />
+    <EmbeddedResource Include="TestData\856.Crossdock.OK.edi" />
+    <EmbeddedResource Include="TestData\856.Crossdock.OK.json" />
+    <EmbeddedResource Include="TestData\856.Crossdock.OK.xml" />
+    <EmbeddedResource Include="TestData\940.2.OK.edi" />
+    <EmbeddedResource Include="TestData\940.ERR.json" />
+    <EmbeddedResource Include="TestData\940.ERR.xml" />
+    <EmbeddedResource Include="TestData\940.OK.edi" />
+    <EmbeddedResource Include="TestData\940.OK.json" />
+    <EmbeddedResource Include="TestData\940.OK.xml" />
+    <EmbeddedResource Include="TestData\940.W05.Only.edi" />
+    <EmbeddedResource Include="TestData\940_Failed_SE01.edi" />
+    <EmbeddedResource Include="TestData\AckTest.edi" />
+    <EmbeddedResource Include="TestData\ControlNumbersMismatch.edi" />
+    <EmbeddedResource Include="TestData\MultipleInterchangesAndGroups.edi" />
+    <EmbeddedResource Include="TestData\NonEdi.edi" />
+    <EmbeddedResource Include="TestData\WrongGroupsAndTranCount.edi" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.5.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="1.2.0" />
+    <PackageReference Include="MSTest.TestFramework" Version="1.2.0" />
+    <PackageReference Include="newtonsoft.json" Version="10.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EdiEngine.Common\EdiEngine.Common.NetStd.csproj" />
+    <ProjectReference Include="..\EdiEngine\EdiEngine.NetStd.csproj" />
+    <ProjectReference Include="..\EdiStandards\X12_004010\X12_004010.NetStd.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -57,7 +57,8 @@ namespace EdiEngine
                 string asmName = $"EdiEngine.Standards.X12_{mapVersion}";
                 string typeName = $"{asmName}.Maps.M_997";
 
-                var map = (MapLoop)Activator.CreateInstance(asmName, typeName).Unwrap();
+                var map = (MapLoop) ActivatorHelper.Instantiate(asmName, typeName);
+
                 var lAk2Def = (MapLoop)map.Content.First(s => s.Name == "L_AK2");
 
                 foreach (EdiGroup g in ich.Groups)

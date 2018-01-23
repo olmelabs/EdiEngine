@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>xEdi.EdiEngine</id>
-    <version>1.5.0</version>
+    <version>1.5.1</version>
     <authors>olmelabs</authors>
     <owners>olmelabs</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -15,7 +15,7 @@ Implemented composite data elements.
 Maps updated with composites and syntax notes.
 Bugfixes.</releaseNotes>
     <description>Simple .NET EDI X12 Reader, Writer and Validator. EDI JSON and XML Serialization and Deserialization.</description>
-    <tags>.NET EDI X12 JSON XML EdiReader EdiWriter EdiParser EdiXml EdiJson FunctionalAcknowledgment SyntaxNotes</tags>
+    <tags>.NET EDI X12 JSON XML EdiReader EdiWriter EdiParser EdiXml EdiJson FunctionalAcknowledgment SyntaxNotes NetCore</tags>
     <repository type="git" url="https://github.com/olmelabs/EdiEngine" />
     <dependencies>
       <group targetFramework="net45">
@@ -24,10 +24,14 @@ Bugfixes.</releaseNotes>
       <group targetFramework="net461">
         <dependency id="Newtonsoft.Json" version="10.0.3" />
       </group>
+      <group targetFramework="netstandard2.0">
+        <dependency id="Newtonsoft.Json" version="10.0.3" />
+      </group>
     </dependencies>
   </metadata>
   <files>
     <file src="..\EdiEngine\bin\Release-4.6.1\EdiEngine*.* " target="lib\net461" />
     <file src="..\EdiEngine\bin\Release-4.5\EdiEngine*.* " target="lib\net45" />
+    <file src="..\EdiEngine\bin\Release\netstandard2.0\EdiEngine*.* " target="lib\netstandard2.0" />
   </files>
 </package>

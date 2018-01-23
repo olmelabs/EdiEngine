@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>EdiEngine.Standards.X12_004010</AssemblyName>
+    <RootNamespace>EdiEngine.Standards.X12_004010</RootNamespace>
+    <AssemblyVersion>1.5.1.0</AssemblyVersion>
+    <FileVersion>1.5.1.0</FileVersion>
+    <Version>1.5.1.0</Version>
+    <Description>Edi Engine X12 004010 lib</Description>
+    <PackageProjectUrl>https://github.com/olmelabs/EdiEngine</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/olmelabs/EdiEngine</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\EdiEngine.Common\EdiEngine.Common.NetStd.csproj" />
+  </ItemGroup>
+
+</Project>
