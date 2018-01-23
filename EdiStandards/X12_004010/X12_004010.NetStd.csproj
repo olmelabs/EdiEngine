@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>EdiEngine.Standards.X12_004010</AssemblyName>
     <RootNamespace>EdiEngine.Standards.X12_004010</RootNamespace>
   </PropertyGroup>
@@ -11,11 +11,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\EdiEngine.Common\EdiEngine.Common.NetCore.csproj" />
+    <Folder Include="Properties\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Properties\" />
+    <ProjectReference Include="..\..\EdiEngine.Common\EdiEngine.Common.NetStd.csproj" />
   </ItemGroup>
 
 </Project>

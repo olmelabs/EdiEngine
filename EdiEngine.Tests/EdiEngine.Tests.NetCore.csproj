@@ -71,13 +71,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EdiEngine.Common\EdiEngine.Common.NetCore.csproj" />
-    <ProjectReference Include="..\EdiEngine\EdiEngine.NetCore.csproj" />
-    <ProjectReference Include="..\EdiStandards\X12_004010\X12_004010.NetCore.csproj" />
+    <Folder Include="Properties\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Properties\" />
+    <ProjectReference Include="..\EdiEngine.Common\EdiEngine.Common.NetStd.csproj" />
+    <ProjectReference Include="..\EdiEngine\EdiEngine.NetStd.csproj" />
+    <ProjectReference Include="..\EdiStandards\X12_004010\X12_004010.NetStd.csproj" />
   </ItemGroup>
 
 </Project>

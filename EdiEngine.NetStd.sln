@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EdiEngine.Common.NetCore", "EdiEngine.Common\EdiEngine.Common.NetCore.csproj", "{8A577301-EF16-4D5C-84BE-547272473524}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EdiEngine.Common.NetStd", "EdiEngine.Common\EdiEngine.Common.NetStd.csproj", "{8A577301-EF16-4D5C-84BE-547272473524}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EdiStandards", "EdiStandards", "{24D5CDE5-84E0-4BF4-994C-212F77088DF7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "X12_004010", "X12_004010", "{77860263-5E8E-4E9A-9F9A-E20C9E5B0A77}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "X12_004010.NetCore", "EdiStandards\X12_004010\X12_004010.NetCore.csproj", "{092E8ECA-A810-48D1-A65A-1981239A9D21}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "X12_004010.NetStd", "EdiStandards\X12_004010\X12_004010.NetStd.csproj", "{092E8ECA-A810-48D1-A65A-1981239A9D21}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EdiEngine.NetCore", "EdiEngine\EdiEngine.NetCore.csproj", "{62EF99C4-5CDA-499F-A4E3-C87406E970D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EdiEngine.NetStd", "EdiEngine\EdiEngine.NetStd.csproj", "{62EF99C4-5CDA-499F-A4E3-C87406E970D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EdiEngine.Tests", "EdiEngine.Tests\EdiEngine.Tests.NetCore.csproj", "{743B9BCC-666C-4D07-B4BD-3F5C6AB61B3B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EdiEngine.Tests.NetCore", "EdiEngine.Tests\EdiEngine.Tests.NetCore.csproj", "{743B9BCC-666C-4D07-B4BD-3F5C6AB61B3B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
