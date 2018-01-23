@@ -4,6 +4,12 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>EdiEngine</RootNamespace>
     <AssemblyName>EdiEngine</AssemblyName>
+    <Description>Edi Engine main library</Description>
+    <PackageProjectUrl>https://github.com/olmelabs/EdiEngine</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/olmelabs/EdiEngine</RepositoryUrl>
+    <AssemblyVersion>1.5.1.0</AssemblyVersion>
+    <FileVersion>1.5.1.0</FileVersion>
+    <Version>1.5.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,6 +18,10 @@
 
   <ItemGroup>
     <Folder Include="Properties\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="newtonsoft.json" Version="10.0.3" />
   </ItemGroup>
 
   <ItemGroup>

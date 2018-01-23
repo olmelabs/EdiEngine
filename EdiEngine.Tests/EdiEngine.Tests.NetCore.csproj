@@ -8,6 +8,14 @@
     <AssemblyName>EdiEngine.Tests</AssemblyName>
 
     <RootNamespace>EdiEngine.Tests</RootNamespace>
+
+    <Version>1.5.1.0</Version>
+
+    <Description>Edi Engine tests</Description>
+
+    <PackageProjectUrl>https://github.com/olmelabs/EdiEngine</PackageProjectUrl>
+
+    <RepositoryUrl>https://github.com/olmelabs/EdiEngine</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
@@ -68,6 +76,7 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.5.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="1.2.0" />
     <PackageReference Include="MSTest.TestFramework" Version="1.2.0" />
+    <PackageReference Include="newtonsoft.json" Version="10.0.3" />
   </ItemGroup>
 
   <ItemGroup>
