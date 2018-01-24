@@ -25,6 +25,3 @@ Added segment level validation (elements and syntax notes) to EdiWriter.
 Implemented composite data elements.
 Maps updated with composites and syntax notes.
 Bugfixes.
-
-1.5.1 - 23 Jan 2018
-Added NetStandard 2.0 targeted libraries.
