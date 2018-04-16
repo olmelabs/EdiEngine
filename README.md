@@ -14,7 +14,6 @@ It uses POCO objects and XML is just an extension
 You can easily craft yours on their basis.
 * **VS2017 and .NET Core 2.0 support**. Repository contains projects both for VS2015 and VS2017. .NET core projects are targeted to .NET Standard 2.0, so EdiEngine may be used in your latest .NET core applications. Nuget contains .Net Standard 2.0 libraries as well.
 
-You can easily craft yours on their basis.
 ## Installation
 Clone repository or Install Nuget Package
 ```
