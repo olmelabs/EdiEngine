@@ -113,6 +113,9 @@ namespace EdiEngine.Tests
 
             el = new EdiSimpleDataElement(def3, "");
             Assert.IsTrue(el.IsValid(def3));
+
+            el = new EdiSimpleDataElement(def3, "1526");
+            Assert.IsTrue(el.IsValid(def3));
         }
 
         [TestMethod]
@@ -180,7 +183,7 @@ namespace EdiEngine.Tests
                 MaxLength = 1,
                 ReqDes = RequirementDesignator.Optional
             };
-            def.AllowedValues.AddRange(new[] { "C", "F", "N", "R" });
+            def.AllowedValues.AddRange(new[] {"C", "F", "N", "R"});
 
             var el = new EdiSimpleDataElement(def, "F");
             Assert.IsTrue(el.IsValid(def));
@@ -189,6 +192,21 @@ namespace EdiEngine.Tests
             Assert.IsFalse(el.IsValid(def));
 
             el = new EdiSimpleDataElement(def, "");
+            Assert.IsTrue(el.IsValid(def));
+        }
+
+        [TestMethod]
+        public void Validation_BinaryTest()
+        {
+            EAny def = new EAny()
+            {
+                DataType = DataType.B,
+                MinLength = 1,
+                MaxLength = 100,
+                ReqDes = RequirementDesignator.Optional
+            };
+
+            var el = new EdiSimpleDataElement(def, "!@#@$$@$!");
             Assert.IsTrue(el.IsValid(def));
         }
     }

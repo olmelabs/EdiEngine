@@ -22,6 +22,7 @@ namespace EdiEngine.Validation
 
             switch (definition.DataType)
             {
+                case DataType.B:
                 case DataType.AN:
                     return true;
 
@@ -68,7 +69,7 @@ namespace EdiEngine.Validation
                     }
 
                 case DataType.TM:
-                    return DateTime.TryParseExact(el.Val, "hhmm", CultureInfo.InvariantCulture, DateTimeStyles.None, out dummyDt) ||
+                    return DateTime.TryParseExact(el.Val, "HHmm", CultureInfo.InvariantCulture, DateTimeStyles.None, out dummyDt) ||
                         (definition.ReqDes == RequirementDesignator.Optional && string.IsNullOrEmpty(el.Val));
 
                 default:
