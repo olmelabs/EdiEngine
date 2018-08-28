@@ -2,18 +2,14 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>xEdi.EdiEngine</id>
-    <version>1.5.1</version>
+    <version>1.5.2</version>
     <authors>olmelabs</authors>
     <owners>olmelabs</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
     <projectUrl>https://github.com/olmelabs/EdiEngine</projectUrl>
     <!-- <iconUrl>http://github.com/contoso/UsefulStuff/nuget_icon.png</iconUrl> -->
-    <releaseNotes>Implemented Syntax Notes and their validation in EdiReader.
-Added segment level validation (elements and syntax notes) to EdiWriter.
-Implemented composite data elements.
-Maps updated with composites and syntax notes.
-Bugfixes.</releaseNotes>
+    <releaseNotes>Added B (Binary) data type. Fixed Time validation parsing for 24h format.</releaseNotes>
     <description>Simple .NET EDI X12 Reader, Writer and Validator. EDI JSON and XML Serialization and Deserialization.</description>
     <tags>.NET EDI X12 JSON XML EdiReader EdiWriter EdiParser EdiXml EdiJson FunctionalAcknowledgment SyntaxNotes NetCore</tags>
     <repository type="git" url="https://github.com/olmelabs/EdiEngine" />

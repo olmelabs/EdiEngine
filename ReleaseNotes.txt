@@ -28,3 +28,8 @@ Bugfixes.
 
 1.5.1 - 23 Jan 2018
 Added NetStandard 2.0 targeted libraries.
+
+1.5.2 - 28 Aug 2018
+Added B (Binary) data type.
+Fixed Time validation parsing for 24h format.
+

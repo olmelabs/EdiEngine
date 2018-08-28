@@ -9,13 +9,15 @@
 
     <RootNamespace>EdiEngine.Tests</RootNamespace>
 
-    <Version>1.5.1.0</Version>
+    <Version>1.5.2.0</Version>
 
     <Description>Edi Engine tests</Description>
 
     <PackageProjectUrl>https://github.com/olmelabs/EdiEngine</PackageProjectUrl>
 
     <RepositoryUrl>https://github.com/olmelabs/EdiEngine</RepositoryUrl>
+
+    <AssemblyVersion>1.5.2.0</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
