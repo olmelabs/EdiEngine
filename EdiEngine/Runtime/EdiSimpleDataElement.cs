@@ -7,7 +7,7 @@ namespace EdiEngine.Runtime
     [XmlElement(IgnoreElementRoot = true)]
     public class EdiSimpleDataElement : DataElementBase
     {
-        public EdiSimpleDataElement(MapSimpleDataElement definition, string val) : base(definition)
+        public EdiSimpleDataElement(MapBaseDataElement definition, string val) : base(definition)
         {
             if (definition != null)
             {
@@ -15,7 +15,6 @@ namespace EdiEngine.Runtime
             }
             Val = val;
         }
-
         [JsonIgnore]
         [XmlIgnore]
         public new MapSimpleDataElement Definition => (MapSimpleDataElement)base.Definition;
