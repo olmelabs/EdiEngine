@@ -61,7 +61,7 @@ namespace EdiEngine.Tests
         }
 
         [TestMethod]
-        public void Validation_OptionalDateTimeTest()
+        public void Validation_OptionalDateTest()
         {
             EAny def = new EAny()
             {
@@ -77,14 +77,6 @@ namespace EdiEngine.Tests
                 ReqDes = RequirementDesignator.Optional,
                 MinLength = 8,
                 MaxLength = 8,
-            };
-
-            EAny def3 = new EAny()
-            {
-                DataType = DataType.TM,
-                ReqDes = RequirementDesignator.Optional,
-                MinLength = 4,
-                MaxLength = 4,
             };
 
             var el = new EdiSimpleDataElement(def, "160102");
@@ -104,18 +96,87 @@ namespace EdiEngine.Tests
 
             el = new EdiSimpleDataElement(def2, "");
             Assert.IsTrue(el.IsValid(def2));
+        }
 
-            el = new EdiSimpleDataElement(def3, "1122");
-            Assert.IsTrue(el.IsValid(def3));
+        [TestMethod]
+        public void Validation_OptionalTimeTest()
+        {
+            EAny def = new EAny()
+            {
+                DataType = DataType.TM,
+                ReqDes = RequirementDesignator.Optional,
+                MinLength = 4,
+                MaxLength = 4,
+            };
 
-            el = new EdiSimpleDataElement(def3, "4567");
-            Assert.IsFalse(el.IsValid(def3));
+            EAny def2 = new EAny()
+            {
+                DataType = DataType.TM,
+                ReqDes = RequirementDesignator.Optional,
+                MinLength = 4,
+                MaxLength = 8,
+            };
 
-            el = new EdiSimpleDataElement(def3, "");
-            Assert.IsTrue(el.IsValid(def3));
+            var el = new EdiSimpleDataElement(def, "1122");
+            Assert.IsTrue(el.IsValid(def));
 
-            el = new EdiSimpleDataElement(def3, "1526");
-            Assert.IsTrue(el.IsValid(def3));
+            el = new EdiSimpleDataElement(def, "4567");
+            Assert.IsFalse(el.IsValid(def));
+
+            el = new EdiSimpleDataElement(def, "");
+            Assert.IsTrue(el.IsValid(def));
+
+            el = new EdiSimpleDataElement(def, "1526");
+            Assert.IsTrue(el.IsValid(def));
+
+            el = new EdiSimpleDataElement(def, "152605");
+            Assert.IsFalse(el.IsValid(def));
+
+            el = new EdiSimpleDataElement(def2, "0105");
+            Assert.IsTrue(el.IsValid(def2));
+
+            el = new EdiSimpleDataElement(def2, "101525");
+            Assert.IsTrue(el.IsValid(def2));
+
+            el = new EdiSimpleDataElement(def2, "1105355");
+            Assert.IsTrue(el.IsValid(def2));
+
+            el = new EdiSimpleDataElement(def2, "11053559");
+            Assert.IsTrue(el.IsValid(def2));
+
+            
+        }
+
+        [TestMethod]
+        public void Validation_MandatoryDateTimeTest()
+        {
+            EAny def = new EAny()
+            {
+                DataType = DataType.DT,
+                ReqDes = RequirementDesignator.Mandatory,
+                MinLength = 6,
+                MaxLength = 6,
+            };
+
+            EAny def2 = new EAny()
+            {
+                DataType = DataType.TM,
+                ReqDes = RequirementDesignator.Mandatory,
+                MinLength = 4,
+                MaxLength = 8,
+            };
+
+            var el = new EdiSimpleDataElement(def, "");
+            Assert.IsFalse(el.IsValid(def));
+
+            el = new EdiSimpleDataElement(def, null);
+            Assert.IsFalse(el.IsValid(def));
+
+            el = new EdiSimpleDataElement(def2, "");
+            Assert.IsFalse(el.IsValid(def2));
+
+            el = new EdiSimpleDataElement(def2, null);
+            Assert.IsFalse(el.IsValid(def2));
         }
 
         [TestMethod]
