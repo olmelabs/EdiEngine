@@ -131,7 +131,8 @@ namespace EdiEngine.Validation
 
         private static bool IsValidDateTimeString(this string dateTime, string format)
         {
-            return DateTime.TryParseExact(dateTime, format, CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime dummyDt);
+            DateTime dummyDt;
+            return DateTime.TryParseExact(dateTime, format, CultureInfo.InvariantCulture, DateTimeStyles.None, out dummyDt);
         }
 
         private static bool IsOptional(string value, MapSimpleDataElement definition)
