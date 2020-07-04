@@ -287,3 +287,4 @@ __pycache__/
 *.odx.cs
 *.xsd.cs
 _nuget/nuget.exe
+_nuget/xEdi.EdiEngine.1.6.0.snupkg
