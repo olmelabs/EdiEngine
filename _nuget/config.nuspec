@@ -9,7 +9,12 @@
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/olmelabs/EdiEngine</projectUrl>
     <!-- <iconUrl>http://github.com/contoso/UsefulStuff/nuget_icon.png</iconUrl> -->
-    <releaseNotes>Package updates. Only support for netstandard left. Bugfix in Date Time validation.</releaseNotes>
+    <releaseNotes>
+	Added Sourcelink.
+	Bugfix in Date Time validation. 
+	Package updates.
+	Only netstandard2 is now supported. 
+    </releaseNotes>
     <description>Simple .NET EDI X12 Reader, Writer and Validator. EDI JSON and XML Serialization and Deserialization.</description>
     <tags>.NET EDI X12 JSON XML EdiReader EdiWriter EdiParser EdiXml EdiJson FunctionalAcknowledgment SyntaxNotes NetCore</tags>
     <repository type="git" url="https://github.com/olmelabs/EdiEngine" />

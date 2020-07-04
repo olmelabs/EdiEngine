@@ -34,7 +34,7 @@ Added B (Binary) data type.
 Fixed Time validation parsing for 24h format.
 
 1.6.0 - 4 July 2020
-Package updates. 
-Removed legacy project files.
-Only support for netstandard left. 
-Bugfix in Date Time validation.
+Added Sourcelink.
+Bugfix in Date Time validation. 
+Package updates.
+Only netstandard2 is now supported. 
