@@ -1,1 +1,1 @@
-nuget.exe pack config.nuspec
+nuget.exe pack config.nuspec -Symbols -SymbolPackageFormat snupkg

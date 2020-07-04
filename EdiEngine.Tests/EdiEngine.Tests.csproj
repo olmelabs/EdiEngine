@@ -1,184 +1,81 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6BD5A4AC-E5D7-472D-B53B-3CB8577E8159}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EdiEngine.Tests</RootNamespace>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <IsPackable>false</IsPackable>
     <AssemblyName>EdiEngine.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
-    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
-    <IsCodedUITest>False</IsCodedUITest>
-    <TestProjectType>UnitTest</TestProjectType>
-    <TargetFrameworkProfile />
+    <RootNamespace>EdiEngine.Tests</RootNamespace>
+    <Version>1.6.0.0</Version>
+    <Description>Edi Engine tests</Description>
+    <PackageProjectUrl>https://github.com/olmelabs/EdiEngine</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/olmelabs/EdiEngine</RepositoryUrl>
+    <AssemblyVersion>1.6.0.0</AssemblyVersion>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug 4.5|AnyCPU'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\Debug 4.5\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release 4.5|AnyCPU'">
-    <OutputPath>bin\Release 4.5\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Xml" />
+    <Compile Remove="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <Choose>
-    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
-      <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-      </ItemGroup>
-    </When>
-    <Otherwise>
-      <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
-          <Private>False</Private>
-        </Reference>
-      </ItemGroup>
-    </Otherwise>
-  </Choose>
+
   <ItemGroup>
-    <Compile Include="AckBuilderTests.cs" />
-    <Compile Include="EdiReaderTests.cs" />
-    <Compile Include="EdiWriterTests.cs" />
-    <Compile Include="Maps\M_001.cs" />
-    <Compile Include="Maps\M_940.cs" />
-    <Compile Include="Segments\Segments.cs" />
-    <Compile Include="SyntaxNoteTests.cs" />
-    <Compile Include="XmlReadWriteTests.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DataElementValidationTests.cs" />
-    <Compile Include="JsonReadWriteTests.cs" />
-    <Compile Include="TestUtils.cs" />
+    <None Remove="edixml.xsd" />
+    <None Remove="TestData\001.Fake.Composite.json" />
+    <None Remove="TestData\001.Fake.Composite.xml" />
+    <None Remove="TestData\850.Composite.SLN.OK.edi" />
+    <None Remove="TestData\850.OK.edi" />
+    <None Remove="TestData\850.SyntaxNotes.ERR.edi" />
+    <None Remove="TestData\856.Crossdock.OK.edi" />
+    <None Remove="TestData\856.Crossdock.OK.json" />
+    <None Remove="TestData\856.Crossdock.OK.xml" />
+    <None Remove="TestData\940.2.OK.edi" />
+    <None Remove="TestData\940.ERR.json" />
+    <None Remove="TestData\940.ERR.xml" />
+    <None Remove="TestData\940.OK.edi" />
+    <None Remove="TestData\940.OK.json" />
+    <None Remove="TestData\940.OK.xml" />
+    <None Remove="TestData\940.W05.Only.edi" />
+    <None Remove="TestData\940_Failed_SE01.edi" />
+    <None Remove="TestData\AckTest.edi" />
+    <None Remove="TestData\ControlNumbersMismatch.edi" />
+    <None Remove="TestData\MultipleInterchangesAndGroups.edi" />
+    <None Remove="TestData\NonEdi.edi" />
+    <None Remove="TestData\WrongGroupsAndTranCount.edi" />
   </ItemGroup>
+
   <ItemGroup>
-    <EmbeddedResource Include="TestData\940.OK.edi" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\EdiEngine.Common\EdiEngine.Common.csproj">
-      <Project>{2ffe59fa-042f-4e74-8544-91c8914b0a71}</Project>
-      <Name>EdiEngine.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\EdiEngine\EdiEngine.csproj">
-      <Project>{1a60f2e1-babe-4a22-a653-6a2c85f25add}</Project>
-      <Name>EdiEngine</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\EdiStandards\X12_004010\X12_004010.csproj">
-      <Project>{2bc66d72-3d0f-4684-9a59-c29c6b89e3bb}</Project>
-      <Name>X12_004010</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="TestData\940.2.OK.edi" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="TestData\940_Failed_SE01.edi" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="TestData\NonEdi.edi" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="edixml.xsd">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <None Include="packages.config" />
-    <EmbeddedResource Include="TestData\MultipleInterchangesAndGroups.edi" />
-    <EmbeddedResource Include="TestData\ControlNumbersMismatch.edi" />
-    <EmbeddedResource Include="TestData\WrongGroupsAndTranCount.edi" />
-    <EmbeddedResource Include="TestData\940.OK.json" />
-    <EmbeddedResource Include="TestData\940.ERR.json" />
-    <EmbeddedResource Include="TestData\940.OK.xml">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TestData\850.OK.edi" />
-    <EmbeddedResource Include="TestData\AckTest.edi" />
-    <EmbeddedResource Include="TestData\856.Crossdock.OK.edi" />
-    <EmbeddedResource Include="TestData\856.Crossdock.OK.xml" />
-    <EmbeddedResource Include="TestData\940.W05.Only.edi" />
-    <EmbeddedResource Include="TestData\850.SyntaxNotes.ERR.edi" />
-    <EmbeddedResource Include="TestData\850.Composite.SLN.OK.edi" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="TestData\940.ERR.xml">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="TestData\856.Crossdock.OK.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="TestData\001.Fake.Composite.xml" />
-  </ItemGroup>
-  <ItemGroup>
+    <EmbeddedResource Include="edixml.xsd" />
     <EmbeddedResource Include="TestData\001.Fake.Composite.json" />
+    <EmbeddedResource Include="TestData\001.Fake.Composite.xml" />
+    <EmbeddedResource Include="TestData\850.Composite.SLN.OK.edi" />
+    <EmbeddedResource Include="TestData\850.OK.edi" />
+    <EmbeddedResource Include="TestData\850.SyntaxNotes.ERR.edi" />
+    <EmbeddedResource Include="TestData\856.Crossdock.OK.edi" />
+    <EmbeddedResource Include="TestData\856.Crossdock.OK.json" />
+    <EmbeddedResource Include="TestData\856.Crossdock.OK.xml" />
+    <EmbeddedResource Include="TestData\940.2.OK.edi" />
+    <EmbeddedResource Include="TestData\940.ERR.json" />
+    <EmbeddedResource Include="TestData\940.ERR.xml" />
+    <EmbeddedResource Include="TestData\940.OK.edi" />
+    <EmbeddedResource Include="TestData\940.OK.json" />
+    <EmbeddedResource Include="TestData\940.OK.xml" />
+    <EmbeddedResource Include="TestData\940.W05.Only.edi" />
+    <EmbeddedResource Include="TestData\940_Failed_SE01.edi" />
+    <EmbeddedResource Include="TestData\AckTest.edi" />
+    <EmbeddedResource Include="TestData\ControlNumbersMismatch.edi" />
+    <EmbeddedResource Include="TestData\MultipleInterchangesAndGroups.edi" />
+    <EmbeddedResource Include="TestData\NonEdi.edi" />
+    <EmbeddedResource Include="TestData\WrongGroupsAndTranCount.edi" />
   </ItemGroup>
-  <Choose>
-    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
-      <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-          <Private>False</Private>
-        </Reference>
-        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-          <Private>False</Private>
-        </Reference>
-        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-          <Private>False</Private>
-        </Reference>
-        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-          <Private>False</Private>
-        </Reference>
-      </ItemGroup>
-    </When>
-  </Choose>
-  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.6.1" />
+    <PackageReference Include="MSTest.TestAdapter" Version="2.1.2" />
+    <PackageReference Include="MSTest.TestFramework" Version="2.1.2" />
+    <PackageReference Include="newtonsoft.json" Version="12.0.3" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\EdiEngine.Common\EdiEngine.Common.csproj" />
+    <ProjectReference Include="..\EdiEngine\EdiEngine.csproj" />
+    <ProjectReference Include="..\EdiStandards\X12_004010\X12_004010.csproj" />
+  </ItemGroup>
 </Project>
