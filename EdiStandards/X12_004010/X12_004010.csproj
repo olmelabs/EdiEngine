@@ -12,15 +12,12 @@
     <RepositoryUrl>https://github.com/olmelabs/EdiEngine</RepositoryUrl>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\EdiEngine.Common\EdiEngine.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
   </ItemGroup>
 </Project>
