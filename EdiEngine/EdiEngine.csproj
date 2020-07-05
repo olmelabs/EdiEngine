@@ -1,130 +1,27 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1A60F2E1-BABE-4A22-A653-6A2C85F25ADD}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>EdiEngine</RootNamespace>
     <AssemblyName>EdiEngine</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
+    <Description>Edi Engine main library</Description>
+    <PackageProjectUrl>https://github.com/olmelabs/EdiEngine</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/olmelabs/EdiEngine</RepositoryUrl>
+    <AssemblyVersion>1.6.0.0</AssemblyVersion>
+    <FileVersion>1.6.0.0</FileVersion>
+    <Version>1.6.0.0</Version>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug-4.6.1\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release-4.6.1\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug 4.5|AnyCPU'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\Debug-4.5\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release 4.5|AnyCPU'">
-    <OutputPath>bin\Release-4.5\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Xml" />
+    <PackageReference Include="newtonsoft.json" Version="12.0.3" />
   </ItemGroup>
+
   <ItemGroup>
-    <Compile Include="AckBuilder.cs" />
-    <Compile Include="AckBuilderSettings.cs" />
-    <Compile Include="ActivatorHelper.cs" />
-    <Compile Include="AllowedEntitity.cs" />
-    <Compile Include="DataWriter.cs" />
-    <Compile Include="EdiDataWriterSettings.cs" />
-    <Compile Include="InetermediateFormatReader.cs" />
-    <Compile Include="JsonDataWriter.cs" />
-    <Compile Include="JsonMapReader.cs" />
-    <Compile Include="EdiParsingException.cs" />
-    <Compile Include="EdiDataReader.cs" />
-    <Compile Include="EdiMapReader.cs" />
-    <Compile Include="MapReader.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Runtime\DataElementBase.cs" />
-    <Compile Include="Validation\DataElementValidator.cs" />
-    <Compile Include="Runtime\EdiBatch.cs" />
-    <Compile Include="Runtime\EdiCompositeDataElement.cs" />
-    <Compile Include="Runtime\EdiSimpleDataElement.cs" />
-    <Compile Include="EdiDataWriter.cs" />
-    <Compile Include="Runtime\EdiGroup.cs" />
-    <Compile Include="Runtime\EdiHlLoop.cs" />
-    <Compile Include="Runtime\EdiInterchange.cs" />
-    <Compile Include="Runtime\EdiIntermediateEntity.cs" />
-    <Compile Include="Runtime\EdiLoop.cs" />
-    <Compile Include="Runtime\EdiSegment.cs" />
-    <Compile Include="Runtime\EdiTrans.cs" />
-    <Compile Include="Runtime\GE.cs" />
-    <Compile Include="Runtime\GS.cs" />
-    <Compile Include="Runtime\IEA.cs" />
-    <Compile Include="Runtime\ISA.cs" />
-    <Compile Include="Validation\IValidatedEntity.cs" />
-    <Compile Include="Runtime\EdiBaseEntity.cs" />
-    <Compile Include="Runtime\SE.cs" />
-    <Compile Include="Runtime\ST.cs" />
-    <Compile Include="Validation\ValidationError.cs" />
-    <Compile Include="Validation\SegmentValidator.cs" />
-    <Compile Include="XmlMapReader.cs" />
-    <Compile Include="Xml\XmlElementAttribute.cs" />
-    <Compile Include="Xml\XmlIgnoreAttribute.cs" />
-    <Compile Include="XmlDataWriter.cs" />
-    <Compile Include="Xml\XmlPropertyAttribute.cs" />
+    <ProjectReference Include="..\EdiEngine.Common\EdiEngine.Common.csproj" />
+    <ProjectReference Include="..\EdiStandards\X12_004010\X12_004010.csproj" />
   </ItemGroup>
+
   <ItemGroup>
-    <None Include="packages.config" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\EdiEngine.Common\EdiEngine.Common.csproj">
-      <Project>{2ffe59fa-042f-4e74-8544-91c8914b0a71}</Project>
-      <Name>EdiEngine.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\EdiStandards\X12_004010\X12_004010.csproj">
-      <Project>{2BC66D72-3D0F-4684-9A59-C29C6B89E3BB}</Project>
-      <Name>X12_004010</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

@@ -24,11 +24,11 @@ namespace EdiEngine.Tests
             var seg = new EdiSegment(sDef);
             seg.Content.AddRange(new[]
             {
-                new EdiSimpleDataElement((MapSimpleDataElement) sDef.Content[0], "N"),
-                new EdiSimpleDataElement((MapSimpleDataElement) sDef.Content[1], "538686"),
-                new EdiSimpleDataElement((MapSimpleDataElement) sDef.Content[2], null),
-                new EdiSimpleDataElement((MapSimpleDataElement) sDef.Content[3], "001001"),
-                new EdiSimpleDataElement((MapSimpleDataElement) sDef.Content[4], "538686")
+                new EdiSimpleDataElement(sDef.Content[0], "N"),
+                new EdiSimpleDataElement(sDef.Content[1], "538686"),
+                new EdiSimpleDataElement(sDef.Content[2], null),
+                new EdiSimpleDataElement(sDef.Content[3], "001001"),
+                new EdiSimpleDataElement(sDef.Content[4], "538686")
             });
             t.Content.Add(seg);
 
@@ -40,7 +40,7 @@ namespace EdiEngine.Tests
             t.Content.Add(lx);
 
             seg = new EdiSegment(sDef);
-            seg.Content.Add(new EdiSimpleDataElement((MapSimpleDataElement)sDef.Content[0], "1"));
+            seg.Content.Add(new EdiSimpleDataElement(sDef.Content[0], "1"));
             lx.Content.Add(seg);
 
             //LX > W01 loop
@@ -53,9 +53,9 @@ namespace EdiEngine.Tests
             seg = new EdiSegment(sDef);
             seg.Content.AddRange(new[]
             {
-                new EdiSimpleDataElement((MapSimpleDataElement) sDef.Content[0], "12"),
-                new EdiSimpleDataElement((MapSimpleDataElement) sDef.Content[1], "CA"),
-                new EdiSimpleDataElement((MapSimpleDataElement) sDef.Content[1], "000100033330")
+                new EdiSimpleDataElement(sDef.Content[0], "12"),
+                new EdiSimpleDataElement(sDef.Content[1], "CA"),
+                new EdiSimpleDataElement(sDef.Content[1], "000100033330")
             });
             w01.Content.Add(seg);
 
@@ -67,7 +67,7 @@ namespace EdiEngine.Tests
             t.Content.Add(lx);
 
             seg = new EdiSegment(sDef);
-            seg.Content.Add(new EdiSimpleDataElement((MapSimpleDataElement)sDef.Content[0], "2"));
+            seg.Content.Add(new EdiSimpleDataElement(sDef.Content[0], "2"));
             lx.Content.Add(seg);
 
             //LX > W01 loop
@@ -80,9 +80,9 @@ namespace EdiEngine.Tests
             seg = new EdiSegment(sDef);
             seg.Content.AddRange(new[]
             {
-                new EdiSimpleDataElement((MapSimpleDataElement) sDef.Content[0], "10"),
-                new EdiSimpleDataElement((MapSimpleDataElement) sDef.Content[1], "CA"),
-                new EdiSimpleDataElement((MapSimpleDataElement) sDef.Content[1], "000100033332")
+                new EdiSimpleDataElement(sDef.Content[0], "10"),
+                new EdiSimpleDataElement(sDef.Content[1], "CA"),
+                new EdiSimpleDataElement(sDef.Content[1], "000100033332")
             });
             w01.Content.Add(seg);
 
@@ -189,7 +189,7 @@ namespace EdiEngine.Tests
             var seg = new EdiSegment(sDef);
 
             //create composite
-            var c001 = new EdiCompositeDataElement((MapCompositeDataElement)sDef.Content[4], null);
+            var c001 = new EdiCompositeDataElement(sDef.Content[4], null);
             c001.Content.AddRange(new[] {
                     new EdiSimpleDataElement(c001.Definition.Content[0], "PC"),
                     new EdiSimpleDataElement(c001.Definition.Content[1], "21.1"),
@@ -202,16 +202,16 @@ namespace EdiEngine.Tests
             //create segment
             seg.Content.AddRange(new DataElementBase[]
             {
-                new EdiSimpleDataElement((MapSimpleDataElement) sDef.Content[0], "1.1"),
-                new EdiSimpleDataElement((MapSimpleDataElement) sDef.Content[1], null),
-                new EdiSimpleDataElement((MapSimpleDataElement) sDef.Content[2], "I"),
-                new EdiSimpleDataElement((MapSimpleDataElement) sDef.Content[3], "10000"),
+                new EdiSimpleDataElement(sDef.Content[0], "1.1"),
+                new EdiSimpleDataElement(sDef.Content[1], null),
+                new EdiSimpleDataElement(sDef.Content[2], "I"),
+                new EdiSimpleDataElement(sDef.Content[3], "10000"),
                 c001,
-                new EdiSimpleDataElement((MapSimpleDataElement) sDef.Content[5], "1.56"),
-                new EdiSimpleDataElement((MapSimpleDataElement) sDef.Content[6], "TP"),
-                new EdiSimpleDataElement((MapSimpleDataElement) sDef.Content[7], null),
-                new EdiSimpleDataElement((MapSimpleDataElement) sDef.Content[8], "VC"),
-                new EdiSimpleDataElement((MapSimpleDataElement) sDef.Content[9], "P-875OS")
+                new EdiSimpleDataElement(sDef.Content[5], "1.56"),
+                new EdiSimpleDataElement(sDef.Content[6], "TP"),
+                new EdiSimpleDataElement(sDef.Content[7], null),
+                new EdiSimpleDataElement(sDef.Content[8], "VC"),
+                new EdiSimpleDataElement(sDef.Content[9], "P-875OS")
             });
             t.Content.Add(seg);
 

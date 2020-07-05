@@ -2,32 +2,29 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>xEdi.EdiEngine</id>
-    <version>1.5.2</version>
+    <version>1.6.0</version>
     <authors>olmelabs</authors>
     <owners>olmelabs</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
+    <license type="expression">MIT</license>
     <projectUrl>https://github.com/olmelabs/EdiEngine</projectUrl>
     <!-- <iconUrl>http://github.com/contoso/UsefulStuff/nuget_icon.png</iconUrl> -->
-    <releaseNotes>Added B (Binary) data type. Fixed Time validation parsing for 24h format.</releaseNotes>
+    <releaseNotes>
+	Added Sourcelink.
+	Bugfix in Date Time validation. 
+	Package updates.
+	Only netstandard2 is now supported. 
+    </releaseNotes>
     <description>Simple .NET EDI X12 Reader, Writer and Validator. EDI JSON and XML Serialization and Deserialization.</description>
     <tags>.NET EDI X12 JSON XML EdiReader EdiWriter EdiParser EdiXml EdiJson FunctionalAcknowledgment SyntaxNotes NetCore</tags>
     <repository type="git" url="https://github.com/olmelabs/EdiEngine" />
     <dependencies>
-      <group targetFramework="net45">
-        <dependency id="Newtonsoft.Json" version="10.0.3" />
-      </group>
-      <group targetFramework="net461">
-        <dependency id="Newtonsoft.Json" version="10.0.3" />
-      </group>
       <group targetFramework="netstandard2.0">
-        <dependency id="Newtonsoft.Json" version="10.0.3" />
+        <dependency id="Newtonsoft.Json" version="12.0.3" />
       </group>
     </dependencies>
   </metadata>
   <files>
-    <file src="..\EdiEngine\bin\Release-4.6.1\EdiEngine*.* " target="lib\net461" />
-    <file src="..\EdiEngine\bin\Release-4.5\EdiEngine*.* " target="lib\net45" />
     <file src="..\EdiEngine\bin\Release\netstandard2.0\EdiEngine*.* " target="lib\netstandard2.0" />
   </files>
 </package>

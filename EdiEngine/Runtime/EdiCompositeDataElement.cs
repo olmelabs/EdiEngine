@@ -10,9 +10,9 @@ namespace EdiEngine.Runtime
     public class EdiCompositeDataElement : DataElementBase
     {
         private readonly string _compositeSeparator;
-        public EdiCompositeDataElement(MapCompositeDataElement definition, string compositeSeparator = null) : base(definition)
+        public EdiCompositeDataElement(MapBaseDataElement definition, string compositeSeparator = null) : base(definition)
         {
-            Name = definition.Name;
+            Name = definition.GetType().Name;
             Content = new List<EdiSimpleDataElement>();
             _compositeSeparator = compositeSeparator;
         }
