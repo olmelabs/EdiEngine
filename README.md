@@ -12,7 +12,7 @@ It uses POCO objects and XML is just an extension
 * **Composite Data Elements** are supported, which is really important for HIPAA and sometimes for other transactions even in retail.
 * **X12 Maps** Current repository contains all 004010 maps, including Purchase Order, Invoice, Shipment and many others.
 You can easily craft yours on their basis.
-* **VS2017 and .NET Core 2.0 support**. Repository contains projects both for VS2015 and VS2017. .NET core projects are targeted to .NET Standard 2.0, so EdiEngine may be used in your latest .NET core applications. Nuget contains .Net Standard 2.0 libraries as well.
+* **.NET Standard 2.0 and Source Linking**. From version 1.6 repository only contains .NET Standard 2.0 projects. Source linking enabled and symbol package is published to nuget symbols server, making debugging easier. If you need a projects targeted .NET 4.5, use version 1.5.2 (no sourcelink and symbols available). 
 
 ## Installation
 Clone repository or Install Nuget Package
