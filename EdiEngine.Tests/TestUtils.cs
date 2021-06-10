@@ -35,7 +35,7 @@ namespace EdiEngine.Tests
                 new SegmentDefinitions.GS(), new SegmentDefinitions.GE(),
                 new SegmentDefinitions.ST(), new SegmentDefinitions.SE(),
                 "ZZ", "SENDER", "ZZ", "RECEIVER", "GSSENDER", "GSRECEIVER",
-                "00401", "004010", "T", 100, 200, "\r\n", "*");
+                "00401", "004010", "T", 100, 200, false,"\r\n", "*");
 
             EdiDataWriter w = new EdiDataWriter(settings);
             return  w.WriteToString(b);

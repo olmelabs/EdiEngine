@@ -12,7 +12,7 @@ namespace EdiEngine
         private readonly EdiDataWriterSettings _settings;
 
         protected string CurrentSegmentSeparator { get; set; }
-    
+
         protected string CurrentElementSeparator { get; set; }
 
 
@@ -47,10 +47,16 @@ namespace EdiEngine
 
             foreach (EdiInterchange ich in batch.Interchanges)
             {
-                ich.ISA = new ISA(_settings.IsaDef,
-                    _settings.IsaSenderQual, _settings.IsaSenderId,
-                    _settings.IsaReceiverQual, _settings.IsaReceiverId,
-                    _settings.IsaEdiVersion, icn, _settings.IsaUsageIndicator);
+                ich.ISA = new ISA(
+                    _settings.IsaDef,
+                    _settings.IsaSenderQual,
+                    _settings.IsaSenderId,
+                    _settings.IsaReceiverQual,
+                    _settings.IsaReceiverId,
+                    _settings.IsaEdiVersion,
+                    icn,
+                    _settings.IsaAcknowledgementRequest,
+                    _settings.IsaUsageIndicator);
 
                 WriteEntity(ich.ISA, ref sb);
 
