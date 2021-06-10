@@ -37,7 +37,7 @@ namespace EdiEngine.Runtime
                 new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[10], "U"),
                 new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[11], ISA12_VersionlNumber),
                 new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[12], ISA13_ControlNumber.ToString().PadLeft(9, '0')),
-                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[12], "0"),
+                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[13], "0"),
                 new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[14], ISA15_UsageIndicator),
                 new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[15], EdiInterchange.DefaultCompositeSeparator)
             });
