@@ -13,35 +13,37 @@ namespace EdiEngine.Runtime
             }
         }
 
-        public ISA(MapSegment definition,
+        public ISA(
+            MapSegment definition,
             string ISA05_SenderQual,
             string ISA06_SenderId,
             string ISA07_ReceiverQual,
             string ISA08_ReceiverId,
             string ISA12_VersionlNumber,
             int ISA13_ControlNumber,
+            bool ISA14_AcknowledgementRequest,
             string ISA15_UsageIndicator
-            ) : base(definition)
+        ) : base(definition)
         {
-            Content.AddRange(new[] {
-                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[0], "00"),
-                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[1], string.Empty.PadRight(10, ' ')),
-                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[2], "00"),
-                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[3], string.Empty.PadRight(10, ' ')),
-                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[4], ISA05_SenderQual),
-                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[5], ISA06_SenderId.PadRight(15)),
-                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[6], ISA07_ReceiverQual),
-                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[7], ISA08_ReceiverId.PadRight(15)),
-                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[8], DateTime.Now.ToString("yyMMdd")),
-                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[9], DateTime.Now.ToString("hhmm")),
-                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[10], "U"),
-                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[11], ISA12_VersionlNumber),
-                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[12], ISA13_ControlNumber.ToString().PadLeft(9, '0')),
-                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[13], "0"),
-                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[14], ISA15_UsageIndicator),
-                new EdiSimpleDataElement((MapSimpleDataElement)definition.Content[15], EdiInterchange.DefaultCompositeSeparator)
+            Content.AddRange(new[]
+            {
+                new EdiSimpleDataElement((MapSimpleDataElement) definition.Content[0], "00"),
+                new EdiSimpleDataElement((MapSimpleDataElement) definition.Content[1], string.Empty.PadRight(10, ' ')),
+                new EdiSimpleDataElement((MapSimpleDataElement) definition.Content[2], "00"),
+                new EdiSimpleDataElement((MapSimpleDataElement) definition.Content[3], string.Empty.PadRight(10, ' ')),
+                new EdiSimpleDataElement((MapSimpleDataElement) definition.Content[4], ISA05_SenderQual),
+                new EdiSimpleDataElement((MapSimpleDataElement) definition.Content[5], ISA06_SenderId.PadRight(15)),
+                new EdiSimpleDataElement((MapSimpleDataElement) definition.Content[6], ISA07_ReceiverQual),
+                new EdiSimpleDataElement((MapSimpleDataElement) definition.Content[7], ISA08_ReceiverId.PadRight(15)),
+                new EdiSimpleDataElement((MapSimpleDataElement) definition.Content[8], DateTime.Now.ToString("yyMMdd")),
+                new EdiSimpleDataElement((MapSimpleDataElement) definition.Content[9], DateTime.Now.ToString("hhmm")),
+                new EdiSimpleDataElement((MapSimpleDataElement) definition.Content[10], "U"),
+                new EdiSimpleDataElement((MapSimpleDataElement) definition.Content[11], ISA12_VersionlNumber),
+                new EdiSimpleDataElement((MapSimpleDataElement) definition.Content[12], ISA13_ControlNumber.ToString().PadLeft(9, '0')),
+                new EdiSimpleDataElement((MapSimpleDataElement) definition.Content[13], ISA14_AcknowledgementRequest ? "1" : "0"),
+                new EdiSimpleDataElement((MapSimpleDataElement) definition.Content[14], ISA15_UsageIndicator),
+                new EdiSimpleDataElement((MapSimpleDataElement) definition.Content[15], EdiInterchange.DefaultCompositeSeparator)
             });
         }
     }
 }
-

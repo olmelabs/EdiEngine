@@ -23,6 +23,8 @@ namespace EdiEngine
         public int IsaFirstControlNumber { get; }
         public int GsFirstControlNumber { get; }
 
+        public bool IsaAcknowledgementRequest { get; }
+
         public string SegmentSeparator { get; }
         public string ElementSeparator { get; }
 
@@ -34,7 +36,7 @@ namespace EdiEngine
             MapSegment stDef,
             MapSegment seDef,
             string isaSenderQual,
-            string isaSenderId, 
+            string isaSenderId,
             string isaReceiverQual,
             string isaReceiverId,
             string gsSenderId,
@@ -44,6 +46,7 @@ namespace EdiEngine
             string isaUsageIndicator,
             int isaFirstControlNumber,
             int gsFirstControlNumber,
+            bool isaAcknowledgementRequest,
             string segmentSeparator,
             string elementSeparator
             )
@@ -66,6 +69,7 @@ namespace EdiEngine
             IsaUsageIndicator = isaUsageIndicator;
             IsaFirstControlNumber = isaFirstControlNumber;
             GsFirstControlNumber = gsFirstControlNumber;
+            IsaAcknowledgementRequest = isaAcknowledgementRequest;
             SegmentSeparator = segmentSeparator;
             ElementSeparator = elementSeparator;
         }

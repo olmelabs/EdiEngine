@@ -108,7 +108,7 @@ namespace EdiEngine
                 var isa = originalBatch.Interchanges[i].ISA;
                 var iea = originalBatch.Interchanges[i].IEA;
                 ich.ISA = new ISA((MapSegment)isa.Definition, isa.Content[6].Val, isa.Content[7].Val,
-                    isa.Content[4].Val, isa.Content[5].Val, isa.Content[11].Val, icn, isa.Content[14].Val);
+                    isa.Content[4].Val, isa.Content[5].Val, isa.Content[11].Val, icn, false,isa.Content[14].Val);
 
                 ich.SegmentSeparator = originalBatch.Interchanges[i].SegmentSeparator;
                 ich.ElementSeparator = originalBatch.Interchanges[i].ElementSeparator;
