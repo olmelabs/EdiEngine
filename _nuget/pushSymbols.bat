@@ -1,1 +1,1 @@
-nuget push xEdi.EdiEngine.1.6.0.snupkg
+nuget push Cross.EdiEngine.1.6.1.snupkg
